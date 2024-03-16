@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 
 function Header() {
   return (
-    <div className="header px-3 pt-4  border-b-2 shadow-md pb-1 w-full">
+    <div className="header px-3 rounded-3xl mb-3 pt-4 bg-[#F6F7F8]  pb-1 w-full">
       <Searchbar />
       <Navbar />
     </div>
