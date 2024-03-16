@@ -19,7 +19,7 @@ function Searchbar() {
           <input
             type="text"
             placeholder={`Search products...`}
-            className=" border border-zinc-200 outline-none :focus w-[32rem] py-2 rounded-full bg-zinc-50 px-6"
+            className=" border border-zinc-200 outline-none :focus w-[32rem] py-2 rounded-full bg-[#FFFFFF] px-6"
           />
         </div>
       </div>
