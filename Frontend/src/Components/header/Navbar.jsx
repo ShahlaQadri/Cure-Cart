@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Navbar() {
   return (
-    <div className="main-container  flex items-center gap-5 mx-10 ">
-      <div className="  flex justify-center w-42 pt-2 pr-5 border-r-2 border-zinc-500 font-serif text-white">
+    <div className="main-container hidden md:flex md:items-center md:gap-5 md:mx-10 ">
+      <div className="  md:flex md:justify-center md:w-42 md:pt-2 md:pr-5 border-r-2 border-zinc-500 font-serif text-white">
         <span className="text-black text-xl py-2 px-3 font-bold">
           CATEGORIES
         </span>
