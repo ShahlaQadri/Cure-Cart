@@ -12,8 +12,6 @@ export default function Deals() {
         <Productcard />
         <Productcard />
         <Productcard />
-        <Productcard />
-        
       </div>
     </div>
   );
