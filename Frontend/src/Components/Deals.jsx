@@ -7,7 +7,7 @@ export default function Deals() {
       <span className="font-bold text-4xl ml-12">
         Today's Best Deals for you!
       </span>
-      <div className="grid grid-cols-5 gap-10 py-4  mx-12 my-7">
+      <div className="grid grid-cols-5 gap-10 py-4  mx-12 mb-5">
         <Productcard />
         <Productcard />
         <Productcard />
