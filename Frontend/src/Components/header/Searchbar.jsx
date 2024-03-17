@@ -14,7 +14,7 @@ function Searchbar() {
       </div>
 
       {/* search bar */}
-      <div className="search-bar">
+      <div className="search-bar hidden sm:block md:visible">
         <div className="">
           <input
             type="text"
