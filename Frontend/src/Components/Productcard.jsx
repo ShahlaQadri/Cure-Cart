@@ -5,7 +5,7 @@ export default function Productcard() {
   return (
     <div className="  h-[360px] overflow-hidden  rounded-xl flex flex-col items-center justify-center shadow-xl">
       <div className="img-container flex items-center justify-center w-full h-[68%] bg-slate-200">
-        <img src="pictures/div1.png" alt="" className="w-28  h-40" />
+        <img src="pictures/div1.png" alt="" className="w-28  h-42" />
       </div>
 
       <div className="flex flex-col h-[37%] w-full  rounded-2xl overflow-hidden bg-white -mt-4 items-center justify-center">
