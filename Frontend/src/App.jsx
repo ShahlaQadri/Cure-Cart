@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="mx-4 my-4">
-      {/* <Header /> */}
+      <Header />
       <Homepage />
     </div>
   );
