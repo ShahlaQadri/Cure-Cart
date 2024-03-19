@@ -3,6 +3,7 @@ import Herosection from "../Components/Herosection";
 import Deals from "../Components/Deals";
 import Prescription from "../Components/Prescription";
 import BabyFood from "../Components/BabyFood";
+import Ccfooter from "../Components/footer/Ccfooter";
 
 function Homepage() {
   return (
@@ -11,6 +12,7 @@ function Homepage() {
       <Deals />
       <Prescription />
       <BabyFood />
+      <Ccfooter/>
     </div>
   );
 }
