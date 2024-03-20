@@ -4,3 +4,6 @@
     border-radius: border-box;
     font-family: 'inter';
 }
+ ::-webkit-scrollbar {
+     display: none;
+    }
