@@ -9,7 +9,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="mx-4 my-4">
+    <div className="px-4 py-4">
       <Header />
       <Homepage />
     </div>
