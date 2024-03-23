@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -10,12 +11,12 @@ export default function Navbar() {
       </div>
       <div className="navbar  flex gap-5 items-center border-top-2 border-blue-700 ">
         {/* categories */}
-        <a
-          href="#"
+        <Link
+          to="/"
           className="medicines px-[10px] py-[5px]  text-black rounded-full bg-white border shadow-lg hover:bg-zinc-200"
         >
           Medicines
-        </a>
+        </Link>
         <a
           href="#"
           className="medicines  px-[10px] py-[5px] text- black rounded-full bg-white border shadow-lg hover:bg-zinc-200"

@@ -5,8 +5,8 @@ import { BsTwitterX } from "react-icons/bs";
 
 export default function Ccfooter() {
   return (
-    <div className="outer bg-[#163300] flex flex-col items-center justify-center mx-0 h-[200px] md:h-[270px] rounded-3xl">
-      <div className="inner bg-white h-[160px] w-[70%] md:h-[225px] md:w-[90%] rounded-3xl pb-10">
+    <div className="outer bg-[#163300] flex flex-col items-center justify-center mx-0 h-[200px] md:h-[275px] rounded-3xl">
+      <div className="inner bg-white h-[160px] w-[70%] md:h-[235px] md:w-[90%] rounded-3xl pb-10">
         <div className="items flex items-center justify-evenly space-x-16 mt-4 mb-6 md:mt-10  md:mb-8">
           <ul className="space-y-1 md:space-y-2">
             <li className="md:pb-3 text-sm md:text-lg font-bold">Company</li>
@@ -17,27 +17,41 @@ export default function Ccfooter() {
 
           <ul className="hidden sm:block md:visible md:space-y-2">
             <li className="md:pb-3 text-sm font-bold md:text-lg ">Community</li>
-            <li className="text-[10px] md:text-sm leading-4">CureCart for Business</li>
-            <li className="text-[10px] md:text-sm leading-4">Explore Templates</li>
+            <li className="text-[10px] md:text-sm leading-4">
+              CureCart for Business
+            </li>
+            <li className="text-[10px] md:text-sm leading-4">
+              Explore Templates
+            </li>
             <li className="text-[10px] md:text-sm leading-4">Charities</li>
           </ul>
 
           <ul className="space-y-1 md:space-y-2">
             <li className="text-sm md:pb-3 font-bold md:text-lg ">Support</li>
-            <li className="text-[10px] md:text-sm leading-4">Getting Started</li>
+            <li className="text-[10px] md:text-sm leading-4">
+              Getting Started
+            </li>
             <li className="text-[10px] md:text-sm leading-4">FAQs</li>
-            <li className="text-[10px] md:text-sm leading-4">Report a Violation</li>
+            <li className="text-[10px] md:text-sm leading-4">
+              Report a Violation
+            </li>
           </ul>
 
           <ul className="hidden sm:block md:visible md:space-y-2">
-            <li className="md:pb-3 text-sm font-bold md:text-lg ">Trust & Legal</li>
-            <li className="text-[10px] md:text-sm leading-4">Terms and Conditions</li>
+            <li className="md:pb-3 text-sm font-bold md:text-lg ">
+              Trust & Legal
+            </li>
+            <li className="text-[10px] md:text-sm leading-4">
+              Terms and Conditions
+            </li>
             <li className="text-[10px] md:text-sm leading-4">Cookie Notice</li>
             <li className="text-[10px] md:text-sm leading-4">Trust Center</li>
           </ul>
         </div>
-        <div className="w-full flex items-center justify-between px-[1rem] md:px-[8rem] text-zinc-500">
-          <span className=" text-xl md:text-2xl font-bold md:font-extrabold ">Curecart</span>
+        <div className="w-full flex items-center justify-between px-[1rem] md:px-[8rem] text-zinc-500  ">
+          <span className=" text-xl md:text-2xl font-bold md:font-extrabold ">
+            Curecart
+          </span>
           <div className="flex gap-3 md:mr-14  ">
             <BsInstagram />
             <BsFacebook /> <BsTwitterX />

@@ -2,6 +2,7 @@ import React from "react";
 import { CiHeart } from "react-icons/ci";
 import { GiShoppingCart } from "react-icons/gi";
 import { CiUser } from "react-icons/ci";
+import  { Link, useParams } from "react-router-dom"
 
 function Searchbar() {
   return (
@@ -33,7 +34,9 @@ function Searchbar() {
           <GiShoppingCart className="text-2xl" />
         </div>
         <div className="profile cursor-pointer rounded-full w-6 h-6 md:w-10 md:h-10 bg-white flex items-center justify-center  border hover:bg-slate-200">
-          <CiUser className="text-2xl  " />
+          <Link to="/login">
+            <CiUser className="text-2xl  " />
+          </Link>
         </div>
       </div>
     </div>
