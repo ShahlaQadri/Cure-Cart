@@ -17,27 +17,41 @@ export default function Ccfooter() {
 
           <ul className="hidden sm:block md:visible md:space-y-2">
             <li className="md:pb-3 text-sm font-bold md:text-lg ">Community</li>
-            <li className="text-[10px] md:text-sm leading-4">CureCart for Business</li>
-            <li className="text-[10px] md:text-sm leading-4">Explore Templates</li>
+            <li className="text-[10px] md:text-sm leading-4">
+              CureCart for Business
+            </li>
+            <li className="text-[10px] md:text-sm leading-4">
+              Explore Templates
+            </li>
             <li className="text-[10px] md:text-sm leading-4">Charities</li>
           </ul>
 
           <ul className="space-y-1 md:space-y-2">
             <li className="text-sm md:pb-3 font-bold md:text-lg ">Support</li>
-            <li className="text-[10px] md:text-sm leading-4">Getting Started</li>
+            <li className="text-[10px] md:text-sm leading-4">
+              Getting Started
+            </li>
             <li className="text-[10px] md:text-sm leading-4">FAQs</li>
-            <li className="text-[10px] md:text-sm leading-4">Report a Violation</li>
+            <li className="text-[10px] md:text-sm leading-4">
+              Report a Violation
+            </li>
           </ul>
 
           <ul className="hidden sm:block md:visible md:space-y-2">
-            <li className="md:pb-3 text-sm font-bold md:text-lg ">Trust & Legal</li>
-            <li className="text-[10px] md:text-sm leading-4">Terms and Conditions</li>
+            <li className="md:pb-3 text-sm font-bold md:text-lg ">
+              Trust & Legal
+            </li>
+            <li className="text-[10px] md:text-sm leading-4">
+              Terms and Conditions
+            </li>
             <li className="text-[10px] md:text-sm leading-4">Cookie Notice</li>
             <li className="text-[10px] md:text-sm leading-4">Trust Center</li>
           </ul>
         </div>
-        <div className="w-full flex items-center justify-between px-[1rem] md:px-[8rem] text-zinc-500">
-          <span className=" text-xl md:text-2xl font-bold md:font-extrabold ">Curecart</span>
+        <div className="w-full flex items-center justify-between px-[1rem] md:px-[8rem] text-zinc-500  ">
+          <span className=" text-xl md:text-2xl font-bold md:font-extrabold ">
+            Curecart
+          </span>
           <div className="flex gap-3 md:mr-14  ">
             <BsInstagram />
             <BsFacebook /> <BsTwitterX />
