@@ -5,8 +5,13 @@ import { BsTwitterX } from "react-icons/bs";
 
 export default function Ccfooter() {
   return (
+<<<<<<< HEAD
     <div className="outer bg-[#163300] flex flex-col items-center justify-center mx-0 h-[200px] md:h-[275px] rounded-3xl">
       <div className="inner bg-white h-[160px] w-[70%] md:h-[235px] md:w-[90%] rounded-3xl pb-10">
+=======
+    <div className="outer bg-[#A8DF8E] flex flex-col items-center justify-center mx-0 h-[200px] md:h-[270px] rounded-3xl">
+      <div className="inner bg-white h-[160px] w-[70%] md:h-[225px] md:w-[90%] rounded-3xl pb-10">
+>>>>>>> 805086077c0974626ca755f2861cb3b7f1571e9b
         <div className="items flex items-center justify-evenly space-x-16 mt-4 mb-6 md:mt-10  md:mb-8">
           <ul className="space-y-1 md:space-y-2">
             <li className="md:pb-3 text-sm md:text-lg font-bold">Company</li>
