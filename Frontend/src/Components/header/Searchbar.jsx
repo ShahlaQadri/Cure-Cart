@@ -33,15 +33,10 @@ function Searchbar() {
         <div className="cart cursor-pointer rounded-full w-8 h-8 flex items-center justify-center md:w-10 md:h-10 bg-white border hover:bg-slate-200">
           <GiShoppingCart className="text-2xl" />
         </div>
-<<<<<<< HEAD
-        <div className="profile cursor-pointer rounded-full w-6 h-6 md:w-10 md:h-10 bg-white flex items-center justify-center  border hover:bg-slate-200">
+        <div className="profile cursor-pointer rounded-full w-8 h-8 flex items-center justify-center  md:w-10 md:h-10 bg-white  border hover:bg-slate-200">
           <Link to="/login">
             <CiUser className="text-2xl  " />
           </Link>
-=======
-        <div className="profile cursor-pointer rounded-full w-8 h-8 flex items-center justify-center  md:w-10 md:h-10 bg-white  border hover:bg-slate-200">
-          <CiUser className="text-2xl  " />
->>>>>>> 805086077c0974626ca755f2861cb3b7f1571e9b
         </div>
       </div>
     </div>
