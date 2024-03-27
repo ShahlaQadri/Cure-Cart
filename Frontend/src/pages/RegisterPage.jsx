@@ -29,11 +29,10 @@ function RegisterPage() {
     // Perform login authentication logic here
     console.log("Email:", email);
     console.log("Password:", password);
-    // You can replace the above console.log with your authentication logic
   };
 
   return (
-    <div className="mt-20 flex items-center justify-center">
+    <div className="my-20 flex items-center justify-center">
       <div className="bg-white bg-opacity-40 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden max-w-sm w-full">
         <div className="py-10 px-8">
           <div className="flex justify-center items-center mb-6">

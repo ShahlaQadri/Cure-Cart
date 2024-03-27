@@ -25,11 +25,11 @@ function LoginPage() {
     // Perform login authentication logic here
     console.log("Email:", email);
     console.log("Password:", password);
-    // You can replace the above console.log with your authentication logic
+    
   };
 
   return (
-    <div className="mt-20 flex items-center justify-center">
+    <div className="my-20 flex items-center justify-center">
       <div className="bg-white bg-opacity-40 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden max-w-sm w-full">
         <div className="py-10 px-8">
           <div className="flex justify-center items-center mb-6">
@@ -83,11 +83,7 @@ function LoginPage() {
                     className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 hover:text-gray-600"
                     onClick={togglePasswordVisibility}
                   >
-                    {showPassword ? (
-                      <IoEye />
-                    ) : (
-                      <IoEyeOff/>
-                    )}
+                    {showPassword ? <IoEye /> : <IoEyeOff />}
                   </button>
                 </div>
               </div>
