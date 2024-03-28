@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 
@@ -7,6 +7,7 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -20,11 +21,28 @@ function LoginPage() {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Perform login authentication logic here
     console.log("Email:", email);
     console.log("Password:", password);
+     const response = await fetch(`http://localhost:3000/api/v1/users/login`, {
+       method: "POST", // *GET, POST, PUT, DELETE, etc.
+       headers: {
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify({ email, password }),
+     });
+    const data = await response.json();
+    console.log(data);
+    if (data.success === true) {
+      alert(data.msg);
+      localStorage.setItem("token", data.token);
+
+      navigate("/");
+    } else {
+      alert(data.msg);
+    }
     
   };
 
