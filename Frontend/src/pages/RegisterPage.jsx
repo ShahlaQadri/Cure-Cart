@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 
@@ -8,6 +8,7 @@ function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
@@ -24,16 +25,32 @@ function RegisterPage() {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Perform login authentication logic here
     console.log("Email:", email);
     console.log("Password:", password);
-    // You can replace the above console.log with your authentication logic
+      const response = await fetch(`http://localhost:3000/api/v1/users/new`, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+    const data = await response.json();
+    console.log(data);
+    if (data.success === true) {
+      alert(data.msg);
+      localStorage.setItem("token", data.token);
+
+      navigate("/");
+    } else {
+      alert(data.msg);
+    }
   };
 
   return (
-    <div className="mt-20 flex items-center justify-center">
+    <div className="my-20 flex items-center justify-center">
       <div className="bg-white bg-opacity-40 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden max-w-sm w-full">
         <div className="py-10 px-8">
           <div className="flex justify-center items-center mb-6">

@@ -5,8 +5,6 @@ import Prescription from "../Components/Prescription";
 import BabyFood from "../Components/BabyFood";
 import Ccfooter from "../Components/footer/Ccfooter";
 
-
-
 function Homepage() {
   return (
     <div>
@@ -14,8 +12,6 @@ function Homepage() {
       <Deals />
       <Prescription />
       <BabyFood />
-      <Ccfooter />
-      
     </div>
   );
 }
