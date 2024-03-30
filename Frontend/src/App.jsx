@@ -8,6 +8,7 @@ import Homepage from "./pages/Homepage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Ccfooter from "./Components/footer/Ccfooter";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/product" element={<ProductDetails/>} />
         </Routes>
         <Ccfooter />
       </div>

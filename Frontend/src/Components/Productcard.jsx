@@ -1,12 +1,17 @@
 import React from "react";
 import { BsHandbagFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export default function Productcard() {
   return (
     <div className="h-[260px] bg-[#F1F5F9] md:h-[340px] overflow-hidden rounded-3xl flex flex-col items-center justify-center shadow-xl">
-      <div className="img-container  flex items-center justify-center w-full h-[68%] bg-[#F1F5F9]">
-        <img src="pictures/div1.png" alt="" className="w-26  h-36" />
-      </div>
+      
+        
+        <div className="img-container  flex items-center justify-center w-full h-[68%] bg-[#F1F5F9]">
+          <Link to="/product">
+          <img src="pictures/div1.png" alt="" className="w-26  h-36" />
+      </Link>
+        </div>
 
       <div className="h-[36%] w-full md:h-[37%] md:flex md:flex-col  md:w-full  rounded-3xl md:overflow-hidden bg-white md:-mt-4 md:items-center md:justify-center">
         <p className="text-center md:font-semibold mt-2 md:mt-4 leading-none">

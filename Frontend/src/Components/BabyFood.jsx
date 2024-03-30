@@ -1,5 +1,5 @@
-import React from 'react'
-import Productcard from './Productcard';
+import React from "react";
+import Productcard from "./Productcard";
 
 function BabyFood() {
   return (
@@ -18,4 +18,4 @@ function BabyFood() {
   );
 }
 
-export default BabyFood
+export default BabyFood;

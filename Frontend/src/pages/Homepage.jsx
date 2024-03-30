@@ -14,8 +14,7 @@ function Homepage() {
       <Deals />
       <Prescription />
       <BabyFood />
-      <ProductDetails />
-      <Extras/>
+      <Extras />
     </div>
   );
 }
