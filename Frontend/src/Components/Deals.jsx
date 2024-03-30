@@ -9,15 +9,11 @@ export default function Deals() {
         Today's Best Deals for you!
       </h1>
       <div className="grid grid-cols-2  gap-6 py-1 mx-6 mb-6 md:grid md:grid-cols-5 md:gap-10 md:py-4 md:mx-12 md:mb-5 ">
-        <Link href="/product">
-          {" "}
-          <Productcard />
-        </Link>
-
-        <Productcard />
-        <Productcard />
-        <Productcard />
-        <Productcard />
+        <Productcard img={"../../pictures/div4.png"} name={"vapo Rub"} />
+        <Productcard img={"../../pictures/div2.png"} name={"vapo Rub"} />
+        <Productcard img={"../../pictures/div3.png"} name={"vapo Rub"} />
+        <Productcard img={"../../pictures/div1.png"} name={"vapo Rub"} />
+        <Productcard img={"../../pictures/div5.png"} name={"vapo Rub"} />
       </div>
     </div>
   );
