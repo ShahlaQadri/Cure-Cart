@@ -67,7 +67,11 @@ export default function ProductDetails() {
 
           <div className="three flex items-center rounded-xl bg-[#EAF7FF] w-fit px-6 mt-6">
             <div className="icon">
-              <GiMedicines className="text-3xl" />
+              <img
+                src="../../pictures/authenticity.png"
+                alt="orginal"
+                width={"30px"}
+              />
             </div>
             <div className="flex flex-col mr-4 p-4 border-r border-black text-gray-600">
               <p className="text-sm">100% genuine</p>
@@ -75,7 +79,11 @@ export default function ProductDetails() {
             </div>
 
             <div className="secure">
-              <SiFsecure className="text-3xl" />
+              <img
+                src="../../pictures/credit-card (1).png"
+                alt="Payments"
+                width={"30px"}
+              />
             </div>
             <div className="flex flex-col mr-4 p-4 border-r border-black text-gray-600">
               <p className="text-sm">Safe & secure</p>
@@ -83,7 +91,11 @@ export default function ProductDetails() {
             </div>
 
             <div className="return">
-              <MdAssignmentReturned className="text-3xl" />
+              <img
+                src="../../pictures/return.png"
+                alt="Return"
+                width={"30px"}
+              />
             </div>
             <div className="flex flex-col mr-4 p-4 text-gray-600">
               <p className="text-sm">15 days easy</p>
@@ -95,8 +107,16 @@ export default function ProductDetails() {
 
       <div className="details  mx-10 bg-gray-50 rounded-3xl m-4 p-4">
         <div className="about pb-4">
-          <h1 className="font-bold text-xl">About Vicks Vaporub 25 ML</h1>
-          <p className="text-gray-500 text-md">
+          <div className="flex gap-4">
+            {" "}
+            <img
+              src="../../pictures/information-button.png"
+              alt="orginal"
+              width={"30px"}
+            />
+            <h1 className="font-bold text-xl">About Vicks Vaporub 25 ML</h1>
+          </div>
+          <p className="text-gray-500 text-md ml-12">
             Camphor Topical, Eucalyptus Oil Topical, and Menthol Topical are
             active components in Vicks Vaporub Ointment. Pain, Warts, Cold
             Sores, Hemorrhoids, Osteoarthritis, Gum Diseases, Plaques, Bleeding
@@ -106,19 +126,36 @@ export default function ProductDetails() {
         </div>
 
         <div className="uses pb-4">
-          <h1 className="font-bold text-xl">Uses of Vicks Vaporub 25 ML</h1>
-          <p className="text-gray-500 text-md">
+          <div className="flex gap-4">
+            {" "}
+            <img
+              src="../../pictures/medicine.png"
+              alt="orginal"
+              width={"30px"}
+            />
+            <h1 className="font-bold text-xl">Uses of Vicks Vaporub 25 ML</h1>
+          </div>
+          <p className="text-gray-500 text-md ml-12">
             Vicks Vapourab is used in treatment of Pain Warts Cold sores
             Hemorrhoids Osteoarthritis Gum diseases Plaques Bleeding gums
             Delayed onset muscle soreness
           </p>
         </div>
 
-        <div className="directions">
-          <h1 className="font-bold text-xl">
-            Directions for Use of Vicks Vaporub 25 ML
-          </h1>
-          <p className="text-gray-500 text-md">
+        <div className="directions ">
+          <div className="flex gap-4">
+            {" "}
+            <img
+              src="../../pictures/job-description.png"
+              alt="orginal"
+              width={"30px"}
+            />
+            <h1 className="font-bold text-xl">
+              Directions for Use of Vicks Vaporub 25 ML
+            </h1>
+          </div>
+
+          <p className="text-gray-500 text-md ml-12">
             Follow the instructions written on the packaging. To treat a cough,
             rub Vicks VapoRub on your chest—never under your nostrils. To treat
             muscle aches, rub Vicks VapoRub directly over the muscle. Vicks
@@ -126,9 +163,18 @@ export default function ProductDetails() {
             Do not use it on broken skin or burns.
           </p>
 
-          <div className="expiry flex pt-4 ">
-            <p className="font-bold text-xl ">Expires on: </p>
-            <p className="font-bold text-xl pl-1 text-red-400">Oct-26</p>
+          <div className="expiry flex pt-4  gap-4">
+            <img
+              src="../../pictures/deadline.png"
+              alt="Expire"
+              width={"30px"}
+            />
+            <p className="font-bold text-xl ">
+              Expires :
+              <spam className="font-bold text-xl pl-1 text-red-400">
+                Oct-26
+              </spam>
+            </p>
           </div>
         </div>
       </div>

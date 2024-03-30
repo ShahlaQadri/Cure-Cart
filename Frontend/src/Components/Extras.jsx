@@ -8,7 +8,12 @@ export default function Extras() {
     <div className="flex gap-[10rem] justify-center bg items-center p-4 shadow-lg rounded-lg bg-gray-50 my-4 mx-10">
       <div className="one flex items-center flex-col justify-center">
         <div className="py-4">
-          <GiAbstract100 className="text-5xl" />
+          <img
+            src="../../pictures/authenticity.png"
+            alt="orginal"
+            width={"60px"}
+          />
+          <div></div>
         </div>
         <div className="w-[240px] flex items-center flex-col ">
           <h2 className="font-bold text-xl pb-2">100% original products</h2>
@@ -20,7 +25,11 @@ export default function Extras() {
       </div>
       <div className="two  flex items-center flex-col justify-center">
         <div className="py-4">
-          <RiSecurePaymentLine className="text-5xl" />
+          <img
+            src="../../pictures/credit-card (1).png"
+            alt="Payments"
+            width={"60px"}
+          />
         </div>
         <div className="w-[240px] flex items-center flex-col ">
           <h2 className="font-bold text-xl pb-2">Secure Payment</h2>
@@ -32,7 +41,7 @@ export default function Extras() {
 
       <div className="three flex items-center flex-col justify-center">
         <div className="py-4">
-          <MdOutlineAssignmentReturn className="text-5xl" />
+          <img src="../../pictures/return.png" alt="Return" width={"60px"} />
         </div>
         <div className="w-[240px] flex items-center flex-col ">
           <h2 className="font-bold text-xl pb-2">Easy Return</h2>
