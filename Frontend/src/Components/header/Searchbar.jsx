@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { GiShoppingCart } from "react-icons/gi";
 import { CiUser } from "react-icons/ci";
+import { SlHandbag } from "react-icons/sl";
+
 import { ImExit } from "react-icons/im";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
@@ -12,7 +14,7 @@ function Searchbar() {
     console.log("hello");
     setfirst(null);
     localStorage.removeItem("token");
-    navigate('/login');
+    navigate("/login");
   };
   useEffect(() => {}, [first]);
 
@@ -39,15 +41,15 @@ function Searchbar() {
       {/* icons */}
       <div className="icons flex space-x-1 md:space-x-3">
         <div className="wishlist cursor-pointer rounded-full w-8 h-8  flex items-center justify-center md:w-10 md:h-10 bg-white  border hover:bg-slate-200">
-          <CiHeart className="text-2xl" />
+          <CiHeart className="text-xl" />
         </div>
         <div className="cart cursor-pointer rounded-full w-8 h-8 flex items-center justify-center md:w-10 md:h-10 bg-white border hover:bg-slate-200">
-          <GiShoppingCart className="text-2xl" />
+          <SlHandbag className="text-l" />
         </div>
         <div className="profile cursor-pointer rounded-full w-8 h-8 flex items-center justify-center  md:w-10 md:h-10 bg-white  border hover:bg-slate-200">
           {!localStorage.getItem("token") ? (
             <Link to="/login">
-              <CiUser className="text-2xl  " />
+              <CiUser className="text-xl  " />
             </Link>
           ) : (
             <button onClick={logOut}>
