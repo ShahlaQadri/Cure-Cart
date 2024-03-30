@@ -44,7 +44,9 @@ function Searchbar() {
           <CiHeart className="text-xl" />
         </div>
         <div className="cart cursor-pointer rounded-full w-8 h-8 flex items-center justify-center md:w-10 md:h-10 bg-white border hover:bg-slate-200">
-          <SlHandbag className="text-l" />
+          <Link to="/cart">
+            <SlHandbag className="text-l" />
+          </Link>
         </div>
         <div className="profile cursor-pointer rounded-full w-8 h-8 flex items-center justify-center  md:w-10 md:h-10 bg-white  border hover:bg-slate-200">
           {!localStorage.getItem("token") ? (
