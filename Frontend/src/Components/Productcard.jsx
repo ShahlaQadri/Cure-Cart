@@ -2,7 +2,7 @@ import React from "react";
 import { BsHandbagFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-export default function Productcard({ img, name }) {
+export default function Productcard({ img, name, desc }) {
   return (
     <div className="h-[260px] bg-[#F1F5F9] md:h-[340px] overflow-hidden rounded-3xl flex flex-col items-center justify-center shadow-xl">
       <div className="img-container  flex items-center justify-center w-full h-[68%] bg-[#F1F5F9]">
@@ -16,7 +16,7 @@ export default function Productcard({ img, name }) {
           {name}
         </p>
         <p className="hidden sm:block md:visible md:text-center md:text-zinc-700 md:text-sm">
-          Multimineral Tablets...
+          {desc}
         </p>
         <div className="flex w-[50%] text-center px-8 mt-1 md:px-5 md:mt-5 md:mb-5 justify-between items-center md:w-full">
           <article>

@@ -7,6 +7,7 @@ import Ccfooter from "../Components/footer/Ccfooter";
 import ProductDetails from "./ProductDetails";
 import Extras from "../Components/Extras";
 import Cartpage from "./Cartpage";
+import Productspage from "./Productspage";
 
 function Homepage() {
   return (
@@ -17,6 +18,7 @@ function Homepage() {
       <BabyFood />
       <Extras />
       <Cartpage/>
+      <Productspage/>
     </div>
   );
 }

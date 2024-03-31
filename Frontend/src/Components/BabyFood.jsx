@@ -8,7 +8,7 @@ function BabyFood() {
         Baby Food Collection!
       </h1>
       <div className="grid grid-cols-2  gap-6 py-1 mx-6 mb-6 md:grid md:grid-cols-5 md:gap-10 md:py-4 md:mx-12 md:mb-5 ">
-        <Productcard img={"../../pictures/div4.png"} name={"vapo Rub"} />
+        <Productcard img={"../../pictures/div4.png"} name={"vapo Rub"} desc={"hi"} />
         <Productcard img={"../../pictures/div4.png"} name={"vapo Rub"} />
         <Productcard img={"../../pictures/div6.png"} name={"vapo Rub"} />
         <Productcard img={"../../pictures/div1.png"} name={"vapo Rub"} />
