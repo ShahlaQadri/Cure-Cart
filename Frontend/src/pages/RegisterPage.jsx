@@ -30,13 +30,13 @@ function RegisterPage() {
     // Perform login authentication logic here
     console.log("Email:", email);
     console.log("Password:", password);
-      const response = await fetch(`http://localhost:3000/api/v1/users/new`, {
-        method: "POST", // *GET, POST, PUT, DELETE, etc.
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, password }),
-      });
+    const response = await fetch(`http://localhost:3000/api/v1/users/new`, {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, password }),
+    });
     const data = await response.json();
     console.log(data);
     if (data.success === true) {
@@ -61,7 +61,7 @@ function RegisterPage() {
             />
             <h2 className="text-2xl font-extrabold text-green-600">CureCart</h2>
           </div>
-          <h2 className="text-center text-2xl font-extrabold text-gray-900">
+          <h2 className="text-center text-2xl font-extrabold text-[#2278b1]">
             Create your account
           </h2>
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -122,7 +122,7 @@ function RegisterPage() {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#2278b1] hover:bg-[#2787c7]  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 Sign up
               </button>

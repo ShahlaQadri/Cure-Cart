@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Productcard({ img, name, desc }) {
   return (
-    <div className="h-[260px] bg-[#F1F5F9] md:h-[340px] overflow-hidden rounded-3xl flex flex-col items-center justify-center shadow-xl">
+    <div className="h-[260px] bg-[#F1F5F9] md:h-[340px] overflow-hidden rounded-3xl flex flex-col items-center justify-center shadow-sm hover:shadow-md">
       <div className="img-container  flex items-center justify-center w-full h-[68%] bg-[#F1F5F9]">
         <Link to="/product">
           <img src={img} alt="" className="w-26  h-36" />

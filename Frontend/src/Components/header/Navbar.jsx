@@ -12,24 +12,23 @@ export default function Navbar() {
       <div className="navbar  flex gap-5 items-center border-top-2 border-blue-700 ">
         {/* categories */}
         <Link
-        
-          to="/"
-          className="medicines px-[10px] py-[5px]  text-black rounded-full bg-white border shadow-lg hover:bg-zinc-200"
+          to="/productspage"
+          className="medicines px-[16px] py-[5px]  text-black rounded-full bg-white border  hover:bg-zinc-200 hover:shadow-lg"
         >
           Medicines
         </Link>
-        <a
-          href="#"
-          className="medicines  px-[10px] py-[5px] text- black rounded-full bg-white border shadow-lg hover:bg-zinc-200"
+        <Link
+          to="productspage"
+          className="medicines  px-[16px] py-[5px] text- black rounded-full bg-white border  hover:bg-zinc-200"
         >
           Skin Care
-        </a>
-        <a
-          href="#"
-          className="medicines px-[10px] py-[5px]  text-black rounded-full bg-white border shadow-lg hover:bg-zinc-200"
+        </Link>
+        <Link
+          to="productspage"
+          className="medicines px-[16px] py-[5px]  text-black rounded-full bg-white border  hover:bg-zinc-200"
         >
-          Medicines
-        </a>
+          Baby Food
+        </Link>
       </div>
     </div>
   );
