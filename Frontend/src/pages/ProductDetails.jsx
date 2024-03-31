@@ -1,8 +1,4 @@
 import React from "react";
-import { GiMedicines } from "react-icons/gi";
-import { SiFsecure } from "react-icons/si";
-import { MdAssignmentReturned } from "react-icons/md";
-import { IoReturnUpBackSharp } from "react-icons/io5";
 import { TiArrowBack } from "react-icons/ti";
 import { Link } from "react-router-dom";
 
@@ -59,7 +55,7 @@ export default function ProductDetails() {
             <p className="rounded-full mb-3 bg-[#E3F6EE] text-xs text-green-400  w-fit px-4 py-1">
               5% off applied
             </p>
-            <button className="rounded-lg px-10 py-2 -mt-10 bg-blue-400 text-white text-md space">
+            <button className="rounded-lg px-10 py-2 -mt-10 bg-[#0071BC] text-white text-md space">
               Add To Cart
             </button>
           </div>

@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Ccfooter from "./Components/footer/Ccfooter";
 import ProductDetails from "./pages/ProductDetails";
+import Cartpage from "./pages/Cartpage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,7 +22,8 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/product" element={<ProductDetails/>} />
+          <Route path="/cart" element={<Cartpage />} />
+          <Route path="/product" element={<ProductDetails />} />
         </Routes>
         <Ccfooter />
       </div>

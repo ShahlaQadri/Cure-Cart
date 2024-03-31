@@ -9,11 +9,26 @@ export default function Deals() {
         Today's Best Deals for you!
       </h1>
       <div className="grid grid-cols-2  gap-6 py-1 mx-6 mb-6 md:grid md:grid-cols-5 md:gap-10 md:py-4 md:mx-12 md:mb-5 ">
-        <Productcard img={"../../pictures/div4.png"} name={"Vicks VapoRub"} desc={"Pack of 50 ML"} />
-        <Productcard img={"../../pictures/div2.png"} name={"Cetaphil Facewash"} desc={"For all skin types"} />
-        <Productcard img={"../../pictures/div3.png"} name={"Revital-H Women"} desc={"60 Tablets"} />
-        <Productcard img={"../../pictures/div1.png"} name={"HK Vitals"} desc={"Multimineral Tablets"}/>
-        <Productcard img={"../../pictures/div5.png"} name={"Automatic BP Machine"} desc={"HEM-7156"}/>
+        <Productcard
+          img={"../../pictures/div4.png"}
+          name={"Vicks Vaporub 25 ML"}
+        />
+        <Productcard
+          img={"../../pictures/div2.png"}
+          name={"Vicks Vaporub 25 ML "}
+        />
+        <Productcard
+          img={"../../pictures/div3.png"}
+          name={"Vicks Vaporub 25 ML"}
+        />
+        <Productcard
+          img={"../../pictures/div1.png"}
+          name={"Vicks Vaporub 25 ML"}
+        />
+        <Productcard
+          img={"../../pictures/div5.png"}
+          name={"Vicks Vaporub 25 ML"}
+        />
       </div>
     </div>
   );
