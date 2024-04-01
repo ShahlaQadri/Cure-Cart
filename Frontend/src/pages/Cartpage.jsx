@@ -34,9 +34,9 @@ export default function Cartpage() {
               <button className="bg-gray-200  px-[6px] py-[2px] text-sm font-bold  rounded-sm">
                 -
               </button>
-              <button className="bg-white p-1 mx-2 font-semibold text-xs">
+              <span className="bg-white p-1 mx-2 font-semibold text-xs">
                 1
-              </button>
+              </span>
               <button className="bg-gray-200 px-1  font-bold  rounded-sm">
                 +
               </button>
