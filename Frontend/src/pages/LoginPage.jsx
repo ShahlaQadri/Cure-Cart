@@ -49,13 +49,12 @@ function LoginPage() {
     <div className="my-20 flex items-center justify-center">
       <div className="bg-white bg-opacity-40 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden max-w-sm w-full">
         <div className="py-10 px-8">
-          <div className="flex justify-center items-center mb-6">
+          <div className="flex justify-center items-center mb-5">
             <img
-              src="/path/to/your/logo.png"
-              alt="CureCart"
-              className="h-10 w-auto mr-2"
+              src="../../../pictures/smalllogo.png"
+              width={"190px"}
+              alt="LOGO"
             />
-            <h2 className="text-2xl font-extrabold text-green-600">CureCart</h2>
           </div>
           <h2 className="text-center text-2xl font-extrabold text-[#2278b1]">
             Sign in to your account
@@ -63,26 +62,20 @@ function LoginPage() {
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
             <input type="hidden" name="remember" value="true" />
             <div className="rounded-md shadow-sm -space-y-px">
-              <div className="mb-6">
-                <label htmlFor="email-address" className="sr-only">
-                  Email address
-                </label>
+              <div className="mb-4">
                 <input
                   id="email-address"
                   name="email"
                   type="email"
                   autoComplete="email"
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-4 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                  className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                   placeholder="Email address"
                   value={email}
                   onChange={handleEmailChange}
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="password" className="sr-only">
-                  Password
-                </label>
                 <div className="relative">
                   <input
                     id="password"
@@ -90,7 +83,7 @@ function LoginPage() {
                     type={showPassword ? "text" : "password"}
                     autoComplete="current-password"
                     required
-                    className="appearance-none rounded-none relative block w-full px-3 py-4 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm pr-10"
+                    className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     placeholder="Password"
                     value={password}
                     onChange={handlePasswordChange}

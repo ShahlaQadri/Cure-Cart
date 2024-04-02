@@ -50,7 +50,7 @@ export default function Ccfooter() {
         </div>
         <div className="w-full flex items-center justify-between px-[1rem] md:px-[8rem] text-zinc-500  ">
           <span className=" text-xl md:text-2xl font-bold md:font-extrabold ">
-            Curecart
+            <img src="../../../pictures/smalllogo.png" width={"130px"} alt="" />
           </span>
           <div className="flex gap-3 md:mr-14  ">
             <BsInstagram />

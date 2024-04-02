@@ -21,10 +21,11 @@ function Searchbar() {
   return (
     <div className="navbar-elements flex justify-between px-2 md:flex md:space-x-8 md:justify-between md:items-center md:w-full md:px-5">
       {/* logo */}
-      <div className="logo px-1 md:px-8 md:mr-10">
-        <span className="text-sm font-semibold md:font-bold ">C U R E</span>
+      <div className="logo px-1 md:px-8 md:mr-10 ">
+        {/* <span className="text-sm font-semibold md:font-bold ">C U R E</span>
         <br />
-        <span className="text-sm font-semibold md:font-bold ">C A R T</span>
+        <span className="text-sm font-semibold md:font-bold ">C A R T</span> */}
+        <img src="../../../pictures/smalllogo.png" width={"150px"} alt="LOGO" style={{mixBlendMode:"multiply"}} />
       </div>
 
       {/* search bar */}

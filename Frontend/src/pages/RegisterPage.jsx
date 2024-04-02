@@ -53,13 +53,12 @@ function RegisterPage() {
     <div className="my-20 flex items-center justify-center">
       <div className="bg-white bg-opacity-40 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden max-w-sm w-full">
         <div className="py-10 px-8">
-          <div className="flex justify-center items-center mb-6">
+          <div className="flex justify-center items-center mb-5">
             <img
-              src="/path/to/your/logo.png"
-              alt="CureCart"
-              className="h-10 w-auto mr-2"
+              src="../../../pictures/smalllogo.png"
+              width={"190px"}
+              alt="LOGO"
             />
-            <h2 className="text-2xl font-extrabold text-green-600">CureCart</h2>
           </div>
           <h2 className="text-center text-2xl font-extrabold text-[#2278b1]">
             Create your account
