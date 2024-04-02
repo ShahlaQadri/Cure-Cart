@@ -4,6 +4,7 @@ import Deals from "../Components/Deals";
 import Prescription from "../Components/Prescription";
 import BabyFood from "../Components/BabyFood";
 import Extras from "../Components/Extras";
+import Checkoutpage from "./Checkoutpage";
 
 
 function Homepage() {
@@ -14,7 +15,8 @@ function Homepage() {
       <Prescription />
       <BabyFood />
       <Extras />
-
+      <Checkoutpage/>
+      
       
     </div>
   );
