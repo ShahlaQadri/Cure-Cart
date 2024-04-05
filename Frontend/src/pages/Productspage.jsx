@@ -10,7 +10,7 @@ export default function Productspage() {
         <div className="relative">
           <Link
             to="/"
-            className="absolute top-3 left-10 bg-white rounded-full shadow-lg p-4"
+            className="absolute top-3 left-10 bg-zinc-50 hover:bg-zinc-100 rounded-full shadow-lg p-4"
           >
             <TiArrowBack className="text-3xl" />
           </Link>

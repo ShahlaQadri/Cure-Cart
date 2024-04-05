@@ -11,6 +11,8 @@ import Ccfooter from "./Components/footer/Ccfooter";
 import ProductDetails from "./pages/ProductDetails";
 import Cartpage from "./pages/Cartpage";
 import Productspage from "./pages/Productspage";
+import Checkoutpage from "./pages/Checkoutpage";
+import PaymentPage from "./pages/PaymentPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,7 +27,9 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/cart" element={<Cartpage />} />
           <Route path="/product" element={<ProductDetails />} />
-          <Route path="/productspage" element={<Productspage/>} />
+          <Route path="/productspage" element={<Productspage />} />
+          <Route path="/checkout" element={<Checkoutpage />} />
+          <Route path="/payment" element={<PaymentPage />} />
         </Routes>
         <Ccfooter />
       </div>
