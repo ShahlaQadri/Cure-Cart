@@ -4,6 +4,7 @@ import Profile from "../Components/Profile";
 import { AiFillEdit } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { TiArrowBack } from "react-icons/ti";
+import Table from '../Components/Table';
 
 function MyOrders() {
   return (
@@ -20,6 +21,7 @@ function MyOrders() {
         <Profile />
         <div className="main w-[70%] h-[70vh] bg-[#f3fdff] rounded-lg">
           <h1 className="mt-5 ml-20 text-3xl  text-zinc-700">MY ORDERS</h1>
+          <Table/>
         </div>
       </div>
     </div>
