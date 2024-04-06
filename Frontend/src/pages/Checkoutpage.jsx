@@ -8,14 +8,14 @@ export default function Checkoutpage() {
       <div className="relative">
         <Link
           to="/cart"
-          className="absolute top-3 left-10 bg-zinc-50 hover:bg-zinc-100  rounded-full shadow-xl p-4"
+          className="absolute top-3 left-10 bg-zinc-50 hover:bg-[#2787c7]  rounded-full shadow-lg p-4"
         >
           <TiArrowBack className="text-3xl" />
         </Link>
       </div>
       <div className="max-w-3xl mx-auto px-4 py-8 mb-20 ">
         <div className="bg-white shadow-md rounded-lg px-8 py-6">
-          <h2 className="text-3xl font-semibold mb-10">Billing Information</h2>
+          <h2 className="text-lg font-semibold mb-4">Billing Information</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="mb-4">
               <label
@@ -74,6 +74,21 @@ export default function Checkoutpage() {
                 id="zipcode"
                 name="zipcode"
                 placeholder="12345"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                for="landmark"
+                className="block text-gray-700 font-semibold mb-2"
+              >
+                Landmark
+              </label>
+              <input
+                type="text"
+                id="landmark"
+                name="landmark"
+                placeholder="Landmark"
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
               />
             </div>
