@@ -13,6 +13,8 @@ import Cartpage from "./pages/Cartpage";
 import Productspage from "./pages/Productspage";
 import Checkoutpage from "./pages/Checkoutpage";
 import PaymentPage from "./pages/PaymentPage";
+import Profilepage from "./pages/Profilepage";
+import MyOrders from "./pages/MyOrders";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -30,6 +32,8 @@ function App() {
           <Route path="/productspage" element={<Productspage />} />
           <Route path="/checkout" element={<Checkoutpage />} />
           <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/myprofile" element={<Profilepage />} />
+          <Route path="/myorders" element={<MyOrders />} />
         </Routes>
         <Ccfooter />
       </div>

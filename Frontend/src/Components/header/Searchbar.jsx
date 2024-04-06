@@ -25,7 +25,12 @@ function Searchbar() {
         {/* <span className="text-sm font-semibold md:font-bold ">C U R E</span>
         <br />
         <span className="text-sm font-semibold md:font-bold ">C A R T</span> */}
-        <img src="../../../pictures/smalllogo.png" width={"150px"} alt="LOGO" style={{mixBlendMode:"multiply"}} />
+        <img
+          src="../../../pictures/smalllogo.png"
+          width={"150px"}
+          alt="LOGO"
+          style={{ mixBlendMode: "multiply" }}
+        />
       </div>
 
       {/* search bar */}
@@ -55,9 +60,15 @@ function Searchbar() {
               <CiUser className="text-xl  " />
             </Link>
           ) : (
-            <button onClick={logOut}>
-              <ImExit className="text-xl  " />
-            </button>
+            <div
+              // onClick={logOut}
+              className="h-10 w-10 rounded-full flex items-center justify-center"
+            >
+              <Link to="/myprofile">
+                {/* <ImExit className="text-xl  " /> */}
+                <img src="../../../pictures/user.png" alt="" className="w-7" />
+              </Link>
+            </div>
           )}
         </div>
       </div>
