@@ -23,7 +23,8 @@ const Table = () => {
     }=useTable(
         {
         columns,
-        data
+        data,
+        initialState: { pageIndex: 0, pageSize: 5 }
     },
        usePagination
        )

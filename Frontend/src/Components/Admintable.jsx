@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { useTable, usePagination } from 'react-table' 
-import { ADMIN_DATA } from './ADMIN_DATA.json'
-import { ADMIN_COLUMNS } from './Admincolumns'
+import { ADMIN_DATA, ADMIN_COLUMNS } from './Admindata'
+
 
 const Admintable = () => {
 
@@ -23,7 +23,8 @@ const Admintable = () => {
     }=useTable(
         {
         columns,
-        data
+        data,
+        initialState: { pageIndex: 0, pageSize: 5 }
     },
        usePagination
        )
@@ -38,7 +39,7 @@ const Admintable = () => {
            <tr {...headerGroup.getHeaderGroupProps()}>
             {
                headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}  className="p-2 text-left">{column.render('Header')}</th>
+                <th {...column.getHeaderProps()}  className="p-3 text-left">{column.render('Header')}</th>
                ))}
            </tr>
                 ))}
