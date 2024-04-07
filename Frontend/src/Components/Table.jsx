@@ -3,7 +3,7 @@ import { useTable, usePagination } from 'react-table'
 import MOCK_DATA from './MOCK_DATA.json'
 import { COLUMNS } from './Columns'
 
-const PaginationTable = () => {
+const Table = () => {
 
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => MOCK_DATA, [])
@@ -77,4 +77,4 @@ const PaginationTable = () => {
   )
 }
 
-export default PaginationTable
+export default Table
