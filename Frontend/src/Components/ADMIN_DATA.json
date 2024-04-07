@@ -1,0 +1,29 @@
+{
+    "ADMIN_DATA":
+
+[{"Name":"HK Vitals","Price":7931,"Stock":363,"Action":"Manage"},
+{"Name":"Vicks VapoRub","Price":5895,"Stock":366,"Action":"Manage"},
+{"Name":"Cetaphil Facewash","Price":4547,"Stock":72,"Action":"Manage"},
+{"Name":"HK Vitals","Price":312,"Stock":326,"Action":"Manage"},
+{"Name":"Vicks VapoRub","Price":5308,"Stock":299,"Action":"Manage"},
+{"Name":"Cetaphil Facewash","Price":7386,"Stock":262,"Action":"Manage"},
+{"Name":"HK Vitals","Price":8017,"Stock":220,"Action":"Manage"},
+{"Name":"Cetaphil Facewash","Price":4359,"Stock":437,"Action":"Manage"},
+{"Name":"Vicks VapoRub","Price":4925,"Stock":70,"Action":"Manage"},
+{"Name":"HK Vitals","Price":4679,"Stock":320,"Action":"Manage"},
+{"Name":"Cetaphil Facewash","Price":5445,"Stock":231,"Action":"Manage"},
+{"Name":"Cetaphil Facewash","Price":1106,"Stock":32,"Action":"Manage"},
+{"Name":"HK Vitals","Price":4529,"Stock":347,"Action":"Manage"},
+{"Name":"Cetaphil Facewash","Price":4892,"Stock":142,"Action":"Manage"},
+{"Name":"Vicks VapoRub","Price":6162,"Stock":307,"Action":"Manage"},
+{"Name":"HK Vitals","Price":1712,"Stock":235,"Action":"Manage"},
+{"Name":"Cetaphil Facewash","Price":2140,"Stock":398,"Action":"Manage"},
+{"Name":"Cetaphil Facewash","Price":5782,"Stock":377,"Action":"Manage"},
+{"Name":"HK Vitals","Price":4150,"Stock":259,"Action":"Manage"},
+{"Name":"HK Vitals","Price":2277,"Stock":473,"Action":"Manage"},
+{"Name":"Vicks VapoRub","Price":4219,"Stock":127,"Action":"Manage"},
+{"Name":"Vicks VapoRub","Price":2234,"Stock":164,"Action":"Manage"},
+{"Name":"Cetaphil Facewash","Price":3608,"Stock":372,"Action":"Manage"},
+{"Name":"HK Vitals","Price":9144,"Stock":366,"Action":"Manage"}]
+
+}
