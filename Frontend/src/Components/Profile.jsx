@@ -40,7 +40,7 @@ export default function Profile() {
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center hover:text-green-900">
               <BiSolidUser className="text-slate-950" />
             </div>
-            <Link to="/myprofile" class="hover:underline ">
+            <Link to="/myprofile" className="hover:underline ">
               Account Information
             </Link>
           </li>
@@ -49,7 +49,7 @@ export default function Profile() {
             <div className="icon text-xl rounded-full w-8 h-8  flex items-center justify-center">
               <AiFillHeart />
             </div>
-            <Link to="/cart" class="hover:underline">
+            <Link to="/cart" className="hover:underline">
               My Wishlist
             </Link>
           </li>
@@ -58,7 +58,7 @@ export default function Profile() {
             <div className="icon text-2xl rounded-full w-8 h-8  flex items-center justify-center">
               <TbDiscountCheckFilled />
             </div>
-            <Link to="/myorders" class="hover:underline">
+            <Link to="/myorders" className="hover:underline">
               My Orders
             </Link>
           </li>
@@ -67,7 +67,7 @@ export default function Profile() {
             <div className="icon text-2xl rounded-full w-8 h-8  flex items-center justify-center">
               <TbTruckDelivery />
             </div>
-            <a href="#" class="hover:underline">
+            <a href="#" className="hover:underline">
               Delivery Addresses
             </a>
           </li>
@@ -76,7 +76,7 @@ export default function Profile() {
             <div className="icon text-xl rounded-full w-8 h-8 flex items-center justify-center">
               <TbNotes />
             </div>
-            <a href="#" class="hover:underline">
+            <a href="#" className="hover:underline">
               My Subscriptions
             </a>
           </li>

@@ -14,5 +14,9 @@ export const COLUMNS=[
     {
         Header: 'Amount',
         accessor: 'Amount'
+    },
+    {
+        Header: 'Status',
+        accessor: 'Status'
     }
 ];
