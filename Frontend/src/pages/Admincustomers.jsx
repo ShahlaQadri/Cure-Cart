@@ -1,5 +1,6 @@
 import React from 'react'
 import Adminprofile from "../Components/Adminprofile";
+import Admincustable from '../Components/Admincustable';
 
 
 
@@ -13,7 +14,7 @@ export default function Admincustomers() {
      <Adminprofile/>
      <div className="main w-[70%] h-[90vh] bg-[#f3fdff] rounded-lg">
           <h1 className="mt-5 ml-10 text-2xl  text-zinc-700">Customers</h1>
-          
+          <Admincustable/>
         </div>
     </div>
     </div>
