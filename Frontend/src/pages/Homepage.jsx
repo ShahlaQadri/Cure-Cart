@@ -7,6 +7,7 @@ import Extras from "../Components/Extras";
 import Profilepage from "./Profilepage";
 import Adminproducts from "./Adminproducts";
 import Admincustomers from "./Admincustomers";
+import Admintransactions from "./Admintransactions";
 
 
 
@@ -22,6 +23,7 @@ function Homepage() {
       <Profilepage/>
       <Adminproducts/>
       <Admincustomers/>
+      <Admintransactions/>
     </div>
   );
 }

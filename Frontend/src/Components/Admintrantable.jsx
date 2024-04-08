@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react'
 import { useTable, usePagination } from 'react-table' 
-import { ORDERS_COLUMNS, ORDERS_DATA } from './Ordersdata'
+import { ADMIN_TRAN_COLUMNS, ADMIN_TRAN_DATA } from './Admintrandata'
 
-const Orderstable = () => {
+const Admintrantable = () => {
 
-    const columns = useMemo(() => ORDERS_COLUMNS, [])
-    const data = useMemo(() => ORDERS_DATA, [])
+    const columns = useMemo(() => ADMIN_TRAN_COLUMNS, [])
+    const data = useMemo(() => ADMIN_TRAN_DATA, [])
 
     const {
         getTableProps,
@@ -77,4 +77,4 @@ const Orderstable = () => {
   )
 }
 
-export default Orderstable
+export default Admintrantable
