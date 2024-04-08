@@ -1,5 +1,5 @@
 
-export const ADMIN_DATA = [
+export const ADMIN_PRO_DATA = [
     { photo: 'pictures/div1.png', name: 'HK Vitals', price: 500, stock: 50, action: 'Manage' },
     { photo: 'pictures/div2.png', name: 'Cetaphil Facewash', price: 300, stock: 50, action: 'Manage' },
     { photo: 'pictures/div4.png', name: 'Vicks VapoRub', price: 260, stock: 75, action: 'Manage' },
@@ -11,7 +11,7 @@ export const ADMIN_DATA = [
 ];
 
 
-export const ADMIN_COLUMNS = [
+export const ADMIN_PRO_COLUMNS = [
     { Header: 'Photo', accessor: 'photo', Cell: ({ value }) => <img src={value} alt="Product" className="h-16 w-12" /> },
     { Header: 'Name', accessor: 'name' },
     { Header: 'Price', accessor: 'price' },

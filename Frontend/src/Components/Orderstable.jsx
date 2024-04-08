@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react'
 import { useTable, usePagination } from 'react-table' 
-import { ADMIN_DATA, ADMIN_COLUMNS } from './Admindata'
+import MOCK_DATA from './MOCK_DATA.json'
+import { COLUMNS } from './Columns'
 
+const Orderstable = () => {
 
-const Admintable = () => {
-
-    const columns = useMemo(() => ADMIN_COLUMNS, [])
-    const data = useMemo(() => ADMIN_DATA, [])
+    const columns = useMemo(() => COLUMNS, [])
+    const data = useMemo(() => MOCK_DATA, [])
 
     const {
         getTableProps,
@@ -39,7 +39,7 @@ const Admintable = () => {
            <tr {...headerGroup.getHeaderGroupProps()}>
             {
                headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}  className="p-3 text-left">{column.render('Header')}</th>
+                <th {...column.getHeaderProps()}  className="p-2 text-left">{column.render('Header')}</th>
                ))}
            </tr>
                 ))}
@@ -78,4 +78,4 @@ const Admintable = () => {
   )
 }
 
-export default Admintable
+export default Orderstable

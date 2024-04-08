@@ -6,6 +6,8 @@ import BabyFood from "../Components/BabyFood";
 import Extras from "../Components/Extras";
 import Profilepage from "./Profilepage";
 import Adminproducts from "./Adminproducts";
+import Admincustomers from "./Admincustomers";
+
 
 
 
@@ -19,6 +21,7 @@ function Homepage() {
       <Extras />
       <Profilepage/>
       <Adminproducts/>
+      <Admincustomers/>
     </div>
   );
 }
