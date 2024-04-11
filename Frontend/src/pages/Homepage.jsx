@@ -20,10 +20,8 @@ function Homepage() {
       <Prescription />
       <BabyFood />
       <Extras />
-      <Profilepage/>
-      <Adminproducts/>
-      <Admincustomers/>
-      <Admintransactions/>
+      {/* <Profilepage/> */}
+      
     </div>
   );
 }
