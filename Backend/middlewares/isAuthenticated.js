@@ -1,20 +1,19 @@
-const jwt = require("jsonwebtoken");
+import jwt from  "jsonwebtoken";
+import ErrorHandler from "./error.js";
 
-const IsAuthenticated = async (req, res, next) => {
+export const IsAuthenticated = async (req, res, next) => {
   try {
-    const token = req.header("auth-token");
-    console.log("token  : " + token);
-    if (!token) {
-      return res.status(401).send({ msg: "You are not  authenticated" });
-    }
+    const { token } = req.cookies;
+
+    if (!token) { return next(new ErrorHandler("Login First", 401)) }
 
     const data = jwt.verify(token, "hello");
-    console.log(data)
     req.user = data;
     next();
   } catch (error) {
-    return res.status(500).json({ msg: "Your auth-token is wrong" });
+   next(error)
   }
 };
 
-module.exports = IsAuthenticated;
+
+

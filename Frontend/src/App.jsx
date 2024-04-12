@@ -15,6 +15,9 @@ import Checkoutpage from "./pages/Checkoutpage";
 import PaymentPage from "./pages/PaymentPage";
 import Profilepage from "./pages/Profilepage";
 import MyOrders from "./pages/MyOrders";
+import Adminproducts from "./pages/Adminproducts";
+import Admincustomers from "./pages/Admincustomers";
+import Admintransactions from "./pages/Admintransactions";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -34,6 +37,12 @@ function App() {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/myprofile" element={<Profilepage />} />
           <Route path="/myorders" element={<MyOrders />} />
+
+          {/* DAshbord */}
+          <Route path="/admin/dashboard" element={<Adminproducts />} />
+          <Route path="/admin/products" element={<Adminproducts />} />
+          <Route path="/admin/customers" element={<Admincustomers />} />
+          <Route path="/admin/transactions" element={<Admintransactions />} />
         </Routes>
         <Ccfooter />
       </div>
