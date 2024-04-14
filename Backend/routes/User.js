@@ -10,7 +10,6 @@ router.post("/login",login )
 router.get("/allusers",adminOnly,getAllUsers)
 router.get("/myprofile", IsAuthenticated,myProfie);
 router.get("/logout", IsAuthenticated, logOut);
-
 router.delete("/:id",adminOnly,deleteUser)
 
 
