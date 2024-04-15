@@ -7,15 +7,15 @@ import Manageform from '../Components/Manageform';
 
 export default function Manageproducts() {
 return (
-  <div className="profilePage flex flex-col h-[90vh]">
+  <div className="profilePage flex flex-col my-4 py-6">
     <div className="mx-auto flex gap-10 w-full ">
-      <div className="w-[20%] h-[90vh] shadow-l ">
+      <div className="w-[20%] h-[90vh]">
         <Adminprofile />
       </div>
 
       <div className="main w-[80%] h-[90vh] rounded-lg flex flex-row gap-4 my-4">
 
-        <div className="picture w-[40%] p-4 flex-grow">
+        <div className="picture w-[40%] p-4">
         <div className="bg-white py-2">
         <div className="px-4 py-2 text-green-600 text-right">
           10 available
@@ -35,7 +35,7 @@ return (
       </div>
     </div>
 
-    <div className="manage w-[60%] p-4 overflow-y-auto flex-grow">
+    <div className="manage w-[60%] p-4">
             <Manageform />
             
         </div>

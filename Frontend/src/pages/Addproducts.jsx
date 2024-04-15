@@ -7,9 +7,9 @@ import Addproductsform from '../Components/Addproductsform';
 
 export default function Manageproducts() {
 return (
-  <div className="profilePage flex flex-col h-[90vh] my-4">
+  <div className="profilePage flex flex-col my-4 py-6">
     <div className="mx-auto flex gap-10 w-full ">
-      <div className="w-[20%] h-[90vh] shadow-l ">
+      <div className="w-[20%] h-[90vh]">
         <Adminprofile />
       </div>
      
@@ -36,7 +36,7 @@ return (
 </div>
 </div>
 
-<div className="manage w-[60%] p-4 overflow-y-auto flex-grow">
+<div className="manage w-[60%] p-4">
     <Addproductsform />
     
 </div>
