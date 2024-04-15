@@ -32,7 +32,6 @@ export const register = async (req, res,next) => {
       next(error)
     }
   };
-
 export const  login = async (req, res,next) => {
   try {
     const { email, password } = req.body;
@@ -72,7 +71,6 @@ export const myProfie =async (req, res,next) => {
          next(error)
        }
  };
-
 export const getAllUsers  =async (req,res,next)=>{
   try {
     
@@ -90,7 +88,18 @@ export const getAllUsers  =async (req,res,next)=>{
 
 
 }
+export const deleteUser = async  (req, res, next) =>{
+  try {
+    let userId = req.params.id;
+    const user = await User.findById(userId);
 
+    if (!user) return next(new ErrorHandler("user not found", 404));
+    await user.deleteOne();
+    res.status(200).json({ success: true, msg: " User Deleted Successfully" });
+  } catch (error) {
+    next(error)
+  }
+}
 export const logOut  =async (req,res)=>{
   try {
     if (!req.cookies.token) {
