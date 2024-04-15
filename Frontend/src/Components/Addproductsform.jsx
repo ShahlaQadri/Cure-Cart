@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Manageform = () => {
+const Addproductsform = () => {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -187,7 +187,7 @@ const Manageform = () => {
         </div>
         <div className="mb-4">
           <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full rounded">
-            Update
+            Add Product
           </button>
         </div>
       </form>
@@ -195,4 +195,4 @@ const Manageform = () => {
   );
 };
 
-export default Manageform;
+export default Addproductsform;

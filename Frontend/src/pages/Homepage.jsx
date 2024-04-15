@@ -6,6 +6,7 @@ import BabyFood from "../Components/BabyFood";
 import Extras from "../Components/Extras";
 import Profilepage from "./Profilepage";
 import Manageproducts from "./Manageproducts";
+import Addproducts from "./Addproducts";
 
 
 
@@ -20,6 +21,7 @@ function Homepage() {
       <Extras />
       {/* <Profilepage/> */}
       <Manageproducts />
+      <Addproducts />
       
     </div>
   );
