@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom';
 
 export default function Adminprofile() {
   return (
-    <div className="aside  h-[90vh] p-10  overflow-hidden    shadow-r-xl text-zinc-700 font-extralight">
+    <div className="aside  h-[90vh]  px-3 pl-7 pt-6 overflow-hidden    shadow-r-xl text-zinc-700 font-extralight">
+      {/* <img src="../../../pictures/smalllogo.png" alt="Cure Cart" height={10} width={150} /> */}
       <div className="options  rounded-lg ">
         <ul className="font-lighter">
           <li className="text-zinc-400 leading-10 tracking-wider text-sm">
@@ -21,7 +22,7 @@ export default function Adminprofile() {
                 : "white",
               color: location.pathname.includes("/admin/dashboard")
                 ? "#2f85ed"
-                : "black",
+                : "#63636b",
             }}
             className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400    "
           >
@@ -40,7 +41,7 @@ export default function Adminprofile() {
                 : "white",
               color: location.pathname.includes("/admin/products")
                 ? "#2f85ed"
-                : "black",
+                : "#63636b",
             }}
             className="flex items-center gap-1 px-4 py-1  my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400  "
           >
@@ -59,7 +60,7 @@ export default function Adminprofile() {
                 : "white",
               color: location.pathname.includes("/admin/customers")
                 ? "#2f85ed"
-                : "black",
+                : "#63636b",
             }}
             className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400  "
           >
@@ -78,7 +79,7 @@ export default function Adminprofile() {
                 : "white",
               color: location.pathname.includes("/admin/transactions")
                 ? "#2f85ed"
-                : "black",
+                : "#63636b",
             }}
             className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400  "
           >
@@ -102,7 +103,7 @@ export default function Adminprofile() {
                 : "white",
               color: location.pathname.includes("/admin/coupon")
                 ? "#2f85ed"
-                : "black",
+                : "#63636b",
             }}
             className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400  "
           >

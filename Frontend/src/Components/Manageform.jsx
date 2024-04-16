@@ -220,12 +220,12 @@ const Manageform = () => {
             )}
           </div>
         </div>
-        <div className="mb-2 mt-5">
+        <div className="mt-2 flex items-center ">
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full rounded"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-auto py-2 px-10  rounded"
           >
-            Update
+            Update Product
           </button>
         </div>
       </form>
