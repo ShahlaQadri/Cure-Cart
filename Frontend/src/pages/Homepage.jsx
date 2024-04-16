@@ -6,6 +6,7 @@ import BabyFood from "../Components/BabyFood";
 import Extras from "../Components/Extras";
 import AdminManageProducts from "./AdminManageProducts";
 import AdminOrderInfo from "./AdminOrderInfo";
+import PrescriptionUpload from "./PrescriptionUpload";
 
 
 
@@ -19,6 +20,7 @@ function Homepage() {
       <Extras />
       <AdminManageProducts />
       <AdminOrderInfo />
+      <PrescriptionUpload />
       
     </div>
   );
