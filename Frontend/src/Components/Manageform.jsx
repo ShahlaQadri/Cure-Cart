@@ -48,12 +48,12 @@ const Manageform = () => {
               htmlFor="photo"
               className="block text-gray-700 text-sm font-bold"
             >
-              name
+              Name
             </label>
             <input
               type="text"
               name="name"
-              placeholder="Name"
+              
               value={formData.name}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
@@ -69,7 +69,7 @@ const Manageform = () => {
             <input
               type="text"
               name="category"
-              placeholder="category"
+              
               value={formData.category}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
@@ -85,7 +85,7 @@ const Manageform = () => {
             <input
               type="text"
               name="price"
-              placeholder="Price Of Product"
+              
               value={formData.price}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
@@ -101,7 +101,7 @@ const Manageform = () => {
             <input
               type="text"
               name="discount"
-              placeholder="Add Discount"
+              
               value={formData.discount}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
@@ -118,7 +118,7 @@ const Manageform = () => {
             <input
               type="text"
               name="usedFor"
-              placeholder="Product Used For"
+              
               value={formData.usedFor}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
@@ -134,8 +134,7 @@ const Manageform = () => {
             <input
               type="text"
               name="stock"
-              placeholder="Add Stock"
-              value={formData.stock}
+                        value={formData.stock}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -150,7 +149,7 @@ const Manageform = () => {
             <input
               type="date"
               name="expiryDate"
-              placeholder="Expiry Date Of Product"
+              
               value={formData.expiryDate}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"

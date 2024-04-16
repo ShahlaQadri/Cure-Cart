@@ -1,8 +1,7 @@
 import React from "react";
-import Adminprofile from "../Components/dashbord/Adminprofile";
-import Adminprotable from "../Components/dashbord/Adminprotable"
+import Adminprofile from "../Components/dashbord/AdminSideBar";
+import Adminprotable from "../Components/dashbord/Adminprotable";
 import { Link } from "react-router-dom";
-
 
 export default function Adminproducts() {
   return (
@@ -14,7 +13,7 @@ export default function Adminproducts() {
 
         <div className="main w-[80%] h-[90vh] rounded-lg bg-zinc-50/95">
           <div className="flex items-center w-[89%] justify-between">
-            <h1 className="mt-5 ml-10 text-3xl  text-zinc-500 mb-4">
+            <h1 className="mt-5  text-3xl  text-zinc-500 mb-4">
               Products
             </h1>
 

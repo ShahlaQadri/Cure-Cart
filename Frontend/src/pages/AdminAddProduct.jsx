@@ -1,9 +1,6 @@
-import React from 'react'
-import Adminprofile from '../Components/dashbord/Adminprofile'
-import Addproductsform from '../Components/Addproductsform';
-
-
-
+import React from "react";
+import Adminprofile from "../Components/dashbord/AdminSideBar";
+import Addproductsform from "../Components/Addproductsform";
 
 export default function AdminAddProduct() {
   return (
@@ -20,4 +17,3 @@ export default function AdminAddProduct() {
     </div>
   );
 }
-    
