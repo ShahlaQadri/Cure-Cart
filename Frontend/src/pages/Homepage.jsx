@@ -5,9 +5,7 @@ import Prescription from "../Components/Prescription";
 import BabyFood from "../Components/BabyFood";
 import Extras from "../Components/Extras";
 import AdminManageProducts from "./AdminManageProducts";
-import AdminAddProducts from "./AdminAddProducts";
-
-
+import AdminAddProducts from "./AdminAddProduct";
 
 function Homepage() {
   return (
@@ -17,9 +15,7 @@ function Homepage() {
       <Prescription />
       <BabyFood />
       <Extras />
-      {/* <Profilepage/> */}
-      <AdminManageProducts />
-      {/* <AdminAddProducts/> */}
+      <AdminManageProducts/>
     </div>
   );
 }
