@@ -18,6 +18,8 @@ import MyOrders from "./pages/MyOrders";
 import Adminproducts from "./pages/Adminproducts";
 import Admincustomers from "./pages/Admincustomers";
 import Admintransactions from "./pages/Admintransactions";
+import AdminAddProducts from "./pages/AdminAddProducts";
+import AdminManageproducts from "./pages/AdminManageProducts";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -43,6 +45,8 @@ function App() {
           <Route path="/admin/products" element={<Adminproducts />} />
           <Route path="/admin/customers" element={<Admincustomers />} />
           <Route path="/admin/transactions" element={<Admintransactions />} />
+          <Route path="/admin/products/new" element={<AdminAddProducts />} />
+          <Route path="/admin/products/:id" element={<AdminManageproducts />} />
         </Routes>
         <Ccfooter />
       </div>
