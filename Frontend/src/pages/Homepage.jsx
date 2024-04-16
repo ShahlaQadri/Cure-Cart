@@ -4,10 +4,8 @@ import Deals from "../Components/Deals";
 import Prescription from "../Components/Prescription";
 import BabyFood from "../Components/BabyFood";
 import Extras from "../Components/Extras";
-import Profilepage from "./Profilepage";
-import Manageproducts from "./Manageproducts";
-import Addproducts from "./Addproducts";
-
+import AdminManageProducts from "./AdminManageProducts";
+import AdminAddProducts from "./AdminAddProducts";
 
 
 
@@ -20,9 +18,8 @@ function Homepage() {
       <BabyFood />
       <Extras />
       {/* <Profilepage/> */}
-      <Manageproducts />
-      <Addproducts />
-      
+      <AdminManageProducts />
+      {/* <AdminAddProducts/> */}
     </div>
   );
 }
