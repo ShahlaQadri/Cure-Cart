@@ -30,7 +30,7 @@ const Adminprotable = () => {
   const { pageIndex } = state;
 
   return (
-    <>
+    <div className="">
       <table {...getTableProps()} className="table-auto  w-[95%] ">
         <thead className="text-md text-zinc-500 py-10">
           {headerGroups.map((headerGroup) => (
@@ -89,7 +89,7 @@ const Adminprotable = () => {
           Next
         </button>
       </div>
-    </>
+    </div>
   );
 };
 

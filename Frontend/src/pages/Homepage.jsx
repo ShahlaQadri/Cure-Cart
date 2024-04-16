@@ -5,8 +5,8 @@ import Prescription from "../Components/Prescription";
 import BabyFood from "../Components/BabyFood";
 import Extras from "../Components/Extras";
 import AdminManageProducts from "./AdminManageProducts";
+import AdminAddProducts from "./AdminAddProduct";
 import AdminOrderInfo from "./AdminOrderInfo";
-
 
 
 function Homepage() {
@@ -17,9 +17,8 @@ function Homepage() {
       <Prescription />
       <BabyFood />
       <Extras />
-      <AdminManageProducts />
+      <AdminManageProducts/>
       <AdminOrderInfo />
-      
     </div>
   );
 }

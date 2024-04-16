@@ -7,13 +7,13 @@ import Manageform from '../Components/Manageform';
 
 export default function AdminManageproducts() {
 return (
-  <div className="profilePage flex flex-col my-4  h-[100vh] px-5 py-10 bg-zinc-100">
+  <div className="profilePage flex flex-col my-4  h-[90vh] bg-zinc-50/95">
     <div className="mx-auto flex gap-10 w-full ">
-      <div className="w-[20%] h-[90vh] bg-white rounded-lg ">
+      <div className="w-[20%] h-[90vh] bg-white  ">
         <Adminprofile />
       </div>
 
-      <div className="main w-[80%] rounded-lg flex flex-row gap-4 bg-white px-4 py-4 ">
+      <div className="main w-[80%] rounded-lg flex flex-row gap-4 bg-zinc-50/95 px-4 py-4 ">
         <div className="picture mx-auto w-[30%] bg-white h-[83vh] shadow-lg rounded   mb-4">
           <div className="bg-white py-2 relative">
             <div className="px-4 py-2  flex justify-end">
@@ -27,7 +27,7 @@ return (
 
             <div className="flex justify-center mt-20 items-center ">
               <img
-                src="pictures/div1.png"
+                src="../../pictures/div2.png"
                 alt="Product Name"
                 className="h-64 object-cover"
               />
