@@ -31,7 +31,7 @@ const Admintrantable = () => {
        const { pageIndex } = state
 
   return (
-    <div className='px-10'>
+    <div className='px-20'>
       <table {...getTableProps()} className="table-auto  w-[95%] ">
         <thead className="text-md text-zinc-500 py-10">
           {headerGroups.map((headerGroup) => (

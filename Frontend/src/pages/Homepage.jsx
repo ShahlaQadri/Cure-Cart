@@ -17,8 +17,7 @@ function Homepage() {
       <Prescription />
       <BabyFood />
       <Extras />
-      <AdminManageProducts/>
-      <AdminOrderInfo />
+      
     </div>
   );
 }

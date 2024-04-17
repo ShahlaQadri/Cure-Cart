@@ -1,5 +1,7 @@
 import React from "react";
 import { BsFileEarmarkArrowUpFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import { FcMissedCall } from "react-icons/fc";
 
 export default function Prescription() {
   return (
@@ -16,35 +18,57 @@ export default function Prescription() {
         </div>
 
         <div className="  items-center w-full px-10 gap-2 flex">
-          <button className="bg-black rounded-full mt-2 w-5 h-5 p-4 md:w-8 md:h-8 md:p-5 flex items-center justify-center text-sm  ">
+          <Link
+            to="/upload-presciption"
+            className="bg-black rounded-full mt-2 w-5 h-5 p-4 md:w-8 md:h-8 md:p-5 flex items-center justify-center text-sm  "
+          >
             <span>
               <BsFileEarmarkArrowUpFill className="text-white" />
             </span>
-          </button>
+          </Link>
 
-          <button className="button bg-black text-white px-3 py-2 mt-2 md:px-5 md:py-3 rounded-full text-xs">
+          <Link
+            to="/upload-presciption"
+            className="button bg-black text-white px-3 py-2 mt-2 md:px-5 md:py-3 rounded-full text-xs"
+          >
             Order Via Prescription
-          </button>
+          </Link>
         </div>
       </div>
-
-
 
       <div className="prescription bg-[#A0E1E1] h-[180px] md:h-[300px] w-[50] flex flex-col items-center justify-center rounded-2xl">
         <div className="flex">
-          <img className="" src="pictures/prescrip.png" alt="" />
-          <div className="font-bold text-2xl text-center space-y-4 p-4">
+          <img
+            className=""
+            src="../../pictures/callus.webp"
+            alt=""
+            height={40}
+            width={250}
+          />
+          <div className="font-bold text-2xl mt-7 text-center  p-4 md:text-2xl ">
             <p className="">Call us and order medicines</p>
-            <p>7006622199</p>
+            <p className="text-green-600">7006622199</p>
             <p>Working hours 9am to 9pm</p>
-
           </div>
         </div>
+        <div className=" ml-10 mt-4 items-center w-full px-10 gap-2 flex">
+          <Link
+            to="/upload-presciption"
+            className="bg-white rounded-full mt-2 w-5 h-5 p-4 md:w-8 md:h-8 md:p-5 flex items-center justify-center text-xl  "
+          >
+            <span>
+              <FcMissedCall />
+            </span>
+          </Link>
 
-       
+          <Link
+            to="/upload-presciption"
+            className="button bg-white text-black px-3 py-2 mt-2 md:px-10 md:py-[9px] rounded-full text-sm"
+          >
+            Call Us For Orders
+          </Link>
+        </div>
       </div>
-
-
     </div>
   );
 }

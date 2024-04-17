@@ -20,10 +20,11 @@ import Admincustomers from "./pages/Admincustomers";
 import AdminAddProduct from "./pages/AdminAddProduct";
 import AdminManageproducts from "./pages/AdminManageProducts";
 import AdminOrders from "./pages/AdminOrders";
+import AdminManageOrder from "./pages/AdminOrderInfo";
+import PrescriptionUploadPage from "./pages/PrescriptionUploadPage";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  
   return (
     <BrowserRouter>
       <div className="px-4 py-4">
@@ -39,6 +40,7 @@ function App() {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/myprofile" element={<Profilepage />} />
           <Route path="/myorders" element={<MyOrders />} />
+          <Route path="/upload-presciption" element={<PrescriptionUploadPage />} />
 
           {/* DAshbord */}
           <Route path="/admin/dashboard" element={<Adminproducts />} />
@@ -47,6 +49,7 @@ function App() {
           <Route path="/admin/transactions" element={<AdminOrders />} />
           <Route path="/admin/products/new" element={<AdminAddProduct />} />
           <Route path="/admin/products/:id" element={<AdminManageproducts />} />
+          <Route path="/admin/transactions/:id" element={<AdminManageOrder />} />
         </Routes>
         <Ccfooter />
       </div>
