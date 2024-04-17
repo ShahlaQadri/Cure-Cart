@@ -6,7 +6,7 @@ import { BsBagCheckFill } from "react-icons/bs";
 import { RiCoupon3Fill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 
-export default function Adminprofile() {
+export default function AdminSideBar() {
   return (
     <div className="aside  h-[90vh]  px-3 pl-7 pt-6 overflow-hidden    shadow-r-xl text-zinc-700 font-extralight">
       {/* <img src="../../../pictures/smalllogo.png" alt="Cure Cart" height={10} width={150} /> */}
@@ -29,7 +29,7 @@ export default function Adminprofile() {
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
               <MdSpaceDashboard className="text-[16px]" />
             </div>
-            <Link to="/admin/products" className="">
+            <Link to="/admin/dashboard" className="">
               Dashboard
             </Link>
           </li>

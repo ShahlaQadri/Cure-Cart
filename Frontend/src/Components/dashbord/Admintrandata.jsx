@@ -2,56 +2,56 @@ import { Link } from "react-router-dom";
 
 export const ADMIN_TRAN_DATA = [
   {
-    photo: "../../../pictures/pictures/div1.png",
-    id: 1,
+    user: "shahla",
+    status: "Delivered",
     amount: 5100,
     quantity: 5,
     discount: 100,
     action: <Link to="/admin/transactions/cddid">Manage</Link>,
   },
   {
-    photo: "../../../pictures/div2.png",
-    id: 2,
+    user: "salman",
+    status: "Shipped",
     amount: 3000,
     quantity: 5,
     discount: 100,
     action: <Link to="/admin/transactions/xyzzzzz">Manage</Link>,
   },
   {
-    photo: "../../../pictures/div4.png",
-    id: 3,
+    user: "aahil",
+    status: "Processing",
     amount: 2660,
     quantity: 7,
     discount: 100,
     action: <Link to="/admin/transactions/:xyzzzzz">Manage</Link>,
   },
   {
-    photo: "../../../pictures/div5.png",
-    id: 4,
+    user: "fatima",
+    status: "Delivered",
     amount: 2500,
     quantity: 8,
     discount: 100,
     action: <Link to="/admin/transactions/:xyzzzzz">Manage</Link>,
   },
   {
-    photo: "../../../pictures/div6.png",
-    id: 5,
+    user: "salman",
+    status: "Processing",
     amount: 3500,
     quantity: 2,
     discount: 100,
     action: <Link to="/admin/transactions/:xyzzzzz">Manage</Link>,
   },
   {
-    photo: "../../../pictures/div1.png",
-    id: 6,
+    user: "cygg",
+    status: "Shipped",
     amount: 5400,
     quantity: 3,
     discount: 100,
     action: <Link to="/admin/transactions/:xyzzzzz">Manage</Link>,
   },
   {
-    photo: "../../../pictures/div2.png",
-    id: 7,
+    user: "aahil",
+    status: "Delivered",
     amount: 3700,
     quantity: 7,
     discount: 100,
@@ -62,16 +62,29 @@ export const ADMIN_TRAN_DATA = [
 
 export const ADMIN_TRAN_COLUMNS = [
   {
-    Header: "Photo",
-    accessor: "photo",
-    Cell: ({ value }) => (
-      <img src={value} alt="Product" className="h-14 w-12" />
-    ),
+    Header: "User",
+    accessor: "user",
   },
-  { Header: "ID", accessor: "id" },
+  { Header: "Amount", accessor: "amount" },
   { Header: "Quantity", accessor: "quantity" },
   { Header: "Discount", accessor: "discount" },
-  { Header: "Amount", accessor: "amount" },
+  {
+    Header: "Status",
+    accessor: "status",
+    Cell: ({ value }) => (
+      <div
+        className={`${
+          value === "Shipped"
+            ? "text-red-500"
+            : value === "Delivered"
+            ? "text-green-400"
+            : "text-purple-600"
+        } px-2 text-md  py-1 `}
+      >
+        {value}
+      </div>
+    ),
+  },
   {
     Header: "Action",
     accessor: "action",
