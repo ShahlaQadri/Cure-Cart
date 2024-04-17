@@ -10,5 +10,26 @@
     
 
 }
-
+.widget-circle{
+    position: relative;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    /* background-color: red; */
+    
+    
+}
+.widget-circle::before {
+    content: "";
+    position: absolute;
+    height: 4rem;
+    width: 4rem;
+    background: white;
+    border-radius: 100%;
+}
+.widget-circle span{
+    position: relative;
+}
 

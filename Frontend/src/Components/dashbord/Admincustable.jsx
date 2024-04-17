@@ -56,7 +56,7 @@ const Admincustable = () => {
                   return (
                     <td
                       {...cell.getCellProps()}
-                      className="py-1 text-sm px-10  "
+                      className="py-3 text-sm px-10  "
                     >
                       {cell.render("Cell")}
                     </td>
