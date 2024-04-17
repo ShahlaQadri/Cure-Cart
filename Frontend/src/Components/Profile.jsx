@@ -30,8 +30,8 @@ export default function Profile() {
         </div>
         <div className="ml-2 mt-5">
           <p className="font-bold text-xl py-2">Salman Arif</p>
-          <p className="text-gray-600 text-sm">sofisalman9906@gmail.com</p>
-          <p className="text-gray-600 text-sm">+91-7006622199</p>
+          <p className="text-gray-600 text-xs">sofisalman9906@gmail.com</p>
+          <p className="text-gray-600 text-xs">+91-7006622199</p>
         </div>
       </div>
       <div className="options  rounded-lg ">

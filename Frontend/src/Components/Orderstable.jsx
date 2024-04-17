@@ -31,50 +31,66 @@ const Orderstable = () => {
        const { pageIndex } = state
 
   return (
-    <>
-    <table {...getTableProps()} className="table-auto border-collapse border w-[90%] mt-6 mx-10">
-        <thead className="">
-                {headerGroups.map((headerGroup) => (
-           <tr {...headerGroup.getHeaderGroupProps()}>
-            {
-               headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}  className="p-2 text-left">{column.render('Header')}</th>
-               ))}
-           </tr>
-                ))}
+    <div className="">
+      <table {...getTableProps()} className="table-auto  w-full ">
+        <thead className="text-md text-zinc-500 py-10">
+          {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => (
+                <th
+                  {...column.getHeaderProps()}
+                  className="py-5 px-10 text-left font-bold text-md my-10"
+                >
+                  {column.render("Header")}
+                </th>
+              ))}
+            </tr>
+          ))}
         </thead>
 
         <tbody {...getTableBodyProps()}>
-            {
-                page.map(row =>{
-                    prepareRow(row)
-                    return(
-                        <tr {...row.getRowProps()} className="border-t">
-                            {
-                                row.cells.map(cell => {
-                                    return  <td {...cell.getCellProps()} className="p-2"> {cell.render('Cell')}</td>
-                                })}
-                       
-                    </tr>
-
-                    )
+          {page.map((row) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()} className="border-b ">
+                {row.cells.map((cell) => {
+                  return (
+                    <td
+                      {...cell.getCellProps()}
+                      className="py-3 text-sm px-10  "
+                    >
+                      {cell.render("Cell")}
+                    </td>
+                  );
                 })}
-           
+              </tr>
+            );
+          })}
         </tbody>
-      
-    </table>
-    <div className='flex justify-center items-center gap-2 mt-2'>
-               <span>
-                    Page{' '}
-                    <strong>
-                        {pageIndex + 1} of {pageOptions.length}
-                    </strong>{' '}
-                </span>
-        <button className='border border-black' onClick={() => previousPage()} disabled={!canPreviousPage} >Previous</button>
-        <button className='border border-black' onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
+      </table>
+      <div className="flex justify-center items-center gap-2 mt-10">
+        <button
+          className="px-4 py-1 text-sm font-semibold bg-blue-300 rounded-md"
+          onClick={() => previousPage()}
+          disabled={!canPreviousPage}
+        >
+          Previous
+        </button>
+        <span>
+          <strong className="text-sm mx-1">
+            {pageIndex + 1} Of {pageOptions.length}
+          </strong>{" "}
+        </span>
+        <button
+          className="px-4 py-1 text-sm font-semibold  bg-blue-300 rounded-md"
+          onClick={() => nextPage()}
+          disabled={!canNextPage}
+        >
+          Next
+        </button>
+      </div>
     </div>
-    </>
-  )
+  );
 }
 
 export default Orderstable

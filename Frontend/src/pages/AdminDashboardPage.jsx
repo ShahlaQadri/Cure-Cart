@@ -74,14 +74,14 @@ function CategoryItems({heading,value,color}){
 }
 function AdminDashboardPage() {
   return (
-    <div className="profilePage flex flex-col my-4  w-full h-[100vh] bg-zinc-50/95">
+    <div className="profilePage flex flex-col my-2  w-full h-[90vh] bg-zinc-50/95">
       <div className=" flex  w-full ">
-        <div className="w-[20%] h-[100vh] bg-white rounded-lg text-zinc-700 ">
+        <div className="w-[20%] h-[90vh] bg-white rounded-lg text-zinc-700 ">
           <AdminSideBar />
         </div>
 
-        <div className="main bg-zinc-50/95 px-4 w-[80%] ">
-          <div className="bar  flex items-center h-12 border-b-2">
+        <div className="main bg-zinc-50/95 px-4 w-[80%] overflow-y-auto">
+          {/* <div className="bar  flex items-center h-12 border-b-2">
             <FaSearch className="text-zinc-500 text-[1.2rem]" />
             <input
               type="text"
@@ -94,9 +94,9 @@ function AdminDashboardPage() {
               alt=""
               className="h-10 w-10 mx-2 rounded-full"
             />
-          </div>
+          </div> */}
 
-          <section className="widget-container flex items-stretch gap-16 py-8  justify-between">
+          <section className="widget-container flex items-stretch gap-16 py-6  justify-between">
             <WidgetItem
               percent={80}
               amount={false}
