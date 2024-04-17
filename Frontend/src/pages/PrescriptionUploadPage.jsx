@@ -59,7 +59,7 @@ const PrescriptionUploadPage = () => {
 
         {prescriptionImage && (
           <div className="prescription-preview my-4">
-            <img src={prescriptionImage} alt="Prescription Preview" className="max-w-full h-auto rounded" />
+            <img src={prescriptionImage} alt="Prescription Preview" className="h-[150px] rounded" />
           </div>
         )}
 
