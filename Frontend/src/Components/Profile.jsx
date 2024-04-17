@@ -23,9 +23,9 @@ export default function Profile() {
       <div className="profile border-b border-gray-300 mb-4 rounded-lg   flex p-1">
         <div className="icon text-5xl  rounded-full  bg-white w-24 h-24 text-slate-900 flex items-center justify-center m-4">
           <img
-            src="../../pictures/user.png"
+            src="../../pictures/dashboard user.jpg"
             alt=""
-            className="h-[60px] -zindex-1 "
+            className="h-28 w-28  rounded-full -zindex-1 "
           />
         </div>
         <div className="ml-2 mt-5">

@@ -24,7 +24,7 @@ const categorie = [
 ];
 function WidgetItem ({ percent, value, amount, heading, color })  {
   return (
-    <article className="widget flex row justify-between items-stretch gap-2 bg-white px-8 py-5 rounded-lg shadow-lg w-64">
+    <article className="widget flex row justify-between items-stretch gap-2 bg-white px-6 py-5 rounded-lg shadow-lg w-64">
       <div className="widget-info">
         <p className="text-sm text-zinc-500">{heading}</p>
         <h4 className="font-extrabold text-2xl">
@@ -98,9 +98,16 @@ function AdminDashboardPage() {
 
           <section className="widget-container flex items-stretch gap-16 py-8  justify-between">
             <WidgetItem
-              percent={40}
+              percent={80}
+              amount={false}
+              value={32434}
+              heading="Transactions"
+              color="rgb(255,196,0)"
+            />
+            <WidgetItem
+              percent={96}
               amount={true}
-              value={343534}
+              value={375334}
               heading="Revenue"
               color="rgb(0,115,255)"
             />
@@ -110,14 +117,6 @@ function AdminDashboardPage() {
               value={13}
               heading="Users"
               color="rgb(0,198,202)"
-            />
-
-            <WidgetItem
-              percent={80}
-              amount={false}
-              value={343534}
-              heading="Transactions"
-              color="rgb(255,196,0)"
             />
 
             <WidgetItem

@@ -24,7 +24,7 @@ export default function AdminSideBar() {
                 ? "#2f85ed"
                 : "#63636b",
             }}
-            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400    "
+            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400    "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
               <MdSpaceDashboard className="text-[16px]" />
@@ -43,7 +43,7 @@ export default function AdminSideBar() {
                 ? "#2f85ed"
                 : "#63636b",
             }}
-            className="flex items-center gap-1 px-4 py-1  my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400  "
+            className="flex items-center gap-1 px-4 py-1  my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center">
               <BsBagCheckFill className="text-[16px]" />
@@ -62,7 +62,7 @@ export default function AdminSideBar() {
                 ? "#2f85ed"
                 : "#63636b",
             }}
-            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400  "
+            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px]  hover:bg-blue-100 hover:text-blue-400  "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
               <FaUsers className="text-[16px]" />
@@ -81,7 +81,7 @@ export default function AdminSideBar() {
                 ? "#2f85ed"
                 : "#63636b",
             }}
-            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400  "
+            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
               <FaNoteSticky className="text-[16px]" />
@@ -105,7 +105,7 @@ export default function AdminSideBar() {
                 ? "#2f85ed"
                 : "#63636b",
             }}
-            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400  "
+            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
               <RiCoupon3Fill className="text-[16px]" />
