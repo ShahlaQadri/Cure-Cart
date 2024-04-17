@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export const ADMIN_TRAN_DATA = [
   {
@@ -6,7 +7,7 @@ export const ADMIN_TRAN_DATA = [
     amount: 5100,
     quantity: 5,
     discount: 100,
-    action: "Manage",
+    action: <Link to="/admin/transactions/cddid">Manage</Link>,
   },
   {
     photo: "../../../pictures/div2.png",
@@ -14,7 +15,7 @@ export const ADMIN_TRAN_DATA = [
     amount: 3000,
     quantity: 5,
     discount: 100,
-    action: "Manage",
+    action: <Link to="/admin/transactions/xyzzzzz">Manage</Link>,
   },
   {
     photo: "../../../pictures/div4.png",
@@ -22,7 +23,7 @@ export const ADMIN_TRAN_DATA = [
     amount: 2660,
     quantity: 7,
     discount: 100,
-    action: "Manage",
+    action: <Link to="/admin/transactions/:xyzzzzz">Manage</Link>,
   },
   {
     photo: "../../../pictures/div5.png",
@@ -30,7 +31,7 @@ export const ADMIN_TRAN_DATA = [
     amount: 2500,
     quantity: 8,
     discount: 100,
-    action: "Manage",
+    action: <Link to="/admin/transactions/:xyzzzzz">Manage</Link>,
   },
   {
     photo: "../../../pictures/div6.png",
@@ -38,7 +39,7 @@ export const ADMIN_TRAN_DATA = [
     amount: 3500,
     quantity: 2,
     discount: 100,
-    action: "Manage",
+    action: <Link to="/admin/transactions/:xyzzzzz">Manage</Link>,
   },
   {
     photo: "../../../pictures/div1.png",
@@ -46,7 +47,7 @@ export const ADMIN_TRAN_DATA = [
     amount: 5400,
     quantity: 3,
     discount: 100,
-    action: "Manage",
+    action: <Link to="/admin/transactions/:xyzzzzz">Manage</Link>,
   },
   {
     photo: "../../../pictures/div2.png",
@@ -54,7 +55,7 @@ export const ADMIN_TRAN_DATA = [
     amount: 3700,
     quantity: 7,
     discount: 100,
-    action: "Manage",
+    action: <Link to="/admin/transactions/:xyzzzzz">Manage</Link>,
   },
 ];
 
