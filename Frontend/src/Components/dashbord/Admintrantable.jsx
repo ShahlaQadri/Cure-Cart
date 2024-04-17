@@ -23,7 +23,7 @@ const Admintrantable = () => {
         {
         columns,
         data,
-        initialState: { pageIndex: 0, pageSize: 5 }
+        initialState: { pageIndex: 0, pageSize: 7 }
     },
        usePagination
        )
@@ -57,7 +57,7 @@ const Admintrantable = () => {
                   return (
                     <td
                       {...cell.getCellProps()}
-                      className="py-2 text-sm px-10  "
+                      className="py-3 text-sm px-10  "
                     >
                       {cell.render("Cell")}
                     </td>

@@ -22,6 +22,7 @@ import AdminManageproducts from "./pages/AdminManageProducts";
 import AdminOrders from "./pages/AdminOrders";
 import AdminManageOrder from "./pages/AdminOrderInfo";
 import PrescriptionUploadPage from "./pages/PrescriptionUploadPage";
+import AdminDashboardPage from "./pages/AdminDashboardPage";
 
 function App() {
   
@@ -43,7 +44,7 @@ function App() {
           <Route path="/upload-presciption" element={<PrescriptionUploadPage />} />
 
           {/* DAshbord */}
-          <Route path="/admin/dashboard" element={<Adminproducts />} />
+          <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
           <Route path="/admin/products" element={<Adminproducts />} />
           <Route path="/admin/customers" element={<Admincustomers />} />
           <Route path="/admin/transactions" element={<AdminOrders />} />
