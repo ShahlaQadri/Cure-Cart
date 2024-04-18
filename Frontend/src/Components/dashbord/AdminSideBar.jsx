@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 export default function AdminSideBar() {
   return (
-    <div className="aside  h-[90vh]  px-3 pl-7 pt-6 overflow-hidden    shadow-r-xl text-zinc-700 font-extralight">
+    <div className="aside relative h-[90vh]  px-3 pl-7 pt-6 overflow-hidden    shadow-r-xl text-zinc-700 font-extralight">
       {/* <img src="../../../pictures/smalllogo.png" alt="Cure Cart" height={10} width={150} /> */}
       <div className="options  rounded-lg ">
         <ul className="font-lighter">
@@ -24,7 +24,7 @@ export default function AdminSideBar() {
                 ? "#2f85ed"
                 : "#63636b",
             }}
-            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400    "
+            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400    "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
               <MdSpaceDashboard className="text-[16px]" />
@@ -43,7 +43,7 @@ export default function AdminSideBar() {
                 ? "#2f85ed"
                 : "#63636b",
             }}
-            className="flex items-center gap-1 px-4 py-1  my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400  "
+            className="flex items-center gap-1 px-4 py-1  my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center">
               <BsBagCheckFill className="text-[16px]" />
@@ -62,7 +62,7 @@ export default function AdminSideBar() {
                 ? "#2f85ed"
                 : "#63636b",
             }}
-            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400  "
+            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px]  hover:bg-blue-100 hover:text-blue-400  "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
               <FaUsers className="text-[16px]" />
@@ -81,7 +81,7 @@ export default function AdminSideBar() {
                 ? "#2f85ed"
                 : "#63636b",
             }}
-            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400  "
+            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
               <FaNoteSticky className="text-[16px]" />
@@ -105,7 +105,7 @@ export default function AdminSideBar() {
                 ? "#2f85ed"
                 : "#63636b",
             }}
-            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-extrabold hover:bg-blue-100 hover:text-blue-400  "
+            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
               <RiCoupon3Fill className="text-[16px]" />
@@ -115,6 +115,19 @@ export default function AdminSideBar() {
             </Link>
           </li>
         </ul>
+        <div className="profile absolute bottom-0 mb-4 w-full left-0 border-t border-gray-300  items-center flex p-1">
+          <div className="icon text-5xl ml-6  bg-white w-14 h-14 text-slate-900 flex items-center justify-center ">
+            <img
+              src="../../pictures/dashboard user.jpg"
+              alt=""
+              className="h-14 w-14  rounded-full -zindex-1 "
+            />
+          </div>
+          <div className="ml-2 ">
+            <p className="font-bold text-md ">Salman Arif</p>
+            <p className="text-gray-600 text-xs">sofisalman9906@gmail.com</p>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -75,11 +75,11 @@ export const ADMIN_TRAN_COLUMNS = [
       <div
         className={`${
           value === "Shipped"
-            ? "text-red-500"
+            ? "text-red-500 bg-red-100  border-red-400"
             : value === "Delivered"
-            ? "text-green-400"
-            : "text-purple-600"
-        } px-2 text-md  py-1 `}
+            ? "text-green-400 bg-green-100  border-green-400"
+            : "text-yellow-600 bg-yellow-100  border-yellow-400"
+        } px-2 text-md  py-1 border-2 rounded-lg text-center`}
       >
         {value}
       </div>

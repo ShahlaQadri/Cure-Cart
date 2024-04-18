@@ -14,7 +14,7 @@ export default function AdminManageproducts() {
           <div className="picture mx-auto w-[30%] bg-white h-[83vh] shadow-lg rounded   mb-4">
             <div className="bg-white py-2 relative">
               <div className="px-4 py-2  flex justify-end">
-                <div className="rounded-full mb-3 flex items-end bg-[#E3F6EE] text-sm text-green-400  w-fit px-4 py-1">
+                <div className="rounded-full mb-3 flex items-end bg-[#E3F6EE] text-sm text-green-400  w-fit px-4 py-1 border-2 border-green-400">
                   20 Available
                 </div>
               </div>

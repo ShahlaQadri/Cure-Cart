@@ -62,7 +62,11 @@ function Searchbar() {
             >
               <Link to="/myprofile">
                 {/* <ImExit className="text-xl  " /> */}
-                <img src="../../../pictures/user.png" alt="" className="w-7" />
+                <img
+                  src="../../../pictures/dashboard user.jpg"
+                  alt=""
+                  className="w-10 h-10 rounded-full"
+                />
               </Link>
             </div>
           )}

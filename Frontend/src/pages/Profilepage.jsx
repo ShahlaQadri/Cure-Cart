@@ -7,15 +7,8 @@ import { TiArrowBack } from "react-icons/ti";
 export default function Profilepage() {
   return (
     <div className="profilePage flex flex-col">
-      <div className="relative w-full ">
-        <Link
-          to="/"
-          className="absolute top-3 left-20 bg-gray-50 rounded-full shadow-lg p-4"
-        >
-          <TiArrowBack className="text-3xl" />
-        </Link>
-      </div>
-      <div className="m-10 flex gap-10 w-[80%]  mx-auto">
+     
+      <div className="m-10 flex gap-10 w-[85%]  mx-auto">
         <Profile />
         <div className="main w-[70%] rounded-lg">
           <div className="information rounded-lg flex bg-[#f3fdff]">

@@ -39,7 +39,7 @@ const Admintrantable = () => {
               {headerGroup.headers.map((column) => (
                 <th
                   {...column.getHeaderProps()}
-                  className="py-5 px-10 text-left  my-10"
+                  className="py-5 px-10 text-left font-bold text-md my-10"
                 >
                   {column.render("Header")}
                 </th>
@@ -82,7 +82,7 @@ const Admintrantable = () => {
           </strong>{" "}
         </span>
         <button
-          className="px-4 py-1 text-sm font-semibold bg-blue-300 rounded-md"
+          className="px-4 py-1 text-sm font-semibold  bg-blue-300 rounded-md"
           onClick={() => nextPage()}
           disabled={!canNextPage}
         >
