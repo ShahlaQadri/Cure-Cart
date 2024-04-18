@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
-import { GiShoppingCart } from "react-icons/gi";
 import { CiUser } from "react-icons/ci";
 import { SlHandbag } from "react-icons/sl";
 
@@ -16,7 +15,7 @@ function Searchbar() {
   return (
     <div className="navbar-elements flex justify-between px-2 md:flex md:space-x-8 md:justify-between md:items-center md:w-full md:px-5">
       {/* logo */}
-      <div className="logo px-1 md:px-8 md:mr-10 ">
+      <div className="logo px-2 md:px-8 md:mr-10 ">
         <Link to="/">
           <img
             src="../../../pictures/smalllogo.png"
@@ -33,7 +32,7 @@ function Searchbar() {
           <input
             type="text"
             placeholder={`Search products...`}
-            className="border border-zinc-200 outline-none :focus w-[8rem] md:w-[32rem] py-2 rounded-full bg-[#FFFFFF] px-6"
+            className="border border-zinc-200 outline-none mr-4 w-[8rem] md:w-[32rem] py-1 md:py-2 rounded-full bg-[#FFFFFF] px-6"
           />
         </div>
       </div>

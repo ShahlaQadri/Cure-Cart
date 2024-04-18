@@ -38,14 +38,14 @@ export default function Prescription() {
 
       <div className="prescription bg-[#A0E1E1] h-[180px] md:h-[300px] w-[50] flex flex-col items-center justify-center rounded-2xl">
         <div className="flex">
+          <div className="mt-24 md:mt-0">
           <img
-            className=""
+            className="h-[120px] md:h-[200px]"
             src="../../pictures/callus.webp"
             alt=""
-            height={40}
-            width={250}
           />
-          <div className="font-bold text-2xl mt-7 text-center  p-4 md:text-2xl ">
+          </div>
+          <div className="font-bold text-sm mt-24 md:mt-7  text-center  p-4 md:text-2xl ">
             <p className="">Call us and order medicines</p>
             <p className="text-green-600">7006622199</p>
             <p>Working hours 9am to 9pm</p>
@@ -54,7 +54,7 @@ export default function Prescription() {
         <div className=" ml-10 mt-4 items-center w-full px-10 gap-2 flex">
           <Link
             to="/upload-presciption"
-            className="bg-white rounded-full mt-2 w-5 h-5 p-4 md:w-8 md:h-8 md:p-5 flex items-center justify-center text-xl  "
+            className="bg-white rounded-full mb-24  md:mb-0 w-5 h-5 p-4 md:w-8 md:h-8 md:p-5 flex items-center justify-center text-xl  "
           >
             <span>
               <FcMissedCall />
@@ -63,7 +63,7 @@ export default function Prescription() {
 
           <Link
             to="/upload-presciption"
-            className="button bg-white text-black px-3 py-2 mt-2 md:px-10 md:py-[9px] rounded-full text-sm"
+            className="button bg-white text-black px-3 py-1 mb-24 md:mb-0 md:px-10 md:py-[9px] rounded-full text-sm"
           >
             Call Us For Orders
           </Link>
