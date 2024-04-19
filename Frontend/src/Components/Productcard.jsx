@@ -16,7 +16,7 @@ export default function Productcard({ img, name, desc }) {
           {name}
         </p>
         <p className="hidden sm:block md:visible md:text-center md:text-zinc-700 md:text-sm">
-          {desc}
+          it is best product
         </p>
         <div className="flex text-center px-2 mt-2 md:px-5 md:mt-5 md:mb-5 justify-between items-center w-full ">
           <span className="line-through text-xs text-red-700">$600</span>

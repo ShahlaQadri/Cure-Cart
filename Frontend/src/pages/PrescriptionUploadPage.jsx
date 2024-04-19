@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FaFileUpload } from "react-icons/fa";
+import { IoImages } from "react-icons/io5";
+import { MdCancel } from "react-icons/md";
 import { GrGallery } from "react-icons/gr";
 import { FcAddImage } from "react-icons/fc";
 
@@ -25,8 +26,8 @@ const PrescriptionUploadPage = () => {
   }
 
   return (
-    <div className="flex w-[80%] mx-auto my-8 ">
-      <div className="content w-[60%]">
+    <div className="flex w-[80%] gap-20 mx-auto my-8 ">
+      <div className="content w-[60%] ">
         <div className="space-y-1">
           <p
             className="text-xl font-extrabold text-zinc-600 Class
@@ -40,7 +41,7 @@ tracking-tighter"
           </p>
         </div>
 
-        <div className="upload flex gap-4 pt-6">
+        <div className="upload flex gap-4  pt-6">
           <div className="border border-blue-600 rounded-lg justify-center p-4 mb-2 mr-2 flex items-center w-[35%] bg-[#EAF7FF] h-[120px]">
             <label htmlFor="upload-prescription" className="cursor-pointer">
               <input
@@ -67,7 +68,7 @@ tracking-tighter"
                 onChange={handleFileChange}
               />
               <div className="flex  flex-col gap-2 justify-center items-center ">
-                <GrGallery className="text-2xl text-blue-500 " />
+                <IoImages className="text-2xl text-[#8CBCD6] " />
                 <p className="text-sm font-semibold text-blue-500">
                   Past Prescription
                 </p>
@@ -79,13 +80,13 @@ tracking-tighter"
 
         {prescriptionImage && (
           <div>
-            <p className="">Uploaded presciption</p>
-            <div className="relative prescription-preview my-6 w-auto ">
+            <p className="font-bold">Uploaded presciption</p>
+            <div className="relative prescription-preview my-6 w-auto rounded-lg    ">
               <button
                 onClick={removeHandler}
-                className="absolute -top-2 left-[100px] text-md text-white h-6 w-6 bg-slate-400 rounded-full"
+                className="absolute -top-2 left-[100px] text-[#8CBCD6]   rounded-full"
               >
-                x
+                <MdCancel className="text-2xl bg-white rounded-full" />
               </button>
               <img
                 src={prescriptionImage}
@@ -107,9 +108,13 @@ tracking-tighter"
         </div>
       </div>
 
-      <div className="proceed w-[50%]">
+      <div className="proceed  w-[40%]">
         <div className="flex justify-center items-center">
-          <img className="h-[330px]" src="../../pictures/RX prescription flat vector illustration.jpg" alt="" />
+          <img
+            className="h-[300px]"
+            src="../../pictures/RX prescription flat vector illustration.jpg"
+            alt=""
+          />
         </div>
         <div className="flex justify-center items-center">
           <button className="bg-blue-500 px-36 py-2 text-xl font-semibold text-white rounded-lg">
