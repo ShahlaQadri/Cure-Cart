@@ -14,6 +14,7 @@ export default function ProductDetails() {
             <TiArrowBack className="text-xl md:text-3xl" />
           </Link>
         </div>
+       
         <div className="image flex justify-center items-center m-5 md:m-10  h-[20vh] md:h-[60vh] w-full md:w-[40%]">
           <img className="p-[3rem] md:p-[6rem] w-[60%] md:w-[80%]" src="../../pictures/div4.png" alt="vicks vaporub" />
         </div>
