@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 
 export default function ProductDetails() {
   return (
-    <div>
-      <div className="flex mx-10 bg-gray-50 rounded-3xl">
+    <div className="container mx-auto px-4 md:px-10 w-fit">
+      <div className="flex flex-col md:flex-row bg-gray-50 rounded-3xl">
         <div className="relative">
           <Link
             to="/"
             className="absolute top-3 left-10  hover:bg-zinc-100  rounded-full shadow-lg p-4"
           >
-            <TiArrowBack className="text-3xl" />
+            <TiArrowBack className="text-xl md:text-3xl" />
           </Link>
         </div>
         <div className="image flex justify-center items-center m-10 h-[60vh] w-[40%]">
-          <img className="p-[6rem] w-[80%]" src="pictures/div4.png" alt="" />
+          <img className="p-[3rem] md:p-[6rem] w-[40%] md:w-[80%]" src="pictures/div4.png" alt="" />
         </div>
 
-        <div className="description m-10 p-10 w-[60%]">
+        <div className="description m-5 p-5 md:m-10 md:p-10 w-[60%]">
           <div className="space-y-2 border-b border-gray-600 pb-6">
             <p className="text-3xl leading-none">Vicks Vaporub 25 ml</p>
             <p className="text-gray-400  font-semibold text-md ">
@@ -46,9 +46,7 @@ export default function ProductDetails() {
                 <p className="text-xl font-bold">$22.80</p>
                 <p className="text-lg text-gray-500">$3.40/ML</p>
               </div>
-              {/* <p className='text-sm text-pink-600'>Save 5%</p> */}
             </div>
-            <div className=""></div>
           </div>
 
           <div className="mt-0 flex items-center w-[500px] justify-between">
@@ -101,7 +99,7 @@ export default function ProductDetails() {
         </div>
       </div>
 
-      <div className="details  mx-10 bg-gray-50 rounded-3xl m-4 p-4">
+      <div className="details  mx-4 md:mx-10 bg-gray-50 rounded-3xl m-4 p-4">
         <div className="about pb-4">
           <div className="flex gap-4">
             {" "}
