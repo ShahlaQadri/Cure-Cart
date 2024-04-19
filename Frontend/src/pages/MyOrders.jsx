@@ -9,14 +9,14 @@ import Orderstable from '../Components/Orderstable';
 function MyOrders() {
   return (
     <div className="profilePage flex flex-col w-[100%]">
-      <div className="relative w-full ">
+      {/* <div className="relative w-full ">
         <Link
           to="/"
           className="absolute top-3 left-10 bg-gray-50 rounded-full shadow-lg p-4"
         >
           <TiArrowBack className="text-3xl" />
         </Link>
-      </div>
+      </div> */}
       <div className="m-10 flex gap-10 w-[85%]  mx-auto">
         <Profile />
         <div className="main w-[70%] h-[90vh]  rounded-lg">

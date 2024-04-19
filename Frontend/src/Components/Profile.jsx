@@ -7,6 +7,10 @@ import { TbNotes } from "react-icons/tb";
 import { IoLogOut } from "react-icons/io5";
 
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { BsBagCheckFill } from "react-icons/bs";
+import { MdSpaceDashboard } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
+import { FaNoteSticky } from "react-icons/fa6";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -19,74 +23,70 @@ export default function Profile() {
   };
   useEffect(() => {}, [first]);
   return (
-    <div className="aside w-[30%] overflow-hidden bg-[#f3fdff] rounded-lg text-zinc-700 font-extralight">
-      <div className="profile border-b border-gray-300 mb-4 rounded-lg   flex p-1">
-        <div className="icon text-5xl  rounded-full  bg-white w-24 h-24 text-slate-900 flex items-center justify-center m-4">
+    <div className="aside realative h-[90vh]  rounded-lg border-2 px-3 pl-7  overflow-hidden    shadow-r-xl text-zinc-700 font-extralight">
+      <div className="profile  mb-4 w-full h-32 left-0 border-b border-gray-300  items-center flex p-1">
+        <div className="icon text-5xl ml-6  bg-white w-20 h-20 text-slate-900 flex items-center justify-center ">
           <img
             src="../../pictures/dashboard user.jpg"
             alt=""
-            className="h-28 w-28  rounded-full -zindex-1 "
+            className="h-20 w-20  rounded-full -zindex-1 "
           />
         </div>
-        <div className="ml-2 mt-5">
-          <p className="font-bold text-xl py-2">Salman Arif</p>
+        <div className="ml-2 ">
+          <p className="font-bold text-md ">Salman Arif</p>
           <p className="text-gray-600 text-xs">sofisalman9906@gmail.com</p>
-          <p className="text-gray-600 text-xs">+91-7006622199</p>
         </div>
       </div>
-      <div className="options  rounded-lg ">
+      <div className="options relative h-[70vh] rounded-lg">
         <ul className="font-lighter">
-          <li className="flex items-center gap-2 p-4 border-b border-gray-300">
-            <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center hover:text-green-900">
-              <BiSolidUser className="text-slate-950" />
+          <li
+            style={{
+              backgroundColor: location.pathname.includes("/myprofile")
+                ? "#DBEAFE"
+                : "white",
+              color: location.pathname.includes("/myprofile")
+                ? "#2f85ed"
+                : "#63636b",
+            }}
+            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400    "
+          >
+            <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
+              <BiSolidUser className="text-[16px]" />
             </div>
-            <Link to="/myprofile" className="hover:underline ">
+            <Link to="/myprofile" className="">
               Account Information
             </Link>
           </li>
 
-          <li className="flex gap-2 items-center p-4 border-b border-gray-300">
-            <div className="icon text-xl rounded-full w-8 h-8  flex items-center justify-center">
-              <AiFillHeart />
+          <li
+            style={{
+              backgroundColor: location.pathname.includes("/myorders")
+                ? "#DBEAFE"
+                : "white",
+              color: location.pathname.includes("/myorders")
+                ? "#2f85ed"
+                : "#63636b",
+            }}
+            className="flex items-center gap-1 px-4 py-1  my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
+          >
+            <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center">
+              <BsBagCheckFill className="text-[16px]" />
             </div>
-            <Link to="/cart" className="hover:underline">
-              My Wishlist
-            </Link>
-          </li>
-
-          <li className="flex gap-2 p-4 items-center border-b border-gray-300">
-            <div className="icon text-2xl rounded-full w-8 h-8  flex items-center justify-center">
-              <TbDiscountCheckFilled />
-            </div>
-            <Link to="/myorders" className="hover:underline">
+            <Link to="/myorders" className="">
               My Orders
             </Link>
           </li>
 
-          <li className="flex gap-2 p-4  items-center border-b  border-gray-300">
-            <div className="icon text-2xl rounded-full w-8 h-8  flex items-center justify-center">
-              <TbTruckDelivery />
+          
+        </ul>
+        <ul>
+          <li className="flex absolute bottom-0 w-full items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400    ">
+            <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
+              <IoLogOut className="text-[16px]" />
             </div>
-            <a href="#" className="hover:underline">
-              Delivery Addresses
-            </a>
-          </li>
-
-          <li className="flex gap-2 p-4 items-center">
-            <div className="icon text-xl rounded-full w-8 h-8 flex items-center justify-center">
-              <TbNotes />
-            </div>
-            <a href="#" className="hover:underline">
-              My Subscriptions
-            </a>
-          </li>
-          <li className="flex gap-2 p-4  bg-red-500 text-white items-center ">
-            <div className="icon  rounded-full w-8 h-8 flex items-center justify-center text-2xl">
-              <IoLogOut />
-            </div>
-            <button onClick={logOut} className="hover:underline ">
-              Log 0ut
-            </button>
+            <Link to="/myprofile" className="">
+              LogOut
+            </Link>
           </li>
         </ul>
       </div>

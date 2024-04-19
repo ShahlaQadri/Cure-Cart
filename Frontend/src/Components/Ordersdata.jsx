@@ -12,11 +12,32 @@ export const ORDERS_DATA = [
 
 
 export const ORDERS_COLUMNS = [
-    { Header: 'Photo', accessor: 'photo', Cell: ({ value }) => <img src={value} alt="Product" className="h-16 w-12" /> },
-    { Header: 'ID', accessor: 'id' },
-    { Header: 'Quantity', accessor: 'quantity' },
-    { Header: 'Discount', accessor: 'discount' },
-    { Header: 'Amount', accessor: 'amount'},
-    { Header: 'Status', accessor: 'status'},
-
+  {
+    Header: "Photo",
+    accessor: "photo",
+    Cell: ({ value }) => (
+      <img src={value} alt="Product" className="h-16 w-12" />
+    ),
+  },
+  { Header: "ID", accessor: "id" },
+  { Header: "Quantity", accessor: "quantity" },
+  { Header: "Discount", accessor: "discount" },
+  { Header: "Amount", accessor: "amount" },
+  {
+    Header: "Status",
+    accessor: "status",
+    Cell: ({ value }) => (
+      <div
+        className={`${
+          value === "Shipped"
+            ? "text-red-500 bg-red-100  border-red-400"
+            : value === "Delivered"
+            ? "text-green-400 bg-green-100  border-green-400"
+            : "text-yellow-600 bg-yellow-100  border-yellow-400"
+        } px-2 text-md  py-1 border-2 rounded-lg text-center`}
+      >
+        {value}
+      </div>
+    ),
+  },
 ];

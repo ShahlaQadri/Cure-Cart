@@ -15,7 +15,7 @@ export default function ProductDetails() {
           </Link>
         </div>
         <div className="image flex justify-center items-center m-10 h-[60vh] w-[40%]">
-          <img className="p-[6rem] w-[80%]" src="pictures/div4.png" alt="" />
+          <img className="p-[6rem] w-[80%]" src="../../pictures/div2.png" alt="" />
         </div>
 
         <div className="description m-10 p-10 w-[60%]">
