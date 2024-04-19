@@ -109,7 +109,7 @@ tracking-tighter"
 
       <div className="proceed w-[50%]">
         <div className="flex justify-center items-center">
-          <img className="h-[230px]" src="pictures/proceed.jpg" alt="" />
+          <img className="h-[330px]" src="../../pictures/RX prescription flat vector illustration.jpg" alt="" />
         </div>
         <div className="flex justify-center items-center">
           <button className="bg-blue-500 px-36 py-2 text-xl font-semibold text-white rounded-lg">
