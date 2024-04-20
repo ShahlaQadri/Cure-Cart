@@ -3,7 +3,10 @@ import AdminSideBar from '../Components/dashbord/AdminSideBar';
 import { FaRegBell, FaSearch } from 'react-icons/fa';
 import { HiTrendingDown, HiTrendingUp } from "react-icons/hi";
 import { BarChart } from '../Components/dashbord/Chart';
-
+import { BsBagCheckFill } from "react-icons/bs";
+import { MdAutoGraph } from "react-icons/md";
+import { GrTransaction } from "react-icons/gr";
+import { FaUsers } from "react-icons/fa";
 const categorie = [
   {
     heading: "Medicine",
@@ -22,13 +25,40 @@ const categorie = [
     value: 88,
   },
 ];
-function WidgetItem ({ percent, value, amount, heading, color })  {
+function toRGBA(color, opacity) {
+  if (color.startsWith("#")) {
+    // Convert HEX to RGBA
+    const hex = color.replace("#", "");
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+  } else if (color.startsWith("rgb")) {
+   
+    return color.replace(")", `, ${opacity})`).replace("rgb", "rgba");
+  }
+  return color; 
+}
+
+function WidgetItem ({ percent, value, amount, heading, color,icon })  {
+   const backgroundColor = toRGBA(color, 0.1);
   return (
     <article className="widget flex row justify-between items-stretch gap-2 bg-white px-6 py-5 rounded-lg shadow-lg w-64">
       <div className="widget-info">
-        <p className="text-sm text-zinc-500">{heading}</p>
+        <p className="text-sm flex gap-2 text-zinc-500">
+          <span
+            className="rounded-full h-6 w-6 flex items-center justify-center"
+            style={{
+              color: color, 
+              backgroundColor: backgroundColor, 
+            }}
+          >
+            {icon}
+          </span>
+          {heading}
+        </p>
         <h4 className="font-extrabold text-2xl">
-          {amount ? `$${value}` : value}
+          {amount ? `₹${value}` : value}
         </h4>
         {percent > 0 ? (
           <span className="text-green-400 flex items-center gap-1 text-sm">
@@ -103,6 +133,7 @@ function AdminDashboardPage() {
               value={32434}
               heading="Transactions"
               color="rgb(255,196,0)"
+              icon={<GrTransaction />}
             />
             <WidgetItem
               percent={96}
@@ -110,6 +141,7 @@ function AdminDashboardPage() {
               value={375334}
               heading="Revenue"
               color="rgb(0,115,255)"
+              icon={<MdAutoGraph />}
             />
             <WidgetItem
               percent={-14}
@@ -117,6 +149,7 @@ function AdminDashboardPage() {
               value={13}
               heading="Users"
               color="rgb(0,198,202)"
+              icon={<FaUsers />}
             />
 
             <WidgetItem
@@ -125,6 +158,7 @@ function AdminDashboardPage() {
               value={534}
               heading="Products"
               color="rgb(76,0,255)"
+              icon={<BsBagCheckFill />}
             />
           </section>
 
