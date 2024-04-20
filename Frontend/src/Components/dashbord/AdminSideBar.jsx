@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaUsers } from "react-icons/fa";
-import { FaNoteSticky } from "react-icons/fa6";
+import { BsBoxSeamFill } from "react-icons/bs";
 import { MdSpaceDashboard } from "react-icons/md";
 import { BsBagCheckFill } from "react-icons/bs";
 import { RiCoupon3Fill } from "react-icons/ri";
@@ -27,7 +27,7 @@ export default function AdminSideBar() {
             className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400    "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
-              <MdSpaceDashboard className="text-[16px]" />
+              <MdSpaceDashboard className="text-[17px]" />
             </div>
             <Link to="/admin/dashboard" className="">
               Dashboard
@@ -46,7 +46,7 @@ export default function AdminSideBar() {
             className="flex items-center gap-1 px-4 py-1  my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center">
-              <BsBagCheckFill className="text-[16px]" />
+              <BsBagCheckFill className="text-[17px]" />
             </div>
             <Link to="/admin/products" className="">
               Product
@@ -65,7 +65,7 @@ export default function AdminSideBar() {
             className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px]  hover:bg-blue-100 hover:text-blue-400  "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
-              <FaUsers className="text-[16px]" />
+              <FaUsers className="text-[17px]" />
             </div>
             <Link to="/admin/customers" className="">
               Customer
@@ -84,10 +84,10 @@ export default function AdminSideBar() {
             className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
-              <FaNoteSticky className="text-[16px]" />
+              <BsBoxSeamFill className="text-[17px]" />
             </div>
             <Link to="/admin/transactions" className="">
-              Transaction
+              Orders
             </Link>
           </li>
         </ul>
