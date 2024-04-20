@@ -31,7 +31,7 @@ const Admincustable = () => {
 
   return (
     <div className="px-10">
-      <table {...getTableProps()} className="table-auto  w-[95%] ">
+      <table {...getTableProps()} className="table-auto  w-[100%]">
         <thead className="text-md text-zinc-500 py-10">
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>

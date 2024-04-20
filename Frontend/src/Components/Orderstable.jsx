@@ -32,7 +32,7 @@ const Orderstable = () => {
 
   return (
     <div className="">
-      <table {...getTableProps()} className="table-auto  w-full ">
+      <table {...getTableProps()} className="table-auto  w-full  ">
         <thead className="text-md text-zinc-500 py-10">
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>

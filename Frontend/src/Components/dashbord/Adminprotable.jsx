@@ -31,7 +31,7 @@ const Adminprotable = () => {
 
   return (
     <div className="">
-      <table {...getTableProps()} className="table-auto  w-[95%] ">
+      <table {...getTableProps()} className="table-auto w-[100%]">
         <thead className="text-md text-zinc-500 py-10">
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -58,8 +58,7 @@ const Adminprotable = () => {
                       {...cell.getCellProps()}
                       className="py-2 text-sm px-20  "
                     >
-                      
-                      {cell.render("Cell") }
+                      {cell.render("Cell")}
                     </td>
                   );
                 })}
