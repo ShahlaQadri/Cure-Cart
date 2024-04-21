@@ -8,9 +8,9 @@ export default function Checkoutpage() {
       <div className="relative">
         <Link
           to="/cart"
-          className="absolute top-3 left-10 bg-zinc-50 hover:bg-[#2787c7]  rounded-full shadow-lg p-4"
+          className="absolute top-3 left-6 md:left-10 bg-zinc-50 hover:bg-[#2787c7]  rounded-full shadow-lg p-2 md:p-4"
         >
-          <TiArrowBack className="text-3xl" />
+          <TiArrowBack className="text-xl md:text-3xl" />
         </Link>
       </div>
       <div className="max-w-3xl mx-auto px-4 py-8 mb-20 ">

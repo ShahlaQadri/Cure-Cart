@@ -8,7 +8,7 @@ export default function Prescription() {
     <div className="grid grid-cols-1 gap-10 py-4 mx-4 md:grid md:grid-cols-2 md:gap-14 md:py-2 md:mx-20">
       <div className="prescription bg-[#FFEB68] h-[180px] md:h-[300px] w-[50] flex flex-col items-center justify-center rounded-2xl">
         <div className="img-con h-[120px] pt-2 md:h-[180px] w-[90%] bg-white rounded-xl md:mb-6 border-dashed border-2 border-zinc-500 pl-8 md:pt-4">
-          <h1 className="w-3/4 font-bold text-xl md:mb-2 md:mx-4 md:mt-4 md:mb-2 md:text-2xl">
+          <h1 className="w-3/4 font-bold text-xl md:mb-2 md:mx-4 md:mt-4 md:text-2xl">
             Upload prescription to place order
           </h1>
           <p className="md:mx-4 text-xs font-semibold text-zinc-500 md:my-2">
@@ -17,13 +17,13 @@ export default function Prescription() {
           </p>
         </div>
 
-        <div className=" items-center w-full px-10 gap-2 flex">
+        <div className="items-center w-full px-10 gap-2 flex">
           <Link
             to="/upload-presciption"
-            className="bg-black mt-2 rounded-full md:mt-2 w-5 h-5 p-4 md:w-8 md:h-8 md:p-5 flex items-center justify-center text-sm  "
+            className=" bg-black mt-2 rounded-full md:mt-2 w-5 h-5 p-4 md:w-8 md:h-8 md:p-5 flex items-center justify-center text-sm "
           >
             <span>
-              <BsFileEarmarkArrowUpFill className="text-white" />
+            <BsFileEarmarkArrowUpFill className="text-white" />
             </span>
           </Link>
 
@@ -31,7 +31,7 @@ export default function Prescription() {
             to="/upload-presciption"
             className="button bg-black mt-2 text-white px-3 py-2 md:mt-2 md:px-5 md:py-3 rounded-full text-xs"
           >
-            Order Via Prescription
+            Call Us For Orders
           </Link>
         </div>
       </div>
@@ -72,3 +72,5 @@ export default function Prescription() {
     </div>
   );
 }
+
+
