@@ -76,7 +76,7 @@ tracking-tighter"
             </label>
           </div>
         </div>
-        <div class="border-4 rounded-full border-gray-300 my-6"></div>
+        <div className="border-4 rounded-full border-gray-300 my-6"></div>
 
         {prescriptionImage && (
           <div>
