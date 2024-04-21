@@ -1,10 +1,7 @@
-import { useState } from "react";
-
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Components/header/Header";
 import Homepage from "./pages/Homepage";
-
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Ccfooter from "./Components/footer/Ccfooter";

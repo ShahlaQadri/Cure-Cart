@@ -31,7 +31,7 @@ export default function Prescription() {
             to="/upload-presciption"
             className="button bg-black mt-2 text-white px-3 py-2 md:mt-2 md:px-5 md:py-3 rounded-full text-xs"
           >
-            Call Us For Orders
+            Order Via Presciption 
           </Link>
         </div>
       </div>

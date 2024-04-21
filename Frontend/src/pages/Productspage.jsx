@@ -20,7 +20,7 @@ export default function Productspage() {
         </h1>
       </div>
 
-      <div className="all-products grid grid-cols-2 md:grid-cols-5 gap-10 py-10 mb-5 mx-2 relative">
+      <div className="all-products grid grid-cols-2 gap-10 sm:gap-10 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:gap-10 py-10 mb-5 mx-2 relative">
         <div className="absolute ml-2 pt-1">
           <div className="text-gray-400 -semibold">ALL PRODUCTS</div>
         </div>

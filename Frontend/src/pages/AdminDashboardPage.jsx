@@ -43,7 +43,7 @@ function toRGBA(color, opacity) {
 function WidgetItem ({ percent, value, amount, heading, color,icon })  {
    const backgroundColor = toRGBA(color, 0.1);
   return (
-    <article className="widget flex row justify-between items-stretch gap-2 bg-white px-6 py-5 rounded-lg shadow-lg w-64">
+    <article className="widget flex row gap-3 justify-between items-stretch  bg-white px-6 py-4 rounded-lg shadow-lg ">
       <div className="widget-info">
         <p className="text-sm flex gap-2 text-zinc-500">
           <span
@@ -126,7 +126,7 @@ function AdminDashboardPage() {
             />
           </div> */}
 
-          <section className="widget-container flex items-stretch gap-16 py-6  justify-between">
+          <section className="widget-container flex items-stretch my-4  justify-between">
             <WidgetItem
               percent={80}
               amount={false}
