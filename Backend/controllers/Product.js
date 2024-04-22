@@ -1,6 +1,9 @@
+import e from "express";
+import { myCache } from "../index.js";
 import ErrorHandler, { errorMiddleware } from "../middlewares/error.js";
 import Product from "../models/Product.js";
 import { rm } from "fs";
+import { invalidateCache } from "../utils/features.js";
 
 export const newProduct = async (req, res, next) => {
   try {
@@ -23,6 +26,7 @@ export const newProduct = async (req, res, next) => {
       discount,
       photo: photo?.path,
     });
+    await invalidateCache({product:true})
     return res.status(201).json({
       success: true,
       msg: "Product Added",
@@ -33,7 +37,14 @@ export const newProduct = async (req, res, next) => {
 };
 export const bestDeals = async (req, res, next) => {
   try {
-    const products = await Product.find({}).sort({ discount: -1 }).limit(5);
+    let products;
+    if (myCache.has("best-deals"))
+      products = JSON.parse(myCache.get("best-deals"));
+
+    else{
+      products = await Product.find({}).sort({ discount: -1 }).limit(5);
+      myCache.set("best-deals", JSON.stringify(products));
+    }
 
     return res.status(200).json({
       success: true,
@@ -45,9 +56,16 @@ export const bestDeals = async (req, res, next) => {
 };
 export const babyBestDeals = async (req, res, next) => {
   try {
-    const products = await Product.find({ category: "baby food" })
+    let products;
+    if (myCache.has("baby-deals"))
+      products = JSON.parse(myCache.get("baby-deals"));
+
+    else{
+     products = await Product.find({ category: "baby food" })
       .sort({ discount: -1 })
       .limit(5);
+      myCache.set("baby-deals",JSON.stringify(products))
+    }
 
     return res.status(200).json({
       success: true,
@@ -59,7 +77,13 @@ export const babyBestDeals = async (req, res, next) => {
 };
 export const getAllProducts = async (req, res, next) => {
   try {
-    const products = await Product.find({});
+    let products;
+    if(myCache.has("all-products"))
+    products = JSON.parse(myCache.get("all-products"))
+  else{
+    products = await Product.find({});
+    myCache.set("all-products",JSON.stringify(products))
+  }
 
     return res.status(200).json({
       success: true,
@@ -71,7 +95,13 @@ export const getAllProducts = async (req, res, next) => {
 };
 export const getCategories = async (req, res, next) => {
   try {
-    const categories = await Product.distinct("category");
+    let categories;
+    if(myCache.has("categories"))
+    categories = JSON.parse(myCache.get("categories"));
+    else{
+     categories = await Product.distinct("category");
+     myCache.set("categories",JSON.stringify(categories));
+    }
 
     return res.status(200).json({
       success: true,
@@ -85,10 +115,18 @@ export const getCategories = async (req, res, next) => {
 export const getProductDetails = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const product = await Product.findById(id);
-    if (!product) {
-      return next(new ErrorHandler("Product Not Found", 404));
+    let product;
+    if(myCache.has(`product-${id}`)){
+    product = JSON.parse(myCache.get(`product-${id}`));
     }
+  else{
+     const product = await Product.findById(id);
+     if (!product) {
+       return next(new ErrorHandler("Product Not Found", 404));
+     }
+     myCache.set(`product-${id}`,JSON.stringify(product))
+  }
+   
     return res.status(200).json({
       success: true,
       product,
@@ -108,6 +146,7 @@ export const deleteProduct = async (req, res, next) => {
     console.log("Photo Deleted");
   });
   await product.deleteOne();
+  await invalidateCache({ product: true });
   return res.status(200).json({
     success: true,
     msg: "Product Deleted Successfully",
@@ -137,6 +176,7 @@ export const updateProduct = async (req, res, next) => {
     if (discount) product.discount = discount;
 
     await product.save();
+    await invalidateCache({ product: true });
     return res.status(200).json({
       success: true,
       msg: "Product Updated Successfully",

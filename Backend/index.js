@@ -2,6 +2,7 @@ import express from "express";
 import  cors from"cors";
 import { connectDb } from "./database.js";
 import cookieParser from "cookie-parser";
+import nodeCache from 'node-cache'
 import {errorMiddleware } from "./middlewares/error.js";
 
 
@@ -10,6 +11,7 @@ import userRoutes from './routes/User.js';
 import productRoutes from "./routes/Product.js";
 const app = express();
 connectDb();
+export const myCache =new nodeCache()
 
 // middlewares
 app.use(cors());
