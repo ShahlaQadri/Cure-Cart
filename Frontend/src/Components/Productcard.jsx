@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 export default function Productcard({ img, name, desc }) {
   return (
     <div className=" relative h-[230px] flex-shrink-0 w-[160px] md:w-[250px] bg-[#F1F5F9] md:h-[340px] overflow-hidden rounded-3xl flex flex-col items-center justify-center shadow-sm hover:shadow-md">
-      {/* <span className=" absolute top-6 left-0 inline-flex items-center rounded-r-full  bg-[#E3F6EE]  px-5 py-1 text-xs font-semibold text-green-400  ring-1 ring-inset ring-green-400">
+      <span className=" absolute top-4 md:top-6 left-0 inline-flex items-center rounded-r-full  bg-[#E3F6EE] px-3  md:px-5 py-[1px] md:py-1 text-[9px] md:text-sm tracking-wide  font-light md:font-semibold text-green-400  ring-1 ring-inset ring-green-400">
         5% off 
-      </span> */}
+      </span>
       <div className="img-container  flex items-center justify-center w-full h-[68%] bg-[#e7f4f7]">
         <Link to="/product">
           <img src={img} alt="" className="h-24 md:h-36" />
