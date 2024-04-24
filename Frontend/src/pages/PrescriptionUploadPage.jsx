@@ -26,11 +26,11 @@ const PrescriptionUploadPage = () => {
   }
 
   return (
-    <div className="flex md:flex-row flex-col w-[80%] gap-10 md:gap-20 mx-auto my-8 ">
+    <div className="flex md:flex-row flex-col w-[80%] gap-16 md:gap-20 mx-auto my-8 ">
       <div className="content md:w-[60%] w-full ">
         <div className="space-y-1">
           <p
-            className="text-xl font-extrabold text-zinc-600 Class Properties tracking-tighter"
+            className="text-xl font-extrabold text-zinc-600 Class Properties tracking-tighter md:mt-0 mt-6"
           >
             Do you have a prescription for your medicine?
           </p>
@@ -39,8 +39,8 @@ const PrescriptionUploadPage = () => {
           </p>
         </div>
 
-        <div className="upload flex gap-4  pt-6">
-          <div className="border border-blue-600 rounded-lg justify-center p-4 mb-2 mr-2 flex items-center w-[35%] bg-[#EAF7FF] h-[120px]">
+        <div className="upload flex gap-4  pt-10 md:pt-6">
+          <div className="border border-blue-600 rounded-lg justify-center p-4 mb-2 mr-2 flex items-center md:w-[35%] w-[50%] bg-[#EAF7FF] md:h-[120px] h-[100px]">
             <label htmlFor="upload-prescription" className="cursor-pointer">
               <input
                 type="file"
@@ -57,7 +57,7 @@ const PrescriptionUploadPage = () => {
             </label>
           </div>
 
-          <div className="border border-blue-600 rounded-lg justify-center p-4 mb-2 mr-2 flex items-center w-[35%] bg-[#EAF7FF] h-[120px]">
+          <div className="border border-blue-600 rounded-lg justify-center p-4 mb-2 mr-2 flex items-center w-[50%] md:w-[35%] bg-[#EAF7FF] md:h-[120px] h-[100px]">
             <label htmlFor="upload-prescription" className="cursor-pointer">
               <input
                 type="file"
@@ -114,8 +114,8 @@ const PrescriptionUploadPage = () => {
             alt=""
           />
         </div>
-        <div className="flex justify-center items-center">
-          <button className="bg-blue-500 px-16 md:px-36 py-2 text-xl font-semibold text-white rounded-lg">
+        <div className="flex justify-center items-center mt-6 md:mt-0">
+          <button className="bg-blue-500 w-full md:px-36 py-2 text-xl font-semibold text-white rounded-lg">
             Proceed
           </button>
         </div>
