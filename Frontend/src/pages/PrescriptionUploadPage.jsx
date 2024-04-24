@@ -26,13 +26,11 @@ const PrescriptionUploadPage = () => {
   }
 
   return (
-    <div className="flex w-[80%] gap-20 mx-auto my-8 ">
-      <div className="content w-[60%] ">
+    <div className="flex md:flex-row flex-col w-[80%] gap-10 md:gap-20 mx-auto my-8 ">
+      <div className="content md:w-[60%] w-full ">
         <div className="space-y-1">
           <p
-            className="text-xl font-extrabold text-zinc-600 Class
-Properties
-tracking-tighter"
+            className="text-xl font-extrabold text-zinc-600 Class Properties tracking-tighter"
           >
             Do you have a prescription for your medicine?
           </p>
@@ -97,10 +95,10 @@ tracking-tighter"
           </div>
         )}
 
-        <div className="confirm flex items-center border border-gray-300 rounded-lg py-1 ">
-          <img className="h-24 w-24" src="pictures/presuser.jpg" alt="" />
+        <div className="confirm flex items-center border border-gray-300 rounded-lg py-1">
+          <img className="h-20 w-20 md:h-24 md:w-24" src="pictures/presuser.jpg" alt="" />
           <div className=" ml-4 ">
-            <p className="text-md text-zinc-600 w-[460px]">
+            <p className="text-md text-zinc-600 md:w-[460px] w-[200px]">
               Our pharmacist will call to confirm the medicines in your
               prescription.
             </p>
@@ -108,16 +106,16 @@ tracking-tighter"
         </div>
       </div>
 
-      <div className="proceed  w-[40%]">
+      <div className="proceed  md:w-[40%] w-full">
         <div className="flex justify-center items-center">
           <img
-            className="h-[300px]"
+            className="md:h-[300px] h-[200px]"
             src="../../pictures/RX prescription flat vector illustration.jpg"
             alt=""
           />
         </div>
         <div className="flex justify-center items-center">
-          <button className="bg-blue-500 px-36 py-2 text-xl font-semibold text-white rounded-lg">
+          <button className="bg-blue-500 px-16 md:px-36 py-2 text-xl font-semibold text-white rounded-lg">
             Proceed
           </button>
         </div>
