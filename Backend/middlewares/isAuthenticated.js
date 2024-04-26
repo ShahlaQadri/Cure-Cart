@@ -20,7 +20,7 @@ export const IsAuthenticated = async (req, res, next) => {
 export const adminOnly = async (req,res,next)=>{
   try {
     const { id } = req.query;
-    console.log(id);
+    // console.log(id);
     if (!id) {
       return next(new ErrorHandler("Login First", 401));
     }

@@ -1,6 +1,7 @@
 import React from "react";
 import { TiArrowBack } from "react-icons/ti";
 import { Link } from "react-router-dom";
+import Ccfooter from "../Components/footer/Ccfooter";
 
 export default function ProductDetails() {
   return (
@@ -14,21 +15,28 @@ export default function ProductDetails() {
             <TiArrowBack className="text-xl md:text-3xl" />
           </Link>
         </div>
-       
+
         <div className="image flex justify-center items-center m-5 md:m-10  h-[20vh] md:h-[60vh] w-full md:w-[40%]">
-          <img className="p-[3rem] md:p-[6rem] w-[60%] md:w-[80%]" src="../../pictures/div4.png" alt="vicks vaporub" />
+          <img
+            className="p-[3rem] md:p-[6rem] w-[60%] md:w-[80%]"
+            src="../../pictures/div4.png"
+            alt="vicks vaporub"
+          />
         </div>
 
         <div className="description m-5 p-4 md:m-10 md:p-10 w-[100%] md:w-[60%]">
           <div className="space-y-2 border-b border-gray-600 pb-3 md:pb-6">
-            <p className="text-xl md:text-3xl leading-none">Vicks Vaporub 25 ml</p>
+            <p className="text-xl md:text-3xl leading-none">
+              Vicks Vaporub 25 ml
+            </p>
             <p className="text-gray-400  font-semibold text-sm md:text-md  ">
               Procter & Gamble Hygiene & Healthcare Ltd.
             </p>
             <div className="flex space-x-2 mt-20  text-xs">
               <p
                 className="md:px-4 px-2 py-1 md:py-2 text-green-400 font-semibold
-               bg-[#E3F6EE] rounded-full">
+               bg-[#E3F6EE] rounded-full"
+              >
                 Health Conditions
               </p>
               <p className="px-2 py-1 md:px-4 md:py-2 font-semibold text-green-400   bg-[#E3F6EE] rounded-full">
@@ -62,7 +70,7 @@ export default function ProductDetails() {
           <div className="three flex items-center rounded-xl bg-[#EAF7FF] w-fit px-1 md:px-6 mt-2 md:mt-6">
             <div className="icon">
               <img
-              className="h-[30px]"
+                className="h-[30px]"
                 src="../../pictures/authenticity.png"
                 alt="orginal"
               />
@@ -74,7 +82,7 @@ export default function ProductDetails() {
 
             <div className="secure">
               <img
-              className="h-[30px]"
+                className="h-[30px]"
                 src="../../pictures/credit-card (1).png"
                 alt="Payments"
               />
@@ -86,7 +94,7 @@ export default function ProductDetails() {
 
             <div className="return">
               <img
-               className="h-[30px]"
+                className="h-[30px]"
                 src="../../pictures/return.png"
                 alt="Return"
               />
@@ -108,7 +116,9 @@ export default function ProductDetails() {
               alt="orginal"
               width={"25px md:30px"}
             />
-            <h1 className="font-bold text-sm md:text-xl">About Vicks Vaporub 25 ML</h1>
+            <h1 className="font-bold text-sm md:text-xl">
+              About Vicks Vaporub 25 ML
+            </h1>
           </div>
           <p className="text-gray-500 text-xs md:text-md ml-11 md:ml-12">
             Camphor Topical, Eucalyptus Oil Topical, and Menthol Topical are
@@ -127,7 +137,9 @@ export default function ProductDetails() {
               alt="orginal"
               width={"25px md:30px"}
             />
-            <h1 className="font-bold text-sm md:text-xl">Uses of Vicks Vaporub 25 ML</h1>
+            <h1 className="font-bold text-sm md:text-xl">
+              Uses of Vicks Vaporub 25 ML
+            </h1>
           </div>
           <p className="text-gray-500 text-xs md:text-md ml-11 md:ml-12">
             Vicks Vapourab is used in treatment of Pain Warts Cold sores
@@ -172,6 +184,7 @@ export default function ProductDetails() {
           </div>
         </div>
       </div>
+      <Ccfooter />
     </div>
   );
 }

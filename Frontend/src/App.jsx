@@ -49,7 +49,7 @@ function App() {
           <Route path="/admin/products/:id" element={<AdminManageproducts />} />
           <Route path="/admin/transactions/:id" element={<AdminManageOrder />} />
         </Routes>
-        <Ccfooter />
+        
       </div>
     </BrowserRouter>
   );

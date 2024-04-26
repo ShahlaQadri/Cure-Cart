@@ -2,6 +2,7 @@ import React from "react";
 import Productcard from "../Components/Productcard";
 import { TiArrowBack } from "react-icons/ti";
 import { Link } from "react-router-dom";
+import Ccfooter from "../Components/footer/Ccfooter";
 
 export default function Productspage() {
   return (
@@ -53,6 +54,7 @@ export default function Productspage() {
           name={"Digital BP Machine"}
         />
       </div>
+      <Ccfooter />
     </div>
   );
 }
