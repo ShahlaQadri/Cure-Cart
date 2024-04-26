@@ -125,3 +125,67 @@ export const logOut  =async (req,res)=>{
   
 }
 
+export const changePassword = async (req, res,next) => {
+  try {
+    const  { oldPassword, newPassword,confPassword } = req.body
+    const id =req.user._id;
+
+    if (!id) {
+      return next(
+        new ErrorHandler("Please Login First to Change Password ", 401)
+      );
+    }
+    if(newPassword!==confPassword){
+      return next( new ErrorHandler("Confirm Password Does not Match ", 400) );
+    }
+
+    if(oldPassword===newPassword) throw new ErrorHandler("New Password And Old Password Can't be same ", 400)
+  
+    const user = await User.findById(id ) 
+    if (!user) throw new ErrorHandler("User Not Found ", 401);
+    const passwordMatch = await bcrypt.compare(oldPassword , user.password);
+    
+    if(!passwordMatch) throw new ErrorHandler('Old Password is Wrong ',  401)
+    // console.log(passwordMatch)
+    user.password =  await bcrypt.hash(newPassword , 12) ;
+    await user.save()
+      return res.status(200).json({success:true,msg:"Password Changed Successfully",})
+
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateProfile = async (req, res, next) => {
+  try {
+    const { name, email, } = req.body;
+    const id = req.user._id;
+
+    if (!id) {
+      return next(
+        new ErrorHandler("Please Login First to Change Password ", 401)
+      );
+    }
+
+    // const user = await User.findById(id);
+    // if(!user)throw new ErrorHandler("User Not Found ", 401);
+
+    // if(name) user.name=name;
+    // if(email) user.email=email;
+    // await user.save();
+    const user = await User.findByIdAndUpdate(id,{
+      $set:{
+        name,
+        email
+      }
+    },
+  {
+    new:true
+  })
+    return res
+      .status(200)
+      .json({ success: true, msg: "Profile Updated Successfully", });
+  } catch (error) {
+    next(error);
+  }
+};

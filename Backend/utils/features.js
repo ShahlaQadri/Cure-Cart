@@ -1,5 +1,4 @@
 import { myCache } from "../index.js";
-import Order from "../models/Order.js";
 import Product from "../models/Product.js";
 
 export const invalidateCache = async ({ product ,admin,order,userId,orderId}) => {
