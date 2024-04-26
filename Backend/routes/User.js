@@ -11,8 +11,8 @@ router.get("/allusers",adminOnly,getAllUsers)
 router.get("/myprofile", IsAuthenticated,myProfie);
 router.get("/logout", IsAuthenticated, logOut);
 router.delete("/:id",adminOnly,deleteUser)
-router.post("/changepassword",IsAuthenticated,changePassword)
-router.post("/updateprofile",IsAuthenticated,updateProfile)
+router.put("/changepassword",IsAuthenticated,changePassword)
+router.put("/updateprofile",IsAuthenticated,updateProfile)
 
 
 export default  router;

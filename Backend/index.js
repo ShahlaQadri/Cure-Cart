@@ -17,9 +17,9 @@ config({
 })
 const port =process.env.PORT || 3000;
 const mongoURI = process.env.MONG0_URI;
-console.log(port)
-console.log(mongoURI);
 const app = express();
+
+
 connectDb(mongoURI);
 export const myCache =new nodeCache()
 
