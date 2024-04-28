@@ -5,7 +5,7 @@ import Addproductsform from "../Components/Addproductsform";
 export default function AdminAddProduct() {
   return (
     <div className="profilePage flex bg-zinc-50/95 flex-col h-[90vh] ">
-      <div className="mx-auto flex gap-5 w-full ">
+      <div className="mx-auto flex gap-10 w-full ">
         <div className="w-[20%] bg-white shadow-sm  h-[90vh]">
           <Adminprofile />
         </div>

@@ -37,7 +37,7 @@ const Manageform = () => {
   };
 
   return (
-    <div className="container mx-auto h-[83vh] bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div className="container mx-auto h-[75vh] bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <h2 className="text-3xl  text-zinc-500  text-center mb-10">
         Manage Product
       </h2>
@@ -53,7 +53,6 @@ const Manageform = () => {
             <input
               type="text"
               name="name"
-              
               value={formData.name}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
@@ -69,7 +68,6 @@ const Manageform = () => {
             <input
               type="text"
               name="category"
-              
               value={formData.category}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
@@ -85,7 +83,6 @@ const Manageform = () => {
             <input
               type="text"
               name="price"
-              
               value={formData.price}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
@@ -101,7 +98,6 @@ const Manageform = () => {
             <input
               type="text"
               name="discount"
-              
               value={formData.discount}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
@@ -118,7 +114,6 @@ const Manageform = () => {
             <input
               type="text"
               name="usedFor"
-              
               value={formData.usedFor}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
@@ -134,7 +129,7 @@ const Manageform = () => {
             <input
               type="text"
               name="stock"
-                        value={formData.stock}
+              value={formData.stock}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -149,7 +144,6 @@ const Manageform = () => {
             <input
               type="date"
               name="expiryDate"
-              
               value={formData.expiryDate}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"

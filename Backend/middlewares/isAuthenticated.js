@@ -8,7 +8,7 @@ export const IsAuthenticated = async (req, res, next) => {
 
     if (!token) { return next(new ErrorHandler("Login First", 401)) }
 
-    const data = jwt.verify(token, "hello");
+    const data = jwt.verify(token, process.env.JWT_SECRET);
     req.user = data;
     next();
   } catch (error) {
@@ -20,7 +20,7 @@ export const IsAuthenticated = async (req, res, next) => {
 export const adminOnly = async (req,res,next)=>{
   try {
     const { id } = req.query;
-    console.log(id);
+    // console.log(id);
     if (!id) {
       return next(new ErrorHandler("Login First", 401));
     }

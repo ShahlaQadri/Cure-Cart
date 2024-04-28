@@ -3,14 +3,24 @@ import  cors from"cors";
 import { connectDb } from "./database.js";
 import cookieParser from "cookie-parser";
 import nodeCache from 'node-cache'
+import { config } from "dotenv";
 import {errorMiddleware } from "./middlewares/error.js";
 
 
 // importing routes
 import userRoutes from './routes/User.js';
 import productRoutes from "./routes/Product.js";
+import orderRoutes from "./routes/Order.js";
+
+config({
+    path:"./.env"
+})
+const port =process.env.PORT || 3000;
+const mongoURI = process.env.MONG0_URI;
 const app = express();
-connectDb();
+
+
+connectDb(mongoURI);
 export const myCache =new nodeCache()
 
 // middlewares
@@ -26,6 +36,7 @@ app.use(express.urlencoded({
 // using routes
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/product", productRoutes);
+app.use("/api/v1/order", orderRoutes);
 
 
 
@@ -33,4 +44,6 @@ app.use("/api/v1/product", productRoutes);
 app.use("/uploads",express.static("./uploads"));
 app.use(errorMiddleware)
 
-app.listen(3000);
+app.listen(port,()=>{
+    console.log(`Server is running on ${port}`)
+});

@@ -5,6 +5,7 @@ import Prescription from "../Components/Prescription";
 import BabyFood from "../Components/BabyFood";
 import Extras from "../Components/Extras";
 import Profilepage from "./Profilepage";
+import Ccfooter from "../Components/footer/Ccfooter";
 
 
 
@@ -17,7 +18,7 @@ function Homepage() {
       <BabyFood />
       <Extras />
       {/* <Profilepage /> */}
-     
+      <Ccfooter/>
     </div>
   );
 }

@@ -18,7 +18,7 @@ export const register = async (req, res,next) => {
         password: hashedPassword,
       });
       success = true;
-      const token = jwt.sign({ _id: user._id }, "hello");
+      const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
       success = true;
       res
         .status(201)
@@ -35,7 +35,7 @@ export const register = async (req, res,next) => {
 export const  login = async (req, res,next) => {
   try {
     const { email, password } = req.body;
-    let success = false;
+    
     let user = await User.findOne({ email: email });
 
     if (!user) { return next(new ErrorHandler("Invalid Email or Password",401)) }
@@ -43,8 +43,8 @@ export const  login = async (req, res,next) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) { return next(new ErrorHandler("Invalid Email or Password",401)) }
 
-    const token = jwt.sign({ _id: user._id }, "hello");
-    success = true;
+    const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
+    
     res
       .status(200)
       .cookie("token", token, {
@@ -52,7 +52,7 @@ export const  login = async (req, res,next) => {
         secure:true,
         maxAge: 15*24*60*60*1000,
       })
-      .json({ success, token, msg: `welcome back ${user.name}` });
+      .json({ success:true, token, msg: `welcome back ${user.name}` });
   } catch (error) {
     next(error)
   }
@@ -125,3 +125,67 @@ export const logOut  =async (req,res)=>{
   
 }
 
+export const changePassword = async (req, res,next) => {
+  try {
+    const  { oldPassword, newPassword,confPassword } = req.body
+    const id =req.user._id;
+
+    if (!id) {
+      return next(
+        new ErrorHandler("Please Login First to Change Password ", 401)
+      );
+    }
+    if(newPassword!==confPassword){
+      return next( new ErrorHandler("Confirm Password Does not Match ", 400) );
+    }
+
+    if(oldPassword===newPassword) throw new ErrorHandler("New Password And Old Password Can't be same ", 400)
+  
+    const user = await User.findById(id ) 
+    if (!user) throw new ErrorHandler("User Not Found ", 401);
+    const passwordMatch = await bcrypt.compare(oldPassword , user.password);
+    
+    if(!passwordMatch) throw new ErrorHandler('Old Password is Wrong ',  401)
+    // console.log(passwordMatch)
+    user.password =  await bcrypt.hash(newPassword , 12) ;
+    await user.save()
+      return res.status(200).json({success:true,msg:"Password Changed Successfully",})
+
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateProfile = async (req, res, next) => {
+  try {
+    const { name, email, } = req.body;
+    const id = req.user._id;
+
+    if (!id) {
+      return next(
+        new ErrorHandler("Please Login First to Change Password ", 401)
+      );
+    }
+
+    // const user = await User.findById(id);
+    // if(!user)throw new ErrorHandler("User Not Found ", 401);
+
+    // if(name) user.name=name;
+    // if(email) user.email=email;
+    // await user.save();
+    const user = await User.findByIdAndUpdate(id,{
+      $set:{
+        name,
+        email
+      }
+    },
+  {
+    new:true
+  })
+    return res
+      .status(200)
+      .json({ success: true, msg: "Profile Updated Successfully", });
+  } catch (error) {
+    next(error);
+  }
+};
