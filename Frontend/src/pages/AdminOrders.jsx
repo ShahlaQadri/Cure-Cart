@@ -5,7 +5,7 @@ import Admintrantable from "../Components/dashbord/Admintrantable";
 export default function AdminOrders() {
   return (
     <div className="profilePage flex flex-col   h-[90vh] bg-zinc-50/95">
-      <div className="mx-auto flex  w-full ">
+      <div className="mx-auto flex gap-10 w-full ">
         <div className="w-[20%] h-[90vh]  bg-white  ">
           <Adminprofile />
         </div>

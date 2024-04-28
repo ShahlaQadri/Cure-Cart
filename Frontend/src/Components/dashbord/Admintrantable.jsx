@@ -23,7 +23,7 @@ const Admintrantable = () => {
         {
         columns,
         data,
-        initialState: { pageIndex: 0, pageSize: 7 }
+        initialState: { pageIndex: 0, pageSize: 6  }
     },
        usePagination
        )

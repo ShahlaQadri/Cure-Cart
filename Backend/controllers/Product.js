@@ -26,7 +26,7 @@ export const newProduct = async (req, res, next) => {
       discount,
       photo: photo?.path,
     });
-    await invalidateCache({product:true})
+    await invalidateCache({ product: true });
     return res.status(201).json({
       success: true,
       msg: "Product Added",
@@ -40,8 +40,7 @@ export const bestDeals = async (req, res, next) => {
     let products;
     if (myCache.has("best-deals"))
       products = JSON.parse(myCache.get("best-deals"));
-
-    else{
+    else {
       products = await Product.find({}).sort({ discount: -1 }).limit(5);
       myCache.set("best-deals", JSON.stringify(products));
     }
@@ -59,12 +58,11 @@ export const babyBestDeals = async (req, res, next) => {
     let products;
     if (myCache.has("baby-deals"))
       products = JSON.parse(myCache.get("baby-deals"));
-
-    else{
-     products = await Product.find({ category: "baby food" })
-      .sort({ discount: -1 })
-      .limit(5);
-      myCache.set("baby-deals",JSON.stringify(products))
+    else {
+      products = await Product.find({ category: "baby food" })
+        .sort({ discount: -1 })
+        .limit(5);
+      myCache.set("baby-deals", JSON.stringify(products));
     }
 
     return res.status(200).json({
@@ -78,12 +76,12 @@ export const babyBestDeals = async (req, res, next) => {
 export const getAllProducts = async (req, res, next) => {
   try {
     let products;
-    if(myCache.has("all-products"))
-    products = JSON.parse(myCache.get("all-products"))
-  else{
-    products = await Product.find({});
-    myCache.set("all-products",JSON.stringify(products))
-  }
+    if (myCache.has("all-products"))
+      products = JSON.parse(myCache.get("all-products"));
+    else {
+      products = await Product.find({});
+      myCache.set("all-products", JSON.stringify(products));
+    }
 
     return res.status(200).json({
       success: true,
@@ -96,11 +94,11 @@ export const getAllProducts = async (req, res, next) => {
 export const getCategories = async (req, res, next) => {
   try {
     let categories;
-    if(myCache.has("categories"))
-    categories = JSON.parse(myCache.get("categories"));
-    else{
-     categories = await Product.distinct("category");
-     myCache.set("categories",JSON.stringify(categories));
+    if (myCache.has("categories"))
+      categories = JSON.parse(myCache.get("categories"));
+    else {
+      categories = await Product.distinct("category");
+      myCache.set("categories", JSON.stringify(categories));
     }
 
     return res.status(200).json({
@@ -116,17 +114,16 @@ export const getProductDetails = async (req, res, next) => {
   try {
     const { id } = req.params;
     let product;
-    if(myCache.has(`product-${id}`)){
-    product = JSON.parse(myCache.get(`product-${id}`));
+    if (myCache.has(`product-${id}`)) {
+      product = JSON.parse(myCache.get(`product-${id}`));
+    } else {
+      const product = await Product.findById(id);
+      if (!product) {
+        return next(new ErrorHandler("Product Not Found", 404));
+      }
+      myCache.set(`product-${id}`, JSON.stringify(product));
     }
-  else{
-     const product = await Product.findById(id);
-     if (!product) {
-       return next(new ErrorHandler("Product Not Found", 404));
-     }
-     myCache.set(`product-${id}`,JSON.stringify(product))
-  }
-   
+
     return res.status(200).json({
       success: true,
       product,
@@ -190,12 +187,13 @@ export const updateProduct = async (req, res, next) => {
 export const searchProduct = async (req, res, next) => {
   try {
     const { name } = req.query;
-    
-    const product = await Product.find({name:{
-      $regex : name ,
-      $options:"i" 
-    }
-  });
+
+    const product = await Product.find({
+      name: {
+        $regex: name,
+        $options: "i",
+      },
+    });
     if (!product) {
       return next(new ErrorHandler("Product Not Found", 404));
     }

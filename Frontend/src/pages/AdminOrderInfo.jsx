@@ -4,36 +4,36 @@ import Manageform from "../Components/Manageform";
 
 export default function AdminManageOrder() {
   return (
-    <div className="profilePage flex flex-col my-4  w-full h-[90vh] bg-zinc-50/95">
-      <div className=" flex gap-10 w-full ">
-        <div className="w-[20%] h-[90vh] bg-white rounded-lg ">
+    <div className="profilePage flex flex-col   h-[90vh] bg-zinc-50/95">
+      <div className="mx-auto flex gap-10 w-full ">
+        <div className="w-[20%] h-[90vh]  bg-white  ">
           <Adminprofile />
         </div>
 
-        <div className="main flex  mx-auto w-[55%] gap-2 bg-zinc-50/95 px-4 py-4 ">
-          <div className="w-[55%] bg-white shadow-lg rounded-lg">
+        <div className="main w-[80%] rounded-lg justify-center flex flex-row gap-4 bg-zinc-50/95 px-4 py-4 ">
+          <div className="w-[45%] h-[75vh] bg-white shadow-lg rounded">
             <h2 className="text-2xl  py-6 mt-5 text-center text-zinc-500">
               ORDER ITEMS
             </h2>
-            
-            <div className="flex items-center mb-4 px-10">
+
+            <div className="flex items-center  justify-evenly mb-4 px-10">
               <img
                 src="../../pictures/div2.png"
                 alt="Product"
                 className="w-12 h-16 "
               />
               <div className="px-1 ml-10 flex  text-sm font-semibold text-zinc-700">
-                <p className=" ">HK Vitals</p>
+                <p className="name ">HK Vitals</p>
                 <p className=" ml-16">
-                  <span className="">$200</span> X{" "}
-                  <span className=""> 3</span>
+                  <span className="price">$200</span> X{" "}
+                  <span className="quantity"> 3</span>
                 </p>
                 <span className="mx-2">=</span>
-                <p className="">$600</p>
+                <p className="total">$600</p>
               </div>
             </div>
           </div>
-          <div className="w-[45%] bg-white shadow-lg rounded-lg px-2">
+          <div className="w-[30%] h-[75vh] bg-white shadow-lg rounded px-2">
             <h2 className="text-2xl mt-6 py-6 text-center text-zinc-500">
               ORDER INFO
             </h2>

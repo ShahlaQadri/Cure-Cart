@@ -11,7 +11,7 @@ export default function AdminManageproducts() {
         </div>
 
         <div className="main w-[80%] rounded-lg flex flex-row gap-4 bg-zinc-50/95 px-4 py-4 ">
-          <div className="picture mx-auto w-[30%] bg-white h-[83vh] shadow-lg rounded   mb-4">
+          <div className="picture mx-auto w-[30%] bg-white h-[75vh] shadow-lg rounded   mb-4">
             <div className="bg-white py-2 relative">
               <div className="px-4 py-2  flex justify-end">
                 <div className="rounded-full mb-3 flex items-end bg-[#E3F6EE] text-sm text-green-400  w-fit px-4 py-1 border-2 border-green-400">
@@ -22,14 +22,14 @@ export default function AdminManageproducts() {
                 ID: 101jdjsjhdjhdjsah
               </div>
 
-              <div className="flex justify-center mt-20 items-center ">
+              <div className="flex justify-center mt-16 items-center ">
                 <img
                   src="../../pictures/div2.png"
                   alt="Product Name"
                   className="h-64 object-cover"
                 />
               </div>
-              <div className="text-center mt-10 px-4 py-4 space-y-2">
+              <div className="text-center mt-5 px-4 py-4 space-y-2">
                 <h3 className="text-md font-bold text-zinc-500   ">
                   HK Vitals
                 </h3>
@@ -38,7 +38,7 @@ export default function AdminManageproducts() {
             </div>
           </div>
 
-          <div className="manage w-[70%] ">
+          <div className="manage w-[70%] h-[75vh] ">
             <Manageform />
           </div>
         </div>
