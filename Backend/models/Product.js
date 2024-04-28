@@ -15,10 +15,6 @@ const productSchema = new mongoose.Schema({
   
   discount: { type: Number,default:0 },
   
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
 },{timestamps:true});
 
 const Product = mongoose.model("Product", productSchema);

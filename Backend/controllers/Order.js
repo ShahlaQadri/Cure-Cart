@@ -13,9 +13,8 @@ export const newOrder = async (req, res, next) => {
       discount,
       tax,
       shippingCharges,
-      user,
     } = req.body;
-
+    const user = req.user._id
     if (!shippingInfo || !orderItems || !user || !subtotal || !total) {
       return next(new ErrorHandler("Enter all Fields", 401));
     }
@@ -102,11 +101,11 @@ export const getOrderDetails = async (req, res, next) => {
 export const processOrder = async (req, res, next) => {
   try {
     const { id } = req.params;
-    let order;
-    order = await Order.findById(id);
+    let order = await Order.findById(id);
     if (!order) return next(new ErrorHandler("No Order found", 401));
-
-    if (order.status === "Processing") order.status = "shipped";
+    if (order.status === "Delivered")
+      return next(new ErrorHandler("This Order is already Delivered", 403));
+    if (order.status === "Processing") order.status = "Shipped";
     else if (order.status === "Shipped") order.shipped = "Delivered";
     else order.status = "Delivered";
     await order.save();
@@ -120,7 +119,7 @@ export const processOrder = async (req, res, next) => {
 
     return res
       .status(200)
-      .json({ success: true, msg: "Order Processed Successfullly", order });
+      .json({ success: true, msg: "Order Processed Successfullly", });
   } catch (error) {
     next(new ErrorHandler("Internal Server Error", 500));
   }
