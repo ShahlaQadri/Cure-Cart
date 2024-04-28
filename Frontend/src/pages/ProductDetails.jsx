@@ -5,7 +5,7 @@ import Ccfooter from "../Components/footer/Ccfooter";
 
 export default function ProductDetails() {
   return (
-    <div className="container mx-auto px-4 md:px-10">
+    <div className="containers mx-auto px-4 md:px-10">
       <div className="flex flex-col md:flex-row bg-gray-50 rounded-3xl">
         <div className="relative">
           <Link
@@ -107,7 +107,7 @@ export default function ProductDetails() {
         </div>
       </div>
 
-      <div className="details  mx-2 md:mx-10 bg-gray-50 rounded-3xl m-3 p-1 md:m-4 md:p-4">
+      <div className="details  mx-2  bg-gray-50 rounded-3xl m-3 p-1 md:my-4 md:p-4">
         <div className="about pb-4">
           <div className="flex gap-4">
             {" "}
@@ -184,7 +184,10 @@ export default function ProductDetails() {
           </div>
         </div>
       </div>
-      <Ccfooter />
+
+      <div className="w-full mx-0">
+        <Ccfooter />{" "}
+      </div>
     </div>
   );
 }
