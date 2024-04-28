@@ -1,5 +1,5 @@
 import { myCache } from "../index.js";
-import ErrorHandler from "../middlewares/error.js";
+import ErrorHandler from "../middlewares/Error.js";
 import Order from "../models/Order.js";
 import { invalidateCache, reduceStock } from "../utils/features.js";
 

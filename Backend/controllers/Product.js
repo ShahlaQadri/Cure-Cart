@@ -1,6 +1,6 @@
 import e from "express";
 import { myCache } from "../index.js";
-import ErrorHandler, { errorMiddleware } from "../middlewares/error.js";
+import ErrorHandler, { errorMiddleware } from "../middlewares/Error.js";
 import Product from "../models/Product.js";
 import { rm } from "fs";
 import { invalidateCache } from "../utils/features.js";
