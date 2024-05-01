@@ -27,7 +27,7 @@ export const adminOnly = async (req, res, next) => {
     }
 
     const data = jwt.verify(token, process.env.JWT_SECRET);
-  //  console.log(data)
+    //  console.log(data)
     const user = await User.findById(data._id);
 
     if (!user) {

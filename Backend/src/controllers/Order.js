@@ -14,7 +14,7 @@ export const newOrder = async (req, res, next) => {
       tax,
       shippingCharges,
     } = req.body;
-    const user = req.user._id
+    const user = req.user._id;
     if (!shippingInfo || !orderItems || !user || !subtotal || !total) {
       return next(new ErrorHandler("Enter all Fields", 401));
     }
@@ -119,7 +119,7 @@ export const processOrder = async (req, res, next) => {
 
     return res
       .status(200)
-      .json({ success: true, msg: "Order Processed Successfullly", });
+      .json({ success: true, msg: "Order Processed Successfullly" });
   } catch (error) {
     next(new ErrorHandler("Internal Server Error", 500));
   }

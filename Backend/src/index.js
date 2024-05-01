@@ -12,13 +12,12 @@ import productRoutes from "./routes/Product.js";
 import orderRoutes from "./routes/Order.js";
 import PresciptionOrderRoutes from "./routes/PresciptionOrder.js";
 import dashboardRoutes from "./routes/Dashboard.js";
-config({ path: "./.env", });
+config({ path: ".env" });
 const port = process.env.PORT || 3000;
-const mongoURI = process.env.MONG0_URI;
+const mongoURI = process.env.MONG0_URI ;
 
 connectDb(mongoURI);
 export const myCache = new nodeCache();
-
 
 const app = express();
 
@@ -42,16 +41,6 @@ app.use("/api/v1/presciption-Order", PresciptionOrderRoutes);
 //Error Handler
 app.use("/uploads", express.static("./uploads"));
 app.use(errorMiddleware);
-
-
-
-
-
-
-
-
-
-
 
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);

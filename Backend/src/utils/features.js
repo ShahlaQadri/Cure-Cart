@@ -1,7 +1,13 @@
 import { myCache } from "../index.js";
 import Product from "../models/Product.js";
 
-export const invalidateCache = async ({ product ,admin,order,userId,orderId}) => {
+export const invalidateCache = async ({
+  product,
+  admin,
+  order,
+  userId,
+  orderId,
+}) => {
   if (product) {
     const productKeys = [
       "best-deals",
@@ -16,32 +22,27 @@ export const invalidateCache = async ({ product ,admin,order,userId,orderId}) =>
     });
     myCache.del(productKeys);
   }
-  if(order){
+  if (order) {
     const orderKeys = ["all-orders", `myorders-${userId}`, `order-${orderId}`];
     myCache.del(orderKeys);
-
   }
-  if(admin){
-     const adminKeys = ["admin-stats"];
-     myCache.del(adminKeys);
-
+  if (admin) {
+    const adminKeys = ["admin-stats"];
+    myCache.del(adminKeys);
   }
-  
 };
 
-
-export const reduceStock = async(orderItems)=>{
+export const reduceStock = async (orderItems) => {
   for (let index = 0; index < orderItems.length; index++) {
     const order = orderItems[index];
-    let product = await Product.findById({_id:order.productId});
-    if(!product) throw new  Error('Product Not Found');
-    console.log("stock ",product.stock)
+    let product = await Product.findById({ _id: order.productId });
+    if (!product) throw new Error("Product Not Found");
+    console.log("stock ", product.stock);
     console.log("order Quantitiy ", order.quantity);
     product.stock -= order.quantity;
     await product.save();
   }
-
-}
+};
 
 export const calculatePercentage = (thisMonth, lastMonth) => {
   if (lastMonth === 0) return thisMonth * 100;
