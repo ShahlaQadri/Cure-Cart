@@ -31,7 +31,7 @@ export const adminOnly = async (req, res, next) => {
     const user = await User.findById(data._id);
 
     if (!user) {
-      return next(new ErrorHandler("Not Valid User", 401));
+      return next(new ErrorHandler("Not  a Valid User", 401));
     }
     if (user.role !== "admin") {
       return next(new ErrorHandler("You Aren't Admin", 401));
