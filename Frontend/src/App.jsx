@@ -25,11 +25,25 @@ import AdminOrders from "./pages/AdminOrders";
 import AdminManageOrder from "./pages/AdminOrderInfo";
 import PrescriptionUploadPage from "./pages/PrescriptionUploadPage";
 import AdminDashboardPage from "./pages/AdminDashboardPage";
-// import { serverUrl } from "./redux/store";
+import {  useGetMyDetalsQuery } from "./redux/api/userAPI";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { userExist, userNotExist } from "./redux/reducers/userReducer";
 
 
 function App() {
-
+  const dispatch = useDispatch()
+  const {data} = useGetMyDetalsQuery()
+  const user = useSelector((state) => state.reducer.user)
+  console.log(data)
+    useEffect(() => {
+    if (data) {
+      dispatch(userExist(data.user));
+    } else {
+      dispatch(userNotExist());
+    }
+  }, [user,data, dispatch]);
+  
   return (
     <BrowserRouter>
       <div className="px-4 py-4">

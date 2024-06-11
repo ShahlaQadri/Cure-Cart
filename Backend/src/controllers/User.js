@@ -23,11 +23,7 @@ export const register = async (req, res, next) => {
     success = true;
     res
       .status(201)
-      .cookie("token", token, {
-        httpOnly: true,
-        secure: true,
-        maxAge: 15 * 24 * 60 * 60 * 1000,
-      })
+      .cookie("token", token,)
       .json({ success, token, msg: `welcome  ${user.name}` });
   } catch (error) {
     next(error);
@@ -52,11 +48,7 @@ export const login = async (req, res, next) => {
 
     res
       .status(200)
-      .cookie("token", token, {
-        httpOnly: true,
-        secure: true,
-        maxAge: 15 * 24 * 60 * 60 * 1000,
-      })
+      .cookie("token", token)
       .json({ success: true, token, msg: `welcome back ${user.name}` });
   } catch (error) {
     next(error);
@@ -65,6 +57,7 @@ export const login = async (req, res, next) => {
 export const myProfie = async (req, res, next) => {
   try {
     const userId = req.user._id;
+    console.log(req.cookies)
     console.log(userId);
 
     const user = await User.findById(userId).select(["-password"]);

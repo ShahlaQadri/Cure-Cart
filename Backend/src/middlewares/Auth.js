@@ -4,7 +4,10 @@ import User from "../models/User.js";
 
 export const IsAuthenticated = async (req, res, next) => {
   try {
+    // console.log(req.cookies)
     const { token } = req.cookies;
+    
+
 
     if (!token) {
       return next(new ErrorHandler("Login First", 401));

@@ -1,10 +1,12 @@
-import React from "react";
+
 import Profile from "../Components/Profile";
 import { AiFillEdit } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import { TiArrowBack } from "react-icons/ti";
+import { useSelector } from 'react-redux'
+
 
 export default function Profilepage() {
+  const user = useSelector((state) => state.reducer.user)
+  console.log("milla",user)
   return (
     <div className="profilePage flex px-5  mx-auto gap-5 w-[90%]">
       <div className="mb-10 flex gap-10 w-[25%]  ">
@@ -17,7 +19,7 @@ export default function Profilepage() {
             <p className="text-md text-gray-600">LOGIN INFORMATION</p>
             <div className="email mt-4 ml-4">
               <p className="text-green-600 text-sm">EMAIL</p>
-              <p>sofisalman9906@gmail.com</p>
+              <p>{user?.email}</p>
             </div>
             <div className="number mt-4 ml-4">
               <p className="text-green-600 text-sm">MOBILE NUMBER</p>
@@ -29,7 +31,7 @@ export default function Profilepage() {
             <p className="text-md text-gray-600">PERSONAL INFORMATION</p>
             <div className="fullname mt-4 ml-4">
               <p className="text-green-600 text-sm">FULL NAME</p>
-              <p>Salman Arif</p>
+              <p>{user?.name}</p>
             </div>
             <div className="gender mt-4 ml-4">
               <p className="text-green-600 text-sm">GENDER</p>
