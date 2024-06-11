@@ -14,11 +14,21 @@ endpoints: (builder) => ({
             body : user,
 
         })
-    })
+    }),
+    userLogin : builder.mutation({
+        query:(user)=>({
+            url: "/login",
+            method : "POST",
+            body : user,
+
+        })
+    }),
     
 }),
 })
 
+
+
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useUserRegisterMutation } = userApi
+export const { useUserRegisterMutation,useUserLoginMutation, useGetMyProfileQuery } = userApi

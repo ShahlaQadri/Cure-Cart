@@ -30,12 +30,12 @@ function RegisterPage() {
   };
 
   const handleSubmit = async (e) => {
-   try {
+  try {
     e.preventDefault();
     // Perform login authentication logic here
     console.log("Email:", email);
     console.log("Password:", password);
-     const res = await userRegister({
+    const res = await userRegister({
       name,
       email,
       password
@@ -43,6 +43,7 @@ function RegisterPage() {
     
     if("data" in res){
       toast.success(res.data.msg)
+      localStorage.setItem("token", res.data.token);
       navigate("/");
     }
     else{

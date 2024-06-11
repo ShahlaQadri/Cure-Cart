@@ -1,6 +1,9 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {Toaster} from "react-hot-toast"
+
+
+
 import Header from "./Components/header/Header";
 import Homepage from "./pages/Homepage";
 import LoginPage from "./pages/LoginPage";
@@ -11,6 +14,8 @@ import Productspage from "./pages/Productspage";
 import Checkoutpage from "./pages/Checkoutpage";
 import PaymentPage from "./pages/PaymentPage";
 import Profilepage from "./pages/Profilepage";
+
+
 import MyOrders from "./pages/MyOrders";
 import Adminproducts from "./pages/Adminproducts";
 import Admincustomers from "./pages/Admincustomers";
@@ -20,11 +25,11 @@ import AdminOrders from "./pages/AdminOrders";
 import AdminManageOrder from "./pages/AdminOrderInfo";
 import PrescriptionUploadPage from "./pages/PrescriptionUploadPage";
 import AdminDashboardPage from "./pages/AdminDashboardPage";
-import { serverUrl } from "./redux/store";
+// import { serverUrl } from "./redux/store";
+
 
 function App() {
-  console.log(serverUrl)
-  
+
   return (
     <BrowserRouter>
       <div className="px-4 py-4">
