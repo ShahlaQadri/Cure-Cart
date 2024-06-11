@@ -1,10 +1,10 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {Toaster} from "react-hot-toast"
 import Header from "./Components/header/Header";
 import Homepage from "./pages/Homepage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import Ccfooter from "./Components/footer/Ccfooter";
 import ProductDetails from "./pages/ProductDetails";
 import Cartpage from "./pages/Cartpage";
 import Productspage from "./pages/Productspage";
@@ -20,8 +20,10 @@ import AdminOrders from "./pages/AdminOrders";
 import AdminManageOrder from "./pages/AdminOrderInfo";
 import PrescriptionUploadPage from "./pages/PrescriptionUploadPage";
 import AdminDashboardPage from "./pages/AdminDashboardPage";
+import { serverUrl } from "./redux/store";
 
 function App() {
+  console.log(serverUrl)
   
   return (
     <BrowserRouter>
@@ -51,6 +53,7 @@ function App() {
         </Routes>
         
       </div>
+      <Toaster position="top-center"/>
     </BrowserRouter>
   );
 }

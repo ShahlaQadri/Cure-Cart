@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
+import { useUserRegisterMutation } from "../redux/api/userAPI";
+import toast from "react-hot-toast";
 
 function RegisterPage() {
   const [name, setName] = useState("");
@@ -9,6 +11,8 @@ function RegisterPage() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const [userRegister] =useUserRegisterMutation()
+  // const navigate = useNavigate();
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
@@ -26,27 +30,33 @@ function RegisterPage() {
   };
 
   const handleSubmit = async (e) => {
+   try {
     e.preventDefault();
     // Perform login authentication logic here
     console.log("Email:", email);
     console.log("Password:", password);
-    const response = await fetch(`http://localhost:3000/api/v1/users/new`, {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, password }),
-    });
-    const data = await response.json();
-    console.log(data);
-    if (data.success === true) {
-      alert(data.msg);
-      localStorage.setItem("token", data.token);
-
+     const res = await userRegister({
+      name,
+      email,
+      password
+    })
+    
+    if("data" in res){
+      toast.success(res.data.msg)
       navigate("/");
-    } else {
-      alert(data.msg);
     }
+    else{
+      
+       toast.error(res.error.data.msg)
+       navigate("/Login");
+      
+    }
+    
+     
+   } catch (error) {
+    toast.error("SignIn Failed")
+    
+   }
   };
 
   return (
