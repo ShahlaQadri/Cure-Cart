@@ -7,6 +7,7 @@ import { BsBagCheckFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import {  userNotExist } from "../redux/reducers/userReducer";
 import {   useUserLogoutMutation, } from "../redux/api/userAPI.js";
+import { MdSpaceDashboard } from "react-icons/md";
 // import { useEffect } from "react";
 
 
@@ -86,7 +87,26 @@ export default function Profile() {
             </Link>
           </li>
 
-          <li
+          {
+            user?.role==="admin"?<li
+            style={{
+              backgroundColor: location.pathname.includes("/mywishlist")
+                ? "#DBEAFE"
+                : "white",
+              color: location.pathname.includes("/mywishlist")
+                ? "#2f85ed"
+                : "#63636b",
+            }}
+            className="flex items-center gap-1 px-4 py-1  my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
+          >
+            <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center">
+              
+              <MdSpaceDashboard className="text-[17px]" />
+            </div>
+            <Link to="/admin/dashboard" className="">
+              Dashboard
+            </Link>
+          </li>:<li
             style={{
               backgroundColor: location.pathname.includes("/mywishlist")
                 ? "#DBEAFE"
@@ -104,6 +124,7 @@ export default function Profile() {
               My Wishlist
             </Link>
           </li>
+          }
         </ul>
         <ul>
           <li className="flex absolute bottom-0 w-full items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400    ">

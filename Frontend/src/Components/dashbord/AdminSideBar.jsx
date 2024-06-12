@@ -1,4 +1,3 @@
-import React from 'react'
 import { FaUsers } from "react-icons/fa";
 import { BsBoxSeamFill } from "react-icons/bs";
 import { MdSpaceDashboard } from "react-icons/md";

@@ -29,6 +29,7 @@ import {  useGetMyDetalsQuery } from "./redux/api/userAPI";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userExist, userNotExist } from "./redux/reducers/userReducer";
+import ProtectedRoute from "./Components/dashbord/ProtectedRoute";
 
 
 
@@ -47,25 +48,34 @@ function App() {
     }
   }, [user,data, dispatch,isSuccess]);
   // dispatch(userExist(data?.user));
-  
+  console.log(!user)
   return (
     <BrowserRouter>
       <div className="px-4 py-4">
         <Header />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
           <Route path="/cart" element={<Cartpage />} />
           <Route path="/product" element={<ProductDetails />} />
           <Route path="/productspage" element={<Productspage />} />
-          <Route path="/checkout" element={<Checkoutpage />} />
-          <Route path="/payment" element={<PaymentPage />} />
-          <Route path="/myprofile" element={<Profilepage />} />
-          <Route path="/myorders" element={<MyOrders />} />
-          <Route path="/upload-presciption" element={<PrescriptionUploadPage />} />
 
+          <Route element={<ProtectedRoute isAuthenticated={user?true:false}/>}>
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
+          </Route>
+
+          {/* login required pages */}
+          <Route element={<ProtectedRoute isAuthenticated={user?false:true} redirect="/login  "/>}>
+            <Route path="/checkout" element={<Checkoutpage />} />
+            <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/myprofile" element={<Profilepage />} />
+            <Route path="/myorders" element={<MyOrders />} />
+            <Route path="/upload-presciption" element={<PrescriptionUploadPage />} />
+          </Route>
           {/* DAshbord */}
+          <Route  element={<ProtectedRoute isAuthenticated={user?false:true} adminRoute={true}  admin={user?.role==="admin"?true:false}  />} >
+
+
           <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
           <Route path="/admin/products" element={<Adminproducts />} />
           <Route path="/admin/customers" element={<Admincustomers />} />
@@ -73,6 +83,7 @@ function App() {
           <Route path="/admin/products/new" element={<AdminAddProduct />} />
           <Route path="/admin/products/:id" element={<AdminManageproducts />} />
           <Route path="/admin/transactions/:id" element={<AdminManageOrder />} />
+          </Route>
         </Routes>
         
       </div>
