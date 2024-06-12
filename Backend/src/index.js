@@ -42,7 +42,7 @@ app.use("/api/v1/dashboard", dashboardRoutes);
 app.use("/api/v1/presciption-Order", PresciptionOrderRoutes);
 
 //Error Handler
-app.use("/uploads", express.static("./uploads"));
+app.use("/uploads", express.static("uploads"));
 app.use(errorMiddleware);
 
 app.listen(port, () => {
