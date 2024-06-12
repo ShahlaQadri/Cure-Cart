@@ -9,7 +9,7 @@ import { Link,} from "react-router-dom";
 
 function Searchbar() {
   
-  const {user} = useSelector((state)=>state.reducer)
+  const {user} = useSelector((state)=>state.userReducer)
  
 
   return (

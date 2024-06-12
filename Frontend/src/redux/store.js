@@ -7,7 +7,7 @@ export const store  = configureStore({
     reducer:{
         // Add your reducers here
         [userApi.reducerPath]:userApi.reducer,
-        [userReducer.name]:userReducer
+        userReducer:userReducer,
 
     },
     middleware:(defmid) => [...defmid(),userApi.middleware]

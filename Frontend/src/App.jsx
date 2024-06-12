@@ -37,7 +37,7 @@ function App() {
   const dispatch = useDispatch()
   const a = useGetMyDetalsQuery()
   const {data,isSuccess} = useGetMyDetalsQuery()
-  const user = useSelector((state) => state.reducer.user)
+  const user = useSelector((state) => state.userReducer.user)
   console.log(data)
   console.log(a.isSuccess)
     useEffect(() => {

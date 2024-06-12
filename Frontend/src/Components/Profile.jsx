@@ -13,7 +13,7 @@ import { MdSpaceDashboard } from "react-icons/md";
 
 export default function Profile() {
   const navigate = useNavigate();
-  const {user} = useSelector((state)=>state.reducer)
+  const {user} = useSelector((state)=>state.userReducer)
   const dispatch = useDispatch();
   
  
@@ -26,7 +26,7 @@ export default function Profile() {
     
     dispatch(userNotExist())
     logoutUser()
-    console.log(user?.name)
+    // console.log(user?.name)
     navigate("/");
   };
   
@@ -42,9 +42,9 @@ export default function Profile() {
           />
         </div>
         <div className="ml-2 ">
-          <p className="font-bold text-md ">Salman Arif</p>
-          <p className="text-gray-500 text-xs font-semibold">sofisalman9906@gmail.com</p>
-          <p className="text-gray-500 text-xs font-semibold">+917006622199</p>
+          <p className="font-bold text-md ">{user?.name}</p>
+          <p className="text-gray-500 text-xs font-semibold">{user?.email}</p>
+          <p className="text-gray-500 text-xs font-semibold">+91-{user?.phone}</p>
         </div>
       </div>
       <div className="options relative h-[70vh] rounded-lg">

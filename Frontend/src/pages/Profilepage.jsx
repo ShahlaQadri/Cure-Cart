@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux'
 
 
 export default function Profilepage() {
-  const user = useSelector((state) => state.reducer.user)
-  console.log("milla",user)
+  const user = useSelector((state) => state.userReducer.user)
+  // console.log("milla",user)
   return (
     <div className="profilePage flex px-5  mx-auto gap-5 w-[90%]">
       <div className="mb-10 flex gap-10 w-[25%]  ">
@@ -23,7 +23,7 @@ export default function Profilepage() {
             </div>
             <div className="number mt-4 ml-4">
               <p className="text-green-600 text-sm">MOBILE NUMBER</p>
-              <p>+91-7006622199</p>
+              <p>{user?.mobileno}</p>
             </div>
           </div>
 
@@ -35,7 +35,7 @@ export default function Profilepage() {
             </div>
             <div className="gender mt-4 ml-4">
               <p className="text-green-600 text-sm">GENDER</p>
-              <p>Male</p>
+              <p>{user?.gender}</p>
             </div>
 
             <div className="button mt-10 flex ">
