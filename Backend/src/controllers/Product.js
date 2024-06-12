@@ -6,12 +6,13 @@ import { rm } from "fs";
 import { invalidateCache } from "../utils/features.js";
 
 export const newProduct = async (req, res, next) => {
+  console.log(req.body)
   try {
-    const { name, category, stock, price, discount, description } = req.body;
+    const { name, category, stock, price, discount, about,used_for,uses,directions,expiry_date } = req.body;
     const photo = req.file;
-    console.log(name, category, stock, price, discount, description);
+    console.log(name, category, stock, price, discount, about,used_for,uses,directions,expiry_date);
     if (!photo) return next(new ErrorHandler("No image provided", 400));
-    if (!name || !category || !stock || !price || !description) {
+    if (!name || !category || !stock || !price || !directions || !used_for || !expiry_date || !about || !uses) {
       rm(photo.path, () => {
         console.log("deleted");
       });
@@ -19,11 +20,15 @@ export const newProduct = async (req, res, next) => {
     }
     const product = await Product.create({
       name,
-      description,
       category: category.toLowerCase(),
       stock,
       price,
       discount,
+      about,
+      used_for,
+      uses,
+      directions,
+      expiry_date,
       photo: photo?.path,
     });
     await invalidateCache({ product: true });

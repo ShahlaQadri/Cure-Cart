@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {  userNotExist } from "../redux/reducers/userReducer";
 import {   useUserLogoutMutation, } from "../redux/api/userAPI.js";
 import { MdSpaceDashboard } from "react-icons/md";
+import toast from "react-hot-toast";
 // import { useEffect } from "react";
 
 
@@ -23,11 +24,16 @@ export default function Profile() {
   
   const [logoutUser,]=useUserLogoutMutation()
   const logOut = () => {
-    
-    dispatch(userNotExist())
+    try {
+      dispatch(userNotExist())
     logoutUser()
     // console.log(user?.name)
+    toast.success("Sign Out Successfully")
     navigate("/");
+    } catch (error) {
+      toast.error("Sign Out Failed")
+    }
+    
   };
   
   
