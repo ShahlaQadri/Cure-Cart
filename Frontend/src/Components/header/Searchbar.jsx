@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+
 import { CiHeart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { SlHandbag } from "react-icons/sl";
+import { useSelector } from "react-redux";
 
 
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link,} from "react-router-dom";
 
 function Searchbar() {
-  const navigate = useNavigate();
-  const [first, setfirst] = useState("");
   
-  useEffect(() => {}, [first]);
+  const {user} = useSelector((state)=>state.reducer)
+ 
 
   return (
     <div className="navbar-elements flex justify-between px-2 md:flex md:space-x-8 md:justify-between md:items-center md:w-full md:px-5">
@@ -50,7 +50,7 @@ function Searchbar() {
           </Link>
         </div>
         <div className="profile cursor-pointer rounded-full w-8 h-8 flex items-center justify-center  md:w-10 md:h-10 bg-white  border hover:bg-slate-200">
-          {!localStorage.getItem("token") ? (
+          {!user ? (
             <Link to="/login">
               <CiUser className="text-xl  " />
             </Link>

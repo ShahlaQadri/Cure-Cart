@@ -8,6 +8,7 @@ reducerPath: 'userApi',
 baseQuery: fetchBaseQuery({ baseUrl:`http://localhost:3000/api/v1/users`,
     credentials: 'include', // Include cookies in requests
  }),
+ tagTypes:['user'],
 endpoints: (builder) => ({
     userRegister : builder.mutation({
         query:(user)=>({
@@ -16,19 +17,29 @@ endpoints: (builder) => ({
             
             body : user,
 
-        })
+        }),
+        invalidatesTags:['user']
     }),
     userLogin : builder.mutation({
         query:(user)=>({
             url: "/login",
             method : "POST",
             body : user,
+            
 
-        })
+        }),
+        invalidatesTags:['user']
     }),
+    
     getMyDetals:builder.query({
-        query:()=>"/myprofile"
-    })
+        query:()=>"/myprofile",
+        providesTags:['user']
+    }),
+    userLogout:builder.mutation({
+        query:()=>({url:"/logout",}),
+        providesTags:['user'],
+        invalidatesTags:['user']
+    }),
 }),
 })
 
@@ -43,4 +54,4 @@ export const getUser = async()=>{
 }
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useUserRegisterMutation,useUserLoginMutation, useGetMyDetalsQuery } = userApi
+export const { useUserRegisterMutation,useUserLoginMutation, useGetMyDetalsQuery,useUserLogoutMutation } = userApi

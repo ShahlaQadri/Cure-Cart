@@ -57,8 +57,6 @@ export const login = async (req, res, next) => {
 export const myProfie = async (req, res, next) => {
   try {
     const userId = req.user._id;
-    console.log(req.cookies)
-    console.log(userId);
 
     const user = await User.findById(userId).select(["-password"]);
     res.status(200).json({
@@ -93,6 +91,7 @@ export const deleteUser = async (req, res, next) => {
   }
 };
 export const logOut = async (req, res) => {
+  console.log("logout")
   try {
     if (!req.cookies.token) {
       return res

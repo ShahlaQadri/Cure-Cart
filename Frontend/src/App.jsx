@@ -31,18 +31,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { userExist, userNotExist } from "./redux/reducers/userReducer";
 
 
+
 function App() {
   const dispatch = useDispatch()
-  const {data} = useGetMyDetalsQuery()
+  const a = useGetMyDetalsQuery()
+  const {data,isSuccess} = useGetMyDetalsQuery()
   const user = useSelector((state) => state.reducer.user)
   console.log(data)
+  console.log(a.isSuccess)
     useEffect(() => {
-    if (data) {
+    if (data&& isSuccess) {
       dispatch(userExist(data.user));
     } else {
       dispatch(userNotExist());
     }
-  }, [user,data, dispatch]);
+  }, [user,data, dispatch,isSuccess]);
+  // dispatch(userExist(data?.user));
   
   return (
     <BrowserRouter>
