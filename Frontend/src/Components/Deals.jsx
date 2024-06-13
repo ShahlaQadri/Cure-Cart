@@ -5,7 +5,7 @@ import Productcard from "./Productcard";
 
 export default function Deals() {
  const{data} = useGetBestDealsQuery()
- console.log(data?.products)
+//  console.log("latest",data?.products)
   return (
     <div className="my-5 md:my-12 ">
       <h1 className="font-bold text-xl  mb-5 mt-10 md:mb-0 md:text-4xl md:ml-12">

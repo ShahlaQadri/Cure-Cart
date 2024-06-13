@@ -1,9 +1,13 @@
-import React from "react";
+
 import { TiArrowBack } from "react-icons/ti";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Ccfooter from "../Components/footer/Ccfooter";
+import { useGetProductDetailsQuery } from "../redux/api/productsAPI";
 
 export default function ProductDetails() {
+  const {id} =useParams()
+  const {data } = useGetProductDetailsQuery(id)
+  console.log(data?.product)
   return (
     <div className="containers mx-auto px-4 md:px-10">
       <div className="flex flex-col md:flex-row bg-gray-50 rounded-3xl">
@@ -18,29 +22,29 @@ export default function ProductDetails() {
 
         <div className="image flex justify-center items-center m-5 md:m-10  h-[20vh] md:h-[60vh] w-full md:w-[40%]">
           <img
-            className="p-[3rem] md:p-[6rem] w-[60%] md:w-[80%]"
-            src="../../pictures/div4.png"
+            className="p-[3rem] md:p-[6rem] w-[60%] md:w-[90%] mix-blend-multiply"
+            src={`http://localhost:3000/${data?.product.photo}`}
             alt="vicks vaporub"
           />
         </div>
 
         <div className="description m-5 p-4 md:m-10 md:p-10 w-[100%] md:w-[60%]">
           <div className="space-y-2 border-b border-gray-600 pb-3 md:pb-6">
-            <p className="text-xl md:text-3xl leading-none">
-              Vicks Vaporub 25 ml
+            <p className="text-xl md:text-3xl leading-none capitalize">
+             {data?.product.name}
             </p>
             <p className="text-gray-400  font-semibold text-sm md:text-md  ">
-              Procter & Gamble Hygiene & Healthcare Ltd.
+            {data?.product.uses}
             </p>
             <div className="flex space-x-2 mt-20  text-xs">
               <p
                 className="md:px-4 px-2 py-1 md:py-2 text-green-400 font-semibold
-               bg-[#E3F6EE] rounded-full"
+               bg-[#E3F6EE] rounded-full capitalize"
               >
-                Health Conditions
+                {data?.product.category}
               </p>
-              <p className="px-2 py-1 md:px-4 md:py-2 font-semibold text-green-400   bg-[#E3F6EE] rounded-full">
-                Cold and Fever
+              <p className="px-2 py-1 md:px-4 md:py-2 font-semibold capitalize text-green-400   bg-[#E3F6EE] rounded-full">
+              {data?.product.used_for}
               </p>
             </div>
           </div>
@@ -48,18 +52,18 @@ export default function ProductDetails() {
           <div className="flex gap-[10rem] mt-2 md:mt-6 ">
             <div className="items-center">
               <p className="text-gray-400 text-sm">
-                MRP <strike>$24.00</strike>
+                MRP <strike>{data?.product.price}</strike>
               </p>
               <div className="flex gap-4">
-                <p className="text-sm md:text-xl font-bold">$22.80</p>
-                <p className="text-sm md:text-lg text-gray-500">$3.40/ML</p>
+                <p className="text-sm md:text-xl font-bold">{data?.product.price - data?.product.price * data?.product.discount/100}</p>
+                {/* <p className="text-sm md:text-lg text-gray-500">$3.40/ML</p> */}
               </div>
             </div>
           </div>
 
           <div className="mt-1 md:mt-0 flex items-center md:w-[500px] justify-between md:mr-0 mr-6">
             <p className="rounded-full mb-1 md:mb-3 bg-[#E3F6EE] text-xs text-green-400  w-fit px-2 md:px-4 py-1">
-              5% off applied
+            {data?.product.discount}% off applied
             </p>
             <button className="rounded-lg px-4 md:px-10 py-1 md:py-2 -mt-10 bg-[#0071BC] text-white text-md">
               Add To Cart
@@ -115,17 +119,14 @@ export default function ProductDetails() {
               src="../../pictures/information-button.png"
               alt="orginal"
               width={"25px md:30px"}
+              className="mix-blend-multiply"
             />
             <h1 className="font-bold text-sm md:text-xl">
-              About Vicks Vaporub 25 ML
+              About {data?.product.name}
             </h1>
           </div>
           <p className="text-gray-500 text-xs md:text-md ml-11 md:ml-12">
-            Camphor Topical, Eucalyptus Oil Topical, and Menthol Topical are
-            active components in Vicks Vaporub Ointment. Pain, Warts, Cold
-            Sores, Hemorrhoids, Osteoarthritis, Gum Diseases, Plaques, Bleeding
-            Gums, Delayed Onset Muscle Soreness, and more disorders are treated
-            with Vicks Vaporub Ointment.{" "}
+            {data?.product.about}
           </p>
         </div>
 
@@ -138,13 +139,11 @@ export default function ProductDetails() {
               width={"25px md:30px"}
             />
             <h1 className="font-bold text-sm md:text-xl">
-              Uses of Vicks Vaporub 25 ML
+              Uses of {data?.product.name}
             </h1>
           </div>
           <p className="text-gray-500 text-xs md:text-md ml-11 md:ml-12">
-            Vicks Vapourab is used in treatment of Pain Warts Cold sores
-            Hemorrhoids Osteoarthritis Gum diseases Plaques Bleeding gums
-            Delayed onset muscle soreness
+            {data?.product.uses}
           </p>
         </div>
 
@@ -157,16 +156,12 @@ export default function ProductDetails() {
               width={"25px md:30px"}
             />
             <h1 className="font-bold text-sm md:text-xl">
-              Directions for Use of Vicks Vaporub 25 ML
+              Directions for Use of {data?.product.name}
             </h1>
           </div>
 
           <p className="text-gray-500 text-xs md:text-md ml-11 md:ml-12">
-            Follow the instructions written on the packaging. To treat a cough,
-            rub Vicks VapoRub on your chest—never under your nostrils. To treat
-            muscle aches, rub Vicks VapoRub directly over the muscle. Vicks
-            VapoRub should never be used internally or in a manner not directed.
-            Do not use it on broken skin or burns.
+            {data?.product.directions}
           </p>
 
           <div className="expiry flex pt-2 md:pt-4  gap-4">
@@ -178,7 +173,7 @@ export default function ProductDetails() {
             <p className="font-bold text-sm md:text-xl ">
               Expires :
               <span className="font-bold text-sm md:text-xl pl-1 text-red-400">
-                Oct-26
+                {data?.product.expiry_date}
               </span>
             </p>
           </div>

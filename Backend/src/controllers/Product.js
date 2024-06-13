@@ -118,20 +118,23 @@ export const getCategories = async (req, res, next) => {
 export const getProductDetails = async (req, res, next) => {
   try {
     const { id } = req.params;
+    console.log(id)
     let product;
     if (myCache.has(`product-${id}`)) {
       product = JSON.parse(myCache.get(`product-${id}`));
     } else {
-      const product = await Product.findById(id);
+       product = await Product.findById(id);
       if (!product) {
         return next(new ErrorHandler("Product Not Found", 404));
       }
       myCache.set(`product-${id}`, JSON.stringify(product));
+      console.log(product)
     }
 
     return res.status(200).json({
       success: true,
       product,
+      hay:"hello"
     });
   } catch (error) {
     next(error);

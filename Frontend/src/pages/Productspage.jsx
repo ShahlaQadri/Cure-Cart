@@ -1,10 +1,14 @@
 import React from "react";
 import Productcard from "../Components/Productcard";
 import { TiArrowBack } from "react-icons/ti";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Ccfooter from "../Components/footer/Ccfooter";
+import { useGetProductsByCategoriesQuery } from "../redux/api/productsAPI";
 
 export default function Productspage() {
+  const {categoryname} =useParams()
+  const {data,isLoading} =useGetProductsByCategoriesQuery(categoryname)
+  console.log(data?.products)
   return (
     <div className="rounded-lg w-[90%]  mx-auto">
       <div className="category ralative bg-[#B0E5F2]  h-32 md:h-48 w-full md:w-full mb-4 rounded-2xl">
@@ -17,7 +21,7 @@ export default function Productspage() {
           </Link>
         </div>
         <h1 className="md:text-4xl absolute top-11 md:top-auto text-2xl flex text-centre items-baseline pt-32 md:pl-10  pl-6 ">
-          Skin Care
+          {categoryname.toUpperCase()}
         </h1>
       </div>
 
@@ -25,34 +29,20 @@ export default function Productspage() {
         <div className="absolute ml-2 pt-1">
           <div className="text-gray-400 -semibold">ALL PRODUCTS</div>
         </div>
-        <Productcard img={"../../pictures/div4.png"} name={"Vicks VapoRub"} />
-        <Productcard
-          img={"../../pictures/div2.png"}
-          name={"Cetaphil Facewash"}
-        />
-        <Productcard img={"../../pictures/div3.png"} name={"Revital Women"} />
-        <Productcard img={"../../pictures/div1.png"} name={"HK Vitals"} />
-        <Productcard
-          img={"../../pictures/div5.png"}
-          name={"Digital BP Machine"}
-        />
-        <Productcard img={"../../pictures/div4.png"} name={"Vicks VapoRub"} />
-        <Productcard
-          img={"../../pictures/div2.png"}
-          name={"Cetaphil Facewash"}
-        />
-        <Productcard img={"../../pictures/div3.png"} name={"Revital Women"} />
-        <Productcard img={"../../pictures/div1.png"} name={"HK Vitals"} />
-        <Productcard
-          img={"../../pictures/div5.png"}
-          name={"Digital BP Machine"}
-        />
-        <Productcard img={"../../pictures/div3.png"} name={"Revital Women"} />
-        <Productcard img={"../../pictures/div1.png"} name={"HK Vitals"} />
-        <Productcard
-          img={"../../pictures/div5.png"}
-          name={"Digital BP Machine"}
-        />
+        {!isLoading &&
+        data?.products.map((product)=>(
+           <Productcard
+           key={product._id}
+          img={product.photo}
+          name={product.name}
+          category={product.category}
+          discount={product.discount}
+          price ={product.price}
+          id={product._id}
+
+        />))
+       }
+        
       </div>
       <Ccfooter />
     </div>

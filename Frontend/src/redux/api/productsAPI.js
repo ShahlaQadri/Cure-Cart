@@ -38,6 +38,14 @@ endpoints: (builder) => ({
         query:()=>"/getcategories",
         // providesTags:['user']
     }),
+    getProductsByCategories:builder.query({
+        query:(categoryname)=>`/categories?category=${categoryname}`,
+        // providesTags:['user']
+    }),
+    getProductDetails:builder.query({
+        query:(id)=>`/${id}`,
+        // providesTags:['user']
+    }),
     
     
     
@@ -47,4 +55,4 @@ endpoints: (builder) => ({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetBestDealsQuery, useGetBabyBestDealsQuery,useGetAllCategoriesQuery,useGetAllProductsQuery} = productsApi
+export const { useGetBestDealsQuery, useGetBabyBestDealsQuery,useGetAllCategoriesQuery,useGetAllProductsQuery,useGetProductsByCategoriesQuery,useGetProductDetailsQuery} = productsApi

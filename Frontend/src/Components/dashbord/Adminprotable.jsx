@@ -1,10 +1,31 @@
-import  { useMemo } from "react";
+import  { useEffect, useMemo, useState } from "react";
 import { useTable, usePagination } from "react-table";
-import { ADMIN_PRO_DATA, ADMIN_PRO_COLUMNS } from "./Adminprodata";
+import {  ADMIN_PRO_COLUMNS } from "./Adminprodata";
+import { useGetAllProductsQuery } from "../../redux/api/productsAPI";
+import { Link } from "react-router-dom";
 
 const Adminprotable = () => {
-  const columns = useMemo(() => ADMIN_PRO_COLUMNS, []);
-  const data = useMemo(() => ADMIN_PRO_DATA, []);
+ 
+  
+  const {data ,isLoading} = useGetAllProductsQuery()
+  console.log("all fetched products",data?.products)
+  const [adminAllProducts, setAdminAllProducts] = useState([]);
+
+  useEffect(() => {
+
+  // Transform fetchedProducts into the desired format
+  const transformedProducts = data?.products.map((product) => ({
+    photo:`http://localhost:3000/${product.photo}` ,// Example of a static photo 
+    name: product.name || "Unknown Product",
+    price: product.price !== undefined ? product.price : 0,
+    stock: product.stock !== undefined ? product.stock : 0, // Assuming 'stock' is also fetched
+    action: <Link to={`/admin/products/${product._id}`}>Manage</Link>,
+  }));
+  setAdminAllProducts(transformedProducts);
+}, [data?.products]); 
+const columns = useMemo(() => ADMIN_PRO_COLUMNS, []);
+const alldata = useMemo(() => adminAllProducts, [adminAllProducts]);
+// console.log("transformed products",adminAllProducts)
 
   const {
     getTableProps,
@@ -21,7 +42,7 @@ const Adminprotable = () => {
   } = useTable(
     {
       columns,
-      data,
+      data:alldata,
       initialState: { pageIndex: 0, pageSize: 5 },
     },
     usePagination
@@ -29,6 +50,7 @@ const Adminprotable = () => {
 
   const { pageIndex } = state;
 
+  if(isLoading)return <div>loading...</div>
   return (
     <div className="">
       <table {...getTableProps()} className="table-auto w-[100%]">

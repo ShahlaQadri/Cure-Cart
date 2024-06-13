@@ -56,8 +56,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/cart" element={<Cartpage />} />
-          <Route path="/product" element={<ProductDetails />} />
-          <Route path="/productspage" element={<Productspage />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/productspage/:categoryname" element={<Productspage />} />
 
           <Route element={<ProtectedRoute isAuthenticated={user?true:false}/>}>
             <Route path="/register" element={<RegisterPage />} />
