@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useUpdateProductMutation } from '../redux/api/productsAPI';
+import { useNavigate, useParams } from 'react-router-dom';
+import { responseToste } from '../utils/Features';
 
-const Manageform = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    category: '',
-    price: '',
-    discount: '',
-    about: '',
-    uses: '',
-    directions: '',
-    expiryDate: '',
-    usedFor: '',
-    stock: '',
-    photo: '',
-  });
+const Manageform = ({product}) => {
+  const [formData, setFormData] = useState();
+  const navigate = useNavigate()
+  const {id} = useParams()
+  // console.log(id)
+  // console.log("product in form",product)
+  const[updateProduct] = useUpdateProductMutation()
+  console.log("product in form",formData?.expiry_date)
+  useEffect(() => {
+    setFormData(product)
+    
+  
+    
+  }, [product])
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,9 +35,13 @@ const Manageform = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log(formData);
+    console.log(e);
+    console.log("id after submission" ,id)
+    const res = await updateProduct({formData,id})
+    responseToste(res,navigate,"/admin/products")
+    console.log(res)
   };
 
   return (
@@ -53,7 +61,7 @@ const Manageform = () => {
             <input
               type="text"
               name="name"
-              value={formData.name}
+              value={formData?.name}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -68,7 +76,7 @@ const Manageform = () => {
             <input
               type="text"
               name="category"
-              value={formData.category}
+              value={formData?.category}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -83,7 +91,7 @@ const Manageform = () => {
             <input
               type="text"
               name="price"
-              value={formData.price}
+              value={formData?.price}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -93,12 +101,12 @@ const Manageform = () => {
               htmlFor="photo"
               className="block text-gray-700 text-sm font-bold"
             >
-              Discount
+              Discount (%)
             </label>
             <input
               type="text"
               name="discount"
-              value={formData.discount}
+              value={formData?.discount}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -114,7 +122,7 @@ const Manageform = () => {
             <input
               type="text"
               name="usedFor"
-              value={formData.usedFor}
+              value={formData?.used_for}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -129,7 +137,7 @@ const Manageform = () => {
             <input
               type="text"
               name="stock"
-              value={formData.stock}
+              value={formData?.stock}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -144,7 +152,7 @@ const Manageform = () => {
             <input
               type="date"
               name="expiryDate"
-              value={formData.expiryDate}
+              value={formData?.expiry_date}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -158,7 +166,7 @@ const Manageform = () => {
             </label>
             <textarea
               name="about"
-              value={formData.about}
+              value={formData?.about}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             ></textarea>
@@ -172,7 +180,7 @@ const Manageform = () => {
             </label>
             <textarea
               name="uses"
-              value={formData.uses}
+              value={formData?.uses}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             ></textarea>
@@ -186,7 +194,7 @@ const Manageform = () => {
             </label>
             <textarea
               name="directions"
-              value={formData.directions}
+              value={formData?.directions}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             ></textarea>
@@ -204,9 +212,9 @@ const Manageform = () => {
               onChange={handlePhotoChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
-            {formData.photo && (
+            {formData?.photo && (
               <img
-                src={formData.photo}
+                src={formData?.photo}
                 alt="Product"
                 className="mt-2 mx-auto h-32 w-32 object-cover rounded"
               />

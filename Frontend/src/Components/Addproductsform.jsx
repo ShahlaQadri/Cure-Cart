@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useCreateProductMutation } from '../redux/api/productsAPI';
 import { useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast';
+import { responseToste } from '../utils/Features';
 
 const Addproductsform = () => {
+
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState(1000);
@@ -16,8 +17,10 @@ const Addproductsform = () => {
   const [discount, setDiscount] = useState();
   const [directions, setDirections] = useState("");
   const [about, setAbout] = useState("");
-  const [newProduct,{data}] = useCreateProductMutation()
-  // const navigate = useNavigate();
+
+
+  const [ newProduct ] = useCreateProductMutation()
+  const navigate = useNavigate();
 
   const changeImageHandler = (e) => {
     const file = e.target.files?.[0];
@@ -60,10 +63,12 @@ const Addproductsform = () => {
       console.log(pair[0], pair[1]);
     }
     const res = await newProduct( formData );
-    toast.success(res.data?.msg)
+    
+    responseToste(res,navigate,"/admin/products")
+
     
 
-    // responseToast(res, navigate, "/admin/product");
+  
   };
 
   
@@ -125,7 +130,7 @@ const Addproductsform = () => {
               htmlFor="discount"
               className="block text-gray-700 text-sm font-bold"
             >
-              Discount
+              Discount (%)
             </label>
             <input
               type="number"
@@ -233,9 +238,9 @@ const Addproductsform = () => {
             
             <input required type="file"  className="w-full px-3 py-1 border rounded-lg" onChange={changeImageHandler} />
 
-            {photo && (
+            {photoPrev && (
               <img
-                src={photo}
+                src={photoPrev}
                 alt="Product"
                 className="mt-2 mx-auto h-32 w-32 object-cover rounded"
               />

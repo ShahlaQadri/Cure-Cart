@@ -15,6 +15,16 @@ endpoints: (builder) => ({
             url: "/new",
             method : "POST",
             body : formData,
+            
+
+        }),
+        invalidatesTags:['products']
+    }),
+    updateProduct : builder.mutation({
+        query:({formData,id})=>({
+            url: `/${id}`,
+            method : "PUT",
+            body : formData,
 
         }),
         invalidatesTags:['products']
@@ -54,4 +64,4 @@ endpoints: (builder) => ({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useCreateProductMutation,useGetBestDealsQuery, useGetBabyBestDealsQuery,useGetAllCategoriesQuery,useGetAllProductsQuery,useGetProductsByCategoriesQuery,useGetProductDetailsQuery} = productsApi
+export const { useCreateProductMutation,useUpdateProductMutation,useGetBestDealsQuery, useGetBabyBestDealsQuery,useGetAllCategoriesQuery,useGetAllProductsQuery,useGetProductsByCategoriesQuery,useGetProductDetailsQuery} = productsApi
