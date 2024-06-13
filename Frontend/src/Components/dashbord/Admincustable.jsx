@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { useTable, usePagination } from "react-table";
 import { ADMIN_CUS_DATA, ADMIN_CUS_COLUMNS } from "./Admincusdata";
 
