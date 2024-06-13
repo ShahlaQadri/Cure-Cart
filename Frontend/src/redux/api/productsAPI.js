@@ -10,41 +10,40 @@ baseQuery: fetchBaseQuery({ baseUrl:`http://localhost:3000/api/v1/product`,
 }),
 tagTypes:['products'],
 endpoints: (builder) => ({
-    // userRegister : builder.mutation({
-    //     query:(user)=>({
-    //         url: "/new",
-    //         method : "POST",
-            
-    //         body : user,
+    createProduct : builder.mutation({
+        query:(formData)=>({
+            url: "/new",
+            method : "POST",
+            body : formData,
 
-    //     }),
-    //     invalidatesTags:['user']
-    // }),
+        }),
+        invalidatesTags:['products']
+    }),
     
     
     getBestDeals:builder.query({
         query:()=>"/bestdeals",
-        // providesTags:['user']
+        providesTags:['products']
     }),
     getBabyBestDeals:builder.query({
         query:()=>"/babybestdeals",
-        // providesTags:['user']
+        providesTags:['products']
     }),
     getAllProducts:builder.query({
         query:()=>"/allproducts",
-        // providesTags:['user']
+        providesTags:['products']
     }),
     getAllCategories:builder.query({
         query:()=>"/getcategories",
-        // providesTags:['user']
+        providesTags:['products']
     }),
     getProductsByCategories:builder.query({
         query:(categoryname)=>`/categories?category=${categoryname}`,
-        // providesTags:['user']
+        providesTags:['products']
     }),
     getProductDetails:builder.query({
         query:(id)=>`/${id}`,
-        // providesTags:['user']
+        providesTags:['products']
     }),
     
     
@@ -55,4 +54,4 @@ endpoints: (builder) => ({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetBestDealsQuery, useGetBabyBestDealsQuery,useGetAllCategoriesQuery,useGetAllProductsQuery,useGetProductsByCategoriesQuery,useGetProductDetailsQuery} = productsApi
+export const { useCreateProductMutation,useGetBestDealsQuery, useGetBabyBestDealsQuery,useGetAllCategoriesQuery,useGetAllProductsQuery,useGetProductsByCategoriesQuery,useGetProductDetailsQuery} = productsApi
