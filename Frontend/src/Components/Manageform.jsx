@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useUpdateProductMutation } from '../redux/api/productsAPI';
+import { useUpdateProductMutation,useDeleteProductMutation } from '../redux/api/productsAPI';
 import { useNavigate, useParams } from 'react-router-dom';
 import { responseToste } from '../utils/Features';
+import { IoTrashBin } from "react-icons/io5";
+
 
 const Manageform = ({product}) => {
   const [formData, setFormData] = useState();
@@ -10,6 +12,8 @@ const Manageform = ({product}) => {
   // console.log(id)
   // console.log("product in form",product)
   const[updateProduct] = useUpdateProductMutation()
+  const [deleteProduct]=useDeleteProductMutation()
+
   console.log("product in form",formData?.expiry_date)
   useEffect(() => {
     setFormData(product)
@@ -44,8 +48,20 @@ const Manageform = ({product}) => {
     console.log(res)
   };
 
+  const deleteHandler =async ()=>{
+    console.log("deleted")
+    const res = await deleteProduct(id)
+    responseToste(res,navigate,"/admin/products")
+    
+  }
+
   return (
     <div className="container mx-auto h-[75vh] bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <button onClick={deleteHandler} className="h-9 w-9 absolute top-[152px] right-6
+       rounded-full bg-[#C70908] text-white text-xl flex items-center justify-center ml-[100px]">
+                <IoTrashBin />
+
+              </button>
       <h2 className="text-3xl  text-zinc-500  text-center mb-10">
         Manage Product
       </h2>

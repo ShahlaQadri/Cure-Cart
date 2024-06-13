@@ -53,6 +53,7 @@ export default function AdminManageproducts() {
           </div>
 
           <div className="manage w-[70%] h-[75vh] ">
+            
             <Manageform product={product}/>
           </div>
         </div>

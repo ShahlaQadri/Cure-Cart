@@ -29,7 +29,15 @@ endpoints: (builder) => ({
         }),
         invalidatesTags:['products']
     }),
-    
+    deleteProduct : builder.mutation({
+        query:(id)=>({
+            url: `/${id}`,
+            method : "DELETE",
+            
+
+        }),
+        invalidatesTags:['products']
+    }),
     
     getBestDeals:builder.query({
         query:()=>"/bestdeals",
@@ -64,4 +72,4 @@ endpoints: (builder) => ({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useCreateProductMutation,useUpdateProductMutation,useGetBestDealsQuery, useGetBabyBestDealsQuery,useGetAllCategoriesQuery,useGetAllProductsQuery,useGetProductsByCategoriesQuery,useGetProductDetailsQuery} = productsApi
+export const { useCreateProductMutation,useUpdateProductMutation,useDeleteProductMutation,useGetBestDealsQuery, useGetBabyBestDealsQuery,useGetAllCategoriesQuery,useGetAllProductsQuery,useGetProductsByCategoriesQuery,useGetProductDetailsQuery} = productsApi
