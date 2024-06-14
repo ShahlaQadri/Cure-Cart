@@ -4,8 +4,8 @@ export const responseToste = (res,navigate,url)=>{
         toast.success(res.data.msg)
         if(navigate) navigate(url)
     }else{
-const error= res.error
-toast.error(error.msg)
+const data= res.error.data
+toast.error(data.msg)
 }
 
 }

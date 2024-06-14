@@ -62,13 +62,13 @@ export const myOrders = async (req, res, next) => {
 
 export const allOrders = async (req, res, next) => {
   try {
-    const { id } = req.query;
+    
     let orders;
     if (myCache.has(`all-orders`)) {
       orders = JSON.parse(myCache.get(`all-orders`));
     } else {
       orders = await Order.find({}).populate("user", "name");
-      console.log(id);
+      console.log("order");
       myCache.set(`all-orders`, JSON.stringify(orders));
     }
 
@@ -106,7 +106,7 @@ export const processOrder = async (req, res, next) => {
     if (order.status === "Delivered")
       return next(new ErrorHandler("This Order is already Delivered", 403));
     if (order.status === "Processing") order.status = "Shipped";
-    else if (order.status === "Shipped") order.shipped = "Delivered";
+    else if (order.status === "Shipped") order.status = "Delivered";
     else order.status = "Delivered";
     await order.save();
     await invalidateCache({

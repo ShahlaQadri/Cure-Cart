@@ -1,6 +1,6 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {Toaster} from "react-hot-toast"
+import { BrowserRouter, Route, Routes,  } from "react-router-dom";
+import  {Toaster} from "react-hot-toast"
 
 
 
@@ -33,14 +33,17 @@ import ProtectedRoute from "./Components/dashbord/ProtectedRoute";
 
 
 
+
 function App() {
   const dispatch = useDispatch()
-  const a = useGetMyDetalsQuery()
+  // const navigate = useNavigate()
+  // const a = useGetMyDetalsQuery()
   const {data,isSuccess} = useGetMyDetalsQuery()
   const user = useSelector((state) => state.userReducer.user)
-  console.log(data)
-  console.log(a.isSuccess)
+  
+  // console.log(a.isSuccess)
     useEffect(() => {
+      
     if (data&& isSuccess) {
       dispatch(userExist(data.user));
     } else {

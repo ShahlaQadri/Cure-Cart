@@ -1,10 +1,44 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTable, usePagination } from "react-table";
-import { ADMIN_CUS_DATA, ADMIN_CUS_COLUMNS } from "./Admincusdata";
+import {  ADMIN_CUS_COLUMNS } from "./Admincusdata";
+import { useGetAllUsersQuery,  } from "../../redux/api/userAPI";
+import { AiFillDelete } from "react-icons/ai";
 
 const Admincustable = () => {
+  const {data,isLoading, error} = useGetAllUsersQuery()
+  const [allCustomers, setAllCustomers] = useState([]);
+  const [isDataLoading, setIsDataLoading] = useState(true);
+  const deleteUserHandler= (id)=>{
+    // console.log("delete user",id)
+    // alert("hy")
+  }
+  // console.log(data)
+  useEffect(() => {
+    // Function to transform the fetched data
+    const transformData = async () => {
+      if (data && Array.isArray(data?.users)) {
+        const transformedUsers = data?.users.map((user) => ({
+          photo: "../../../pictures/dashboard user.jpg",
+          name: user.name,
+          gender: user?.gender || "Not Available",
+          email: user.email,
+          role: user.role,
+          action: <button onClick={()=>{deleteUserHandler(user._id)}}><AiFillDelete /></button>,
+          
+          
+          
+        }));
+        setAllCustomers(transformedUsers);
+      } else {
+        console.warn("Data or orders are undefined or not an array");
+      }
+      setIsDataLoading(false); // Set loading state to false once processing is done
+    };
+
+    transformData();
+  }, [data]);
   const columns = useMemo(() => ADMIN_CUS_COLUMNS, []);
-  const data = useMemo(() => ADMIN_CUS_DATA, []);
+  const allUsers = useMemo(() => allCustomers, [allCustomers]);
 
   const {
     getTableProps,
@@ -21,14 +55,20 @@ const Admincustable = () => {
   } = useTable(
     {
       columns,
-      data,
+      data:allUsers,
       initialState: { pageIndex: 0, pageSize: 5 },
     },
     usePagination
   );
 
   const { pageIndex } = state;
+  if (isLoading || isDataLoading) return <div>Loading...</div>;
 
+  if (error) return <div>Error: {error.message}</div>;
+
+  if (allUsers.length === 0) {
+    return <div>No products available</div>;
+  }
   return (
     <div className="px-10">
       <table {...getTableProps()} className="table-auto  w-[100%]">

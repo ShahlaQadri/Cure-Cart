@@ -40,6 +40,10 @@ endpoints: (builder) => ({
         providesTags:['user'],
         invalidatesTags:['user']
     }),
+    getAllUsers:builder.query({
+        query:()=>"/allusers",
+        providesTags:['user']
+    }),
 }),
 })
 
@@ -54,4 +58,4 @@ export const getUser = async()=>{
 }
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useUserRegisterMutation,useUserLoginMutation, useGetMyDetalsQuery,useUserLogoutMutation } = userApi
+export const { useUserRegisterMutation,useUserLoginMutation,useUserLogoutMutation, useGetMyDetalsQuery,useGetAllUsersQuery } = userApi

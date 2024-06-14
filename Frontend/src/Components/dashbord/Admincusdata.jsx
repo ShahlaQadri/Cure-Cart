@@ -2,14 +2,7 @@ import { AiFillDelete } from "react-icons/ai";
 
 
 export const ADMIN_CUS_DATA = [
-  {
-    photo: "../../../pictures/dashboard user.jpg",
-    name: "Chance Curtis",
-    gender: "Male",
-    email: "karasik@verizon.net",
-    role: "User",
-    action: <AiFillDelete />,
-  },
+  
   {
     photo: "../../../pictures/userfemale.jpg",
     name: "Gabriela Herman",

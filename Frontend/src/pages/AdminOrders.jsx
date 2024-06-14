@@ -1,4 +1,3 @@
-import React from "react";
 import Adminprofile from "../Components/dashbord/AdminSideBar";
 import Admintrantable from "../Components/dashbord/Admintrantable";
 
