@@ -1,9 +1,19 @@
-import React from "react";
 import Productcard from "./Productcard";
 import { useGetBabyBestDealsQuery } from "../redux/api/productsAPI";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/reducers/cartReducer";
+import toast from "react-hot-toast";
 
 function BabyFood() {
   const {data} = useGetBabyBestDealsQuery()
+
+  const dispatch = useDispatch();
+
+const addToCartHandler = (cartItem) => {
+  if (cartItem.stock < 1) return toast.error("Out of Stock");
+  dispatch(addToCart(cartItem));
+  toast.success("Added to cart");
+};
   return (
     <div className="my-5 md:my-12 ">
       <h1 className="font-bold text-xl  mb-5 md:mb-0 md:text-4xl md:ml-12">
@@ -14,12 +24,14 @@ function BabyFood() {
         data?.products.map((product)=>(
            <Productcard
            key={product._id}
-          img={product.photo}
-          name={product.name}
-          category={product.category}
-          discount={product.discount}
-          price ={product.price}
-          id={product._id}
+           img={product.photo}
+           name={product.name}
+           category={product.category}
+           discount={product.discount}
+           price ={product.price}
+           productId={product._id}
+           stock={product.stock}
+           handler={addToCartHandler}
 
         />))
        }

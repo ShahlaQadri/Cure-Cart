@@ -2,6 +2,8 @@ import { configureStore } from '@reduxjs/toolkit'
 import { userApi } from './api/userAPI'
 import userReducer from './reducers/userReducer.js'
 import { productsApi } from './api/productsAPI.js'
+import cartReducer  from './reducers/cartReducer.js'
+import { orderApi } from './api/ordersAPI.js'
 
 export const serverUrl ="http://localhost:3000"
 export const store  = configureStore({
@@ -9,8 +11,10 @@ export const store  = configureStore({
         // Add your reducers here
         [userApi.reducerPath]:userApi.reducer,
         [productsApi.reducerPath]:productsApi.reducer,
+        [orderApi.reducerPath]:orderApi.reducer,
         userReducer:userReducer,
+        cartReducer : cartReducer,
 
     },
-    middleware:(defmid) => [...defmid(),userApi.middleware,productsApi.middleware]
+    middleware:(defmid) => [...defmid(),userApi.middleware,productsApi.middleware,orderApi.middleware]
 })

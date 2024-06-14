@@ -1,8 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 import { TiArrowBack } from "react-icons/ti";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export default function Checkoutpage() {
+  const navigate = useNavigate()
+  const {cartItems } = useSelector((state)=>state.cartReducer)
+  useEffect(() => {
+    if(cartItems.length<=0) return navigate("/cart")
+  }, [cartItems])
+  
   return (
     <div className=" w-[90%] mx-auto ">
       <div className="relative">
@@ -19,7 +27,7 @@ export default function Checkoutpage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="mb-4">
               <label
-                for="name"
+                
                 className="block text-gray-700 font-semibold mb-2"
               >
                 Name
@@ -34,7 +42,7 @@ export default function Checkoutpage() {
             </div>
             <div className="mb-4">
               <label
-                for="email"
+                htmlFor="email"
                 className="block text-gray-700 font-semibold mb-2"
               >
                 Email Address
@@ -49,7 +57,7 @@ export default function Checkoutpage() {
             </div>
             <div className="mb-4">
               <label
-                for="address"
+                htmlFor="address"
                 className="block text-gray-700 font-semibold mb-2"
               >
                 Address
@@ -64,7 +72,7 @@ export default function Checkoutpage() {
             </div>
             <div className="mb-4">
               <label
-                for="zipcode"
+                htmlFor="zipcode"
                 className="block text-gray-700 font-semibold mb-2"
               >
                 ZIP Code
@@ -79,7 +87,7 @@ export default function Checkoutpage() {
             </div>
             <div className="mb-4">
               <label
-                for="landmark"
+                htmlFor="landmark"
                 className="block text-gray-700 font-semibold mb-2"
               >
                 Landmark
@@ -94,7 +102,7 @@ export default function Checkoutpage() {
             </div>
             <div className="mb-4">
               <label
-                for="Mobile"
+                htmlFor="Mobile"
                 className="block text-gray-700 font-semibold mb-2"
               >
                 Mobile Number

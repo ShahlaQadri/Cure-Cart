@@ -3,11 +3,22 @@ import { TiArrowBack } from "react-icons/ti";
 import { Link, useParams } from "react-router-dom";
 import Ccfooter from "../Components/footer/Ccfooter";
 import { useGetProductDetailsQuery } from "../redux/api/productsAPI";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/reducers/cartReducer";
+import toast from "react-hot-toast";
 
 export default function ProductDetails() {
   const {id} =useParams()
   const {data } = useGetProductDetailsQuery(id)
-  console.log(data?.product)
+  // console.log(data?.product)
+  const dispatch = useDispatch();
+
+const addToCartHandler = (cartItem) => {
+  if (cartItem.stock < 1) return toast.error("Out of Stock");
+  dispatch(addToCart(cartItem));
+  toast.success("Added to cart");
+};
+
   return (
     <div className="containers mx-auto px-4 md:px-10">
       <div className="flex flex-col md:flex-row bg-gray-50 rounded-3xl">
@@ -65,7 +76,7 @@ export default function ProductDetails() {
             <p className="rounded-full mb-1 md:mb-3 bg-[#E3F6EE] text-xs text-green-400  w-fit px-2 md:px-4 py-1">
             {data?.product.discount}% off applied
             </p>
-            <button className="rounded-lg px-4 md:px-10 py-1 md:py-2 -mt-10 bg-[#0071BC] text-white text-md">
+            <button onClick={()=>addToCartHandler({productId:data?.product._id,price:(data?.product.price-data?.product.price*data?.product.discount/100),name:data?.product.name,stock:data?.product.stock,quantity:1,photo:data?.product.photo})} className="rounded-lg px-4 md:px-10 py-1 md:py-2 -mt-10 bg-[#0071BC] text-white text-md">
               Add To Cart
             </button>
           </div>
