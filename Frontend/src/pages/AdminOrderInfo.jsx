@@ -79,7 +79,7 @@ export default function AdminManageOrder() {
                 <span className="">Address:</span> {data?.order.shippingInfo.address} {data?.order.shippingInfo.pincode}, {data?.order.shippingInfo.city}, {data?.order.shippingInfo.country}
               </li>
               <li>
-                <span className=" ">Contact No:</span> {data?.order.shippingInfo.phoneNumber}
+                <span className=" ">Contact No:</span> {data?.order.shippingInfo.phone}
               </li>
             </ul>
             <h2 className="text-md font-semibold text-zinc-800 pl-4  mt-5">

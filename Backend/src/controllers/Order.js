@@ -37,7 +37,7 @@ export const newOrder = async (req, res, next) => {
     });
     res
       .status(201)
-      .json({ message: " Order placed  Successfully", success: true, order });
+      .json({ msg: " Order placed  Successfully", success: true, order });
   } catch (error) {
     next(error);
   }

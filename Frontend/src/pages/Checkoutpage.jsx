@@ -4,6 +4,8 @@ import { TiArrowBack } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { saveShippingInfo } from "../redux/reducers/cartReducer";
+import axios from "axios";
+import toast from "react-hot-toast";
 // import saveShippingInfo from '../redux/reducers/cartReducer.js'
 
 export default function Checkoutpage() {
@@ -33,8 +35,29 @@ export default function Checkoutpage() {
     // console.log(shippingInfo)
 
      dispatch(saveShippingInfo(shippingInfo));
-    console.log("cart",cartShippingInfo)
-
+    // console.log("cart",cartShippingInfo)
+    try {
+      const { data } = await axios.post(
+        `http://localhost:3000/api/v1/payment/create`,
+        {
+          amount: total,
+        },{
+          withCredentials:true
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(data)
+      navigate("/payment", {
+        state: data.clientSecret,
+      });
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
     
   };
   
