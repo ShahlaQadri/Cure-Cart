@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 
+
 const initialState = {
     cartItems:[],
     isLoading:false,
@@ -14,9 +15,9 @@ const initialState = {
       name:"",
       email:"",
       address:"",
-      pincode:0, 
+      pincode:"", 
       landmark:"",
-      phone:0, 
+      phone:"", 
     }
 
 }
@@ -56,8 +57,12 @@ export const cartReducer = createSlice({
         state.total =
           state.subtotal + state.tax + state.shippingCharges - state.discount;
       },
+      saveShippingInfo: (state, action) => {
+        state.shippingInfo = action.payload;
+      },
+  
   }
 })
 
-export const {addToCart, removeCartItem,calculateTotalPrice} = cartReducer.actions
+export const {addToCart, removeCartItem,calculateTotalPrice,saveShippingInfo} = cartReducer.actions
 export default cartReducer.reducer
