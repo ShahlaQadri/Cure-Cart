@@ -8,7 +8,7 @@ reducerPath: 'productsApi',
 baseQuery: fetchBaseQuery({ baseUrl:`http://localhost:3000/api/v1/product`,
     credentials: 'include', // Include cookies in requests
 }),
-tagTypes:['products'],
+tagTypes:['products','stats'],
 endpoints: (builder) => ({
     createProduct : builder.mutation({
         query:(formData)=>({
@@ -18,7 +18,7 @@ endpoints: (builder) => ({
             
 
         }),
-        invalidatesTags:['products']
+        invalidatesTags:['products','stats']
     }),
     updateProduct : builder.mutation({
         query:({formData,id})=>({
@@ -27,7 +27,7 @@ endpoints: (builder) => ({
             body : formData,
 
         }),
-        invalidatesTags:['products']
+        invalidatesTags:['products','stats']
     }),
     deleteProduct : builder.mutation({
         query:(id)=>({
@@ -36,7 +36,7 @@ endpoints: (builder) => ({
             
 
         }),
-        invalidatesTags:['products']
+        invalidatesTags:['products','stats']
     }),
     
     getBestDeals:builder.query({

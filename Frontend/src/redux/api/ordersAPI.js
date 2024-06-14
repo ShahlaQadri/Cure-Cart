@@ -8,7 +8,7 @@ export const orderApi = createApi({
     credentials:"include",
     
   }),
-  tagTypes: ["orders"],
+  tagTypes: ["orders",'stats'],
 
   endpoints: (builder) => ({
     newOrder: builder.mutation({
@@ -17,7 +17,7 @@ export const orderApi = createApi({
         method: "POST",
         body: order,
       }),
-      invalidatesTags: ["orders"],
+      invalidatesTags: ["orders",'stats'],
     }),
     updateOrder: builder.mutation({
       query: ( id ) => ({
@@ -31,7 +31,7 @@ export const orderApi = createApi({
         url: `/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["orders"],
+      invalidatesTags: ["orders",'stats'],
     }),
     myOrders: builder.query({
       query: () => `/myorders`,

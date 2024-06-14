@@ -18,7 +18,7 @@ endpoints: (builder) => ({
             body : user,
 
         }),
-        invalidatesTags:['user']
+        invalidatesTags:['user','stats']
     }),
     userLogin : builder.mutation({
         query:(user)=>({
@@ -48,14 +48,4 @@ endpoints: (builder) => ({
 })
 
 
-export const getUser = async()=>{
-    try {
-        const {data} = await axios.get("http://localhost:3000/api/v1/users/myprofile")
-        return data
-    } catch (error) {
-        console.log("error");
-    }
-}
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
 export const { useUserRegisterMutation,useUserLoginMutation,useUserLogoutMutation, useGetMyDetalsQuery,useGetAllUsersQuery } = userApi
