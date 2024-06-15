@@ -91,6 +91,25 @@ export default function AdminSideBar() {
               Orders
             </Link>
           </li>
+
+          <li
+            style={{
+              backgroundColor: location.pathname.includes("/admin/presciptions")
+                ? "#DBEAFE"
+                : "white",
+              color: location.pathname.includes("/admin/presciptions")
+                ? "#2f85ed"
+                : "#63636b",
+            }}
+            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
+          >
+            <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
+              <BsBoxSeamFill className="text-[17px]" />
+            </div>
+            <Link to="/admin/presciptions" className="">
+               Presciption Orders
+            </Link>
+          </li>
         </ul>
 
         <ul className="font-lighter">

@@ -30,6 +30,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userExist, userNotExist } from "./redux/reducers/userReducer";
 import ProtectedRoute from "./Components/dashbord/ProtectedRoute";
+import AdminPresciptionOrderPage from "./pages/AdminPresciptionOrderPage";
 
 
 
@@ -83,6 +84,7 @@ function App() {
           <Route path="/admin/products" element={<Adminproducts />} />
           <Route path="/admin/customers" element={<Admincustomers />} />
           <Route path="/admin/transactions" element={<AdminOrders />} />
+          <Route path="/admin/presciptions" element={<AdminPresciptionOrderPage />} />
           <Route path="/admin/products/new" element={<AdminAddProduct />} />
           <Route path="/admin/products/:id" element={<AdminManageproducts />} />
           <Route path="/admin/transactions/:id" element={<AdminManageOrder />} />
