@@ -1,38 +1,41 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTable, usePagination } from "react-table";
 import { ADMIN_PRO_COLUMNS } from "./Adminprodata";
-import { useGetAllProductsQuery } from "../../redux/api/productsAPI";
+
 import { Link } from "react-router-dom";
 import { ADMIN_PREC_COLUMNS, ADMIN_PREC_DATA } from "./AdminPresciptionData";
+import { useAllPresciptionOrdersQuery } from "../../redux/api/presciptionAPI";
 
 const AdminPresciptiontable = () => {
-//   const { data, isLoading, error } = useGetAllProductsQuery();
-//   const [adminAllProducts, setAdminAllProducts] = useState([]);
-//   const [isDataLoading, setIsDataLoading] = useState(true);
+  const { data, isLoading, error } = useAllPresciptionOrdersQuery();
+  const [adminAllPresciptionOrders, setAdminAllPresciptionOrders] = useState([]);
+  const [isDataLoading, setIsDataLoading] = useState(true);
+  console.log(data)
 
-//   useEffect(() => {
-//     // Function to transform the fetched data
-//     const transformData = async () => {
-//       if (data && Array.isArray(data.products)) {
-//         const transformedProducts = data.products.map((product) => ({
-//           photo: `http://localhost:3000/${product.photo}`, // Example static photo URL
-//           name: product.name || "Unknown Product",
-//           price: product.price !== undefined ? product.price : 0,
-//           stock: product.stock !== undefined ? product.stock : 0,
-//           action: <Link to={`/admin/products/${product._id}`}>Manage</Link>,
-//         }));
-//         setAdminAllProducts(transformedProducts);
-//       } else {
-//         console.warn("Data or products are undefined or not an array");
-//       }
-//       setIsDataLoading(false); // Set loading state to false once processing is done
-//     };
+  useEffect(() => {
+    // Function to transform the fetched data
+    const transformData = async () => {
+      if (data && Array.isArray(data?.allOrders)) {
+        const transformedProducts = data.allOrders.map((order) => ({
+          photo: `http://localhost:3000/${order.presciption}`, // Example static photo URL
+          user: order.user.name,
+        email: order.user.email,
+        date: order.shippingInfo.phoneNumber,
+        status: order.status,
+        action: <Link to="/admin/products/:id">Manage</Link>,
+        }));
+        setAdminAllPresciptionOrders(transformedProducts);
+      } else {
+        console.warn("Data or products are undefined or not an array");
+      }
+      setIsDataLoading(false); // Set loading state to false once processing is done
+    };
 
-//     transformData();
-//   }, [data]);
+    transformData();
+  }, [data]);
 
   const columns = useMemo(() => ADMIN_PREC_COLUMNS, []);
-  const alldata = useMemo(() => ADMIN_PREC_DATA, []);
+  const alldata = useMemo(() => adminAllPresciptionOrders, [adminAllPresciptionOrders]);
 
   const {
     getTableProps,
@@ -57,13 +60,13 @@ const AdminPresciptiontable = () => {
 
   const { pageIndex } = state;
 
-//   if (isLoading || isDataLoading) return <div>Loading...</div>;
+  if (isLoading || isDataLoading) return <div>Loading...</div>;
 
-//   if (error) return <div>Error: {error.message}</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
-//   if (alldata.length === 0) {
-//     return <div>No products available</div>;
-//   }
+  if (alldata.length === 0) {
+    return <div>No products available</div>;
+  }
 
   return (
     <div className="">

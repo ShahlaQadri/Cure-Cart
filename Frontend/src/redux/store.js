@@ -5,6 +5,7 @@ import { productsApi } from './api/productsAPI.js'
 import cartReducer  from './reducers/cartReducer.js'
 import { orderApi } from './api/ordersAPI.js'
 import { dashboardApi } from './api/dashboardAPI.js'
+import { presciptionApi } from './api/presciptionAPI.js'
 
 export const serverUrl ="http://localhost:3000"
 export const store  = configureStore({
@@ -14,9 +15,10 @@ export const store  = configureStore({
         [productsApi.reducerPath]:productsApi.reducer,
         [orderApi.reducerPath]:orderApi.reducer,
         [dashboardApi.reducerPath]:dashboardApi.reducer,
+        [presciptionApi.reducerPath]:presciptionApi.reducer,
         userReducer:userReducer,
         cartReducer : cartReducer,
 
     },
-    middleware:(defmid) => [...defmid(),userApi.middleware,productsApi.middleware,orderApi.middleware,dashboardApi.middleware]
+    middleware:(defmid) => [...defmid(),userApi.middleware,productsApi.middleware,orderApi.middleware,dashboardApi.middleware,presciptionApi.middleware]
 })

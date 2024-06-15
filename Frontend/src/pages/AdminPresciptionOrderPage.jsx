@@ -15,13 +15,7 @@ export default function AdminPresciptionOrderPage() {
           <div className="flex items-center w-[89%] justify-between">
             <h1 className="mt-5  text-3xl  text-zinc-500 mb-4">
               Presciption Orders
-            </h1>
-
-            <Link to="/admin/products/new">
-              <span className="h-9 w-9 rounded-full bg-[#C70908] text-white text-2xl flex items-center justify-center ml-[100px]">
-                +
-              </span>
-            </Link>
+            </h1>         
           </div>
           <AdminPresciptiontable />
         </div>
