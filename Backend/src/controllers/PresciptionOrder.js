@@ -50,7 +50,7 @@ export const getAllPresciptionOrders = async (req, res, next) => {
 export const getMyPresciptionOrders = async (req, res, next) => {
   try {
     const id = req.user._id;
-    const orders = await PrescriptionOrder.findOne({ user: id });
+    const orders = await PrescriptionOrder.find({ user: id });
     if (!orders) return next(new ErrorHandler("No Presciptions Orders", 404));
 
     res.status(201).json({

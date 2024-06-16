@@ -1,32 +1,34 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTable, usePagination } from "react-table";
-import { ADMIN_PRO_COLUMNS } from "./Adminprodata";
-
 import { Link } from "react-router-dom";
-import { ADMIN_PREC_COLUMNS, ADMIN_PREC_DATA } from "./AdminPresciptionData";
-import { useAllPresciptionOrdersQuery } from "../../redux/api/presciptionAPI";
+import { USER_PREC_COLUMNS } from "./UsersPresciptionTableData";
+import { useMyPresciptionOrdersQuery } from "../redux/api/presciptionAPI";
 
-const AdminPresciptiontable = () => {
-  const { data, isLoading, error } = useAllPresciptionOrdersQuery();
-  const [adminAllPresciptionOrders, setAdminAllPresciptionOrders] = useState([]);
+const UsersPresciptionTable = () => {
+  const { data, isLoading, error } = useMyPresciptionOrdersQuery();
+  const [userAllPresciptionOrders, setUserAllPresciptionOrders] = useState([]);
   const [isDataLoading, setIsDataLoading] = useState(true);
-  console.log(data)
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toISOString().slice(0, 10); // Slices 'YYYY-MM-DD' from 'YYYY-MM-DDTHH:mm:ss.sssZ'
+  };
   useEffect(() => {
     // Function to transform the fetched data
-    const transformData = async () => {
-      if (data && Array.isArray(data?.allOrders)) {
-        const transformedProducts = data.allOrders.map((order) => ({
+    const transformData = () => {
+      console.log("Fetched Data:", data);
+      if (data && Array.isArray(data.orders)) {
+        const transformedProducts = data.orders.map((order) => ({
           photo: `http://localhost:3000/${order.presciption}`, // Example static photo URL
-          user: order.user.name,
-        email: order.user.email,
-        phone: order.shippingInfo.phoneNumber,
-        status: order.status,
-        action: <Link to="/admin/products/:id">Manage</Link>,
+          id: order._id,
+          date: formatDate(order.createdAt),
+          status: order.status,
+          action: <Link to={`/admin/products/${order._id}`}>Manage</Link>, // Correct dynamic URL
         }));
-        setAdminAllPresciptionOrders(transformedProducts);
+        console.log("Transformed Data:", transformedProducts);
+        setUserAllPresciptionOrders(transformedProducts);
       } else {
-        console.warn("Data or products are undefined or not an array");
+        console.warn("Data or orders are undefined or not an array");
       }
       setIsDataLoading(false); // Set loading state to false once processing is done
     };
@@ -34,8 +36,10 @@ const AdminPresciptiontable = () => {
     transformData();
   }, [data]);
 
-  const columns = useMemo(() => ADMIN_PREC_COLUMNS, []);
-  const alldata = useMemo(() => adminAllPresciptionOrders, [adminAllPresciptionOrders]);
+  console.log("Transformed Orders", userAllPresciptionOrders);
+
+  const columns = useMemo(() => USER_PREC_COLUMNS, []);
+  const alldata = useMemo(() => userAllPresciptionOrders, [userAllPresciptionOrders]);
 
   const {
     getTableProps,
@@ -126,4 +130,4 @@ const AdminPresciptiontable = () => {
   );
 };
 
-export default AdminPresciptiontable;
+export default UsersPresciptionTable;

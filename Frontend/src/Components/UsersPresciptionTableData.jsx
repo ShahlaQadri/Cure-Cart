@@ -1,25 +1,24 @@
 import { Link, useNavigate } from "react-router-dom";
 
-export const ADMIN_PREC_DATA = [
+export const USER_PREC_DATA = [
   {
     photo: "../../../pictures/div1.png",
-    user: "salman",
-    email: 'salman@GiMailShirt.com',
+    id: "saddfdslman",
+    
     date: "21-7-21",
     status: "Delivered",
     action: <Link to="/admin/products/:id">Manage</Link>,
   },
    {
     photo: "../../../pictures/div1.png",
-    user: "salman",
-    email: 'salman@GiMailShirt.com',
+    id: "saljdhgashgddghgman",
     date: "21-7-21",
     status: "order.status",
     action: <Link to="/admin/products/:id">Manage</Link>,
   },
 ];
 
-export const ADMIN_PREC_COLUMNS = [
+export const USER_PREC_COLUMNS = [
   {
     Header: "Photo",
     accessor: "photo",
@@ -28,12 +27,11 @@ export const ADMIN_PREC_COLUMNS = [
     ),
   },
   {
-    Header: "User",
-    accessor: "user",
+    Header: "Order ID",
+    accessor: "id",
     Cell: ({ value }) => <p className="w-[100px]">{value}</p>,
   },
-  { Header: "Email", accessor: "email" },
-  { Header: "Phone", accessor: "phone" },
+    { Header: "Date", accessor: "date" },
   {
     Header: "Status",
     accessor: "status",

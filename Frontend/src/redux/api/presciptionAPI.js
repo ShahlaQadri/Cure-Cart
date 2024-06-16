@@ -41,6 +41,11 @@ export const presciptionApi = createApi({
       query: () => `/all`,
       providesTags: ["presciption-orders"],
     }),
+
+    myPresciptionOrders: builder.query({
+      query: () => `/my`,
+      providesTags: ["presciption-orders"],
+    }),
     // orderDetails: builder.query({
     //   query: (id) => `/${id}`,
     //   providesTags: ["orders"],
@@ -49,5 +54,6 @@ export const presciptionApi = createApi({
 });
 
 export const {
-  useAllPresciptionOrdersQuery
+  useAllPresciptionOrdersQuery,
+  useMyPresciptionOrdersQuery
 } = presciptionApi;

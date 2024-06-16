@@ -93,6 +93,25 @@ export default function Profile() {
             </Link>
           </li>
 
+          <li
+            style={{
+              backgroundColor: location.pathname.includes("/mypresciptionorders")
+                ? "#DBEAFE"
+                : "white",
+              color: location.pathname.includes("/mypresciptionorders")
+                ? "#2f85ed"
+                : "#63636b",
+            }}
+            className="flex items-center gap-1 px-4 py-1  my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
+          >
+            <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center">
+              <BsBagCheckFill className="text-[17px]" />
+            </div>
+            <Link to="/mypresciptionorders" className="">
+              My Presciption Orders
+            </Link>
+          </li>
+
           {
             user?.role==="admin"?<li
             style={{

@@ -31,6 +31,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userExist, userNotExist } from "./redux/reducers/userReducer";
 import ProtectedRoute from "./Components/dashbord/ProtectedRoute";
 import AdminPresciptionOrderPage from "./pages/AdminPresciptionOrderPage";
+import UsersPresciptionOrdersPage from "./pages/UsersPresciptionOrdersPage";
 
 
 
@@ -74,6 +75,7 @@ function App() {
             <Route path="/payment" element={<PaymentPage />} />
             <Route path="/myprofile" element={<Profilepage />} />
             <Route path="/myorders" element={<MyOrders />} />
+            <Route path="/mypresciptionorders" element={<UsersPresciptionOrdersPage />} />
             <Route path="/upload-presciption" element={<PrescriptionUploadPage />} />
           </Route>
           {/* DAshbord */}
