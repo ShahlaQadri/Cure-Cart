@@ -63,6 +63,10 @@ endpoints: (builder) => ({
         query:(id)=>`/${id}`,
         providesTags:['products']
     }),
+    getSearchedProducts:builder.query({
+        query:(name)=>`/search?name=${name}`,
+        providesTags:['products']
+    }),
     
     
     
@@ -72,4 +76,4 @@ endpoints: (builder) => ({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useCreateProductMutation,useUpdateProductMutation,useDeleteProductMutation,useGetBestDealsQuery, useGetBabyBestDealsQuery,useGetAllCategoriesQuery,useGetAllProductsQuery,useGetProductsByCategoriesQuery,useGetProductDetailsQuery} = productsApi
+export const { useCreateProductMutation,useUpdateProductMutation,useDeleteProductMutation,useGetBestDealsQuery, useGetBabyBestDealsQuery,useGetAllCategoriesQuery,useGetAllProductsQuery,useGetProductsByCategoriesQuery,useGetProductDetailsQuery,useGetSearchedProductsQuery} = productsApi

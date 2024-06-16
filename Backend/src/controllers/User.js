@@ -151,7 +151,7 @@ export const changePassword = async (req, res, next) => {
 
 export const updateProfile = async (req, res, next) => {
   try {
-    const { name, email } = req.body;
+    const { name, email,phone,gender } = req.body;
     const id = req.user._id;
 
     if (!id) {
@@ -160,24 +160,28 @@ export const updateProfile = async (req, res, next) => {
       );
     }
 
-    // const user = await User.findById(id);
-    // if(!user)throw new ErrorHandler("User Not Found ", 401);
+    const user = await User.findById(id);
+    if(!user)throw new ErrorHandler("User Not Found ", 401);
 
-    // if(name) user.name=name;
-    // if(email) user.email=email;
-    // await user.save();
-    const user = await User.findByIdAndUpdate(
-      id,
-      {
-        $set: {
-          name,
-          email,
-        },
-      },
-      {
-        new: true,
-      }
-    );
+    if(name) user.name=name;
+    if(email) user.email=email;
+    if(phone) user.phone=phone;
+    if(gender) user.gender=gender;
+    await user.save();
+    // const user = await User.findByIdAndUpdate(
+    //   id,
+    //   {
+    //     $set: {
+    //       name,
+    //       email,
+    //       phone,
+    //       gender
+    //     },
+    //   },
+    //   {
+    //     new: true,
+    //   }
+    // );
     return res
       .status(200)
       .json({ success: true, msg: "Profile Updated Successfully" });

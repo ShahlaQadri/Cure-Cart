@@ -30,16 +30,27 @@ endpoints: (builder) => ({
         }),
         invalidatesTags:['user']
     }),
+    userLogout:builder.mutation({
+        query:()=>({url:"/logout",
+            method : "POST",
+        }),
+        providesTags:['user'],
+        invalidatesTags:['user']
+    }),
+    updateUser:builder.mutation({
+        query:(user)=>({url:"/updateprofile",
+            method : "PUT",
+            body : user,
+        }),
+        providesTags:['user'],
+        invalidatesTags:['user']
+    }),
     
     getMyDetals:builder.query({
         query:()=>"/myprofile",
         providesTags:['user']
     }),
-    userLogout:builder.mutation({
-        query:()=>({url:"/logout",}),
-        providesTags:['user'],
-        invalidatesTags:['user']
-    }),
+   
     getAllUsers:builder.query({
         query:()=>"/allusers",
         providesTags:['user']
@@ -48,4 +59,4 @@ endpoints: (builder) => ({
 })
 
 
-export const { useUserRegisterMutation,useUserLoginMutation,useUserLogoutMutation, useGetMyDetalsQuery,useGetAllUsersQuery } = userApi
+export const { useUserRegisterMutation,useUserLoginMutation,useUserLogoutMutation,useUpdateUserMutation, useGetMyDetalsQuery,useGetAllUsersQuery } = userApi

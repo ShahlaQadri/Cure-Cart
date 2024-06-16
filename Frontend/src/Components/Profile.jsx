@@ -9,6 +9,7 @@ import {  userNotExist } from "../redux/reducers/userReducer";
 import {   useUserLogoutMutation, } from "../redux/api/userAPI.js";
 import { MdSpaceDashboard } from "react-icons/md";
 import toast from "react-hot-toast";
+
 // import { useEffect } from "react";
 
 
@@ -134,14 +135,14 @@ export default function Profile() {
           </li>:<li
             style={{
               backgroundColor: location.pathname.includes("/mywishlist")
-                ? "#DBEAFE"
-                : "white",
+              ? "#DBEAFE"
+              : "white",
               color: location.pathname.includes("/mywishlist")
                 ? "#2f85ed"
                 : "#63636b",
-            }}
-            className="flex items-center gap-1 px-4 py-1  my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
-          >
+              }}
+              className="flex items-center gap-1 px-4 py-1  my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
+              >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center">
               <BsBagHeartFill className="text-[17px]" />
             </div>
@@ -150,6 +151,7 @@ export default function Profile() {
             </Link>
           </li>
           }
+         
         </ul>
         <ul>
           <li className="flex absolute bottom-0 w-full items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400    ">
