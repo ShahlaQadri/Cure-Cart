@@ -24,7 +24,7 @@ export const orderViaPresciption = async (req, res, next) => {
     });
     res.status(201).json({
       success: true,
-      order,
+      msg:"Order Placed Successfully"
     });
   } catch (error) {
     next(error);

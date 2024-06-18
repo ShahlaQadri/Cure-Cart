@@ -54,6 +54,7 @@ export const presciptionApi = createApi({
 });
 
 export const {
+  useNewPresciptionOrderMutation,
   useAllPresciptionOrdersQuery,
   useMyPresciptionOrdersQuery
 } = presciptionApi;

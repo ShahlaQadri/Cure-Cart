@@ -1,18 +1,50 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CiHeart, CiUser } from "react-icons/ci";
 import { SlHandbag } from "react-icons/sl";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { useGetSearchedProductsQuery } from "../../redux/api/productsAPI";
+import { Bars } from 'react-loader-spinner'
+import { CiSearch } from "react-icons/ci";
+import { useLazyGetSearchedProductsQuery } from "../../redux/api/productsAPI";
 
-function Searchbar() {
+const Searchbar = () => {
   const { user } = useSelector((state) => state.userReducer);
-  const [name, setName] = useState('');
-  const navigate = useNavigate()
-  const { data, isLoading } = useGetSearchedProductsQuery(name);
+  const [name, setName] = useState("");
+  const navigate = useNavigate();
+  const [results, setResults] = useState([]);
+  const [noResults, setNoResults] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [trigger] = useLazyGetSearchedProductsQuery();
+
+  useEffect(() => {
+    if (name.trim() !== "") {
+      setIsLoading(true); // Set loading state before fetching data
+      trigger(name)
+        .unwrap()
+        .then((data) => {
+          setIsLoading(false); // Turn off loading state when data fetching is complete
+          setResults(data.product);
+          setNoResults(data.product.length === 0);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          setIsLoading(false); // Ensure loading state is turned off in case of error
+          setResults([]);
+          setNoResults(true);
+        });
+    } else {
+      setResults([]);
+      setNoResults(false);
+    }
+  }, [name, trigger]);
 
   const handleSearch = (e) => {
     setName(e.target.value);
+  };
+
+  const handleItemClick = (productId) => {
+    navigate(`/product/${productId}`);
+    setName(""); // Clear the search input after navigating
   };
 
   return (
@@ -30,43 +62,59 @@ function Searchbar() {
       </div>
 
       {/* Search Bar */}
-      <div className="search-bar relative">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={name}
-            onChange={handleSearch}
-            className="border border-zinc-200 outline-none mr-4 w-[8rem] md:w-[32rem] py-1 md:py-2 rounded-full bg-[#FFFFFF] px-6"
+     <div className="search-bar relative flex items-center w-[500px] p-2 rounded-md">
+  <input
+    type="text"
+    placeholder="Search products..."
+    value={name}
+    onChange={handleSearch}
+    className="border border-zinc-200 outline-none flex-grow py-1 md:py-2 rounded-l-full bg-white px-4 placeholder-gray-500 placeholder-opacity-100 placeholder-italic placeholder-text-lg"
+  />
+  <button className="bg-[#0071BC] hover:bg-[#0071bcda] text-gray-600 px-4 py-1 md:py-2 rounded-r-full">
+    <CiSearch className="text-2xl text-white" />
+  </button>
+  
+  {/* Conditionally render the result-div */}
+  {name && (
+    <div className="absolute top-full left-0 w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
+      {isLoading ? (
+        <div className="flex items-center justify-center py-4">
+          <Bars
+            height="50"
+            width="70"
+            color="#0071BC"
+            ariaLabel="bars-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
           />
-          {/* Conditionally render the result-div */}
-          {name && !isLoading && (
-            <div className="absolute top-full left-0 w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
-              {data.product && data.product.length > 0 ? (
-                data.product.map((result) => (
-                  <div
-      key={result._id}
-      onClick={() => {
-        navigate(`/product/${result._id}`); 
-        setName('');
-      }}
-      className="block px-4 py-2 bg-white border-b hover:bg-gray-100 cursor-pointer"
-    >
-      {result.name}
-    </div>
-                ))
-              ) : (
-                <div className="px-4 py-2 text-gray-500">No product found</div>
-              )}
-            </div>
-          )}
-          {name && isLoading && (
-            <div className="absolute top-full left-0 w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg">
-              <div className="px-4 py-2 text-gray-500">Loading...</div>
-            </div>
-          )}
         </div>
-      </div>
+      ) : (
+        <>
+          {results.length > 0 ? (
+            results.map((result) => (
+              <div
+                key={result._id}
+                onClick={() => handleItemClick(result._id)}
+                className="block px-4 py-2 border-b hover:bg-gray-100 cursor-pointer"
+              >
+                {result.name}
+              </div>
+            ))
+          ) : (
+            noResults && (
+              <div className="px-4 py-2 text-gray-500">No product found</div>
+            )
+          )}
+        </>
+      )}
+    </div>
+  )}
+</div>
+
+
+
+
 
       {/* Icons */}
       <div className="icons flex space-x-1 md:space-x-3">
@@ -100,6 +148,6 @@ function Searchbar() {
       </div>
     </div>
   );
-}
+};
 
 export default Searchbar;

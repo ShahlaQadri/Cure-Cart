@@ -76,4 +76,4 @@ endpoints: (builder) => ({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useCreateProductMutation,useUpdateProductMutation,useDeleteProductMutation,useGetBestDealsQuery, useGetBabyBestDealsQuery,useGetAllCategoriesQuery,useGetAllProductsQuery,useGetProductsByCategoriesQuery,useGetProductDetailsQuery,useGetSearchedProductsQuery} = productsApi
+export const { useCreateProductMutation,useUpdateProductMutation,useDeleteProductMutation,useGetBestDealsQuery, useGetBabyBestDealsQuery,useGetAllCategoriesQuery,useGetAllProductsQuery,useGetProductsByCategoriesQuery,useGetProductDetailsQuery,useLazyGetSearchedProductsQuery} = productsApi

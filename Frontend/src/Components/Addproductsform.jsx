@@ -33,6 +33,7 @@ const Addproductsform = () => {
         if (typeof reader.result === "string") {
           setPhotoPrev(reader.result);
           setPhoto(file);
+          console.log(photo)
         }
       };
     }

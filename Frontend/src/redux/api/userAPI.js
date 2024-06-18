@@ -32,7 +32,7 @@ endpoints: (builder) => ({
     }),
     userLogout:builder.mutation({
         query:()=>({url:"/logout",
-            method : "POST",
+            method : "GET",
         }),
         providesTags:['user'],
         invalidatesTags:['user']
