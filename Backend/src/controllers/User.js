@@ -23,7 +23,11 @@ export const register = async (req, res, next) => {
     success = true;
     res
       .status(201)
-      .cookie("token", token,)
+      .cookie("token", token,{
+        // httpOnly: true,
+        maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days in milliseconds
+        // secure: process.env.NODE_ENV === "production" ? true : false,
+      })
       .json({ success, token, msg: `welcome  ${user.name}` });
   } catch (error) {
     next(error);
@@ -48,7 +52,11 @@ export const login = async (req, res, next) => {
 
     res
       .status(200)
-      .cookie("token", token)
+      .cookie("token", token, {
+        // httpOnly: true,
+        maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days in milliseconds
+        // secure: process.env.NODE_ENV === "production" ? true : false,
+      })
       .json({ success: true, token, msg: `welcome back ${user.name}` });
   } catch (error) {
     next(error);

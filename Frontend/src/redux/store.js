@@ -18,15 +18,15 @@ const cartPersistConfig = {
 };
 
 // Persist configuration for the user reducer
-const userPersistConfig = {
-  key: 'user',
-  storage,
-  whitelist: ['user',], 
-};
+// const userPersistConfig = {
+//   key: 'user',
+//   storage,
+//   whitelist: ['user',], 
+// };
 
 // Wrap the cart and user reducers with persistReducer
 const persistedCartReducer = persistReducer(cartPersistConfig, cartReducer);
-const persistedUserReducer = persistReducer(userPersistConfig, userReducer);
+// const persistedUserReducer = persistReducer(userPersistConfig, userReducer);
 
 // Combine all your reducers
 const rootReducer = combineReducers({
@@ -35,7 +35,7 @@ const rootReducer = combineReducers({
   [orderApi.reducerPath]: orderApi.reducer,
   [dashboardApi.reducerPath]: dashboardApi.reducer,
   [presciptionApi.reducerPath]: presciptionApi.reducer,
-  userReducer: persistedUserReducer, // Persisted user reducer
+  userReducer: userReducer, // Persisted user reducer
   cartReducer: persistedCartReducer, // Persisted cart reducer
 });
 

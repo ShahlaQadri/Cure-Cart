@@ -120,7 +120,9 @@ const PrescriptionUploadPage = () => {
               <button  onClick={()=>{
                 console.log("clickked")
                 setVisibleForm(true)
-              }} className="bg-blue-500 w-full md:px-36 py-2 text-xl font-semibold text-white rounded-lg">
+              }} 
+              disabled={!prescriptionImage}
+              className="bg-blue-500 w-full md:px-36 py-2 text-xl font-semibold text-white rounded-lg">
                 Proceed
               </button>
             </div>
