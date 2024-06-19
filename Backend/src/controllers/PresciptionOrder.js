@@ -6,7 +6,7 @@ export const orderViaPresciption = async (req, res, next) => {
   try {
     const { shippingInfo } = req.body;
     let ShippingInfo = JSON.parse(shippingInfo);
-    console.log(ShippingInfo);
+    console.log("shipping info",ShippingInfo.phone);
     const photo = req.file;
     const user = req.user._id;
     if (!photo) return next(new ErrorHandler("No image provided", 400));

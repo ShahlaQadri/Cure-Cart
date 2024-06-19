@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTable, usePagination } from "react-table";
-import { ADMIN_PRO_COLUMNS } from "./Adminprodata";
+// import { ADMIN_PRO_COLUMNS } from "./Adminprodata";
 
 import { Link } from "react-router-dom";
-import { ADMIN_PREC_COLUMNS, ADMIN_PREC_DATA } from "./AdminPresciptionData";
+import { ADMIN_PREC_COLUMNS } from "./AdminPresciptionData";
 import { useAllPresciptionOrdersQuery } from "../../redux/api/presciptionAPI";
 
 const AdminPresciptiontable = () => {
@@ -20,7 +20,7 @@ const AdminPresciptiontable = () => {
           photo: `http://localhost:3000/${order.presciption}`, // Example static photo URL
           user: order.user.name,
         email: order.user.email,
-        phone: order.shippingInfo.phoneNumber,
+        phone: order.shippingInfo.phone,
         status: order.status,
         action: <Link to="/admin/products/:id">Manage</Link>,
         }));
