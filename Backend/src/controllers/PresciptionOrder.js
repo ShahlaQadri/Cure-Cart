@@ -86,7 +86,7 @@ export const getPresciptionOrderDetails = async (req, res, next) => {
     const { id } = req.params;
     const orderDetails = await PrescriptionOrder.findById(id).populate(
       "user",
-      "name email"
+      "name email phone"
     );
     if (!orderDetails) return next(new ErrorHandler("Order  not found", 404));
 
@@ -108,7 +108,7 @@ export const processStatus = async (req, res, next) => {
     if (order.status === "Delivered")
       return next(new ErrorHandler("This Order is already Delivered", 403));
     if (order.status === "Processing") order.status = "Shipped";
-    else if (order.status === "Shipped") order.shipped = "Delivered";
+    else if (order.status === "Shipped") order.status = "Delivered";
     else order.status = "Delivered";
     await order.save();
 
@@ -116,7 +116,7 @@ export const processStatus = async (req, res, next) => {
       .status(200)
       .json({
         success: true,
-        msg: `Order Processed Successfullly -${order.status} `,
+        msg: `Order Processed Successfullly  `,
       });
   } catch (error) {
     next(new ErrorHandler("Internal Server Error", 500));

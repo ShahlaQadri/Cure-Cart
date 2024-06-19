@@ -19,10 +19,10 @@ const AdminPresciptiontable = () => {
         const transformedProducts = data.allOrders.map((order) => ({
           photo: `http://localhost:3000/${order.presciption}`, // Example static photo URL
           user: order.user.name,
-        email: order.user.email,
-        phone: order.shippingInfo.phone,
-        status: order.status,
-        action: <Link to="/admin/products/:id">Manage</Link>,
+          email: order.user.email,
+          phone: order.shippingInfo.phone,
+          status: order.status,
+          action: <Link to={`/admin/presciption/${order._id}`}>Manage</Link>,
         }));
         setAdminAllPresciptionOrders(transformedProducts);
       } else {

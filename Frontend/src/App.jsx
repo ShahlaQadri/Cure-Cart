@@ -7,6 +7,7 @@ import { useGetMyDetalsQuery } from "./redux/api/userAPI";
 import { userExist, userNotExist } from "./redux/reducers/userReducer";
 import ProtectedRoute from "./Components/dashbord/ProtectedRoute";
 import Loader from "./Components/header/Loader";
+import AdminManagePresciption from "./pages/AdminManagePresciption";
 
 // Lazy loading the components using `lazy`
 const Header = lazy(() => import("./Components/header/Header"));
@@ -78,6 +79,7 @@ function App() {
               <Route path="/admin/products/new" element={<AdminAddProduct />} />
               <Route path="/admin/products/:id" element={<AdminManageproducts />} />
               <Route path="/admin/transactions/:id" element={<AdminManageOrder />} />
+              <Route path="/admin/presciption/:id" element={<AdminManagePresciption />} />
             </Route>
           </Routes>
         </Suspense>

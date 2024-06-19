@@ -17,15 +17,15 @@ export const presciptionApi = createApi({
         method: "POST",
         body: order,
       }),
-      invalidatesTags: ["orders",'stats'],
+      invalidatesTags: ["orders",'stats',"presciption-orders"],
     }),
-    // updateOrder: builder.mutation({
-    //   query: ( id ) => ({
-    //     url: `/${id}`,
-    //     method: "PUT",
-    //   }),
-    //   invalidatesTags: ["orders"],
-    // }),
+    updatePresciptionOrder: builder.mutation({
+      query: ( id ) => ({
+        url: `/${id}`,
+        method: "PUT",
+      }),
+      invalidatesTags: ["orders","stats","presciption-orders"],
+    }),
     // deleteOrder: builder.mutation({
     //   query: ( id ) => ({
     //     url: `/${id}`,
@@ -46,15 +46,17 @@ export const presciptionApi = createApi({
       query: () => `/my`,
       providesTags: ["presciption-orders"],
     }),
-    // orderDetails: builder.query({
-    //   query: (id) => `/${id}`,
-    //   providesTags: ["orders"],
-    // }),
+    presciptionOrderDetails: builder.query({
+      query: (id) => `/${id}`,
+      providesTags: ["presciption-orders"],
+    }),
   }),
 });
 
 export const {
   useNewPresciptionOrderMutation,
+  useUpdatePresciptionOrderMutation,
   useAllPresciptionOrdersQuery,
-  useMyPresciptionOrdersQuery
+  useMyPresciptionOrdersQuery,
+  usePresciptionOrderDetailsQuery
 } = presciptionApi;
