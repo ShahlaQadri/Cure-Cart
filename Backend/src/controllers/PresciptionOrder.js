@@ -122,3 +122,20 @@ export const processStatus = async (req, res, next) => {
     next(new ErrorHandler("Internal Server Error", 500));
   }
 };
+
+export const deleteOrder = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    let order;
+    order = await PrescriptionOrder.findById(id);
+    if (!order) return next(new ErrorHandler("No Order found", 401));
+    await order.deleteOne();
+
+    
+    return res
+      .status(200)
+      .json({ success: true, msg: "Order Deleted Successfully", order });
+  } catch (error) {
+    next(new ErrorHandler("Internal Server Error", 500));
+  }
+};
