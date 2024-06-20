@@ -36,6 +36,8 @@ app.use(express.json());
 app.use(
   express.urlencoded({
     extended: true,
+    parameterLimit:10000,
+    limit:"2mb"
   })
 );
 

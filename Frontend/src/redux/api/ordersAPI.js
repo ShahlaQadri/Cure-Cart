@@ -24,7 +24,7 @@ export const orderApi = createApi({
         url: `/${id}`,
         method: "PUT",
       }),
-      invalidatesTags: ["orders"],
+      invalidatesTags: ["orders","stats"],
     }),
     deleteOrder: builder.mutation({
       query: ( id ) => ({
@@ -35,15 +35,15 @@ export const orderApi = createApi({
     }),
     myOrders: builder.query({
       query: () => `/myorders`,
-      providesTags: ["orders"],
+      providesTags: ["orders",'stats'],
     }),
     allOrders: builder.query({
       query: () => `/allorders`,
-      providesTags: ["orders"],
+      providesTags: ["orders",'stats'],
     }),
     orderDetails: builder.query({
       query: (id) => `/${id}`,
-      providesTags: ["orders"],
+      providesTags: ["orders",'stats'],
     }),
   }),
 });

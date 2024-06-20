@@ -8,13 +8,13 @@ export const dashboardApi = createApi({
     credentials:"include",
     
   }),
-  tagTypes: ["stats"],
+  tagTypes: ["stats","order"],
 
   endpoints: (builder) => ({
     
     getDashboardStats: builder.query({
       query: () => "/stats",
-      providesTags: ["stats"],
+      providesTags: ["stats","order"],
     }),
   }),
 });

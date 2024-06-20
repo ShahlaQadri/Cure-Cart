@@ -64,7 +64,7 @@ export const babyBestDeals = async (req, res, next) => {
     if (myCache.has("baby-deals"))
       products = JSON.parse(myCache.get("baby-deals"));
     else {
-      products = await Product.find({ category: "baby food" })
+      products = await Product.find({ category: "baby care" })
         .sort({ discount: -1 })
         .limit(5);
       myCache.set("baby-deals", JSON.stringify(products));
@@ -123,7 +123,7 @@ export const getProductDetails = async (req, res, next) => {
     if (myCache.has(`product-${id}`)) {
       product = JSON.parse(myCache.get(`product-${id}`));
     } else {
-       product = await Product.findById(id);
+      product = await Product.findById(id);
       if (!product) {
         return next(new ErrorHandler("Product Not Found", 404));
       }
@@ -161,7 +161,16 @@ export const deleteProduct = async (req, res, next) => {
 export const updateProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { name, category, stock, price, discount, description } = req.body;
+    const {  name,
+      category,
+      stock,
+      price,
+      discount,
+      about,
+      used_for,
+      uses,
+      directions,
+      expiry_date, } = req.body;
     const photo = req.file;
     const product = await Product.findById(id);
     if (!product) {
@@ -174,11 +183,15 @@ export const updateProduct = async (req, res, next) => {
       product.photo = photo.path;
     }
     if (name) product.name = name;
-    if (description) product.description = description;
+    if (directions) product.directions = directions;
     if (price) product.price = price;
     if (stock) product.stock = stock;
     if (category) product.category = category;
     if (discount) product.discount = discount;
+    if (about) product.about = about;
+    if (used_for) product.used_for = used_for;
+    if (uses) product.uses = uses;
+    if (expiry_date) product.expiry_date = expiry_date;
 
     await product.save();
     await invalidateCache({ product: true });
