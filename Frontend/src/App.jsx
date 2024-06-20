@@ -79,7 +79,7 @@ function App() {
               <Route path="/admin/products/new" element={<AdminAddProduct />} />
               <Route path="/admin/products/:id" element={<AdminManageproducts />} />
               <Route path="/admin/transactions/:id" element={<AdminManageOrder />} />
-              <Route path="/admin/presciption/:id" element={<AdminManagePresciption />} />
+              <Route path="/admin/presciptions/:id" element={<AdminManagePresciption />} />
             </Route>
           </Routes>
         </Suspense>

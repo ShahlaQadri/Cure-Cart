@@ -26,13 +26,13 @@ export const presciptionApi = createApi({
       }),
       invalidatesTags: ["orders","stats","presciption-orders"],
     }),
-    // deleteOrder: builder.mutation({
-    //   query: ( id ) => ({
-    //     url: `/${id}`,
-    //     method: "DELETE",
-    //   }),
-    //   invalidatesTags: ["orders",'stats'],
-    // }),
+    deletePresciptionOrder: builder.mutation({
+      query: ( id ) => ({
+        url: `/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["orders",'stats',"presciption-orders"],
+    }),
     // myOrders: builder.query({
     //   query: () => `/myorders`,
     //   providesTags: ["orders"],
@@ -56,6 +56,7 @@ export const presciptionApi = createApi({
 export const {
   useNewPresciptionOrderMutation,
   useUpdatePresciptionOrderMutation,
+  useDeletePresciptionOrderMutation,
   useAllPresciptionOrdersQuery,
   useMyPresciptionOrdersQuery,
   usePresciptionOrderDetailsQuery

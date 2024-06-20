@@ -2,8 +2,9 @@ import {  useNavigate, useParams } from "react-router-dom";
 import Adminprofile from "../Components/dashbord/AdminSideBar";
 import { MdAddIcCall } from "react-icons/md";
 import { useEffect, useState } from "react";
-import { usePresciptionOrderDetailsQuery, useUpdatePresciptionOrderMutation } from "../redux/api/presciptionAPI";
+import { useDeletePresciptionOrderMutation, usePresciptionOrderDetailsQuery, useUpdatePresciptionOrderMutation } from "../redux/api/presciptionAPI";
 import { responseToste } from "../utils/Features";
+import { IoTrashBin } from "react-icons/io5";
 
 const CallLink = ({ phoneNumber }) => {
     return (
@@ -18,6 +19,7 @@ export default function AdminManagePresciption() {
   const {id} =useParams()
   const {data } = usePresciptionOrderDetailsQuery(id)
   const [processOrder] = useUpdatePresciptionOrderMutation()
+  const [deletepresciptionOrder] = useDeletePresciptionOrderMutation()
 
   const processOrderHandler = async()=>{
     // console.log("order processed")
@@ -27,7 +29,12 @@ export default function AdminManagePresciption() {
     // console.log(res)
   }
 
-  
+  const deleteOrderHandler=async()=>{
+    // console.log("product deleted",id)
+    const res = await  deletepresciptionOrder(id)
+    console.log(res)
+    responseToste(res,navigate,"/admin/presciptions")
+  }
   const [product, setProduct] = useState()
   useEffect(() => {
     setProduct(data?.product)
@@ -49,7 +56,11 @@ export default function AdminManagePresciption() {
           </div>
 
           <div className="manage w-[30%] h-[75vh] ">
-            
+          <button onClick={deleteOrderHandler} className="h-9 w-9 absolute top-[200px] right-[50px]
+                rounded-full  hover:text-red-500 text-[#200a0a] text-xl flex items-center justify-center ml-[100px]">
+                <IoTrashBin />
+
+              </button>
           <div className="w-[100%] h-[75vh] bg-white shadow-lg rounded px-2">
             <h2 className="text-2xl  py-6 text-center text-zinc-500">
               ORDER INFO
