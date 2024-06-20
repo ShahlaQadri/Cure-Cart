@@ -22,7 +22,7 @@ const addToCartHandler = (cartItem) => {
   return (
     <div className="containers mx-auto px-4 md:px-10">
       <div className="flex flex-col md:flex-row bg-gray-50 rounded-3xl">
-        <div className="relative">
+        <div className="relative z-50">
           <Link
             to="/"
             className="absolute top-2 md:top-3 left-4 md:left-10  hover:bg-zinc-100  rounded-full shadow-lg p-2 md:p-4"
@@ -31,13 +31,13 @@ const addToCartHandler = (cartItem) => {
           </Link>
         </div>
 
-        <div className="image flex justify-center items-center m-5 md:m-10  h-[20vh] md:h-[60vh] w-full md:w-[40%]">
-          <img
-            className="p-[3rem] md:p-[6rem] w-[60%] md:w-[90%] mix-blend-multiply"
-            src={`http://localhost:3000/${data?.product.photo}`}
-            alt="vicks vaporub"
-          />
-        </div>
+<div className="image flex justify-center  items-center m-5 md:m-10 h-[25vh] md:h-[60vh] w-full md:w-[40%]">
+  <img
+    className="w-full h-full  md:w-[100%] md:h-[100%]  object-contain mix-blend-multiply" // Ensure containment without cropping
+    src={`http://localhost:3000/${data?.product.photo}`}
+    alt="vicks vaporub"
+  />
+</div>
 
         <div className="description m-5 p-4 md:m-10 md:p-10 w-[100%] md:w-[60%]">
           <div className="space-y-2 border-b border-gray-600 pb-3 md:pb-6">
@@ -47,15 +47,15 @@ const addToCartHandler = (cartItem) => {
             <p className="text-gray-400  font-semibold text-sm md:text-md  ">
             {data?.product.uses}
             </p>
-            <div className="flex space-x-2 mt-20  text-xs">
+            <div className=" flex space-x-2 mt-20  text-xs">
               <p
-                className="md:px-4 px-2 py-1 md:py-2 text-green-400 font-semibold
+                className="md:px-4 px-2 flex items-center whitespace-nowrap py-1 md:py-2 text-green-400 font-semibold
                bg-[#E3F6EE] rounded-full capitalize"
               >
                 {data?.product.category}
               </p>
-              <p className="px-2 py-1 md:px-4 md:py-2 font-semibold capitalize text-green-400   bg-[#E3F6EE] rounded-full">
-              {data?.product.used_for}
+              <p className="px-2 py-1 w-auto md:px-4 md:py-2 font-semibold capitalize text-green-400   bg-[#E3F6EE] rounded-full">
+              {`${data?.product.used_for}`}
               </p>
             </div>
           </div>
