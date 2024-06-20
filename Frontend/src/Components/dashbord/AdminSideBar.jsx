@@ -1,12 +1,13 @@
-import React from 'react'
 import { FaUsers } from "react-icons/fa";
 import { BsBoxSeamFill } from "react-icons/bs";
 import { MdSpaceDashboard } from "react-icons/md";
 import { BsBagCheckFill } from "react-icons/bs";
 import { RiCoupon3Fill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 export default function AdminSideBar() {
+  const {user} = useSelector((state)=>state.userReducer)
   return (
     <div className="aside relative h-[90vh]  px-3 pl-7 pt-6 overflow-hidden    shadow-r-xl text-zinc-700 font-extralight">
       {/* <img src="../../../pictures/smalllogo.png" alt="Cure Cart" height={10} width={150} /> */}
@@ -90,6 +91,25 @@ export default function AdminSideBar() {
               Orders
             </Link>
           </li>
+
+          <li
+            style={{
+              backgroundColor: location.pathname.includes("/admin/presciptions")
+                ? "#DBEAFE"
+                : "white",
+              color: location.pathname.includes("/admin/presciptions")
+                ? "#2f85ed"
+                : "#63636b",
+            }}
+            className="flex items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
+          >
+            <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
+              <BsBoxSeamFill className="text-[17px]" />
+            </div>
+            <Link to="/admin/presciptions" className="">
+               Presciption Orders
+            </Link>
+          </li>
         </ul>
 
         <ul className="font-lighter">
@@ -124,8 +144,8 @@ export default function AdminSideBar() {
             />
           </div>
           <div className="ml-2 ">
-            <p className="font-bold text-md ">Salman Arif</p>
-            <p className="text-gray-600 text-xs">sofisalman9906@gmail.com</p>
+            <p className="font-bold text-md ">{user?.name}</p>
+            <p className="text-gray-600 text-xs">{user?.email}</p>
           </div>
         </div>
       </div>

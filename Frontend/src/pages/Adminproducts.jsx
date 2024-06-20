@@ -1,4 +1,3 @@
-import React from "react";
 import Adminprofile from "../Components/dashbord/AdminSideBar";
 import Adminprotable from "../Components/dashbord/Adminprotable";
 import { Link } from "react-router-dom";

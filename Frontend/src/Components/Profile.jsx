@@ -1,21 +1,43 @@
-import React, { useEffect, useState } from "react";
+
 import { BiSolidUser } from "react-icons/bi";
 import { BsBagHeartFill } from "react-icons/bs";
 import { IoLogOut } from "react-icons/io5";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate,} from "react-router-dom";
 import { BsBagCheckFill } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import {  userNotExist } from "../redux/reducers/userReducer";
+import {   useUserLogoutMutation, } from "../redux/api/userAPI.js";
+import { MdSpaceDashboard } from "react-icons/md";
+import toast from "react-hot-toast";
+
+// import { useEffect } from "react";
 
 
 export default function Profile() {
   const navigate = useNavigate();
-  const [first, setfirst] = useState("");
+  const {user} = useSelector((state)=>state.userReducer)
+  const dispatch = useDispatch();
+  
+ 
+  
+ 
+  
+  
+  const [logoutUser,]=useUserLogoutMutation()
   const logOut = () => {
-    console.log("hello");
-    setfirst(null);
-    localStorage.removeItem("token");
-    navigate("/login");
+    try {
+      dispatch(userNotExist())
+    logoutUser()
+    // console.log(user?.name)
+    toast.success("Sign Out Successfully")
+    navigate("/");
+    } catch (error) {
+      toast.error("Sign Out Failed")
+    }
+    
   };
-  useEffect(() => {}, [first]);
+  
+  
   return (
     <div className="aside realative h-[90vh]  rounded-lg border-2 px-3 pl-7  overflow-hidden    shadow-r-xl text-zinc-700 font-extralight">
       <div className="profile  mb-4 w-full h-32 left-0 border-b border-gray-300  items-center flex p-1">
@@ -27,9 +49,9 @@ export default function Profile() {
           />
         </div>
         <div className="ml-2 ">
-          <p className="font-bold text-md ">Salman Arif</p>
-          <p className="text-gray-500 text-xs font-semibold">sofisalman9906@gmail.com</p>
-          <p className="text-gray-500 text-xs font-semibold">+917006622199</p>
+          <p className="font-bold text-md ">{user?.name}</p>
+          <p className="text-gray-500 text-xs font-semibold">{user?.email}</p>
+          <p className="text-gray-500 text-xs font-semibold">+91-{user?.phone}</p>
         </div>
       </div>
       <div className="options relative h-[70vh] rounded-lg">
@@ -74,6 +96,26 @@ export default function Profile() {
 
           <li
             style={{
+              backgroundColor: location.pathname.includes("/mypresciptionorders")
+                ? "#DBEAFE"
+                : "white",
+              color: location.pathname.includes("/mypresciptionorders")
+                ? "#2f85ed"
+                : "#63636b",
+            }}
+            className="flex items-center gap-1 px-4 py-1  my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
+          >
+            <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center">
+              <BsBagCheckFill className="text-[17px]" />
+            </div>
+            <Link to="/mypresciptionorders" className="">
+              My Presciption Orders
+            </Link>
+          </li>
+
+          {
+            user?.role==="admin"?<li
+            style={{
               backgroundColor: location.pathname.includes("/mywishlist")
                 ? "#DBEAFE"
                 : "white",
@@ -84,21 +126,41 @@ export default function Profile() {
             className="flex items-center gap-1 px-4 py-1  my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
           >
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center">
+              
+              <MdSpaceDashboard className="text-[17px]" />
+            </div>
+            <Link to="/admin/dashboard" className="">
+              Dashboard
+            </Link>
+          </li>:<li
+            style={{
+              backgroundColor: location.pathname.includes("/mywishlist")
+              ? "#DBEAFE"
+              : "white",
+              color: location.pathname.includes("/mywishlist")
+                ? "#2f85ed"
+                : "#63636b",
+              }}
+              className="flex items-center gap-1 px-4 py-1  my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400  "
+              >
+            <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center">
               <BsBagHeartFill className="text-[17px]" />
             </div>
             <Link to="/myorders" className="">
               My Wishlist
             </Link>
           </li>
+          }
+         
         </ul>
         <ul>
           <li className="flex absolute bottom-0 w-full items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400    ">
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
               <IoLogOut className="text-[18px]" />
             </div>
-            <Link to="/myprofile" className="">
+            <button onClick={logOut} className="">
               LogOut
-            </Link>
+            </button>
           </li>
         </ul>
       </div>

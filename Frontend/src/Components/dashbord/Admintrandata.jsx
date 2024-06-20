@@ -1,63 +1,6 @@
-import { Link } from "react-router-dom";
 
-export const ADMIN_TRAN_DATA = [
-  {
-    user: "shahla",
-    status: "Delivered",
-    amount: 5100,
-    quantity: 5,
-    discount: 100,
-    action: <Link to="/admin/transactions/cddid">Manage</Link>,
-  },
-  {
-    user: "salman",
-    status: "Shipped",
-    amount: 3000,
-    quantity: 5,
-    discount: 100,
-    action: <Link to="/admin/transactions/xyzzzzz">Manage</Link>,
-  },
-  {
-    user: "aahil",
-    status: "Processing",
-    amount: 2660,
-    quantity: 7,
-    discount: 100,
-    action: <Link to="/admin/transactions/:xyzzzzz">Manage</Link>,
-  },
-  {
-    user: "fatima",
-    status: "Delivered",
-    amount: 2500,
-    quantity: 8,
-    discount: 100,
-    action: <Link to="/admin/transactions/:xyzzzzz">Manage</Link>,
-  },
-  {
-    user: "salman",
-    status: "Processing",
-    amount: 3500,
-    quantity: 2,
-    discount: 100,
-    action: <Link to="/admin/transactions/:xyzzzzz">Manage</Link>,
-  },
-  {
-    user: "cygg",
-    status: "Shipped",
-    amount: 5400,
-    quantity: 3,
-    discount: 100,
-    action: <Link to="/admin/transactions/:xyzzzzz">Manage</Link>,
-  },
-  {
-    user: "aahil",
-    status: "Delivered",
-    amount: 3700,
-    quantity: 7,
-    discount: 100,
-    action: <Link to="/admin/transactions/:xyzzzzz">Manage</Link>,
-  },
-];
+
+
 
 
 export const ADMIN_TRAN_COLUMNS = [

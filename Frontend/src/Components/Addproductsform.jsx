@@ -1,46 +1,83 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
+import { useCreateProductMutation } from '../redux/api/productsAPI';
+import { useNavigate } from 'react-router-dom';
+import { responseToste } from '../utils/Features';
 
 const Addproductsform = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    category: '',
-    price:0,
-    discount:0,
-    about: '',
-    uses: '',
-    directions: '',
-    expiryDate: '',
-    usedFor: '',
-    stock: 0,
-    photo: '',
-  });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState(1000);
+  const [stock, setStock] = useState(1);
+  const [photoPrev, setPhotoPrev] = useState("");
+  const [photo, setPhoto] = useState();
+  const [uses, setUses] = useState("");
+  const [used_for, setUsed_for] = useState("");
+  const [expiry_date, setExpiry_date] = useState("");
+  const [discount, setDiscount] = useState();
+  const [directions, setDirections] = useState("");
+  const [about, setAbout] = useState("");
 
-  const handlePhotoChange = (e) => {
-    const file = e.target.files[0];
+
+  const [ newProduct ] = useCreateProductMutation()
+  const navigate = useNavigate();
+
+  const changeImageHandler = (e) => {
+    const file = e.target.files?.[0];
+
+    const reader= new FileReader();
+
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData({ ...formData, photo: reader.result });
-      };
       reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        if (typeof reader.result === "string") {
+          setPhotoPrev(reader.result);
+          setPhoto(file);
+          console.log(photo)
+        }
+      };
     }
   };
 
-  const handleSubmit = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    if (!name || !price || stock < 0 || !category || !photo) return;
+
+    
+    const formData = new FormData();
+
+    formData.append("name", name);
+    formData.append("price", price.toString());
+    formData.append("stock", stock.toString());
+    formData.append("photo", photo);
+    formData.append("category", category);
+    formData.append("discount", discount);
+    formData.append("uses", uses);
+    formData.append("about", about);
+    formData.append("directions", directions);
+    formData.append("expiry_date", expiry_date);
+    formData.append("used_for", used_for);
+    
+    // Log each entry in the FormData
+    for (const pair of formData.entries()) {
+      console.log(pair[0], pair[1]);
+    }
+    const res = await newProduct( formData );
+    
+    responseToste(res,navigate,"/admin/products")
+
+    
+
+  
   };
 
+  
   return (
     <div className="">
       <h1 className="mt-5 ml-10 text-3xl  text-zinc-500 mb-4">Add Product</h1>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={submitHandler}
         className="w-[90%] mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
       >
         <div className="grid grid-cols-3 gap-5">
@@ -54,8 +91,8 @@ const Addproductsform = () => {
             <input
               type="text"
               name="name"
-              value={formData.name}
-              onChange={handleChange}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="w-full px-3 py-1 border rounded-lg"
             />
           </div>
@@ -69,8 +106,8 @@ const Addproductsform = () => {
             <input
               type="text"
               name="category"
-              value={formData.category}
-              onChange={handleChange}
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
               className="w-full px-3 py-1 border rounded-lg"
             />
           </div>
@@ -84,8 +121,8 @@ const Addproductsform = () => {
             <input
               type="number"
               name="price"
-              value={formData.price}
-              onChange={handleChange}
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
               className="w-full px-3 py-1 border rounded-lg"
             />
           </div>
@@ -94,29 +131,29 @@ const Addproductsform = () => {
               htmlFor="discount"
               className="block text-gray-700 text-sm font-bold"
             >
-              Discount
+              Discount (%)
             </label>
             <input
               type="number"
               name="discount"
-              value={formData.discount}
-              onChange={handleChange}
+              value={discount}
+              onChange={(e) => setDiscount(e.target.value)}
               className="w-full px-3 py-1 border rounded-lg"
             />
           </div>
 
           <div className="mb-2">
             <label
-              htmlFor="expiryDate"
+              htmlFor="expiry Date"
               className="block text-gray-700 text-sm font-bold"
             >
               Expiry Date
             </label>
             <input
               type="date"
-              name="expiryDate"
-              value={formData.expiryDate}
-              onChange={handleChange}
+              name="expiry_date"
+              value={expiry_date}
+              onChange={(e) => setExpiry_date(e.target.value)}
               className="w-full px-3 py-1 border rounded-lg"
             />
           </div>
@@ -129,9 +166,9 @@ const Addproductsform = () => {
             </label>
             <input
               type="text"
-              name="usedFor"
-              value={formData.usedFor}
-              onChange={handleChange}
+              name="used_for"
+              value={used_for}
+              onChange={(e) => setUsed_for(e.target.value)}
               className="w-full px-3 py-1 border rounded-lg"
             />
           </div>
@@ -145,8 +182,8 @@ const Addproductsform = () => {
             <input
               type="number"
               name="stock"
-              value={formData.stock}
-              onChange={handleChange}
+              value={stock}
+              onChange={(e) => setStock(e.target.value)}
               className="w-full px-3 py-1 border rounded-lg"
             />
           </div>
@@ -159,8 +196,8 @@ const Addproductsform = () => {
             </label>
             <textarea
               name="about"
-              value={formData.about}
-              onChange={handleChange}
+              value={about}
+              onChange={(e) => setAbout(e.target.value)}
               className="w-full px-3 py-1 border rounded-lg"
             ></textarea>
           </div>
@@ -173,8 +210,8 @@ const Addproductsform = () => {
             </label>
             <textarea
               name="uses"
-              value={formData.uses}
-              onChange={handleChange}
+              value={uses}
+              onChange={(e) => setUses(e.target.value)}
               className="w-full px-3 py-1 border rounded-lg"
             ></textarea>
           </div>
@@ -187,8 +224,8 @@ const Addproductsform = () => {
             </label>
             <textarea
               name="directions"
-              value={formData.directions}
-              onChange={handleChange}
+              value={directions}
+              onChange={(e) => setDirections(e.target.value)}
               className="w-full px-3 py-1 border rounded-lg"
             ></textarea>
           </div>
@@ -199,15 +236,12 @@ const Addproductsform = () => {
             >
               Photo
             </label>
-            <input
-              type="file"
-              name="photo"
-              onChange={handlePhotoChange}
-              className="w-full px-3 py-1 border rounded-lg"
-            />
-            {formData.photo && (
+            
+            <input required type="file"  className="w-full px-3 py-1 border rounded-lg" onChange={changeImageHandler} />
+
+            {photoPrev && (
               <img
-                src={formData.photo}
+                src={photoPrev}
                 alt="Product"
                 className="mt-2 mx-auto h-32 w-32 object-cover rounded"
               />

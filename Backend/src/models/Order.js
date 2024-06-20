@@ -5,10 +5,10 @@ const orderSchema = new mongoose.Schema(
     shippingInfo: {
       name: { type: String, required: true },
       address: { type: String, required: true },
-      city: { type: String, required: true },
-      country: { type: String, required: true },
-      phoneNumber: { type: Number, required: true },
-      pinCode: { type: Number, required: true },
+      email: { type: String, required: true },
+      landmark: { type: String, required: true },
+      phone: { type: Number, required: true },
+      pincode: { type: Number, required: true },
     },
     user:{
         type:mongoose.Schema.Types.ObjectId,

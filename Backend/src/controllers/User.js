@@ -23,10 +23,10 @@ export const register = async (req, res, next) => {
     success = true;
     res
       .status(201)
-      .cookie("token", token, {
-        httpOnly: true,
-        secure: true,
-        maxAge: 15 * 24 * 60 * 60 * 1000,
+      .cookie("token", token,{
+        // httpOnly: true,
+        maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days in milliseconds
+        // secure: process.env.NODE_ENV === "production" ? true : false,
       })
       .json({ success, token, msg: `welcome  ${user.name}` });
   } catch (error) {
@@ -53,9 +53,9 @@ export const login = async (req, res, next) => {
     res
       .status(200)
       .cookie("token", token, {
-        httpOnly: true,
-        secure: true,
-        maxAge: 15 * 24 * 60 * 60 * 1000,
+        // httpOnly: true,
+        maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days in milliseconds
+        // secure: process.env.NODE_ENV === "production" ? true : false,
       })
       .json({ success: true, token, msg: `welcome back ${user.name}` });
   } catch (error) {
@@ -65,7 +65,6 @@ export const login = async (req, res, next) => {
 export const myProfie = async (req, res, next) => {
   try {
     const userId = req.user._id;
-    console.log(userId);
 
     const user = await User.findById(userId).select(["-password"]);
     res.status(200).json({
@@ -100,6 +99,7 @@ export const deleteUser = async (req, res, next) => {
   }
 };
 export const logOut = async (req, res) => {
+  console.log("logout")
   try {
     if (!req.cookies.token) {
       return res
@@ -159,7 +159,7 @@ export const changePassword = async (req, res, next) => {
 
 export const updateProfile = async (req, res, next) => {
   try {
-    const { name, email } = req.body;
+    const { name, email,phone,gender } = req.body;
     const id = req.user._id;
 
     if (!id) {
@@ -168,24 +168,28 @@ export const updateProfile = async (req, res, next) => {
       );
     }
 
-    // const user = await User.findById(id);
-    // if(!user)throw new ErrorHandler("User Not Found ", 401);
+    const user = await User.findById(id);
+    if(!user)throw new ErrorHandler("User Not Found ", 401);
 
-    // if(name) user.name=name;
-    // if(email) user.email=email;
-    // await user.save();
-    const user = await User.findByIdAndUpdate(
-      id,
-      {
-        $set: {
-          name,
-          email,
-        },
-      },
-      {
-        new: true,
-      }
-    );
+    if(name) user.name=name;
+    if(email) user.email=email;
+    if(phone) user.phone=phone;
+    if(gender) user.gender=gender;
+    await user.save();
+    // const user = await User.findByIdAndUpdate(
+    //   id,
+    //   {
+    //     $set: {
+    //       name,
+    //       email,
+    //       phone,
+    //       gender
+    //     },
+    //   },
+    //   {
+    //     new: true,
+    //   }
+    // );
     return res
       .status(200)
       .json({ success: true, msg: "Profile Updated Successfully" });

@@ -1,9 +1,4 @@
-import React from 'react'
-
 import Profile from "../Components/Profile";
-import { AiFillEdit } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import { TiArrowBack } from "react-icons/ti";
 import Orderstable from '../Components/Orderstable';
 
 function MyOrders() {

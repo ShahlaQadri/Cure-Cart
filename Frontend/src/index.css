@@ -33,3 +33,57 @@
 .widget-circle span{
     position: relative;
 }
+/* Add this CSS for the loader */
+.search-bar input::placeholder {
+    /* color: #1a64c5; Change to a soft gray color */
+    opacity: 1; /* Keep full opacity */
+    font-style: bold; /* Italic font style */
+    font-size: 14px; /* Adjust the size as needed */
+  }
+
+
+
+  /* Base styles for the input field */
+.input-field {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Container for the dynamic placeholder */
+  .dynamic-placeholder-container {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    width: calc(100% - 16px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    height: 20px; /* Adjust based on your font size */
+  }
+  
+  /* Static part of the placeholder */
+  .static-text {
+    font-weight: normal; /* Keep the font weight normal for the static part */
+    color: gray; /* Light gray for the static part */
+  }
+  
+  /* The dynamic placeholder itself */
+  .dynamic-placeholder {
+    position: relative;
+    bottom: -100%;
+    opacity: 0;
+    transition: opacity 0.5s ease, bottom 0.5s ease;
+    font-weight: bold; /* Make the dynamic part bold */
+    color: black; /* Darker color for the dynamic part */
+  }
+  
+  /* Animating the dynamic placeholder */
+  .input-field:focus + .dynamic-placeholder-container .dynamic-placeholder,
+  .input-field:not(:placeholder-shown) + .dynamic-placeholder-container .dynamic-placeholder {
+    opacity: 1;
+    bottom: 0;
+  }
+  

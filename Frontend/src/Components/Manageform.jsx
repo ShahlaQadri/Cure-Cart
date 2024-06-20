@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useUpdateProductMutation,useDeleteProductMutation } from '../redux/api/productsAPI';
+import { useNavigate, useParams } from 'react-router-dom';
+import { responseToste } from '../utils/Features';
+import { IoTrashBin } from "react-icons/io5";
 
-const Manageform = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    category: '',
-    price: '',
-    discount: '',
-    about: '',
-    uses: '',
-    directions: '',
-    expiryDate: '',
-    usedFor: '',
-    stock: '',
-    photo: '',
-  });
+
+const Manageform = ({product}) => {
+  const [formData, setFormData] = useState();
+  const navigate = useNavigate()
+  const {id} = useParams()
+  // console.log(id)
+  // console.log("product in form",product)
+  const[updateProduct] = useUpdateProductMutation()
+  const [deleteProduct]=useDeleteProductMutation()
+
+  console.log("product in form",formData?.expiry_date)
+  useEffect(() => {
+    setFormData(product)
+    
+  
+    
+  }, [product])
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,13 +39,29 @@ const Manageform = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log(formData);
+    console.log(e);
+    console.log("id after submission" ,id)
+    const res = await updateProduct({formData,id})
+    responseToste(res,navigate,"/admin/products")
+    console.log(res)
   };
+
+  const deleteHandler =async ()=>{
+    console.log("deleted")
+    const res = await deleteProduct(id)
+    responseToste(res,navigate,"/admin/products")
+    
+  }
 
   return (
     <div className="container mx-auto h-[75vh] bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <button onClick={deleteHandler} className="h-9 w-9 absolute top-[152px] right-6
+       rounded-full bg-[#C70908] text-white text-xl flex items-center justify-center ml-[100px]">
+                <IoTrashBin />
+
+              </button>
       <h2 className="text-3xl  text-zinc-500  text-center mb-10">
         Manage Product
       </h2>
@@ -53,7 +77,7 @@ const Manageform = () => {
             <input
               type="text"
               name="name"
-              value={formData.name}
+              value={formData?.name}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -68,7 +92,7 @@ const Manageform = () => {
             <input
               type="text"
               name="category"
-              value={formData.category}
+              value={formData?.category}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -83,7 +107,7 @@ const Manageform = () => {
             <input
               type="text"
               name="price"
-              value={formData.price}
+              value={formData?.price}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -93,12 +117,12 @@ const Manageform = () => {
               htmlFor="photo"
               className="block text-gray-700 text-sm font-bold"
             >
-              Discount
+              Discount (%)
             </label>
             <input
               type="text"
               name="discount"
-              value={formData.discount}
+              value={formData?.discount}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -114,7 +138,7 @@ const Manageform = () => {
             <input
               type="text"
               name="usedFor"
-              value={formData.usedFor}
+              value={formData?.used_for}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -129,7 +153,7 @@ const Manageform = () => {
             <input
               type="text"
               name="stock"
-              value={formData.stock}
+              value={formData?.stock}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -144,7 +168,7 @@ const Manageform = () => {
             <input
               type="date"
               name="expiryDate"
-              value={formData.expiryDate}
+              value={formData?.expiry_date}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
@@ -158,7 +182,7 @@ const Manageform = () => {
             </label>
             <textarea
               name="about"
-              value={formData.about}
+              value={formData?.about}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             ></textarea>
@@ -172,7 +196,7 @@ const Manageform = () => {
             </label>
             <textarea
               name="uses"
-              value={formData.uses}
+              value={formData?.uses}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             ></textarea>
@@ -186,7 +210,7 @@ const Manageform = () => {
             </label>
             <textarea
               name="directions"
-              value={formData.directions}
+              value={formData?.directions}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             ></textarea>
@@ -204,9 +228,9 @@ const Manageform = () => {
               onChange={handlePhotoChange}
               className="w-full px-3 py-1 border rounded-lg"
             />
-            {formData.photo && (
+            {formData?.photo && (
               <img
-                src={formData.photo}
+                src={formData?.photo}
                 alt="Product"
                 className="mt-2 mx-auto h-32 w-32 object-cover rounded"
               />

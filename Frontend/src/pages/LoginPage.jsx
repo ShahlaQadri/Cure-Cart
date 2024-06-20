@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
+import { useUserLoginMutation } from "../redux/api/userAPI";
+import toast from "react-hot-toast";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const [userlogin] =useUserLoginMutation()
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -22,28 +25,35 @@ function LoginPage() {
   };
 
   const handleSubmit = async (e) => {
+    try {
     e.preventDefault();
     // Perform login authentication logic here
     console.log("Email:", email);
     console.log("Password:", password);
-    const response = await fetch(`http://localhost:3000/api/v1/users/login`, {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
-    const data = await response.json();
-    console.log(data);
-    if (data.success === true) {
-      alert(data.msg);
-      localStorage.setItem("token", data.token);
-
+    const res = await userlogin({
+      email,
+      password
+    })
+    
+    if("data" in res){
+      toast.success(res.data.msg)
+      localStorage.setItem("token", res.data.token);
       navigate("/");
-    } else {
-      alert(data.msg);
     }
-  };
+    else{
+      
+       toast.error(res.error.data.msg)
+       navigate("/Register");
+      
+    }
+    
+     
+   } catch (error) {
+    toast.error("Login Failed")
+    
+   }
+  
+}
 
   return (
     <div className="my-20 flex items-center justify-center">

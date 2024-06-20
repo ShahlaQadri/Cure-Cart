@@ -1,11 +1,39 @@
-import React, { useMemo } from 'react'
+import  { useEffect, useMemo, useState } from 'react'
 import { useTable, usePagination } from 'react-table' 
-import { ADMIN_TRAN_COLUMNS, ADMIN_TRAN_DATA } from './Admintrandata'
+import { ADMIN_TRAN_COLUMNS } from './Admintrandata'
+import { useAllOrdersQuery } from '../../redux/api/ordersAPI'
+import { Link } from 'react-router-dom'
 
 const Admintrantable = () => {
+  const { data, isLoading, error } = useAllOrdersQuery()
+  const [adminAllOrders, setAdminAllOrders] = useState([]);
+  const [isDataLoading, setIsDataLoading] = useState(true);
+  // console.log(data.orders)
+  useEffect(() => {
+    // Function to transform the fetched data
+    const transformData = async () => {
+      if (data && Array.isArray(data?.orders)) {
+        const transformedOrders = data?.orders.map((order) => ({
+          user: order.user.name,
+          status: order.status,
+          amount: order.total,
+          quantity: order.orderItems.length,
+          discount: 100,
+          action: <Link to={`/admin/transactions/${order._id}`}>Manage</Link>,
+          
+          
+        }));
+        setAdminAllOrders(transformedOrders);
+      } else {
+        console.warn("Data or orders are undefined or not an array");
+      }
+      setIsDataLoading(false); // Set loading state to false once processing is done
+    };
 
+    transformData();
+  }, [data]);
     const columns = useMemo(() => ADMIN_TRAN_COLUMNS, [])
-    const data = useMemo(() => ADMIN_TRAN_DATA, [])
+    const alldata = useMemo(() => adminAllOrders, [adminAllOrders])
 
     const {
         getTableProps,
@@ -22,14 +50,20 @@ const Admintrantable = () => {
     }=useTable(
         {
         columns,
-        data,
+        data:alldata,
         initialState: { pageIndex: 0, pageSize: 6  }
     },
        usePagination
        )
 
        const { pageIndex } = state
+       if (isLoading || isDataLoading) return <div>Loading...</div>;
 
+       if (error) return <div>Error: {error.message}</div>;
+     
+       if (alldata.length === 0) {
+         return <div className='mt-32 ml-[400px] text-3xl text-zinc-400'>No Orders available</div>;
+       }
   return (
     <div className='px-20'>
       <table {...getTableProps()} className="table-auto  w-[100%] ">

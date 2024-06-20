@@ -1,11 +1,39 @@
-import React, { useMemo } from 'react'
+import  { useEffect, useMemo, useState } from 'react'
 import { useTable, usePagination } from 'react-table' 
-import { ORDERS_COLUMNS, ORDERS_DATA } from './Ordersdata'
+import { ORDERS_COLUMNS } from './Ordersdata'
+import { useMyOrdersQuery } from '../redux/api/ordersAPI'
+import { Link } from 'react-router-dom'
 
 const Orderstable = () => {
+  const {data,isLoading, error} = useMyOrdersQuery()
+  const [myOrders, setMyOrders] = useState([]);
+  const [isDataLoading, setIsDataLoading] = useState(true);
+  
+  console.log(data?.orders)
+  useEffect(() => {
+    // Function to transform the fetched data
+    const transformData = async () => {
+      if (data && Array.isArray(data?.orders)) {
+        const transformedOrders = data?.orders.map((order) => ({
+          id: order._id,
+          status: order.status,
+          amount: order.total,
+          quantity: order.orderItems.length,
+          discount: order.discount,
+          action: <Link to={`/admin/transactions/${order._id}`}>Manage</Link>,
+        }));
+        setMyOrders(transformedOrders);
+      } else {
+        console.warn("Data or orders are undefined or not an array");
+      }
+      setIsDataLoading(false); // Set loading state to false once processing is done
+    };
+
+    transformData();
+  }, [data]);
 
     const columns = useMemo(() => ORDERS_COLUMNS, [])
-    const data = useMemo(() => ORDERS_DATA, [])
+    const alldata = useMemo(() => myOrders, [myOrders])
 
     const {
         getTableProps,
@@ -22,14 +50,20 @@ const Orderstable = () => {
     }=useTable(
         {
         columns,
-        data,
+        data:alldata,
         initialState: { pageIndex: 0, pageSize: 5 }
     },
        usePagination
        )
 
        const { pageIndex } = state
+       if (isLoading || isDataLoading) return <div>Loading...</div>;
 
+       if (error) return <div>Error: {error.message}</div>;
+     
+       if (alldata.length === 0) {
+         return <div>No products available</div>;
+       }
   return (
     <div className="">
       <table {...getTableProps()} className="table-auto  w-full  ">
