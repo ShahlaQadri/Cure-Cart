@@ -17,21 +17,21 @@ export const presciptionApi = createApi({
         method: "POST",
         body: order,
       }),
-      invalidatesTags: ["orders",'stats',"presciption-orders"],
+      invalidatesTags: ['stats',"presciption-orders"],
     }),
     updatePresciptionOrder: builder.mutation({
       query: ( id ) => ({
         url: `/${id}`,
         method: "PUT",
       }),
-      invalidatesTags: ["orders","stats","presciption-orders"],
+      invalidatesTags: ["stats","presciption-orders"],
     }),
     deletePresciptionOrder: builder.mutation({
       query: ( id ) => ({
         url: `/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["orders",'stats',"presciption-orders"],
+      invalidatesTags: ['stats',"presciption-orders"],
     }),
     // myOrders: builder.query({
     //   query: () => `/myorders`,
