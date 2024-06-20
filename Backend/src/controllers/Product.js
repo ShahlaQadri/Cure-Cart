@@ -64,7 +64,7 @@ export const babyBestDeals = async (req, res, next) => {
     if (myCache.has("baby-deals"))
       products = JSON.parse(myCache.get("baby-deals"));
     else {
-      products = await Product.find({ category: "baby food" })
+      products = await Product.find({ category: "baby care" })
         .sort({ discount: -1 })
         .limit(5);
       myCache.set("baby-deals", JSON.stringify(products));
