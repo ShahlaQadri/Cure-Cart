@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useDeletePresciptionOrderMutation, usePresciptionOrderDetailsQuery, useUpdatePresciptionOrderMutation } from "../redux/api/presciptionAPI";
 import { responseToste } from "../utils/Features";
 import { IoTrashBin } from "react-icons/io5";
+import { server } from "../main";
 
 const CallLink = ({ phoneNumber }) => {
     return (
@@ -41,7 +42,7 @@ export default function AdminManagePresciption() {
   
     
   }, [data])
-  console.log(product)
+  
   
   return (
     <div className="profilePage flex flex-col my-4  h-[90vh] bg-zinc-50/95">
@@ -52,7 +53,7 @@ export default function AdminManagePresciption() {
 
         <div className="main w-[80%] rounded-lg flex flex-row gap-4 bg-zinc-50/95 px-4 py-4 ">
           <div className="picture mx-auto w-[70%] bg-white flex items-center px-5 justify-center h-[75vh] shadow-lg rounded   mb-4">
-            <img src={`http://localhost:3000/${data?.orderDetails.presciption}`} alt="" />
+            <img src={`${server}${data?.orderDetails.presciption}`} alt="" />
           </div>
 
           <div className="manage w-[30%] h-[75vh] ">

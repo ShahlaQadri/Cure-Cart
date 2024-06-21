@@ -32,8 +32,10 @@ const AdminDashboardPage = lazy(() => import("./pages/AdminDashboardPage"));
 const AdminPresciptionOrderPage = lazy(() => import("./pages/AdminPresciptionOrderPage"));
 const UsersPresciptionOrdersPage = lazy(() => import("./pages/UsersPresciptionOrdersPage"));
 
+
 function App() {
   const dispatch = useDispatch();
+  console.log("server",import.meta.env.VITE_SERVER)
   const { data, isSuccess } = useGetMyDetalsQuery();
   const user = useSelector((state) => state.userReducer.user);
 

@@ -3,6 +3,7 @@ import { useTable, usePagination } from "react-table";
 import { ADMIN_PRO_COLUMNS } from "./Adminprodata";
 import { useGetAllProductsQuery } from "../../redux/api/productsAPI";
 import { Link } from "react-router-dom";
+import { server } from "../../main";
 
 const Adminprotable = () => {
   const { data, isLoading, error } = useGetAllProductsQuery();
@@ -14,7 +15,7 @@ const Adminprotable = () => {
     const transformData = async () => {
       if (data && Array.isArray(data.products)) {
         const transformedProducts = data.products.map((product) => ({
-          photo: `http://localhost:3000/${product.photo}`, // Example static photo URL
+          photo: `${server}${product.photo}`, 
           name: product.name || "Unknown Product",
           price: product.price !== undefined ? product.price : 0,
           stock: product.stock !== undefined ? product.stock : 0,
@@ -88,7 +89,7 @@ const Adminprotable = () => {
             return (
               <tr {...row.getRowProps()} key={row.id} className="border-b">
                 {row.cells.map((cell) => (
-                  <td {...cell.getCellProps()} key={cell.column.id} className="py-2 text-sm px-20">
+                  <td {...cell.getCellProps()} key={cell.column.id} className="mix-blend-multiply py-2 text-sm  px-20">
                     {cell.render("Cell")}
                   </td>
                 ))}

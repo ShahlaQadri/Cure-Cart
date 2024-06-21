@@ -5,6 +5,7 @@ import { useDeleteOrderMutation, useOrderDetailsQuery, useUpdateOrderMutation } 
 import { responseToste } from "../utils/Features";
 // import Manageform from "../Components/Manageform";
 import { IoTrashBin } from "react-icons/io5";
+import { server } from "../main";
 
 export default function AdminManageOrder() {
   const {id} = useParams()
@@ -47,18 +48,18 @@ export default function AdminManageOrder() {
               data?.order.orderItems.map((item) => (
                 <div key={item.productId} className="flex items-center  justify-evenly mb-4 px-10">
                   <img
-                    src={`http://localhost:3000/${item.photo}`}
+                    src={`${server}${item.photo}`}
                     alt="Product"
-                    className="w-12 h-16 "
+                    className="w-16 h-16 "
                   />
-                  <div className="px-1 ml-10 flex  text-sm font-semibold text-zinc-700">
+                  <div className="px-1 ml-6 flex  text-sm  text-zinc-700">
                     <p className="name ">{item.name}</p>
-                    <p className=" ml-16">
-                      <span className="price">{item.price}</span> X{" "}
-                      <span className="quantity"> {item.quantity}</span>
+                    <p className=" ml-10">
+                      <span className="price ">{item.price}</span> * {item.quantity}{" "}
+                      
                     </p>
                     <span className="mx-2">=</span>
-                    <p className="total">{item.price*item.quantity}</p>
+                    <p className="total font-semibold">{item.price*item.quantity}</p>
                   </div>
                 </div>))
             }

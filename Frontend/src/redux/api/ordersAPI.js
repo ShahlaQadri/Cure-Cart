@@ -4,11 +4,11 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const orderApi = createApi({
   reducerPath: "orderApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `http://localhost:3000/api/v1/order`,
+    baseUrl: `${import.meta.env.VITE_SERVER}api/v1/order`,
     credentials:"include",
     
   }),
-  tagTypes: ["orders",'stats'],
+  tagTypes: ["orders",'stats',"products"],
 
   endpoints: (builder) => ({
     newOrder: builder.mutation({
@@ -17,7 +17,7 @@ export const orderApi = createApi({
         method: "POST",
         body: order,
       }),
-      invalidatesTags: ["orders",'stats'],
+      invalidatesTags: ["orders",'stats',"products"],
     }),
     updateOrder: builder.mutation({
       query: ( id ) => ({
@@ -31,7 +31,7 @@ export const orderApi = createApi({
         url: `/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["orders",'stats'],
+      invalidatesTags: ["orders",'stats',"products"],
     }),
     myOrders: builder.query({
       query: () => `/myorders`,

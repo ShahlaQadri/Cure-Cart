@@ -3,6 +3,7 @@ import { useTable, usePagination } from "react-table";
 import { Link } from "react-router-dom";
 import { USER_PREC_COLUMNS } from "./UsersPresciptionTableData";
 import { useMyPresciptionOrdersQuery } from "../redux/api/presciptionAPI";
+import { server } from "../main";
 
 const UsersPresciptionTable = () => {
   const { data, isLoading, error } = useMyPresciptionOrdersQuery();
@@ -19,7 +20,7 @@ const UsersPresciptionTable = () => {
       console.log("Fetched Data:", data);
       if (data && Array.isArray(data.orders)) {
         const transformedProducts = data.orders.map((order) => ({
-          photo: `http://localhost:3000/${order.presciption}`, // Example static photo URL
+          photo: `${server}${order.presciption}`, // Example static photo URL
           id: order._id,
           date: formatDate(order.createdAt),
           status: order.status,

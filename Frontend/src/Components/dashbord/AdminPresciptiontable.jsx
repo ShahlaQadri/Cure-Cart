@@ -5,6 +5,7 @@ import { useTable, usePagination } from "react-table";
 import { Link } from "react-router-dom";
 import { ADMIN_PREC_COLUMNS } from "./AdminPresciptionData";
 import { useAllPresciptionOrdersQuery } from "../../redux/api/presciptionAPI";
+import { server } from "../../main";
 
 const AdminPresciptiontable = () => {
   const { data, isLoading, error } = useAllPresciptionOrdersQuery();
@@ -17,7 +18,7 @@ const AdminPresciptiontable = () => {
     const transformData = async () => {
       if (data && Array.isArray(data?.allOrders)) {
         const transformedProducts = data.allOrders.map((order) => ({
-          photo: `http://localhost:3000/${order.presciption}`, // Example static photo URL
+          photo: `${server}${order.presciption}`, // Example static photo URL
           user: order.user.name,
           email: order.user.email,
           phone: order.shippingInfo.phone,
