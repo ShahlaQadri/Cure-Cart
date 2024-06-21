@@ -69,15 +69,15 @@ function WidgetItem ({ percent, value, amount, heading, color,icon })  {
 }
 function CategoryItem({heading,value,color}){
     return (
-      <div className="category-items w-[100%] my-4 flex justify-between items-center px-5">
-        <h1 className="text-xs text-zinc-600 capitalize">{heading}</h1>
-        <div className=" w-28 bg-zinc-100 rounded-md h-2 flex-none">
+      <div className="category-items w-[100%] gap-0 my-4 flex justify-between items-center px-5">
+        <h1 className="text-xs font-semibold text-zinc-600 capitalize">{heading}</h1>
+        <div className=" w-24 bg-zinc-100 rounded-md h-2 flex-none">
           <div
             style={{
               backgroundColor: color,
               width: `${value}%`,
             }}
-            className="h-2 rounded-md w-28"
+            className="h-2 rounded-md w-24"
           ></div>
         </div>
         <span className="text-xs font-semibold text-zinc-800">{value}%</span>
@@ -87,7 +87,7 @@ function CategoryItem({heading,value,color}){
 function AdminDashboardPage() {
 
    const {data,isLoading} = useGetDashboardStatsQuery()
-   console.log(data?.stats.categoryCount)
+  //  console.log(data?.stats.categoryCount)
   return (
     <div className="flex flex-col my-2  w-full h-[90vh] bg-zinc-50/95">
       <div className=" mx-auto flex gap-10 w-full ">
@@ -174,7 +174,7 @@ function AdminDashboardPage() {
                         key={heading}
                         value={value}
                         heading={heading}
-                        color={`hsl(${value * 1.4}, ${value*9}%, 50%)`}
+                        color={`hsl(${value*1000}, ${value*100}%, 50%)`}
                       />
                     );
                   })}
