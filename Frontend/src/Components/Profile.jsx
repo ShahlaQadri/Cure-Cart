@@ -39,7 +39,7 @@ export default function Profile() {
   
   
   return (
-    <div className="aside realative h-[90vh]  rounded-lg border-2 px-3 pl-7  overflow-hidden    shadow-r-xl text-zinc-700 font-extralight">
+    <div className="aside realative  rounded-lg border-2 px-3 pl-7  overflow-hidden    shadow-r-xl text-zinc-700 font-extralight">
       <div className="profile  mb-4 w-full h-32 left-0 border-b border-gray-300  items-center flex p-1">
         <div className="icon text-5xl   bg-white w-20 h-20 text-slate-900 flex items-center justify-center ">
           <img
@@ -54,7 +54,7 @@ export default function Profile() {
           <p className="text-gray-500 text-xs font-semibold">+91-{user?.phone}</p>
         </div>
       </div>
-      <div className="options relative h-[70vh] rounded-lg">
+      <div className="options relative h-[27vh] md:h-[70vh] rounded-lg">
         <ul className="font-lighter">
           <li
             style={{
@@ -154,7 +154,7 @@ export default function Profile() {
          
         </ul>
         <ul>
-          <li className="flex absolute bottom-0 w-full items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400    ">
+          <li className="flex md:absolute md:bottom-0 w-full items-center gap-1 px-4 py-1 my-1 rounded-lg text-[14px] font-medium hover:bg-blue-100 hover:text-blue-400    ">
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
               <IoLogOut className="text-[18px]" />
             </div>
