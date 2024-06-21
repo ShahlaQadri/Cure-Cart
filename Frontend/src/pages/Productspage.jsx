@@ -34,15 +34,15 @@ const addToCartHandler = (cartItem) => {
             <TiArrowBack className="text-3xl" />
           </Link>
         </div>
-        <h1 className="md:text-4xl absolute top-11 md:top-auto text-2xl flex text-centre items-baseline pt-32 md:pl-10  pl-6 ">
+        <h1 className="md:text-4xl  text-[#3E5C75] font-extrabold absolute top-11 md:top-auto text-md flex text-centre items-baseline pt-32 md:pl-10  pl-6 ">
           {categoryname.toUpperCase()}
         </h1>
         
-        <div className=" absolute top-11 md:top-auto md:h-48 w-[30rem] right-28 h-[100%] flex  ">
-  {/* Ensure 'server' and 'data?.products[0]?.photo' are defined properly */}
+        <div className=" absolute top-auto right-6  md:top-auto h-32 w-[10rem] md:h-48 md:w-[30rem] md:right-28  flex  ">
+  
   <img
-    src={`${server}${data?.products[Math.round(Math.random() * data?.products.length -1 )]?.photo}`}
-    className="w-full h-full object-contain bottom mix-blend-multiply "
+    src={`${server}${data?.products[Math.round(Math.random() * data?.products?.length -1 )]?.photo}`}
+    className="md:w-full md:h-full object-contain bottom mix-blend-multiply "
     alt="image"
   />
 </div>
