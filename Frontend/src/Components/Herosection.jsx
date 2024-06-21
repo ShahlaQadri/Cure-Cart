@@ -7,7 +7,7 @@ function Herosection() {
     <div className="slider rounded-3xl md:h-[26rem] h-[15rem] w-full flex flex-row md:flex-row text-[#3E5C75] bg-[#B0E5F2] overflow-hidden">
       <div className=" w-[50%] md:w-[60%] md:ml-0 ml-1 left flex flex-col justify-center  px-2 py-4  md:py-12 space-y-2 md:space-y-8 md:pl-[9rem]">
          
-       <div className="headings md:mt-0 mt-10 z-10  ">
+       <div className="headings md:mt-0 mt-10   ">
        
        <h1 className="text-xl  leading-5 font-extrabold md:leading-none md:text-[3.5rem]">
           True Healthcare

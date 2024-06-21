@@ -96,9 +96,9 @@ const Searchbar = () => {
               <div
                 key={result._id}
                 onClick={() => handleItemClick(result._id)}
-                className="block px-4 py-2 border-b hover:bg-gray-100 cursor-pointer"
+                className=" px-4 py-2 border-b flex w-full justify-between hover:text-[#0071BC] hover:bg-gray-100 cursor-pointer"
               >
-                {result.name}
+                {result.name} <CiSearch className="text-md md:text-2xl text-[#0071BC]" />
               </div>
             ))
           ) : (
