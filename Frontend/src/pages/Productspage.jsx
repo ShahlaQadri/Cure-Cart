@@ -8,12 +8,14 @@ import { addToCart } from "../redux/reducers/cartReducer";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import ProductSkeleton from "../Components/ProductSkeleton";
+import { server } from "../main";
 
 export default function Productspage() {
   const {categoryname} =useParams()
   const {data,isLoading} =useGetProductsByCategoriesQuery(categoryname)
 
-  // console.log(data?.products)
+
+  console.log(data?.products.length)
   const dispatch = useDispatch();
 
 const addToCartHandler = (cartItem) => {
@@ -23,8 +25,8 @@ const addToCartHandler = (cartItem) => {
 };
   return (
     <div className="rounded-lg w-[90%]  mx-auto">
-      <div className="category ralative bg-[#B0E5F2]  h-32 md:h-48 w-full md:w-full mb-4 rounded-2xl">
-        <div className="relative">
+      <div className="category ralative flex bg-[#B0E5F2]  h-32 md:h-48 w-full md:w-full mb-4 rounded-2xl">
+       <div> <div className="relative">
           <Link
             to="/"
             className="absolute top-3 left-6 md:left-10 bg-zinc-50 hover:bg-zinc-100 rounded-full shadow-lg p-2 md:p-4"
@@ -35,6 +37,17 @@ const addToCartHandler = (cartItem) => {
         <h1 className="md:text-4xl absolute top-11 md:top-auto text-2xl flex text-centre items-baseline pt-32 md:pl-10  pl-6 ">
           {categoryname.toUpperCase()}
         </h1>
+        
+        <div className=" absolute top-11 md:top-auto md:h-48 w-[30rem] right-28 h-[100%] flex  ">
+  {/* Ensure 'server' and 'data?.products[0]?.photo' are defined properly */}
+  <img
+    src={`${server}${data?.products[Math.round(Math.random() * data?.products.length -1 )]?.photo}`}
+    className="w-full h-full object-contain bottom mix-blend-multiply "
+    alt="image"
+  />
+</div>
+
+        </div>
       </div>
 
       {isLoading ? (
