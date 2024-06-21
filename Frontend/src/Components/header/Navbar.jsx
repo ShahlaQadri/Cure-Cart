@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import { useGetAllCategoriesQuery } from "../../redux/api/productsAPI";
 
 export default function Navbar() {
@@ -16,13 +16,13 @@ export default function Navbar() {
       <div className="navbar  flex gap-5 items-center border-top-2 border-blue-700 ">
         {/* categories */}
         {
-          !isLoading && data?.categories.map((item)=>(<Link
+          !isLoading && data?.categories.map((item)=>(<NavLink
           key={item}
             to={`/productspage/${item}`}
-            className="medicines px-[16px] py-[5px]  text-black rounded-full bg-white border  hover:bg-zinc-200 hover:shadow-lg"
+            className="medicines text-[12px] font-[600]  px-[16px] py-[5px]  text-zinc-700 rounded-full bg-white border  hover:bg-[#0071BD] hover:text-white hover:shadow-lg"
           >
             {item.toUpperCase()}
-          </Link>))
+          </NavLink>))
         }
         
       </div>
