@@ -6,8 +6,10 @@ import { useGetProductDetailsQuery } from "../redux/api/productsAPI";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/reducers/cartReducer";
 import toast from "react-hot-toast";
+import { server } from "../main";
 
 export default function ProductDetails() {
+  
   const {id} =useParams()
   const {data } = useGetProductDetailsQuery(id)
   // console.log(data?.product)
@@ -34,7 +36,7 @@ const addToCartHandler = (cartItem) => {
 <div className="image flex justify-center  items-center m-5 md:m-10 h-[25vh] md:h-[60vh] w-full md:w-[40%]">
   <img
     className="w-full h-full  md:w-[100%] md:h-[100%]  object-contain mix-blend-multiply" // Ensure containment without cropping
-    src={`http://localhost:3000/${data?.product.photo}`}
+    src={`${server}${data?.product.photo}`}
     alt="vicks vaporub"
   />
 </div>

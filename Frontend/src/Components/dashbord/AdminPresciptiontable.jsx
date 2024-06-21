@@ -5,19 +5,21 @@ import { useTable, usePagination } from "react-table";
 import { Link } from "react-router-dom";
 import { ADMIN_PREC_COLUMNS } from "./AdminPresciptionData";
 import { useAllPresciptionOrdersQuery } from "../../redux/api/presciptionAPI";
+import { server } from "../../main";
+import SkeletonLoader from "./SkeletonLoader";
 
 const AdminPresciptiontable = () => {
   const { data, isLoading, error } = useAllPresciptionOrdersQuery();
   const [adminAllPresciptionOrders, setAdminAllPresciptionOrders] = useState([]);
   const [isDataLoading, setIsDataLoading] = useState(true);
-  console.log(data)
+  
 
   useEffect(() => {
     // Function to transform the fetched data
     const transformData = async () => {
       if (data && Array.isArray(data?.allOrders)) {
         const transformedProducts = data.allOrders.map((order) => ({
-          photo: `http://localhost:3000/${order.presciption}`, // Example static photo URL
+          photo: `${server}${order.presciption}`, // Example static photo URL
           user: order.user.name,
           email: order.user.email,
           phone: order.shippingInfo.phone,
@@ -60,7 +62,7 @@ const AdminPresciptiontable = () => {
 
   const { pageIndex } = state;
 
-  if (isLoading || isDataLoading) return <div>Loading...</div>;
+  if (isLoading || isDataLoading) return <SkeletonLoader/>
 
   if (error) return <div>Error: {error.message}</div>;
 

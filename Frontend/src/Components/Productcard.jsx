@@ -1,5 +1,6 @@
 import { BsHandbag } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { server } from "../main";
 
 export default function Productcard({ img, name, price,category,discount,productId,stock,handler }) {
   // console.log(`http://localhost:3000/${img}`)
@@ -10,7 +11,7 @@ export default function Productcard({ img, name, price,category,discount,product
       </span>
       <div className="img-container  flex items-center justify-center w-full h-[68%] bg-[#e7f4f7]">
         <Link to={`/product/${productId}`}>
-          <img src={`http://localhost:3000/${img}`} alt="" className="h-24 md:h-36 mix-blend-multiply" />
+          <img src={`${server}${img}`} alt="" className="h-24 md:h-36 mix-blend-multiply" />
         </Link>
       </div>
 

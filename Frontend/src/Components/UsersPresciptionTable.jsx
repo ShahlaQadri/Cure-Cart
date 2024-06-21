@@ -3,6 +3,8 @@ import { useTable, usePagination } from "react-table";
 import { Link } from "react-router-dom";
 import { USER_PREC_COLUMNS } from "./UsersPresciptionTableData";
 import { useMyPresciptionOrdersQuery } from "../redux/api/presciptionAPI";
+import { server } from "../main";
+import SkeletonLoader from "./dashbord/SkeletonLoader";
 
 const UsersPresciptionTable = () => {
   const { data, isLoading, error } = useMyPresciptionOrdersQuery();
@@ -19,7 +21,7 @@ const UsersPresciptionTable = () => {
       console.log("Fetched Data:", data);
       if (data && Array.isArray(data.orders)) {
         const transformedProducts = data.orders.map((order) => ({
-          photo: `http://localhost:3000/${order.presciption}`, // Example static photo URL
+          photo: `${server}${order.presciption}`, // Example static photo URL
           id: order._id,
           date: formatDate(order.createdAt),
           status: order.status,
@@ -64,13 +66,13 @@ const UsersPresciptionTable = () => {
 
   const { pageIndex } = state;
 
-  if (isLoading || isDataLoading) return <div>Loading...</div>;
+  if (isLoading || isDataLoading) return <SkeletonLoader/>
 
-  if (error) return <div>Error: {error.message}</div>;
-
-  if (alldata.length === 0) {
-    return <div>No products available</div>;
-  }
+       if (error) return <div>Error: {error.message}</div>;
+     
+       if (alldata.length === 0) {
+         return <div className='mt-32 ml-[400px] text-3xl text-zinc-400'>No Orders available</div>;
+       }
 
   return (
     <div className="">

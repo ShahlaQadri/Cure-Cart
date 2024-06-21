@@ -3,6 +3,7 @@ import Adminprofile from "../Components/dashbord/AdminSideBar";
 import Manageform from "../Components/Manageform";
 import { useGetProductDetailsQuery } from "../redux/api/productsAPI";
 import { useEffect, useState } from "react";
+import { server } from "../main";
 
 export default function AdminManageproducts() {
   const {id} =useParams()
@@ -38,7 +39,7 @@ export default function AdminManageproducts() {
 
               <div className="flex justify-center mt-16 items-center ">
                 <img
-                  src={`http://localhost:3000/${product?.photo}`}
+                  src={`${server}${product?.photo}`}
                   alt="Product Name"
                   className="h-64 object-cover"
                 />

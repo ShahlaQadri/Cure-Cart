@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const presciptionApi = createApi({
   reducerPath: "presciptionApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `http://localhost:3000/api/v1/presciption-Order`,
+    baseUrl: `${import.meta.env.VITE_SERVER}api/v1/presciption-Order`,
     credentials:"include",
     
   }),

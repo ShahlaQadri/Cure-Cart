@@ -40,7 +40,7 @@ export default function Checkoutpage() {
       const { data } = await axios.post(
         `http://localhost:3000/api/v1/payment/create`,
         {
-          amount: total,
+          amount: Math.round(total),
         },{
           withCredentials:true
         },

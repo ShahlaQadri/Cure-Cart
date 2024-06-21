@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import axios from "axios"
+
 
 
 // Define a service using a base URL and expected endpoints
 export const userApi = createApi({
 reducerPath: 'userApi',
-baseQuery: fetchBaseQuery({ baseUrl:`http://localhost:3000/api/v1/users`,
+baseQuery: fetchBaseQuery({ baseUrl:`${import.meta.env.VITE_SERVER}api/v1/users`,
     credentials: 'include', // Include cookies in requests
  }),
  tagTypes:['user'],

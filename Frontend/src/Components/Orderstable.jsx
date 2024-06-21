@@ -3,6 +3,7 @@ import { useTable, usePagination } from 'react-table'
 import { ORDERS_COLUMNS } from './Ordersdata'
 import { useMyOrdersQuery } from '../redux/api/ordersAPI'
 import { Link } from 'react-router-dom'
+import SkeletonLoader from './dashbord/SkeletonLoader'
 
 const Orderstable = () => {
   const {data,isLoading, error} = useMyOrdersQuery()
@@ -57,12 +58,12 @@ const Orderstable = () => {
        )
 
        const { pageIndex } = state
-       if (isLoading || isDataLoading) return <div>Loading...</div>;
+       if (isLoading || isDataLoading) return <SkeletonLoader/>
 
        if (error) return <div>Error: {error.message}</div>;
      
        if (alldata.length === 0) {
-         return <div>No products available</div>;
+         return <div className='mt-32 ml-[400px] text-3xl text-zinc-400'>No Orders available</div>;
        }
   return (
     <div className="">

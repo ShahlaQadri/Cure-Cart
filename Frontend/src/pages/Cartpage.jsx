@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { addToCart, calculateTotalPrice, removeCartItem } from "../redux/reducers/cartReducer";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
+import { server } from "../main";
 
 export default function Cartpage() {
   // const arr=[1,2,3,4,5,6,7]
@@ -63,8 +64,8 @@ export default function Cartpage() {
               >
                 <div className="img-div w-fit md:w-[15%]">
                   <img
-                    className="h-12 w-10 p-1 md:h-24 md:w-20  md:p-3 md:ml-6"
-                    src={`http://localhost:3000/${i.photo}`}
+                    className="h-12 w-12 p-1 md:h-28 md:w-28  md:p-3 md:ml-2 mix-blend-multiply"
+                    src={`${server}${i.photo}`}
                     alt=""
                   />
                 </div>
