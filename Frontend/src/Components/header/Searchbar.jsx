@@ -48,9 +48,9 @@ const Searchbar = () => {
   };
 
   return (
-    <div className="navbar-elements flex justify-between px-2 md:flex md:space-x-8 md:justify-between md:items-center md:w-full md:px-5">
+    <div className="navbar-elements flex justify-between px-1 md:flex md:space-x-8 md:justify-between md:items-center md:w-full md:px-5">
       {/* Logo */}
-      <div className="logo px-2 md:px-8 md:mr-10">
+      <div className="logo px-0 md:px-8  md:mr-10">
         <Link to="/">
           <img
             src="../../../pictures/smalllogo.png"
@@ -62,16 +62,16 @@ const Searchbar = () => {
       </div>
 
       {/* Search Bar */}
-     <div className="search-bar relative flex items-center w-[500px] p-2 rounded-md">
+     <div className="search-bar relative flex items-center w-[500px] p-1 md:p-2 rounded-md">
   <input
     type="text"
     placeholder="Search products..."
     value={name}
     onChange={handleSearch}
-    className="border border-zinc-200 outline-none flex-grow py-1 md:py-2 rounded-l-full bg-white px-4 placeholder-gray-500 placeholder-opacity-100 placeholder-italic placeholder-text-lg"
+    className="border border-zinc-200 outline-none flex-grow py-0 md:py-2 rounded-l-full bg-white px-2 md:px-4 placeholder-gray-500 placeholder-opacity-100 placeholder-italic placeholder-text-lg w-[40px] md:w-[full]"
   />
-  <button className="bg-[#0071BC] hover:bg-[#0071bcda] text-gray-600 px-4 py-1 md:py-2 rounded-r-full">
-    <CiSearch className="text-2xl text-white" />
+  <button className=" bg-[#0071BC] hover:bg-[#0071bcda] text-gray-600 px-2 md:px-4 py-1 md:py-2 rounded-r-full">
+    <CiSearch className="text-md md:text-2xl text-white" />
   </button>
   
   {/* Conditionally render the result-div */}
@@ -117,18 +117,18 @@ const Searchbar = () => {
 
 
       {/* Icons */}
-      <div className="icons flex space-x-1 md:space-x-3">
-        <div className="wishlist cursor-pointer rounded-full w-8 h-8 flex items-center justify-center md:w-10 md:h-10 bg-white border hover:bg-slate-200">
+      <div className="icons flex space-x-2 md:space-x-3">
+        <div className="wishlist cursor-pointer rounded-full w-6 h-6 flex items-center justify-center md:w-10 md:h-10 bg-white border hover:bg-slate-200">
           <Link to="/admin/dashboard">
             <CiHeart className="text-xl" />
           </Link>
         </div>
-        <div className="cart cursor-pointer rounded-full w-8 h-8 flex items-center justify-center md:w-10 md:h-10 bg-white border hover:bg-slate-200">
+        <div className="cart cursor-pointer rounded-full w-6 h-6 flex items-center justify-center md:w-10 md:h-10 bg-white border hover:bg-slate-200">
           <Link to="/cart">
             <SlHandbag className="text-l" />
           </Link>
         </div>
-        <div className="profile cursor-pointer rounded-full w-8 h-8 flex items-center justify-center md:w-10 md:h-10 bg-white border hover:bg-slate-200">
+        <div className="profile cursor-pointer rounded-full w-7 h-6 flex items-center justify-center md:w-10 md:h-10 bg-white border hover:bg-slate-200">
           {!user ? (
             <Link to="/login">
               <CiUser className="text-xl" />

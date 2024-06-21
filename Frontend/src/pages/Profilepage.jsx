@@ -13,13 +13,13 @@ export default function Profilepage() {
   };
 
   return (
-    <div className="profilePage flex flex-col md:flex-row px-5 mx-auto gap-5 w-[90%]">
-      <div className="mb-10 flex gap-10 w-full md:w-[25%]">
+    <div className="profilePage flex flex-col md:flex-row px-8 md:px-5 mx-auto gap-5 w-[90%]">
+      <div className="mb-4 md:mb-10 flex gap-10  w-full md:w-[25%]">
         <Profile />
       </div>
       
       <div className="main h-[90vh] w-full md:w-[75%] rounded-lg">
-        <h1 className="mt-5 ml-5 text-3xl text-zinc-500 mb-4">Account Information</h1>
+        <h1 className="mt-5 ml-5 text-3xl text-zinc-500 mb-2 md:mb-4">Account Information</h1>
         <div className="information rounded-lg flex flex-col md:flex-row bg-zinc-50/95">
           <div className="login p-5 w-full md:w-[50%]">
             <p className="text-md text-gray-600">LOGIN INFORMATION</p>
