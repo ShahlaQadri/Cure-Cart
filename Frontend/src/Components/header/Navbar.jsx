@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { useGetAllCategoriesQuery } from "../../redux/api/productsAPI";
 
 export default function Navbar() {
-   const {data,isLoading} =useGetAllCategoriesQuery()
-   console.log(isLoading,data?.categories)
+  const {data,isLoading} =useGetAllCategoriesQuery()
+  
+  
   return (
     <div className="main-container hidden md:flex md:items-center md:gap-5 md:mx-10 ">
       <div className="  md:flex md:justify-center md:w-42 md:pt-2 md:pr-5 border-r-2 border-zinc-500 font-serif text-white">

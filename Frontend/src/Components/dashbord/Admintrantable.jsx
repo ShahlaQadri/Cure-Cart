@@ -3,6 +3,7 @@ import { useTable, usePagination } from 'react-table'
 import { ADMIN_TRAN_COLUMNS } from './Admintrandata'
 import { useAllOrdersQuery } from '../../redux/api/ordersAPI'
 import { Link } from 'react-router-dom'
+import SkeletonLoader from './SkeletonLoader'
 
 const Admintrantable = () => {
   const { data, isLoading, error } = useAllOrdersQuery()
@@ -57,7 +58,7 @@ const Admintrantable = () => {
        )
 
        const { pageIndex } = state
-       if (isLoading || isDataLoading) return <div>Loading...</div>;
+       if (isLoading || isDataLoading) return <SkeletonLoader/>
 
        if (error) return <div>Error: {error.message}</div>;
      
@@ -71,7 +72,7 @@ const Admintrantable = () => {
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th
+                <th 
                   {...column.getHeaderProps()}
                   className="py-5 px-10 text-left font-bold text-md my-10"
                 >

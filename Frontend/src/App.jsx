@@ -9,7 +9,7 @@ import ProtectedRoute from "./Components/dashbord/ProtectedRoute";
 import Loader from "./Components/header/Loader";
 import AdminManagePresciption from "./pages/AdminManagePresciption";
 
-// Lazy loading the components using `lazy`
+
 const Header = lazy(() => import("./Components/header/Header"));
 const Homepage = lazy(() => import("./pages/Homepage"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
@@ -21,21 +21,23 @@ const Checkoutpage = lazy(() => import("./pages/Checkoutpage"));
 const PaymentPage = lazy(() => import("./pages/PaymentPage"));
 const Profilepage = lazy(() => import("./pages/Profilepage"));
 const MyOrders = lazy(() => import("./pages/MyOrders"));
+const AdminManageOrder = lazy(() => import("./pages/AdminOrderInfo"));
+const UsersPresciptionOrdersPage = lazy(() => import("./pages/UsersPresciptionOrdersPage"));
+
+
+
 const Adminproducts = lazy(() => import("./pages/Adminproducts"));
 const Admincustomers = lazy(() => import("./pages/Admincustomers"));
 const AdminAddProduct = lazy(() => import("./pages/AdminAddProduct"));
 const AdminManageproducts = lazy(() => import("./pages/AdminManageProducts"));
 const AdminOrders = lazy(() => import("./pages/AdminOrders"));
-const AdminManageOrder = lazy(() => import("./pages/AdminOrderInfo"));
 const PrescriptionUploadPage = lazy(() => import("./pages/PrescriptionUploadPage"));
 const AdminDashboardPage = lazy(() => import("./pages/AdminDashboardPage"));
 const AdminPresciptionOrderPage = lazy(() => import("./pages/AdminPresciptionOrderPage"));
-const UsersPresciptionOrdersPage = lazy(() => import("./pages/UsersPresciptionOrdersPage"));
 
 
 function App() {
   const dispatch = useDispatch();
-  console.log("server",import.meta.env.VITE_SERVER)
   const { data, isSuccess } = useGetMyDetalsQuery();
   const user = useSelector((state) => state.userReducer.user);
 

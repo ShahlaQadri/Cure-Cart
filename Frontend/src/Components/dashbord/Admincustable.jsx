@@ -3,6 +3,7 @@ import { useTable, usePagination } from "react-table";
 import {  ADMIN_CUS_COLUMNS } from "./Admincusdata";
 import { useGetAllUsersQuery,  } from "../../redux/api/userAPI";
 import { AiFillDelete } from "react-icons/ai";
+import SkeletonLoader from "./SkeletonLoader";
 
 const Admincustable = () => {
   const {data,isLoading, error} = useGetAllUsersQuery()
@@ -62,7 +63,7 @@ const Admincustable = () => {
   );
 
   const { pageIndex } = state;
-  if (isLoading || isDataLoading) return <div>Loading...</div>;
+  if (isLoading || isDataLoading) return <SkeletonLoader/>
 
   if (error) return <div>Error: {error.message}</div>;
 

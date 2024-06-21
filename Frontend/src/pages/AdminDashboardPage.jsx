@@ -6,6 +6,7 @@ import { MdAutoGraph } from "react-icons/md";
 import { GrTransaction } from "react-icons/gr";
 import { FaUsers } from "react-icons/fa";
 import { useGetDashboardStatsQuery } from '../redux/api/dashboardAPI';
+import StatsLoader from '../Components/dashbord/StatsLoader';
 
 function toRGBA(color, opacity) {
   if (color.startsWith("#")) {
@@ -86,7 +87,12 @@ function CategoryItem({heading,value,color}){
 }
 function AdminDashboardPage() {
 
-   const {data,isLoading} = useGetDashboardStatsQuery()
+   const {data,isLoading , error} = useGetDashboardStatsQuery()
+   if (isLoading ) return <StatsLoader/>
+
+  if (error) return <div>Error: {error.message}</div>;
+
+  
   //  console.log(data?.stats.categoryCount)
   return (
     <div className="flex flex-col my-2  w-full h-[90vh] bg-zinc-50/95">

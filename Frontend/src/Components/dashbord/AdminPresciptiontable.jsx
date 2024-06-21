@@ -6,12 +6,13 @@ import { Link } from "react-router-dom";
 import { ADMIN_PREC_COLUMNS } from "./AdminPresciptionData";
 import { useAllPresciptionOrdersQuery } from "../../redux/api/presciptionAPI";
 import { server } from "../../main";
+import SkeletonLoader from "./SkeletonLoader";
 
 const AdminPresciptiontable = () => {
   const { data, isLoading, error } = useAllPresciptionOrdersQuery();
   const [adminAllPresciptionOrders, setAdminAllPresciptionOrders] = useState([]);
   const [isDataLoading, setIsDataLoading] = useState(true);
-  console.log(data)
+  
 
   useEffect(() => {
     // Function to transform the fetched data
@@ -61,7 +62,7 @@ const AdminPresciptiontable = () => {
 
   const { pageIndex } = state;
 
-  if (isLoading || isDataLoading) return <div>Loading...</div>;
+  if (isLoading || isDataLoading) return <SkeletonLoader/>
 
   if (error) return <div>Error: {error.message}</div>;
 

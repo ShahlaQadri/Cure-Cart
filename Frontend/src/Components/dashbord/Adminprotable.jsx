@@ -4,6 +4,7 @@ import { ADMIN_PRO_COLUMNS } from "./Adminprodata";
 import { useGetAllProductsQuery } from "../../redux/api/productsAPI";
 import { Link } from "react-router-dom";
 import { server } from "../../main";
+import SkeletonLoader from "./SkeletonLoader";
 
 const Adminprotable = () => {
   const { data, isLoading, error } = useGetAllProductsQuery();
@@ -57,7 +58,7 @@ const Adminprotable = () => {
 
   const { pageIndex } = state;
 
-  if (isLoading || isDataLoading) return <div>Loading...</div>;
+  if (isLoading || isDataLoading) return <SkeletonLoader/>
 
   if (error) return <div>Error: {error.message}</div>;
 

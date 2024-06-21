@@ -1,4 +1,4 @@
-import React from "react";
+
 import Productcard from "../Components/Productcard";
 import { TiArrowBack } from "react-icons/ti";
 import { Link, useParams } from "react-router-dom";
@@ -7,6 +7,7 @@ import { useGetProductsByCategoriesQuery } from "../redux/api/productsAPI";
 import { addToCart } from "../redux/reducers/cartReducer";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
+import ProductSkeleton from "../Components/ProductSkeleton";
 
 export default function Productspage() {
   const {categoryname} =useParams()
@@ -36,7 +37,14 @@ const addToCartHandler = (cartItem) => {
         </h1>
       </div>
 
-      <div className="all-products grid grid-cols-2 gap-10 sm:gap-10 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:gap-10 py-10 mb-5 mx-2 relative">
+      {isLoading ? (
+        // Show skeleton loader if data is still loading
+        <div className="flex justify-center space-x-4">
+          {Array.from({ length: 4 }).map((_, index) => (
+            <ProductSkeleton key={index} />
+          ))}
+        </div>
+      ) :(<div className="all-products grid grid-cols-2 gap-10 sm:gap-10 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:gap-10 py-10 mb-5 mx-2 relative">
         <div className="absolute ml-2 pt-1">
           <div className="text-gray-400 -semibold">ALL PRODUCTS</div>
         </div>
@@ -56,7 +64,8 @@ const addToCartHandler = (cartItem) => {
         />))
        }
         
-      </div>
+      </div>)
+    }
       <Ccfooter />
     </div>
   );
