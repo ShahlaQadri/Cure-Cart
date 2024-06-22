@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { CiHeart, CiUser } from "react-icons/ci";
-import { SlHandbag } from "react-icons/sl";
+import { FaUser } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Bars } from 'react-loader-spinner'
 import { CiSearch } from "react-icons/ci";
 import { useLazyGetSearchedProductsQuery } from "../../redux/api/productsAPI";
+import { IoBag } from "react-icons/io5";
 
 const Searchbar = () => {
   const { user } = useSelector((state) => state.userReducer);
@@ -48,7 +48,7 @@ const Searchbar = () => {
   };
 
   return (
-    <div className="navbar-elements flex justify-between px-1 md:flex md:space-x-8 md:justify-between md:items-center md:w-full md:px-5">
+    <div className="navbar-elements flex items-center justify-between px-1 md:flex md:space-x-8 md:justify-between md:items-center md:w-full md:px-5">
       {/* Logo */}
       <div className="logo px-0 md:px-8  md:mr-10">
         <Link to="/">
@@ -111,27 +111,22 @@ const Searchbar = () => {
     </div>
   )}
 </div>
-
-
-
-
-
       {/* Icons */}
       <div className="icons flex space-x-2 md:space-x-3">
-        <div className="wishlist cursor-pointer rounded-full w-6 h-6 flex items-center justify-center md:w-10 md:h-10 bg-white border hover:bg-slate-200">
+        {/* <div className="wishlist cursor-pointer rounded-full w-6 h-6 flex items-center justify-center md:w-10 md:h-10 ">
           <Link to="/admin/dashboard">
-            <CiHeart className="text-xl" />
+            <FaHeart className="text-2xl" />
           </Link>
-        </div>
-        <div className="cart cursor-pointer rounded-full w-10 h-10 flex items-center justify-center bg-white border hover:bg-gray-200">
+        </div> */}
+        <div className="cart cursor-pointer rounded-full w-10 h-10 flex items-center justify-center  ">
           <Link to="/cart">
-            <SlHandbag className="text-xl text-gray-700" />
+            <IoBag className="text-2xl hover:text-gray-700" />
           </Link>
         </div>
-        <div className="profile cursor-pointer rounded-full w-7 h-6 flex items-center justify-center md:w-10 md:h-10 bg-white border hover:bg-slate-200">
+        <div className="profile cursor-pointer rounded-full w-10 h- flex items-center justify-center md:w-10 md:h-10 ">
           {!user ? (
             <Link to="/login">
-              <CiUser className="text-xl" />
+              <FaUser className="text-2xl" />
             </Link>
           ) : (
             <div className="h-10 w-10 rounded-full flex items-center justify-center">
@@ -139,7 +134,7 @@ const Searchbar = () => {
                 <img
                   src="../../../pictures/dashboard user.jpg"
                   alt="Profile"
-                  className="w-10 h-10 rounded-full"
+                  className="w-10 h-10 mix-blend-multiply rounded-full"
                 />
               </Link>
             </div>

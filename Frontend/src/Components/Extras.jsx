@@ -28,7 +28,7 @@ export default function Extras() {
           />
         </div>
         <div className="w-[100px] md:w-[240px] flex items-center flex-col ">
-          <h2 className="font-bold text-sm md:text-xl pb-2">Secure Payment</h2>
+          <h2 className="font-bold text-center text-sm md:text-xl pb-2">Secure Payment</h2>
           <p className="hidden sm:block md:visible text-xs w-[200px]">
             100% secure and trusted payment protection.
           </p>
