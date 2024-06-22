@@ -87,3 +87,30 @@
     bottom: 0;
   }
   
+
+  .relative .img-container img {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Scale the image when hovering over the parent div */
+  .relative:hover .img-container img {
+    transform: scale(1.1); /* Scale image to 110% of its original size */
+  }
+
+  .bg-gif {
+    background-image: url('../pictures/beam-medicines-and-medical-indicators.gif');
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+  }
+
+  .bg-gif2 {
+    background-image: url('../pictures/casual-life-3d-blue-covid-virus.png');
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+  }
+
+  .text-shadow-lg {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  }

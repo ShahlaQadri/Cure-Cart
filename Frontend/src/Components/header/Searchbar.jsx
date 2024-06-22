@@ -76,7 +76,7 @@ const Searchbar = () => {
   
   {/* Conditionally render the result-div */}
   {name && (
-    <div className="absolute top-full left-0 w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
+    <div className="absolute z-30 top-full left-0 w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
       {isLoading ? (
         <div className="flex items-center justify-center py-4">
           <Bars
@@ -96,7 +96,7 @@ const Searchbar = () => {
               <div
                 key={result._id}
                 onClick={() => handleItemClick(result._id)}
-                className=" px-4 py-2 border-b flex w-full justify-between hover:text-[#0071BC] hover:bg-gray-100 cursor-pointer"
+                className=" px-4  py-2 border-b flex w-full justify-between hover:text-[#0071BC] hover:bg-gray-100 cursor-pointer"
               >
                 {result.name} <CiSearch className="text-md md:text-2xl text-[#0071BC]" />
               </div>
@@ -123,9 +123,9 @@ const Searchbar = () => {
             <CiHeart className="text-xl" />
           </Link>
         </div>
-        <div className="cart cursor-pointer rounded-full w-6 h-6 flex items-center justify-center md:w-10 md:h-10 bg-white border hover:bg-slate-200">
+        <div className="cart cursor-pointer rounded-full w-10 h-10 flex items-center justify-center bg-white border hover:bg-gray-200">
           <Link to="/cart">
-            <SlHandbag className="text-l" />
+            <SlHandbag className="text-xl text-gray-700" />
           </Link>
         </div>
         <div className="profile cursor-pointer rounded-full w-7 h-6 flex items-center justify-center md:w-10 md:h-10 bg-white border hover:bg-slate-200">
