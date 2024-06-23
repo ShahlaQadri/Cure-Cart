@@ -13,8 +13,8 @@ export default function Profilepage() {
   };
 
   return (
-    <div className="profilePage flex flex-col md:flex-row px-8 md:px-5 mx-auto gap-5 w-[90%]">
-      <div className="mb-4 md:mb-10 flex gap-10  w-full md:w-[25%]">
+    <div className="profilePage flex flex-col md:flex-row px-0 md:px-5 mx-auto gap-5 w-[90%]">
+      <div className="mb-0 md:mb-10 flex gap-10  w-full md:w-[25%]">
         <Profile />
       </div>
       
