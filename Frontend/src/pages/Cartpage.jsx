@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { addToCart, calculateTotalPrice, removeCartItem } from "../redux/reducers/cartReducer";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
-import { server } from "../main";
 
 export default function Cartpage() {
   // const arr=[1,2,3,4,5,6,7]
@@ -43,10 +42,10 @@ export default function Cartpage() {
           <TiArrowBack className="text-xl md:text-3xl" />
         </Link>
       </div>
-      <div className="flex flex-col md:flex-row h-fit md:h-[68vh] bg-white mb-20 pb-10  rounded-lg  w-full md:w-[80%] mx-2 md:mx-auto">
-        <div className="w-full md:w-[60%] ">
+      <div className="flex flex-col justify-evenly md:flex-row h-fit md:h-[68vh]  mb-20 pb-10  rounded-lg  w-full md:w-[90%] mx-2 md:mx-auto">
+        <div className="w-full md:w-[50%] ">
           {cartItems.length>0 ? <div>
-            <div className="cart-heading flex items-center gap-2 ml-12 md:ml-20 mt-10 ">
+            <div className="cart-heading flex items-center gap-2 ml-2  md:ml-20 mt-12 ">
             <h2 className="text-xl md:text-2xl inline-block font-semibold   ">
               {cartItems.length} items in{" "}
             </h2>
@@ -56,7 +55,7 @@ export default function Cartpage() {
               width={"25px md:30px"}
             />
           </div>
-          <main className="left w-full   ml-0 md:ml-10 h-[40vh] md:h-full overflow-auto mt-2 md:mt-4 space-y-3 md:space-y-2">
+          <main className="left w-full   ml-0 md:ml-10 h-[35vh] md:h-[60vh] overflow-auto mt-2 md:mt-4 space-y-3 md:space-y-2">
             {cartItems?.map((i) => (
               <div
                 key={i.productId}
@@ -64,8 +63,8 @@ export default function Cartpage() {
               >
                 <div className="img-div w-fit md:w-[15%]">
                   <img
-                    className="h-12 w-12 p-1 md:h-28 md:w-28  md:p-3 md:ml-2 mix-blend-multiply"
-                    src={`${server}${i.photo}`}
+                    className="h-12 w-10 p-1 md:h-24 md:w-20  md:p-3 md:ml-6"
+                    src={`http://localhost:3000/${i.photo}`}
                     alt=""
                   />
                 </div>
@@ -98,7 +97,7 @@ export default function Cartpage() {
           </div> :<div className="mt-44 ml-20">sorry Cart is Empty</div>}
         </div>
 
-        <aside className="right w-full md:w-[35%] h-[500px]  rounded-lg">
+        <aside className="right w-full md:mt-5 md:ml-10  md:w-[35%] h-[500px]  rounded-lg">
           <div className="details p-2 md:p-6 mt-[50px] md:mt-[80px] ml-16">
             <h1 className=" flex gap-2 items-center font-extralight mb-2 md:mb-5">
               <img

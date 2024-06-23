@@ -4,6 +4,7 @@ import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 import { useUserLoginMutation } from "../redux/api/userAPI";
 import toast from "react-hot-toast";
+import { responseToste } from "../utils/Features";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -35,13 +36,14 @@ function LoginPage() {
       password
     })
     
-    if("data" in res){
+    if("data" in res ){
+      
       toast.success(res.data.msg)
       localStorage.setItem("token", res.data.token);
       navigate("/");
     }
     else{
-      
+     
        toast.error(res.error.data.msg)
        navigate("/Register");
       
@@ -57,7 +59,7 @@ function LoginPage() {
 
   return (
     <div className="my-20 flex items-center justify-center">
-      <div className="bg-white bg-opacity-40 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden max-w-sm w-full">
+      <div className="bg-white bg-opacity-40  rounded-lg overflow-hidden max-w-sm w-full">
         <div className="py-10 px-8">
           <div className="flex justify-center items-center mb-5">
             <img

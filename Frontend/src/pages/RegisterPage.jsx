@@ -62,7 +62,7 @@ function RegisterPage() {
 
   return (
     <div className="my-20 flex items-center justify-center">
-      <div className="bg-white bg-opacity-40 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden max-w-sm w-full">
+      <div className="bg-white bg-opacity-40 backdrop-blur-lg rounded-lg overflow-hidden max-w-sm w-full">
         <div className="py-10 px-8">
           <div className="flex justify-center items-center mb-5">
             <img
