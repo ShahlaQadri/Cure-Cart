@@ -58,7 +58,7 @@ export default function Profilepage() {
 
         {/* Conditionally render the UpdateProfileForm */}
         {isEditing && (
-          <div className="update-form mt-5 absolute top-20 left-[40%]">
+          <div className="update-form mt-5 absolute top-[10%] left-10 md:top-20 md:left-[40%]">
             <UpdateProfileForm setIsEditing={setIsEditing} />
           </div>
         )}
