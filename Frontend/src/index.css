@@ -62,3 +62,10 @@
   .text-shadow-lg {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   }
+
+  .active-link-class {
+    background-color: #0071BD; /* The background color for the active link */
+    color: white;             /* The text color for the active link */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* A subtle shadow effect */
+  }
+  
