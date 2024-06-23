@@ -1,39 +1,51 @@
-import { BsHandbag } from "react-icons/bs";
+import { IoBagHandleSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { server } from "../main";
 
-export default function Productcard({ img, name, price,category,discount,productId,stock,handler }) {
-  // console.log(`http://localhost:3000/${img}`)
+export default function ProductCard({ img, name, price, category, discount, productId, stock, handler }) {
+  const discountedPrice = Math.round(price - (price * discount) / 100);
+
   return (
-    <div className=" relative h-[230px] flex-shrink-0 w-[160px] md:w-[250px] bg-[#F1F5F9] md:h-[340px] overflow-hidden rounded-3xl flex flex-col items-center justify-center shadow-sm hover:shadow-md">
-      <span className=" absolute top-4 md:top-6 left-0 inline-flex items-center rounded-r-full  bg-[#E3F6EE] px-3  md:px-5 py-[1px] md:py-1 text-[9px] md:text-sm tracking-wide  font-light md:font-semibold text-green-400  ring-1 ring-inset ring-green-400">
-        {discount}% off 
-      </span>
-      <div className="img-container  flex items-center justify-center w-full h-[68%] bg-[#e7f4f7]">
+    <div className="relative h-[230px] flex-shrink-0 w-[160px] md:w-[250px] bg-[#F1F5F9] md:h-[340px] overflow-hidden rounded-3xl flex flex-col items-center justify-center shadow-sm hover:shadow-md">
+      {discount > 0 && (
+        <span className="absolute top-5 right-3 px-2 py-1 bg-green-400 text-xs font-semibold text-white rounded">
+          {discount}% off
+        </span>
+      )}
+      <div className="img-container flex items-center justify-center w-full h-[68%] bg-[#e7f4f7]">
         <Link to={`/product/${productId}`}>
           <img src={`${server}${img}`} alt="" className="h-24 md:h-36 mix-blend-multiply" />
         </Link>
       </div>
 
-      <div className="h-[36%] w-full md:h-[37%] md:flex md:flex-col  md:w-full  rounded-3xl md:overflow-hidden bg-white md:-mt-4 md:items-center md:justify-center">
-        <p className="text-center text-xs font-semibold md:text-md md:font-semibold mt-4 leading-none">
-          {name}
-        </p>
-        <p className="hidden sm:block md:visible md:text-center md:text-zinc-700 md:text-sm">
-          {category?.toUpperCase()}
-        </p>
-        <div className="flex text-center px-2 mt-2 md:px-5 md:mt-5 md:mb-5 justify-between items-center w-full ">
-          <span className="line-through text-[8px] md:text-[10px] text-red-700">₹{price}</span>
-          <span className="text-[10px] md:text-[14px] md:mr-20 text-black leading-tighter mr-16 ">
-            ₹{Math.round(price-price*discount/100)}
-          </span>
-
-          <div className="h-6 w-6  md:h-10 md:w-10 rounded-full bg-[#effbfe] flex items-center justify-center">
-            <button onClick={()=>handler({productId,price:(price-price*discount/100),name,stock,quantity:1,photo:img})} className=" text-3xl font-lighter hover:rotate-12  md:mr-0">
-              <BsHandbag className="text-sm md:text-xl " />
-            </button>
-          </div>
-        </div>
+      <div className="h-[36%] bg-white w-full md:h-[37%] md:flex md:flex-col md:w-full rounded-3xl md:overflow-hidden  md:-mt-4 pt-0 md:pt-2">
+      <p className="text-center text-base md:text-[15px] font-semibold mt-4 md:mt-2 ">
+  {name}
+</p>
+<p className="text-center text-xs md:text-[12px] font-semibold text-gray-400 uppercase  ">
+  {category}
+</p>
+<div className="flex justify-between  items-center md:mt-6 px-2 md:px-5">
+  <span className="line-through text-xs md:text-sm text-red-700">₹{price}</span>
+  <span className="text-[12px] md:text-base md:mr-20 mr-14 text-black font-semibold">
+    ₹{discountedPrice}
+  </span>
+  <div className=" flex items-center justify-center">
+    <button
+      onClick={() => handler({
+        productId,
+        price: discountedPrice,
+        name,
+        stock,
+        quantity: 1,
+        photo: img
+      })}
+      className="md:text-xl mr-4 text-sm font-light hover:rotate-12 focus:outline-none"
+    >
+      <IoBagHandleSharp className="text-sm md:text-xl " />
+    </button>
+  </div>
+</div>
       </div>
     </div>
   );

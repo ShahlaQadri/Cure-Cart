@@ -33,57 +33,32 @@
 .widget-circle span{
     position: relative;
 }
-/* Add this CSS for the loader */
-.search-bar input::placeholder {
-    /* color: #1a64c5; Change to a soft gray color */
-    opacity: 1; /* Keep full opacity */
-    font-style: bold; /* Italic font style */
-    font-size: 14px; /* Adjust the size as needed */
+
+  
+
+  .relative .img-container img {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Scale the image when hovering over the parent div */
+  .relative:hover .img-container img {
+    transform: scale(1.1); 
   }
 
+  .bg-gif {
+    background-image: url('../pictures/simplistic-online-doctor-appointment-in-health-app.gif');
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+  }
 
+  .bg-gif2 {
+    background-image: url('../pictures/casual-life-3d-blue-covid-virus.png');
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+  }
 
-  /* Base styles for the input field */
-.input-field {
-    position: relative;
-    z-index: 1;
+  .text-shadow-lg {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   }
-  
-  /* Container for the dynamic placeholder */
-  .dynamic-placeholder-container {
-    position: absolute;
-    top: 50%;
-    left: 8px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    width: calc(100% - 16px);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    overflow: hidden;
-    height: 20px; /* Adjust based on your font size */
-  }
-  
-  /* Static part of the placeholder */
-  .static-text {
-    font-weight: normal; /* Keep the font weight normal for the static part */
-    color: gray; /* Light gray for the static part */
-  }
-  
-  /* The dynamic placeholder itself */
-  .dynamic-placeholder {
-    position: relative;
-    bottom: -100%;
-    opacity: 0;
-    transition: opacity 0.5s ease, bottom 0.5s ease;
-    font-weight: bold; /* Make the dynamic part bold */
-    color: black; /* Darker color for the dynamic part */
-  }
-  
-  /* Animating the dynamic placeholder */
-  .input-field:focus + .dynamic-placeholder-container .dynamic-placeholder,
-  .input-field:not(:placeholder-shown) + .dynamic-placeholder-container .dynamic-placeholder {
-    opacity: 1;
-    bottom: 0;
-  }
-  
