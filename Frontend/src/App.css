@@ -4,6 +4,6 @@
     border-radius: border-box;
     font-family: 'Arial';
 }
- /* ::-webkit-scrollbar {
+ ::-webkit-scrollbar {
      display: none;
-    } */
+    }

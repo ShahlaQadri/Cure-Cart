@@ -62,13 +62,13 @@ const Searchbar = () => {
       </div>
 
       {/* Search Bar */}
-     <div className="search-bar relative flex items-center w-[500px] p-1 md:p-2 rounded-md">
+     <div className="search-bar relative flex items-center w-[600px] p-1 md:p-2 rounded-md">
   <input
     type="text"
     placeholder="Search products..."
     value={name}
     onChange={handleSearch}
-    className="border border-zinc-200 outline-none flex-grow py-0 md:py-2 rounded-l-full bg-white px-2 md:px-4 placeholder-gray-500 placeholder-opacity-100 placeholder-italic placeholder-text-lg w-[40px] md:w-[full]"
+    className="border border-zinc-200 outline-none flex-grow py-0 md:py-2 rounded-l-full bg-white px-2 md:px-4 placeholder-gray-500 placeholder-opacity-100 placeholder-italic md:placeholder-text-xs w-[35px] md:w-[full] focus:border focus:border-blue-700"
   />
   <button className=" bg-[#0071BC] hover:bg-[#0071bcda] text-gray-600 px-2 md:px-4 py-1 md:py-2 rounded-r-full">
     <CiSearch className="text-md md:text-2xl text-white" />

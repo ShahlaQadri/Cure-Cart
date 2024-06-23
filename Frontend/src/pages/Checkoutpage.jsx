@@ -62,7 +62,7 @@ export default function Checkoutpage() {
   };
   
   return (
-    <div className=" w-[90%] mx-auto ">
+    <div className=" w-[100%] mx-auto ">
       <div className="relative">
         <Link
           to="/cart"
@@ -71,10 +71,10 @@ export default function Checkoutpage() {
           <TiArrowBack className="text-xl md:text-3xl" />
         </Link>
       </div>
-      <div className="max-w-3xl mx-auto px-4 py-8 mb-20 ">
-        <form onSubmit={submitHandler} className="bg-white shadow-md rounded-lg px-8 py-6">
+      <div className="max-w-3xl  mx-auto px-4 py-8 mb-20 ">
+        <form onSubmit={submitHandler} className="bg-white md:border rounded-lg px-2 py-6">
           <h2 className="text-lg font-semibold mb-4">Billing Information</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
             <div className="mb-4">
               <label
                 

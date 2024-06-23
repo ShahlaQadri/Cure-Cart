@@ -4,7 +4,7 @@ import { BarChart } from '../Components/dashbord/Chart';
 import { BsBagCheckFill } from "react-icons/bs";
 import { MdAutoGraph } from "react-icons/md";
 import { GrTransaction } from "react-icons/gr";
-import { FaUsers } from "react-icons/fa";
+import {  FaUsers } from "react-icons/fa";
 import { useGetDashboardStatsQuery } from '../redux/api/dashboardAPI';
 import StatsLoader from '../Components/dashbord/StatsLoader';
 
@@ -119,8 +119,8 @@ function AdminDashboardPage() {
 
           <section className="widget-container flex items-stretch my-4  justify-between">
           <WidgetItem
-              percent={data?.stats.changePercent.revenue}
-              value={data?.stats.count.revenue}
+              percent={Math.round(data?.stats.changePercent.revenue)}
+              value={Math.round(data?.stats.count.revenue)}
               amount={true}
               heading="Revenue"
               color="rgb(0,115,255)"

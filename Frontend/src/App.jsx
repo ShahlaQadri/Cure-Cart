@@ -7,9 +7,8 @@ import { useGetMyDetalsQuery } from "./redux/api/userAPI";
 import { userExist, userNotExist } from "./redux/reducers/userReducer";
 import ProtectedRoute from "./Components/dashbord/ProtectedRoute";
 import Loader from "./Components/header/Loader";
-import AdminManagePresciption from "./pages/AdminManagePresciption";
 
-
+//  components
 const Header = lazy(() => import("./Components/header/Header"));
 const Homepage = lazy(() => import("./pages/Homepage"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
@@ -23,18 +22,15 @@ const Profilepage = lazy(() => import("./pages/Profilepage"));
 const MyOrders = lazy(() => import("./pages/MyOrders"));
 const AdminManageOrder = lazy(() => import("./pages/AdminOrderInfo"));
 const UsersPresciptionOrdersPage = lazy(() => import("./pages/UsersPresciptionOrdersPage"));
-
-
-
 const Adminproducts = lazy(() => import("./pages/Adminproducts"));
 const Admincustomers = lazy(() => import("./pages/Admincustomers"));
 const AdminAddProduct = lazy(() => import("./pages/AdminAddProduct"));
 const AdminManageproducts = lazy(() => import("./pages/AdminManageProducts"));
 const AdminOrders = lazy(() => import("./pages/AdminOrders"));
+const AdminManagePresciption = lazy(() => import("./pages/AdminManagePresciption"));
 const PrescriptionUploadPage = lazy(() => import("./pages/PrescriptionUploadPage"));
 const AdminDashboardPage = lazy(() => import("./pages/AdminDashboardPage"));
 const AdminPresciptionOrderPage = lazy(() => import("./pages/AdminPresciptionOrderPage"));
-
 
 function App() {
   const dispatch = useDispatch();
@@ -43,38 +39,42 @@ function App() {
 
   useEffect(() => {
     if (data && isSuccess) {
-      dispatch(userExist(data.user));
+      dispatch(userExist(data.user)); 
     } else {
-      dispatch(userNotExist());
+      dispatch(userNotExist()); 
     }
   }, [data, isSuccess, dispatch]);
 
   return (
     <BrowserRouter>
       <div className="px-4 py-4">
-        <Suspense fallback={<Loader/>}>
+        <Suspense fallback={<Loader />}>
           <Header />
           <Routes>
+            {/* Public routes */}
             <Route path="/" element={<Homepage />} />
             <Route path="/cart" element={<Cartpage />} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/productspage/:categoryname" element={<Productspage />} />
             
-            <Route element={<ProtectedRoute isAuthenticated={user ? true : false} />}>
+            {/* Routes for unauthenticated users */}
+            <Route element={<ProtectedRoute isAuthenticated={user ? false : true} />}>
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/login" element={<LoginPage />} />
             </Route>
 
-            <Route element={<ProtectedRoute isAuthenticated={user ? false : true} redirect="/login" />}>
+            {/* Routes for authenticated users */}
+            <Route element={<ProtectedRoute isAuthenticated={user ? true : false} redirect="/login" />}>
               <Route path="/checkout" element={<Checkoutpage />} />
               <Route path="/payment" element={<PaymentPage />} />
               <Route path="/myprofile" element={<Profilepage />} />
               <Route path="/myorders" element={<MyOrders />} />
               <Route path="/mypresciptionorders" element={<UsersPresciptionOrdersPage />} />
-              <Route path="/upload-presciption" element={<PrescriptionUploadPage />} />
+              <Route path="/upload-prescription" element={<PrescriptionUploadPage />} />
             </Route>
 
-            <Route element={<ProtectedRoute isAuthenticated={user ? false : true} adminRoute={true} admin={user?.role === "admin" ? true : false} />}>
+            {/* Routes for authenticated admin users */}
+            <Route element={<ProtectedRoute isAuthenticated={user ? true : false} adminRoute={true} admin={user?.role === "admin"} redirect="/admin/dashboard" />}>
               <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
               <Route path="/admin/products" element={<Adminproducts />} />
               <Route path="/admin/customers" element={<Admincustomers />} />
@@ -83,7 +83,7 @@ function App() {
               <Route path="/admin/products/new" element={<AdminAddProduct />} />
               <Route path="/admin/products/:id" element={<AdminManageproducts />} />
               <Route path="/admin/transactions/:id" element={<AdminManageOrder />} />
-              <Route path="/admin/presciptions/:id" element={<AdminManagePresciption />} />
+              <Route path="/admin/prescriptions/:id" element={<AdminManagePresciption />} />
             </Route>
           </Routes>
         </Suspense>
