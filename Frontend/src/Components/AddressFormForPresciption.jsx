@@ -2,8 +2,9 @@ import  { useState } from 'react';
 import { useNewPresciptionOrderMutation } from '../redux/api/presciptionAPI';
 import { useNavigate } from 'react-router-dom';
 import { responseToste } from '../utils/Features';
+import { FaArrowLeft } from "react-icons/fa6";
 
-const AddressFormForPresciption = ({prescriptionImage}) => {
+const AddressFormForPresciption = ({prescriptionImage,setVisibleForm}) => {
   const [shippingInfo, setShippingInfo] = useState({
     name: '',
     email: '',
@@ -34,8 +35,8 @@ const submitHandler = async (e) => {
 };
 
   return (
-    <div className="max-w-md  bg-white p-6 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-semibold mb-4">Address Details</h2>
+    <div className="max-w-md h-screen  bg-white p-6 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-semibold mb-4 flex gap-10 items-center border-b-2 py-5"><FaArrowLeft onClick={()=>{setVisibleForm(false)}}/>Address Details</h2>
       <form onSubmit={submitHandler}>
         <div className="mb-4">
           <label className="block text-gray-700">Enter Name</label>
@@ -86,7 +87,7 @@ const submitHandler = async (e) => {
             name="pincode"
             value={shippingInfo.pincode}
             onChange={changeHandler}
-            className="w-full px-4 py-2 border rounded-lg bg-gray-100"
+            className="w-full px-4 py-2 border rounded-lg "
           />
         </div>
         <div className="mb-4">
@@ -96,7 +97,7 @@ const submitHandler = async (e) => {
             name="phone"
             value={shippingInfo.phone}
             onChange={changeHandler}
-            className="w-full px-4 py-2 border rounded-lg bg-gray-100"
+            className="w-full px-4 py-2 border rounded-lg "
           />
         </div>
         {/* <div className="mb-4">
@@ -119,7 +120,7 @@ const submitHandler = async (e) => {
         </div> */}
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 my-10 transition duration-200"
+          className="w-full bg-blue-500 text-white mt-[5rem] py-2 rounded-lg hover:bg-blue-700 my-auto transition duration-200"
         >
           Save & Continue
         </button>

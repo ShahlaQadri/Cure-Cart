@@ -34,7 +34,7 @@ const PrescriptionUploadPage = () => {
 
   return (
     <div className="">
-      <div className="relative flex flex-col md:flex-row w-[80%] gap-16 md:gap-20 mx-auto my-8">
+      <div className="relative  flex flex-col md:flex-row w-[80%] gap-16 md:gap-20 mx-auto my-8">
         <div className="content md:w-[60%] w-full">
           <div className="space-y-1">
             <p className="text-xl font-extrabold text-zinc-600 tracking-tighter md:mt-0 mt-6">
@@ -108,7 +108,7 @@ const PrescriptionUploadPage = () => {
         </div>
 
        
-          <div className="proceed md:w-[40%] w-full">
+          <div className="proceed md:w-[40%]  pt-2 w-full">
             <div className="flex justify-center items-center">
               <img
                 className="md:h-[300px] h-[200px]"
@@ -132,8 +132,8 @@ const PrescriptionUploadPage = () => {
 
       {/* Conditionally render the address form fixed with respect to the window */}
       {visibleForm && (
-        <div className="fixed top-[-2px] right-[-100px] w-full md:w-[40%] p-4 md:p-8">
-          <AddressFormForPresciption prescriptionImage={prescriptionImage} />
+        <div className="absolute top-0 bg-zinc-50/95 h-screen right-0 md:top-0 md:right-0 w-full md:w-[25%] ">
+          <AddressFormForPresciption prescriptionImage={prescriptionImage} setVisibleForm={setVisibleForm} />
         </div>
       )}
     </div>
