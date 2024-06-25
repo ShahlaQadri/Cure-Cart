@@ -9,9 +9,6 @@ export default function Navbar() {
       {/* Categories Section */}
       <div className="categories-section hidden md:flex items-center border-r-2 border-zinc-500 font-serif text-black md:text-white">
         <span className="text-[#3E5C75] text-xl py-2 px-3 font-extrabold">
-    <div className="main-container md:flex md:items-center md:gap-5 mx-2 md:mx-10 ">
-      <div className=" hidden md:flex md:justify-center md:w-42 md:pt-2 md:pr-5 border-r-2 border-zinc-500 font-serif text-white">
-        <span className=" text-black text-sm md:text-xl py-2 px-3 font-bold">
           CATEGORIES
         </span>
       </div>
