@@ -70,7 +70,7 @@ function App() {
               <Route path="/myprofile" element={<Profilepage />} />
               <Route path="/myorders" element={<MyOrders />} />
               <Route path="/mypresciptionorders" element={<UsersPresciptionOrdersPage />} />
-              <Route path="/upload-prescription" element={<PrescriptionUploadPage />} />
+              <Route path="//upload-presciption" element={<PrescriptionUploadPage />} />
             </Route>
 
             {/* Routes for authenticated admin users */}

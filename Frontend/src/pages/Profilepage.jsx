@@ -13,12 +13,12 @@ export default function Profilepage() {
   };
 
   return (
-    <div className="profilePage flex flex-col md:flex-row px-0 md:px-5 mx-auto gap-5 w-[90%]">
+    <div className="profilePage  flex flex-col md:flex-row px-0 md:px-5 mx-auto gap-5 w-[90%]">
       <div className="mb-0 md:mb-10 flex gap-10  w-full md:w-[25%]">
         <Profile />
       </div>
       
-      <div className="main h-[90vh] w-full md:w-[75%] rounded-lg">
+      <div className="main h-[90vh]  w-full md:w-[75%] rounded-lg">
         <h1 className="mt-5 ml-5 text-3xl text-zinc-500 mb-2 md:mb-4">Account Information</h1>
         <div className="information rounded-lg flex flex-col md:flex-row bg-zinc-50/95">
           <div className="login p-5 w-full md:w-[50%]">
@@ -58,7 +58,7 @@ export default function Profilepage() {
 
         {/* Conditionally render the UpdateProfileForm */}
         {isEditing && (
-          <div className="update-form mt-5 absolute top-20 left-[40%]">
+          <div className="update-form mt-5 absolute top-[10%] left-10 md:top-20 md:left-[40%]">
             <UpdateProfileForm setIsEditing={setIsEditing} />
           </div>
         )}

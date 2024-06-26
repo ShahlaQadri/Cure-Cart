@@ -3,6 +3,7 @@ import { useUpdateUserMutation } from '../redux/api/userAPI';
 import { useSelector } from 'react-redux';
 import { responseToste } from '../utils/Features';
 import { useNavigate } from 'react-router-dom';
+import { MdCancel } from 'react-icons/md';
 const UpdateProfileForm = ({setIsEditing}) => {
     console.log("setisedtng",setIsEditing)
     const navigate = useNavigate()
@@ -25,11 +26,17 @@ const UpdateProfileForm = ({setIsEditing}) => {
      const res =await updateProfile(formData)
      responseToste(res,navigate,"/myprofile")
      
-     setIsEditing(false)
+     
   };
 
   return (
-    <div className="w-[450px] mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="w-[350px] relative md:w-[450px] mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+      <button
+        className="block  absolute top-2 right-3 text-red-700  rounded-full"
+        onClick={()=>{setIsEditing(false)}}
+      >
+        <MdCancel className="text-3xl"/>
+      </button>
       <h2 className="text-2xl font-semibold text-gray-700 mb-6 text-center">Edit Profile</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Email */}
