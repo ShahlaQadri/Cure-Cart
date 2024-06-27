@@ -25,8 +25,8 @@ export const register = async (req, res, next) => {
       .status(201)
       .cookie("token", token, {
         maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days in milliseconds
-        secure: true,
-        sameSite: 'None', 
+        // secure: true,
+        // sameSite: 'None', 
       })
       .json({ success, token, msg: `welcome  ${user.name}` });
   } catch (error) {
@@ -54,8 +54,8 @@ export const login = async (req, res, next) => {
       .status(200)
       .cookie("token", token, {
         maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days in milliseconds
-        secure: true,
-        sameSite: 'None',
+        // secure: true,
+        // sameSite: 'None',
       })
       .json({ success: true, token, msg: `welcome back ${user.name}` });
   } catch (error) {
