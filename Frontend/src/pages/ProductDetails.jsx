@@ -11,7 +11,9 @@ import { server } from "../main";
 export default function ProductDetails() {
   
   const {id} =useParams()
-  const {data } = useGetProductDetailsQuery(id)
+  const {data , isLoading ,error} = useGetProductDetailsQuery(id)
+
+  
   // console.log(data?.product)
   const dispatch = useDispatch();
 
@@ -20,7 +22,48 @@ const addToCartHandler = (cartItem) => {
   dispatch(addToCart(cartItem));
   toast.success("Added to cart");
 };
+if (isLoading )  return (
+  <div className="pl-28 pt-10  bg-gray-100 animate-pulse min-h-screen">
+    <div className="flex space-x-6">
+      {/* Image Placeholder */}
+      <div className="w-1/2 bg-gray-300 rounded h-96"></div>
 
+      {/* Details Section */}
+      <div className="flex-1 space-y-4">
+        {/* Title */}
+        <div className="h-8 bg-gray-300 rounded w-1/2"></div>
+
+        {/* Subtitle */}
+        <div className="h-6 bg-gray-300 rounded w-1/4"></div>
+
+        {/* Price */}
+        <div className="h-8 bg-gray-300 rounded w-1/4"></div>
+
+        {/* Add to Cart Button */}
+        <div className="h-10 bg-gray-300 rounded w-1/3 mt-4"></div>
+
+        {/* Key Points */}
+        <div className="space-y-2 mt-4">
+          <div className="h-4 bg-gray-300 rounded w-1/3"></div>
+          <div className="h-4 bg-gray-300 rounded w-1/3"></div>
+          <div className="h-4 bg-gray-300 rounded w-1/3"></div>
+        </div>
+      </div>
+    </div>
+
+    {/* Description Section */}
+    <div className="mt-8 space-y-4">
+      <div className="h-6 bg-gray-300 rounded w-1/4"></div>
+      <div className="space-y-2">
+        <div className="h-4 bg-gray-300 rounded"></div>
+        <div className="h-4 bg-gray-300 rounded"></div>
+        <div className="h-4 bg-gray-300 rounded w-3/4"></div>
+      </div>
+    </div>
+  </div>
+);
+
+if (error) return <div>Error: {error.message}</div>;
   return (
     <div className="containers mx-auto px-4 md:px-10">
       <div className="flex flex-col md:flex-row bg-gray-50 rounded-3xl">

@@ -2,7 +2,7 @@
 import { MdDelete } from "react-icons/md";
 import { TiArrowBack } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addToCart, calculateTotalPrice, removeCartItem } from "../redux/reducers/cartReducer";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
@@ -10,8 +10,8 @@ import { useEffect } from "react";
 export default function Cartpage() {
   // const arr=[1,2,3,4,5,6,7]
    const {cartItems, subtotal,tax,total,shippingCharges,discount } = useSelector((state)=>state.cartReducer)
-  //  console.log(cartItems, subtotal,tax,total,shippingCharges,discount)
   
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const incrementHandler = (cartItem) => {
     if (cartItem.quantity >= cartItem.stock) return toast.error(`Only ${cartItem.stock} Items In Stock`);
@@ -31,7 +31,37 @@ export default function Cartpage() {
   useEffect(() => {
     dispatch(calculateTotalPrice())
   }, [cartItems])
+
+
   
+  if(cartItems.length===0) return  (
+    <div className="flex flex-col items-center pt-32 min-h-screen bg-gray-50/95 rounded-2xl p-4">
+      {/* Content Container */}
+      <div className="flex flex-col items-center md:flex-row space-y-4 md:space-y-0 md:space-x-10">
+        
+        {/* Text Section */}
+        <div className="text-center md:text-left">
+          <h1 className="text-2xl md:text-4xl font-bold mb-2">Nothing in Here!</h1>
+          <p className="text-gray-600 mb-4">Your cart is currently empty.</p>
+          <button onClick={()=>{navigate("/")}} className="bg-[#2485C5] text-white py-2 px-4 rounded hover:bg-[#2277af]">
+            Continue Shopping
+          </button>
+        </div>
+
+        {/* Illustration */}
+        <div className="flex-shrink-0">
+          <img 
+            src="../../pictures/empty cart.webp" 
+            alt="Empty Cart Illustration" 
+            className="w-full max-w-xs md:max-w-md mix-blend-multiply"
+          />
+        </div>
+      </div>
+    </div>
+  );
+
+
+
   return (
     <div className="mx-4">
       <div className="relative w-full bg-green-500">
