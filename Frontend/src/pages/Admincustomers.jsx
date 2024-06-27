@@ -7,7 +7,7 @@ export default function Admincustomers() {
   return (
     <div className="profilePage flex flex-col h-[90vh] bg-zinc-50/95">
       <div className="mx-auto flex gap-10 w-full ">
-        <div className="w-[20%] bg-white  rounded-lg h-[90vh] shadow-l ">
+      <div className="hidden md:block md:w-[20%] md:h-[90vh] bg-white text-zinc-700  ">
           <Adminprofile />
         </div>
 
