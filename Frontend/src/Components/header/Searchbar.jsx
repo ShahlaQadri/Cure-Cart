@@ -6,6 +6,7 @@ import { Bars } from 'react-loader-spinner'
 import { CiSearch } from "react-icons/ci";
 import { useLazyGetSearchedProductsQuery } from "../../redux/api/productsAPI";
 import { IoBag } from "react-icons/io5";
+import { BiSolidPhoneCall } from "react-icons/bi";
 
 const Searchbar = () => {
   const { user } = useSelector((state) => state.userReducer);
@@ -111,6 +112,7 @@ const Searchbar = () => {
     </div>
   )}
 </div>
+
       {/* Icons */}
       <div className="icons flex space-x-2 md:space-x-3">
         {/* <div className="wishlist cursor-pointer rounded-full w-6 h-6 flex items-center justify-center md:w-10 md:h-10 ">
@@ -118,6 +120,12 @@ const Searchbar = () => {
             <FaHeart className="text-2xl" />
           </Link>
         </div> */}
+        <div className=" hidden md:mr-3 md:flex md:items-center md:gap-1"><BiSolidPhoneCall className="text-2xl text-green-600 "/><section className="flex flex-col">
+          <span className="leading-none text-sm font-bold text-zinc-400">Call Us</span> 
+         <a href="tel:+917006622199" className="leading-none text-sm text-zinc-600 font-semibold">
+        +91 7006622199
+      </a> </section></div>
+
         <div className="cart cursor-pointer rounded-full w-10 h-10 flex items-center justify-center  ">
           <Link to="/cart">
             <IoBag className="text-2xl hover:text-gray-700" />
