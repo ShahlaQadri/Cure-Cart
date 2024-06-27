@@ -65,6 +65,7 @@ export const login = async (req, res, next) => {
 export const myProfie = async (req, res, next) => {
   try {
     const userId = req.user._id;
+    console.log("in route",req.user._id)
 
     const user = await User.findById(userId).select(["-password"]);
     res.status(200).json({
