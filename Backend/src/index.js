@@ -28,7 +28,7 @@ const app = express();
 
 // middlewares
 app.use(cors({ 
-  origin: '*',
+  origin: 'https://cure-cart-backend.onrender.com',
   credentials: true, 
 }));
 app.use(cookieParser());
