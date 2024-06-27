@@ -7,6 +7,8 @@ import { GrTransaction } from "react-icons/gr";
 import { FaUsers } from "react-icons/fa";
 import { useGetDashboardStatsQuery } from '../redux/api/dashboardAPI';
 import StatsLoader from '../Components/dashbord/StatsLoader';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { useState } from 'react';
 
 function toRGBA(color, opacity) {
   if (color.startsWith("#")) {
@@ -84,16 +86,29 @@ function CategoryItem({ heading, value, color }) {
 }
 
 function AdminDashboardPage() {
+  const [isOpen, setIsOpen] = useState(false);
   const { data, isLoading, error } = useGetDashboardStatsQuery();
 
   if (isLoading) return <StatsLoader />;
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) return <div>Error: {error.message}</div>; 
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <div className="flex flex-col my-2 w-full h-[90vh] bg-zinc-50/95">
       <div className="mx-auto flex flex-col md:flex-row gap-10 w-full">
-        <div className="hidden md:block md:w-[20%] md:h-[90vh] bg-white text-zinc-700">
-          <AdminSideBar />
+      <button
+        className="block md:hidden absolute  top-20 z-50 right-8 p-2 text-gray-700 bg-gray-200 rounded-full"
+        onClick={toggleMenu}
+      >
+        <GiHamburgerMenu size={24} />
+      </button>
+        <div className={`${
+          isOpen ? "block" : "hidden"
+        } md:block fixed md:relative top-[6rem] md:top-auto right-0 z-50 md:z-auto w-[100%] h-screen  md:w-[20%] md:h-[90vh]  text-zinc-700 mx-auto justify-center items-center bg-white shadow-lg md:shadow-none rounded-lg md:rounded-none`}
+      >
+          <AdminSideBar setIsOpen={setIsOpen} />
         </div>
 
         <div className="main bg-zinc-50/95 px-4 w-full md:w-[80%] overflow-y-auto">
