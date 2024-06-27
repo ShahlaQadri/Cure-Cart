@@ -1,6 +1,7 @@
 import { IoBagHandleSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { server } from "../main";
+import { FaShoppingBasket } from "react-icons/fa";
 
 export default function ProductCard({ img, name, price, category, discount, productId, stock, handler }) {
   const discountedPrice = Math.round(price - (price * discount) / 100);

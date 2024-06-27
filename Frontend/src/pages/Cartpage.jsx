@@ -122,9 +122,9 @@ export default function Cartpage() {
           </div> 
         </div>
 
-        <aside className="right w-full md:mt-5 md:ml-10 md:w-[35%] h-auto rounded-lg ">
-  <div className="details p-4 md:p-6 mt-5 md:mt-[80px] ml-0">
-    <h1 className="flex gap-2 items-center font-medium text-lg mb-4 md:mb-6 text-gray-800">
+        <aside className="right w-full md:mt-5  flex justify-center md:ml-10 md:w-[35%] h-auto rounded-lg ">
+  <div className="details p-4 md:p-0 mt-5 md:mt-[80px] w-full md:w-[60%] ml-0">
+    <h1 className="flex gap-2 items-start border-dashed border-b-2 pb-2 md:pb-4 w-full font-medium text-lg mb-4 md:mb-6 text-gray-800">
       <img
         src="../../pictures/discount.png"
         alt="Payments"
@@ -132,29 +132,29 @@ export default function Cartpage() {
       />
       Payment Details
     </h1>
-    <div className="font-normal text-md flex flex-col gap-2 md:gap-3 text-gray-600">
-      <p>Subtotal: <span className="font-semibold">₹{Math.round(subtotal)}</span></p>
-      <p>Shipping Charges: <span className="font-semibold">₹{shippingCharges}</span></p>
-      <p>Tax: <span className="font-semibold">₹{tax}</span></p>
-      <p>
+    <div className="font-normal text-md flex flex-col gap-[5px] md:gap-3  text-gray-600">
+      <p className="flex justify-between">Subtotal: <span className="font-semibold">₹{Math.round(subtotal)}</span></p>
+      <p className="flex justify-between">Shipping Charges: <span className="font-semibold">₹{shippingCharges}</span></p>
+      <p className="flex justify-between">Tax: <span className="font-semibold">₹{tax}</span></p>
+      <p className="flex justify-between">
         Discount: <span className="text-red-500 font-semibold">₹{discount}</span>
       </p>
-      <p className="text-lg font-bold text-green-500 mt-2">
-        Total: ₹{Math.round(total)}
+      <p className="text-lg pt-2 border-dashed border-t-2 font-extrabold flex justify-between text-black md:mt-2">
+        Total: <span>₹{Math.round(total)}</span>
       </p>
     </div>
 
-    <div className="mt-4 md:mt-10 w-full">
+    <div className="mt-4 md:mt-4 w-full">
       <input
         type="text"
         placeholder="Coupon code"
-        className="border w-full md:w-[70%] border-gray-300 py-2 px-3 rounded-md focus:outline-none focus:border-blue-500"
+        className="border w-full md:w-[100%] border-gray-300 py-2 px-3 rounded-md focus:outline-none focus:border-blue-500"
       />
     </div>
-    <div className="mt-6 md:mt-10">
+    <div className="mt-6 md:mt-6">
       <button
         onClick={() => navigate("/checkout")}
-        className="w-full md:w-[70%] px-4 py-3 bg-[#2485C5] hover:bg-[#1e6797] text-white text-md font-semibold rounded-md transition-colors duration-200"
+        className="w-full md:w-[100%] px-4 py-3 bg-[#2485C5] hover:bg-[#1e6797] text-white text-md font-semibold rounded-md transition-colors duration-200"
       >
         Add Delivery Details
       </button>
