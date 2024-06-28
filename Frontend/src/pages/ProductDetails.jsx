@@ -172,7 +172,7 @@ if (error) return <div>Error: {error.message}</div>;
     </div>
   </div>
 
-  <div className="details bg-gray-50 rounded-3xl mt-3 p-4 md:my-4 md:p-6">
+  <div className="details bg-gray-50 rounded-3xl my-3 p-4 md:my-4 md:p-6">
     <div className="about pb-4">
       <div className="flex gap-4 items-center">
         <img

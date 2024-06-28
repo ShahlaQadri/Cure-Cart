@@ -65,7 +65,7 @@ export default function Prescription() {
 
 
           <Link
-            to="/"
+            to="https://wa.me/917006622199"
             className="button bg-black  text-white px-3 py-2 md:mt-2 md:px-5 md:py-3 rounded-full text-xs"
           >
             Order on Whatsapp 
