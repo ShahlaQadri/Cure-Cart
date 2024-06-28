@@ -35,8 +35,8 @@ export default function CcFooter() {
         </div>
 
         <div className="w-full   flex items-center justify-between pr-1 md:px-[6rem] text-zinc-500">
-          <div className="footer-logo flex items-center justify-center">
-            <img src="../../../pictures/smalllogo.png" width={110} md:width={130} alt="Logo" className="mix-blend-multiply" />
+          <div className="footer-logo flex items-center w-[80px] justify-center">
+            <img src="../../../pictures/smalllogo.png" alt="Logo" className="mix-blend-multiply w-full object-contain" />
           </div>
           <div className="flex space-x-3 md:space-x-4">
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#E4405F] transition duration-300">
