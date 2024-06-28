@@ -27,7 +27,7 @@ export const myCache = new nodeCache();
 const app = express();
 
 // middlewares
-const allowedOrigins = ['http://localhost:5173', 'https://cure-cart-frontend.vercel.app']; // Add your allowed origins here
+const allowedOrigins = ['http://localhost:5173', 'https://curecart.vercel.app']; // Add your allowed origins here
 
 app.use(cors({ 
   origin: function(origin, callback) {
