@@ -7,6 +7,7 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useNewOrderMutation } from '../redux/api/ordersAPI';
 import  {responseToste}  from '../utils/Features';
 import { resetCart } from '../redux/reducers/cartReducer';
+import { stripe_key } from '../main';
 
 const CheckoutForm =() =>{
   const stripe = useStripe();
@@ -90,7 +91,7 @@ const CheckoutForm =() =>{
     </div>
   )
 }
-const stripePromise = loadStripe('pk_test_51PRe8hRtEVBdj2nCnMeg82e3q8OoAkRGJTydbjlA7XJG3AEWDk9UQFWHazwNvJgEDpmuMxkKotCBWsKM5WyRyIdk00JglDoY3r');
+const stripePromise = loadStripe(`${stripe_key}`);
 
 function PaymentPage() {
   const location = useLocation();

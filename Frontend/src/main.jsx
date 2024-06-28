@@ -8,6 +8,8 @@ import { PersistGate } from 'redux-persist/integration/react'
 
 {/* <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" /> */}
 export const server = import.meta.env.VITE_SERVER
+export const stripe_key = import.meta.env.VITE_STRIPE_KEY
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
