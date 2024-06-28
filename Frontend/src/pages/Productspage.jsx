@@ -12,7 +12,7 @@ import { server } from "../main";
 
 export default function Productspage() {
   const {categoryname} =useParams()
-  const {data,isLoading} =useGetProductsByCategoriesQuery(categoryname)
+  const {data,isLoading,} =useGetProductsByCategoriesQuery(categoryname)
 
 
   console.log(data?.products.length)
@@ -23,6 +23,8 @@ const addToCartHandler = (cartItem) => {
   dispatch(addToCart(cartItem));
   toast.success("Added to cart");
 };
+
+
   return (
     <div className="rounded-lg w-[100%]  mx-auto">
       <div className="category ralative flex bg-gradient-to-r from-[#0071BC] to-[#B0E5F2] text-[#3E5C75]  h-32 md:h-48 w-full md:w-full mb-4 rounded-2xl">

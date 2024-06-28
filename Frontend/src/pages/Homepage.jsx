@@ -7,6 +7,7 @@ import Ccfooter from "../Components/footer/Ccfooter";
 
 
 
+
 function Homepage() {
   return (
     <div>
@@ -15,8 +16,8 @@ function Homepage() {
       <Prescription />
       <BabyFood />
       <Extras />
-      {/* <Profilepage /> */}
       <Ccfooter/>
+      
     </div>
   );
 }

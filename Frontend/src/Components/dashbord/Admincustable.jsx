@@ -71,7 +71,8 @@ const Admincustable = () => {
     return <div>No products available</div>;
   }
   return (
-    <div className="px-10">
+    <div className="md:px-10">
+      <div className='table-div w-full  overflow-x-auto overflow-hidden'>
       <table {...getTableProps()} className="table-auto  w-[100%]">
         <thead className="text-md text-zinc-500 py-10">
           {headerGroups.map((headerGroup) => (
@@ -108,6 +109,7 @@ const Admincustable = () => {
           })}
         </tbody>
       </table>
+      </div>
       <div className="flex justify-center items-center gap-2 mt-10">
         <button
           className="px-4 py-1 text-sm font-semibold bg-blue-300 rounded-md"

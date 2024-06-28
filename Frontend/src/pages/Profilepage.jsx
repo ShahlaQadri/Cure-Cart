@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import Profile from "../Components/Profile";
 import { AiFillEdit } from "react-icons/ai";
 import { useSelector } from 'react-redux';

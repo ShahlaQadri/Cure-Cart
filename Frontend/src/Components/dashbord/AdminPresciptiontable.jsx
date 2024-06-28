@@ -72,7 +72,8 @@ const AdminPresciptiontable = () => {
 
   return (
     <div className="">
-      <table {...getTableProps()} className="table-auto w-[100%] px-10">
+      <div className='table-div w-full  overflow-x-auto overflow-hidden'>
+        <table {...getTableProps()} className="table-auto w-[100%] px-10">
         <thead className="text-md text-zinc-500 py-10">
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
@@ -102,7 +103,7 @@ const AdminPresciptiontable = () => {
             );
           })}
         </tbody>
-      </table>
+      </table></div>
       <div className="flex justify-center items-center gap-2 mt-10">
         <button
           className="px-4 py-1 text-sm font-semibold bg-blue-300 rounded-md"

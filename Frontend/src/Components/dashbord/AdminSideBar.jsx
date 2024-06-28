@@ -5,11 +5,25 @@ import { BsBagCheckFill } from "react-icons/bs";
 import { RiCoupon3Fill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { MdCancel } from "react-icons/md";
 
-export default function AdminSideBar() {
+
+export default function AdminSideBar({setIsOpen}) {
+  // const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(false);
+  };
   const {user} = useSelector((state)=>state.userReducer)
   return (
     <div className="aside relative h-[90vh]  px-3 pl-7 pt-6 overflow-hidden    shadow-r-xl text-zinc-700 font-extralight">
+
+<button
+            className="block md:hidden absolute top-6 right-3 p-2 text-gray-700 rounded-full"
+            onClick={toggleMenu}
+          >
+            <MdCancel className="text-3xl" />
+          </button>
       {/* <img src="../../../pictures/smalllogo.png" alt="Cure Cart" height={10} width={150} /> */}
       <div className="options  rounded-lg ">
         <ul className="font-lighter">

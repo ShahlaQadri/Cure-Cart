@@ -7,6 +7,7 @@ import { useGetMyDetalsQuery } from "./redux/api/userAPI";
 import { userExist, userNotExist } from "./redux/reducers/userReducer";
 import ProtectedRoute from "./Components/dashbord/ProtectedRoute";
 import Loader from "./Components/header/Loader";
+import NotFoundPage from "./pages/NotFoundPage";
 
 //  components
 const Header = lazy(() => import("./Components/header/Header"));
@@ -85,6 +86,7 @@ function App() {
               <Route path="/admin/transactions/:id" element={<AdminManageOrder />} />
               <Route path="/admin/prescriptions/:id" element={<AdminManagePresciption />} />
             </Route>
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
       </div>
