@@ -37,8 +37,8 @@ export default function Prescription() {
       </div>
 
       <div className="contact-us bg-blue-200 h-[180px] md:h-[300px] w-[50] flex flex-col items-center justify-center rounded-2xl">
-  <div className="flex items-center justify-center md:justify-start">
-    <div className=" md:mt-0 md:mr-6">
+  <div className="flex items-center h-[120px] md:h-[180px] w-[95%] justify-center md:justify-start">
+    <div className=" md:mt-0 md:mr-0">
       <img
         className="h-[100px]  md:h-[200px] rounded-lg"
         src="../../pictures/weekday-young-woman-busy-with-her-work-in-office.gif"
@@ -52,7 +52,7 @@ export default function Prescription() {
       <p className="text-xs text-gray-800 leading-none md:text-lg font-semibold">Working hours: 9am to 9pm</p>
     </div>
   </div>
-  <div className="items-center w-full mt-1 px-5 md:px-10 gap-2 flex">
+  <div className="items-center w-full mt-0 px-5 md:px-10 gap-2 flex">
   <a
       href="tel:+917006622199" 
       className="bg-black rounded-full md:mt-2 w-5 h-5 p-4 md:w-8 md:h-8 md:p-5 flex items-center justify-center text-md"

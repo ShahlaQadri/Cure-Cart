@@ -15,7 +15,7 @@ export default function AdminPresciptionOrderPage() {
     <div className="profilePage flex flex-col  h-[90vh] bg-zinc-50/95">
       <div className="mx-auto flex gap-10 w-full ">
       <button
-        className="block md:hidden absolute  top-20 z-50 right-8 p-2 text-gray-700 bg-gray-200 rounded-full"
+        className="block md:hidden absolute  top-28 z-50 right-8 p-2 text-gray-700 bg-gray-200 rounded-full"
         onClick={toggleMenu}
       >
         <GiHamburgerMenu size={24} />

@@ -23,44 +23,43 @@ const addToCartHandler = (cartItem) => {
   toast.success("Added to cart");
 };
 if (isLoading )  return (
-  <div className="pl-28 pt-10  bg-gray-100 animate-pulse min-h-screen">
-    <div className="flex space-x-6">
-      
-      <div className="w-1/2 bg-gray-300 rounded h-96"></div>
+  <div className="pl-4 md:pl-28 pt-4 md:pt-10 bg-gray-100 animate-pulse min-h-screen">
+  <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+    <div className="w-full md:w-1/2 bg-gray-300 rounded h-64 md:h-96"></div>
 
-      
-      <div className="flex-1 space-y-4">
-        {/* Title */}
-        <div className="h-8 bg-gray-300 rounded w-1/2"></div>
+    <div className="flex-1 space-y-4">
+      {/* Title */}
+      <div className="h-6 bg-gray-300 rounded w-full md:w-1/2"></div>
 
-        {/* Subtitle */}
-        <div className="h-6 bg-gray-300 rounded w-1/4"></div>
+      {/* Subtitle */}
+      <div className="h-4 bg-gray-300 rounded w-full md:w-1/4"></div>
 
-        {/* Price */}
-        <div className="h-8 bg-gray-300 rounded w-1/4"></div>
+      {/* Price */}
+      <div className="h-6 bg-gray-300 rounded w-full md:w-1/4"></div>
 
-        {/* Add to Cart Button */}
-        <div className="h-10 bg-gray-300 rounded w-1/3 mt-4"></div>
+      {/* Add to Cart Button */}
+      <div className="h-8 bg-gray-300 rounded w-full md:w-1/3 mt-4"></div>
 
-        {/* Key Points */}
-        <div className="space-y-2 mt-4">
-          <div className="h-4 bg-gray-300 rounded w-1/3"></div>
-          <div className="h-4 bg-gray-300 rounded w-1/3"></div>
-          <div className="h-4 bg-gray-300 rounded w-1/3"></div>
-        </div>
-      </div>
-    </div>
-
-    {/* Description Section */}
-    <div className="mt-8 space-y-4">
-      <div className="h-6 bg-gray-300 rounded w-1/4"></div>
-      <div className="space-y-2">
-        <div className="h-4 bg-gray-300 rounded"></div>
-        <div className="h-4 bg-gray-300 rounded"></div>
-        <div className="h-4 bg-gray-300 rounded w-3/4"></div>
+      {/* Key Points */}
+      <div className="space-y-2 mt-4">
+        <div className="h-4 bg-gray-300 rounded w-full md:w-1/3"></div>
+        <div className="h-4 bg-gray-300 rounded w-full md:w-1/3"></div>
+        <div className="h-4 bg-gray-300 rounded w-full md:w-1/3"></div>
       </div>
     </div>
   </div>
+
+  {/* Description Section */}
+  <div className="mt-8 space-y-4">
+    <div className="h-4 bg-gray-300 rounded w-full md:w-1/4"></div>
+    <div className="space-y-2">
+      <div className="h-4 bg-gray-300 rounded"></div>
+      <div className="h-4 bg-gray-300 rounded"></div>
+      <div className="h-4 bg-gray-300 rounded w-full md:w-3/4"></div>
+    </div>
+  </div>
+</div>
+
 );
 
 if (error) return <div>Error: {error.message}</div>;

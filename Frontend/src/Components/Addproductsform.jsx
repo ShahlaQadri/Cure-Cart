@@ -78,9 +78,9 @@ const Addproductsform = () => {
       <h1 className="mt-5 ml-10 text-3xl  text-zinc-500 mb-4">Add Product</h1>
       <form
         onSubmit={submitHandler}
-        className="w-[90%] mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className=" w-full md:w-[90%] mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
       >
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-3  gap-2 md:gap-5">
           <div className="mb-2">
             <label
               htmlFor="name"

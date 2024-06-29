@@ -1,11 +1,13 @@
 
 import { useNavigate, useParams } from "react-router-dom";
-import Adminprofile from "../Components/dashbord/AdminSideBar";
 import { useDeleteOrderMutation, useOrderDetailsQuery, useUpdateOrderMutation } from "../redux/api/ordersAPI";
 import { responseToste } from "../utils/Features";
 // import Manageform from "../Components/Manageform";
 import { IoTrashBin } from "react-icons/io5";
 import { server } from "../main";
+import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import AdminSideBar from "../Components/dashbord/AdminSideBar";
 
 export default function AdminManageOrder() {
   const {id} = useParams()
@@ -27,16 +29,34 @@ export default function AdminManageOrder() {
     const res = await  deleteOrder(id)
     responseToste(res,navigate,"/admin/transactions")
   }
+  const [isOpen, setIsOpen] = useState(false);
+
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="profilePage flex flex-col   h-[90vh] bg-zinc-50/95">
       <div className="mx-auto flex gap-10 w-full ">
-        <div className="w-[20%] h-[90vh]  bg-white  ">
-          <Adminprofile />
+      <button
+        className="block md:hidden absolute  top-28 z-50 right-8 p-2 text-gray-700 bg-gray-200 rounded-full"
+        onClick={toggleMenu}
+      >
+        <GiHamburgerMenu size={24} />
+      </button>
+        <div className={`${
+          isOpen ? "block" : "hidden"
+        } md:block fixed md:relative top-[6rem] md:top-auto right-0 z-50 md:z-auto w-[100%] h-screen  md:w-[20%] md:h-[90vh]  text-zinc-700 mx-auto justify-center items-center bg-white shadow-lg md:shadow-none rounded-lg md:rounded-none`}
+      >
+          <AdminSideBar setIsOpen={setIsOpen} />
+
         </div>
 
-        <div className="main w-[80%] rounded-lg justify-center flex flex-row gap-4 bg-zinc-50/95 px-4 py-4 ">
-          <div className="w-[45%] h-[75vh] bg-white shadow-lg rounded">
-          <button onClick={deleteOrderHandler} className="h-9 w-9 absolute top-[152px] right-[150px]
+
+        <div className="main w-full md:w-[80%]  h-screen rounded-lg justify-center flex flex-col md:flex-row gap-4 bg-zinc-50/95 px-4 py-4 ">
+          <div className="w-full md:w-[45%]   h-[40vh] md:h-[75vh] bg-white shadow-lg rounded">
+          <button onClick={deleteOrderHandler} className="h-9 w-9 absolute md:top-[152px] md:right-[150px] right-8 top-[160px]
                 rounded-full bg-[#200a0a] hover:text-red-500 text-white text-xl flex items-center justify-center ml-[100px]">
                 <IoTrashBin />
 
@@ -44,9 +64,10 @@ export default function AdminManageOrder() {
             <h2 className="text-2xl  py-6 mt-5 text-center text-zinc-500">
               ORDER ITEMS
             </h2>
+           <div className="orderitems-container  "> 
             {
               data?.order.orderItems.map((item) => (
-                <div key={item.productId} className="flex items-center  justify-evenly mb-4 px-10">
+                <div key={item.productId} className="flex items-center  justify-evenly mb-4 md:px-10 px-4">
                   <img
                     src={`${server}${item.photo}`}
                     alt="Product"
@@ -54,22 +75,21 @@ export default function AdminManageOrder() {
                   />
                   <div className="px-1 ml-6 flex  text-sm  text-zinc-700">
                     <p className="name ">{item.name}</p>
-                    <p className=" ml-10">
-                      <span className="price ">{item.price}</span> * {item.quantity}{" "}
-                      
-                    </p>
+                    <p className=" ml-4 md:ml-10">
+  <span className="price">{item.price}</span> * {item.quantity}{" "}
+</p>
                     <span className="mx-2">=</span>
-                    <p className="total font-semibold">{item.price*item.quantity}</p>
+                    <p className="total text-sm font-semibold">{item.price*item.quantity}</p>
                   </div>
                 </div>))
-            }
+            }</div>
 
           </div>
-          <div className="w-[30%] h-[75vh] bg-white shadow-lg rounded px-2">
-            <h2 className="text-2xl mt-6 py-6 text-center text-zinc-500">
+          <div className="w-full md:w-[30%] h-[60vh] md:h-[75vh] bg-white shadow-lg rounded px-2">
+            <h2 className="text-2xl mt-2 md:mt-6 py-6 text-center text-zinc-500">
               ORDER INFO
             </h2>
-            <h2 className="text-md font-semibold text-zinc-800 pl-4  mt-5">
+            <h2 className="text-md font-semibold text-zinc-800 pl-4 mt-1 md:mt-5">
               User Info
             </h2>
             <ul className="pl-4 ml-3 text-sm text-zinc-500">
@@ -100,8 +120,8 @@ export default function AdminManageOrder() {
               <li>Status :</li>
               <li className="text-red-600"> {data?.order.status}</li>
             </ul>
-            <div className="px-4 mt-10">
-              <button onClick={processOrderHandler} className="bg-blue-500 hover:bg-blue-600 text-white py-2 rounded mt-4 w-full">
+            <div className="px-4 mt-2 md:mt-10">
+              <button onClick={processOrderHandler} className="bg-blue-500 hover:bg-blue-600 text-white py-2 rounded md:mt-4 w-full">
                 Process Status
               </button>
             </div>
