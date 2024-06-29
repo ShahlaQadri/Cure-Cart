@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { saveShippingInfo } from "../redux/reducers/cartReducer";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { server } from "../main";
 // import saveShippingInfo from '../redux/reducers/cartReducer.js'
 
 export default function Checkoutpage() {
@@ -38,7 +39,7 @@ export default function Checkoutpage() {
     // console.log("cart",cartShippingInfo)
     try {
       const { data } = await axios.post(
-        `http://localhost:3000/api/v1/payment/create`,
+        `${server}api/v1/payment/create`,
         {
           amount: Math.round(total),
         },{

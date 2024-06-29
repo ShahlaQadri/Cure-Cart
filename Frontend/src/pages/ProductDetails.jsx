@@ -76,7 +76,7 @@ if (error) return <div>Error: {error.message}</div>;
       </Link>
     </div>
 
-    <div className="image flex justify-center items-center m-5 md:m-10 h-[25vh] md:h-[60vh] w-full md:w-[40%]">
+    <div className="image flex justify-center items-center  md:m-10 h-[25vh] md:h-[60vh] w-full md:w-[40%]">
       <img
         className="w-full h-full md:w-[100%] md:h-[100%] object-contain mix-blend-multiply rounded-lg"
         src={`${server}${data?.product.photo}`}
@@ -172,7 +172,7 @@ if (error) return <div>Error: {error.message}</div>;
     </div>
   </div>
 
-  <div className="details bg-gray-50 rounded-3xl mt-3 p-4 md:my-4 md:p-6">
+  <div className="details bg-gray-50 rounded-3xl my-3 p-4 md:my-4 md:p-6">
     <div className="about pb-4">
       <div className="flex gap-4 items-center">
         <img

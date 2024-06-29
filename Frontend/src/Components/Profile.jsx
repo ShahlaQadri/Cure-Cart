@@ -39,10 +39,10 @@ export default function Profile() {
     <div className="relative w-full md:w-[25%] ">
       {/* Hamburger button for mobile view */}
       <button
-        className="block md:hidden absolute top-6 z-50 right-28 p-2 text-gray-700 bg-gray-200 rounded-full"
+        className="block md:hidden absolute top-0 z-50 right-2 p-2 text-gray-700 bg-gray-200 rounded-full"
         onClick={toggleMenu}
       >
-        <GiHamburgerMenu size={24} />hay
+        <GiHamburgerMenu size={24} />
       </button>
 
       {/* Overlay for mobile view */}

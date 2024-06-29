@@ -17,7 +17,7 @@ export default function Prescription() {
           </p>
         </div>
 
-        <div className="items-center w-full px-10 gap-2 flex">
+        <div className="items-center w-full  px-5 md:px-10 gap-2 flex">
           <Link
             to="/upload-presciption"
             className=" bg-black mt-2 rounded-full md:mt-2 w-5 h-5 p-4 md:w-8 md:h-8 md:p-5 flex items-center justify-center text-sm "
@@ -45,25 +45,27 @@ export default function Prescription() {
         alt="Young woman busy in office"
       />
     </div>
-    <div className="text-center md:text-left">
-      <h2 className="font-bold text-lg md:text-2xl md:mb-4">Contact Us</h2>
-      <p className="text-sm text-gray-800 md:mb-2 leading-none font-semibold">Call us to order medicines:</p>
-      <p className="text-xl text-green-600 font-bold md:mb-2 leading-none">7006622199</p>
-      <p className="text-sm text-gray-800 leading-none font-semibold">Working hours: 9am to 9pm</p>
+    <div className="text-center md:text-left mx-2">
+      <h2 className="font-bold text-xl md:text-2xl md:mb-4 mb-1">Contact Us</h2>
+      <p className="text-xs text-gray-800 md:mb-2 md:text-lg leading-none font-semibold">Call us to order medicines</p>
+      <p className="text-lg text-green-600 font-bold md:mb-2 leading-tight">7006622199</p>
+      <p className="text-xs text-gray-800 leading-none md:text-lg font-semibold">Working hours: 9am to 9pm</p>
     </div>
   </div>
-  <div className="items-center w-full px-10 gap-2 flex">
-          <Link
-            to="/upload-presciption"
-            className=" bg-black  rounded-full md:mt-2 w-5 h-5 p-4 md:w-8 md:h-8 md:p-5 flex items-center justify-center text-md "
-          >
-            <span>
-            <FcPhone className="text-white" />
-            </span>
-          </Link>
+  <div className="items-center w-full mt-1 px-5 md:px-10 gap-2 flex">
+  <a
+      href="tel:+917006622199" 
+      className="bg-black rounded-full md:mt-2 w-5 h-5 p-4 md:w-8 md:h-8 md:p-5 flex items-center justify-center text-md"
+      aria-label="Call us" // Optional: Improves accessibility for screen readers
+    >
+      <span>
+        <FcPhone className="text-white" />
+      </span>
+    </a>
+
 
           <Link
-            to="/upload-presciption"
+            to="https://wa.me/917006622199"
             className="button bg-black  text-white px-3 py-2 md:mt-2 md:px-5 md:py-3 rounded-full text-xs"
           >
             Order on Whatsapp 

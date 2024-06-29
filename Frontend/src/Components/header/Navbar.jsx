@@ -22,7 +22,7 @@ export default function Navbar() {
               key={item}
               to={`/productspage/${item}`}
               className={({ isActive }) =>
-                `medicines text-[8px] md:text-[12px] font-[600] px-[4px] py-[2px] md:px-[16px] md:py-[5px] text-zinc-700 rounded-full bg-white border hover:bg-[#0071BD] hover:text-white hover:shadow-lg whitespace-nowrap ${
+                `medicines text-[10px] font-semibold md:text-[12px]  px-[5px] py-[3px] md:px-[16px] md:py-[5px] text-zinc-700 rounded-full bg-white border hover:bg-[#0071BD] hover:text-white hover:shadow-lg whitespace-nowrap ${
                   isActive ? "active-link-class" : ""
                 }`
               }

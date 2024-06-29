@@ -49,13 +49,14 @@ const Searchbar = () => {
   };
 
   return (
-    <div className="navbar-elements flex items-center justify-between px-1 md:flex md:space-x-8 md:justify-between md:items-center md:w-full md:px-5">
+    <div className="navbar-elements flex items-center justify-between py-1 px-1 md:flex  md:justify-between md:items-center md:w-full md:px-5">
       {/* Logo */}
-      <div className="logo px-0 md:px-8  md:mr-10">
+      <div className="logo px-0 w-[170px]  md:w-[170px] md:px-8  md:mr-10">
         <Link to="/">
           <img
             src="../../../pictures/smalllogo.png"
-            width={"150px"}
+            
+            className="w-full"
             alt="LOGO"
             style={{ mixBlendMode: "multiply" }}
           />
@@ -63,13 +64,13 @@ const Searchbar = () => {
       </div>
 
       {/* Search Bar */}
-     <div className="search-bar relative flex items-center w-[600px] p-1 md:p-2 rounded-md">
+     <div className="search-bar  relative flex items-center w-[600px] p-1 md:p-2 rounded-md">
   <input
     type="text"
     placeholder="Search products..."
     value={name}
     onChange={handleSearch}
-    className="border border-zinc-200 outline-none flex-grow py-0 md:py-2 rounded-l-full bg-white px-2 md:px-4 placeholder-gray-500 placeholder-opacity-100 placeholder-italic md:placeholder-text-xs w-[35px] md:w-[full] focus:border focus:border-blue-700"
+    className="border border-zinc-200  outline-none flex-grow py-0 md:py-2 rounded-l-full bg-white px-2 md:px-4 placeholder-gray-500 placeholder-opacity-100 placeholder-italic md:placeholder-text-xs placeholder-text-[5px] w-[35px] md:w-[full] focus:border focus:border-blue-700"
   />
   <button className=" bg-[#0071BC] hover:bg-[#0071bcda] text-gray-600 px-2 md:px-4 py-1 md:py-2 rounded-r-full">
     <CiSearch className="text-md md:text-2xl text-white" />
@@ -114,35 +115,31 @@ const Searchbar = () => {
 </div>
 
       {/* Icons */}
-      <div className="icons flex space-x-2 md:space-x-3">
-        {/* <div className="wishlist cursor-pointer rounded-full w-6 h-6 flex items-center justify-center md:w-10 md:h-10 ">
-          <Link to="/admin/dashboard">
-            <FaHeart className="text-2xl" />
-          </Link>
-        </div> */}
+      <div className="icons flex gap-[1px] md:gap-2">
+        
         <div className=" hidden md:mr-3 md:flex md:items-center md:gap-1"><BiSolidPhoneCall className="text-2xl text-green-600 "/><section className="flex flex-col">
           <span className="leading-none text-sm font-bold text-zinc-400">Call Us</span> 
          <a href="tel:+917006622199" className="leading-none text-sm text-zinc-600 font-semibold">
         +91 7006622199
       </a> </section></div>
 
-        <div className="cart cursor-pointer rounded-full w-10 h-10 flex items-center justify-center  ">
+        <div className="cart cursor-pointer rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center  ">
           <Link to="/cart">
-            <IoBag className="text-2xl hover:text-gray-700" />
+            <IoBag className=" text-lg md:text-xl hover:text-gray-700" />
           </Link>
         </div>
-        <div className="profile cursor-pointer rounded-full w-10 h- flex items-center justify-center md:w-10 md:h-10 ">
+        <div className="profile cursor-pointer rounded-full w-8  h-8 flex items-center justify-center md:w-10 md:h-10 ">
           {!user ? (
             <Link to="/login">
-              <FaUser className="text-2xl" />
+              <FaUser className="text-xl" />
             </Link>
           ) : (
-            <div className="h-10 w-10 rounded-full flex items-center justify-center">
+            <div className="h-8 w-8 md:h-10 md:w-10 rounded-full flex items-center justify-center">
               <Link to="/myprofile">
                 <img
                   src="../../../pictures/dashboard user.jpg"
                   alt="Profile"
-                  className="w-10 h-10 mix-blend-multiply rounded-full"
+                  className="w-8 h-8 md:w-10 md:h-10 mix-blend-multiply rounded-full"
                 />
               </Link>
             </div>
