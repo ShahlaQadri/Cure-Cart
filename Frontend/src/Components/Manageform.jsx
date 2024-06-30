@@ -56,8 +56,8 @@ const Manageform = ({product}) => {
   }
 
   return (
-    <div className="container mx-auto h-[75vh] bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <button onClick={deleteHandler} className="h-9 w-9 absolute top-[152px] right-6
+    <div className="container mx-auto h-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <button onClick={deleteHandler} className="h-9 w-9 absolute md:top-[152px] right-10 md:right-6
        rounded-full bg-[#C70908] text-white text-xl flex items-center justify-center ml-[100px]">
                 <IoTrashBin />
 

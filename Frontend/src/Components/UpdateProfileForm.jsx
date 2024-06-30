@@ -24,15 +24,16 @@ const UpdateProfileForm = ({setIsEditing}) => {
     e.preventDefault();
     console.log('Form Data:', formData);
      const res =await updateProfile(formData)
+     setIsEditing(false)
      responseToste(res,navigate,"/myprofile")
      
      
   };
 
   return (
-    <div className="w-[350px] relative md:w-[450px] mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="w-[340px] relative md:w-[450px] mx-auto right-[5px]  mt-10 p-6 bg-white rounded-lg shadow-md">
       <button
-        className="block  absolute top-2 right-3 text-red-700  rounded-full"
+        className="block  absolute top-2 right-3 text-zinc-700  rounded-full"
         onClick={()=>{setIsEditing(false)}}
       >
         <MdCancel className="text-3xl"/>
