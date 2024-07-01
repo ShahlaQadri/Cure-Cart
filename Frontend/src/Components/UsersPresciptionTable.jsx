@@ -86,7 +86,7 @@ const UsersPresciptionTable = () => {
                 <th
                   {...column.getHeaderProps()}
                   key={column.id}
-                  className={`py-5 px-10 text-left font-bold text-sm my-10 ${index !== 0 ? "hidden sm:table-cell" : ""}`}
+                  className={`py-5 px-10 text-left font-bold text-sm my-10 ${index > 1 ? "hidden sm:table-cell" : ""}`}
                 >
                   {column.render("Header")}
                 </th>
@@ -108,7 +108,7 @@ const UsersPresciptionTable = () => {
                     <td
                       {...cell.getCellProps()}
                       key={cell.column.id}
-                      className={`py-3 text-xs px-10 ${index !== 0 ? "hidden sm:table-cell" : ""}`}
+                      className={`py-3 text-xs px-10 ${index > 1 ? "hidden sm:table-cell" : ""}`}
                     >
                       {cell.render("Cell")}
                     </td>
@@ -127,7 +127,7 @@ const UsersPresciptionTable = () => {
                     <td colSpan={5} className="py-3 text-xs px-10">
                       <div className="grid grid-cols-2 gap-4">
                         {row.cells.map((cell, index) => (
-                          index !== 0 && (
+                          index > 1 && (
                             <div key={index} className="py-2">
                               <div className="font-bold text-xs">
                                 {headerGroups[0].headers[index].render("Header")}
