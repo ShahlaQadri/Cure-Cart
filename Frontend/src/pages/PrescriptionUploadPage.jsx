@@ -132,7 +132,7 @@ const PrescriptionUploadPage = () => {
 
       {/* Conditionally render the address form fixed with respect to the window */}
       {visibleForm && (
-        <div className="absolute top-0 bg-zinc-50/95 h-screen right-0 md:top-0 md:right-0 w-full md:w-[25%] ">
+        <div className="fixed top-0 bg-zinc-50/95 h-screen right-0 md:top-0 md:right-0 w-full md:w-[25%] ">
           <AddressFormForPresciption prescriptionImage={prescriptionImage} setVisibleForm={setVisibleForm} />
         </div>
       )}

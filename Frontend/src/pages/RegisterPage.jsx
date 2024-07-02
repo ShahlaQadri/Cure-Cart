@@ -1,18 +1,26 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { IoEye } from "react-icons/io5";
-import { IoEyeOff } from "react-icons/io5";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 import { useUserRegisterMutation } from "../redux/api/userAPI";
 import toast from "react-hot-toast";
+import * as Yup from "yup";
+
+// Yup validation schema
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required("Name is required").min(6, "Name must be at least 6 characters long"),
+  email: Yup.string().email("Invalid email format").required("Email is required"),
+  password: Yup.string().required("Password is required").min(6, "Password must be at least 6 characters long"),
+});
 
 function RegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [errors, setErrors] = useState({}); // State to hold validation errors
   const navigate = useNavigate();
-  const [userRegister] =useUserRegisterMutation()
-  // const navigate = useNavigate();
+  const [userRegister] = useUserRegisterMutation();
+
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
@@ -30,34 +38,37 @@ function RegisterPage() {
   };
 
   const handleSubmit = async (e) => {
-  try {
     e.preventDefault();
-    // Perform login authentication logic here
-    console.log("Email:", email);
-    console.log("Password:", password);
-    const res = await userRegister({
-      name,
-      email,
-      password
-    })
     
-    if("data" in res){
-      toast.success(res.data.msg)
-      localStorage.setItem("token", res.data.token);
-      navigate("/");
-    }
-    else{
+    const formData = { name, email, password };
+    try {
+      // Validate form data using Yup schema
+      await validationSchema.validate(formData, { abortEarly: false });
       
-       toast.error(res.error.data.msg)
-       navigate("/Login");
+      // Clear previous errors if validation is successful
+      setErrors({});
       
+      
+      
+      
+      const res = await userRegister({ name, email, password });
+
+      if ("data" in res) {
+        toast.success(res.data.msg);
+        localStorage.setItem("token", res.data.token);
+        navigate("/");
+      } else {
+        toast.error(res.error.data.msg);
+        navigate("/login");
+      }
+    } catch (validationErrors) {
+      
+      const validationErrorsObj = {};
+      validationErrors.inner.forEach((error) => {
+        validationErrorsObj[error.path] = error.message;
+      });
+      setErrors(validationErrorsObj);
     }
-    
-     
-   } catch (error) {
-    toast.error("SignIn Failed")
-    
-   }
   };
 
   return (
@@ -65,15 +76,9 @@ function RegisterPage() {
       <div className="bg-white bg-opacity-40 backdrop-blur-lg rounded-lg overflow-hidden max-w-sm w-full">
         <div className="py-10 px-8">
           <div className="flex justify-center items-center mb-5">
-            <img
-              src="../../../pictures/smalllogo.png"
-              width={"190px"}
-              alt="LOGO"
-            />
+            <img src="../../../pictures/smalllogo.png" width={"190px"} alt="LOGO" />
           </div>
-          <h2 className="text-center text-2xl font-extrabold text-[#2278b1]">
-            Create your account
-          </h2>
+          <h2 className="text-center text-2xl font-extrabold text-[#2278b1]">Create your account</h2>
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
             <input type="hidden" name="remember" value="true" />
             <div className="rounded-md shadow-sm">
@@ -84,11 +89,12 @@ function RegisterPage() {
                   type="text"
                   autoComplete="name"
                   required
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300 ${errors.name ? 'border-red-500' : ''}`}
                   placeholder="Name"
                   value={name}
                   onChange={handleNameChange}
                 />
+                {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
               </div>
 
               <div className="mb-4">
@@ -98,11 +104,12 @@ function RegisterPage() {
                   type="email"
                   autoComplete="email"
                   required
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300 ${errors.email ? 'border-red-500' : ''}`}
                   placeholder="Email address"
                   value={email}
                   onChange={handleEmailChange}
                 />
+                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
 
               <div className="mb-4">
@@ -113,7 +120,7 @@ function RegisterPage() {
                     type={showPassword ? "text" : "password"}
                     autoComplete="current-password"
                     required
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300 ${errors.password ? 'border-red-500' : ''}`}
                     placeholder="Password"
                     value={password}
                     onChange={handlePasswordChange}
@@ -126,13 +133,14 @@ function RegisterPage() {
                     {showPassword ? <IoEye /> : <IoEyeOff />}
                   </button>
                 </div>
+                {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
               </div>
             </div>
 
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-md font-medium rounded-md text-white bg-[#2278b1] hover:bg-[#2787c7]  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-md font-medium rounded-md text-white bg-[#2278b1] hover:bg-[#2787c7] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 Sign up
               </button>
@@ -140,10 +148,7 @@ function RegisterPage() {
           </form>
           <p className="mt-2 text-center text-sm text-gray-600">
             Or{" "}
-            <Link
-              to="/login"
-              className="font-medium text-blue-600 hover:text-blue-500"
-            >
+            <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500">
               Already a member
             </Link>
           </p>
