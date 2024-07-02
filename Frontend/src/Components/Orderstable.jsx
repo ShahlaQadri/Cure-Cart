@@ -76,16 +76,17 @@ const Orderstable = () => {
       <table {...getTableProps()} className="table-auto w-full">
         <thead className="text-md text-zinc-500 py-10">
           {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
               {headerGroup.headers.map((column, index) => (
                 <th
                   {...column.getHeaderProps()}
+                  key={column._id}
                   className={`py-5 px-10 text-left font-bold text-sm my-10 ${index !== 0 ? 'hidden sm:table-cell' : ''}`}
                 >
                   {column.render('Header')}
                 </th>
               ))}
-              <th className="py-5 px-10 text-left font-bold text-sm my-10 sm:hidden">
+              <th className="py-5 px-10 text-left   font-bold text-sm my-10 sm:hidden">
                 Actions
               </th>
             </tr>
@@ -101,12 +102,13 @@ const Orderstable = () => {
                   {row.cells.map((cell, index) => (
                     <td
                       {...cell.getCellProps()}
+                      key={row.id}
                       className={`py-3 text-xs px-10 ${index !== 0 ? 'hidden sm:table-cell' : ''}`}
                     >
                       {cell.render('Cell')}
                     </td>
                   ))}
-                  <td className="py-3 text-xs px-10 sm:hidden">
+                  <td className="py-3 text-xs px-2 sm:hidden">
                     <button
                       className="px-4 py-1 text-xs font-semibold bg-blue-300 rounded-md"
                       onClick={() => toggleRow(row.original.id)}
