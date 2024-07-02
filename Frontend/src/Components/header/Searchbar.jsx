@@ -7,6 +7,8 @@ import { CiSearch } from "react-icons/ci";
 import { useLazyGetSearchedProductsQuery } from "../../redux/api/productsAPI";
 import { IoBag } from "react-icons/io5";
 import { BiSolidPhoneCall } from "react-icons/bi";
+import femaleUserImage from '../../../public/pictures/girlprofile.png';
+import maleUserImage from '../../../public/pictures/boyprofile.png';
 
 const Searchbar = () => {
   const { user } = useSelector((state) => state.userReducer);
@@ -134,13 +136,13 @@ const Searchbar = () => {
               <FaUser className="text-xl" />
             </Link>
           ) : (
-            <div className="h-8 w-8 md:h-10 md:w-10 rounded-full flex items-center justify-center">
+            <div className="h-7 w-7 md:h-10 md:w-10 rounded-full flex items-center justify-center">
               <Link to="/myprofile">
-                <img
-                  src="../../../pictures/dashboard user.jpg"
-                  alt="Profile"
-                  className="w-8 h-8 md:w-10 md:h-10 mix-blend-multiply rounded-full"
-                />
+              <img
+              src={user?.gender === "female" ? femaleUserImage : maleUserImage}
+              alt="Profile"
+              className="w-7 h-7 md:w-10 md:h-10 mix-blend-multiply rounded-full"
+  />
               </Link>
             </div>
           )}

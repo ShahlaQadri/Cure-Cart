@@ -4,6 +4,8 @@ import {  ADMIN_CUS_COLUMNS } from "./Admincusdata";
 import { useGetAllUsersQuery,  } from "../../redux/api/userAPI";
 import { AiFillDelete } from "react-icons/ai";
 import SkeletonLoader from "./SkeletonLoader";
+import femaleUserImage from '../../../public/pictures/girlprofile.png';
+import maleUserImage from '../../../public/pictures/boyprofile.png';
 
 const Admincustable = () => {
   const {data,isLoading, error} = useGetAllUsersQuery()
@@ -19,7 +21,7 @@ const Admincustable = () => {
     const transformData = async () => {
       if (data && Array.isArray(data?.users)) {
         const transformedUsers = data?.users.map((user) => ({
-          photo: "../../../pictures/dashboard user.jpg",
+          photo: user?.gender==="female"?femaleUserImage:maleUserImage,
           name: user.name,
           gender: user?.gender || "Not Available",
           email: user.email,
