@@ -78,9 +78,11 @@ const Searchbar = () => {
     <CiSearch className="text-md md:text-2xl text-white" />
   </button>
   
-  {/* Conditionally render the result-div */}
-  {name && (
-    <div className="absolute z-30 top-full left-0 w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
+  
+</div>
+{/* Conditionally render the result-div */}
+{name && (
+    <div className="absolute z-30 top-12 right-5  w-[90%] md:w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
       {isLoading ? (
         <div className="flex items-center justify-center py-4">
           <Bars
@@ -114,7 +116,6 @@ const Searchbar = () => {
       )}
     </div>
   )}
-</div>
 
       {/* Icons */}
       <div className="icons flex gap-[1px] md:gap-2">
