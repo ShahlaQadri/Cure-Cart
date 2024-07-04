@@ -137,7 +137,7 @@ const Manageform = ({product}) => {
             </label>
             <input
               type="text"
-              name="usedFor"
+              name="used_for"
               value={formData?.used_for}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
@@ -160,14 +160,14 @@ const Manageform = ({product}) => {
           </div>
           <div className="mb-1">
             <label
-              htmlFor="expiryDate"
+              htmlFor="expiry_date"
               className="block text-gray-700 text-sm font-bold"
             >
               Expiry Date
             </label>
             <input
               type="date"
-              name="expiryDate"
+              name="expiry_date"
               value={formData?.expiry_date}
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"

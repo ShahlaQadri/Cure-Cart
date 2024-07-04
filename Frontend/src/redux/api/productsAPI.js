@@ -50,7 +50,7 @@ endpoints: (builder) => ({
     }),
     getAllProducts:builder.query({
         query:()=>"/allproducts",
-        providesTags:['products']
+        providesTags:['products','stats']
     }),
     getAllCategories:builder.query({
         query:()=>"/getcategories",
