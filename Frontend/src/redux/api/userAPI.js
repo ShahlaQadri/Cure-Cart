@@ -8,7 +8,7 @@ reducerPath: 'userApi',
 baseQuery: fetchBaseQuery({ baseUrl:`${import.meta.env.VITE_SERVER}api/v1/users`,
     credentials: 'include', // Include cookies in requests
  }),
- tagTypes:['user'],
+ tagTypes:['user','stats'],
 endpoints: (builder) => ({
     userRegister : builder.mutation({
         query:(user)=>({
@@ -45,6 +45,16 @@ endpoints: (builder) => ({
         providesTags:['user'],
         invalidatesTags:['user']
     }),
+    deleteUser:builder.mutation({
+        query:(id)=>({
+            url: `/${id}`,
+            method : "DELETE",
+            
+
+        }),
+        providesTags:['user',],
+        invalidatesTags:['user','stats']
+    }),
     
     getMyDetals:builder.query({
         query:()=>"/myprofile",
@@ -59,4 +69,4 @@ endpoints: (builder) => ({
 })
 
 
-export const { useUserRegisterMutation,useUserLoginMutation,useUserLogoutMutation,useUpdateUserMutation, useGetMyDetalsQuery,useGetAllUsersQuery } = userApi
+export const { useUserRegisterMutation,useUserLoginMutation,useUserLogoutMutation,useDeleteUserMutation,useUpdateUserMutation, useGetMyDetalsQuery,useGetAllUsersQuery } = userApi

@@ -14,13 +14,15 @@ const Admintrantable = () => {
     // Function to transform the fetched data
     const transformData = async () => {
       if (data && Array.isArray(data?.orders)) {
+        // console.log("orders",data?.orders.shippingInfo)
         const transformedOrders = data?.orders.map((order) => ({
-          user: order.user.name,
+                  
+          user:  order.user?.name ,
           status: order.status,
-          amount: order.total,
+          amount: Math.round(order.total),
           quantity: order.orderItems.length,
-          discount: 100,
-          action: <Link to={`/admin/transactions/${order._id}`}>Manage</Link>,
+          discount: order.discount,
+          action: <Link to={`/admin/transactions/${order?._id}`}>Manage</Link>,
           
           
         }));
