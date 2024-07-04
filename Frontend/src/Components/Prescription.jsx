@@ -19,7 +19,7 @@ export default function Prescription() {
 
         <div className="items-center w-full  px-5 md:px-10 gap-2 flex">
           <Link
-            to="/upload-presciption"
+            to="/upload-prescription"
             className=" bg-black mt-2 rounded-full md:mt-2 w-5 h-5 p-4 md:w-8 md:h-8 md:p-5 flex items-center justify-center text-sm "
           >
             <span>
@@ -28,10 +28,10 @@ export default function Prescription() {
           </Link>
 
           <Link
-            to="/upload-presciption"
+            to="/upload-prescription"
             className="button bg-black mt-2 text-white px-3 py-2 md:mt-2 md:px-5 md:py-3 rounded-full text-xs"
           >
-            Order Via Presciption 
+            Order Via Prescription 
           </Link>
         </div>
       </div>

@@ -70,8 +70,8 @@ function App() {
               <Route path="/payment" element={<PaymentPage />} />
               <Route path="/myprofile" element={<Profilepage />} />
               <Route path="/myorders" element={<MyOrders />} />
-              <Route path="/mypresciptionorders" element={<UsersPresciptionOrdersPage />} />
-              <Route path="//upload-presciption" element={<PrescriptionUploadPage />} />
+              <Route path="/mypresrciptionorders" element={<UsersPresciptionOrdersPage />} />
+              <Route path="/upload-prescription" element={<PrescriptionUploadPage />} />
             </Route>
 
             {/* Routes for authenticated admin users */}
@@ -80,7 +80,7 @@ function App() {
               <Route path="/admin/products" element={<Adminproducts />} />
               <Route path="/admin/customers" element={<Admincustomers />} />
               <Route path="/admin/transactions" element={<AdminOrders />} />
-              <Route path="/admin/presciptions" element={<AdminPresciptionOrderPage />} />
+              <Route path="/admin/prescriptions" element={<AdminPresciptionOrderPage />} />
               <Route path="/admin/products/new" element={<AdminAddProduct />} />
               <Route path="/admin/products/:id" element={<AdminManageproducts />} />
               <Route path="/admin/transactions/:id" element={<AdminManageOrder />} />

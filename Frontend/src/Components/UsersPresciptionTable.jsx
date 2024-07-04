@@ -25,7 +25,7 @@ const UsersPresciptionTable = () => {
           id: order._id,
           date: formatDate(order.createdAt),
           status: order.status,
-          action: <Link to={`/admin/products/${order._id}`}>Manage</Link>,
+          action: <Link to={`/admin/prescriptions/${order._id}`}>Manage</Link>,
         }));
         setUserAllPresciptionOrders(transformedProducts);
       } else {

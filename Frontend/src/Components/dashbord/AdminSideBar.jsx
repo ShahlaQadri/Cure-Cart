@@ -108,10 +108,10 @@ export default function AdminSideBar({setIsOpen}) {
 
           <li
             style={{
-              backgroundColor: location.pathname.includes("/admin/presciptions")
+              backgroundColor: location.pathname.includes("/admin/prescriptions")
                 ? "#DBEAFE"
                 : "white",
-              color: location.pathname.includes("/admin/presciptions")
+              color: location.pathname.includes("/admin/prescriptions")
                 ? "#2f85ed"
                 : "#63636b",
             }}
@@ -120,7 +120,7 @@ export default function AdminSideBar({setIsOpen}) {
             <div className="icon text-2xl  rounded-full w-8 h-8  flex items-center justify-center ">
               <BsBoxSeamFill className="text-[17px]" />
             </div>
-            <Link to="/admin/presciptions" className="">
+            <Link to="/admin/prescriptions" className="">
                Presciption Orders
             </Link>
           </li>

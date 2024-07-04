@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { IoImages } from "react-icons/io5";
 import { MdCancel } from "react-icons/md";
 import { FcAddImage } from "react-icons/fc";

@@ -2,7 +2,7 @@ import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
 
 export default function CcFooter() {
   return (
-    <div className="outer  bg-gradient-to-r  from-[#B0E5F2] to-[#0071BC] text-[#3E5C75] flex flex-col items-center justify-center mx-0 h-[200px] md:h-[300px] rounded-3xl shadow-lg">
+    <div className="outer bg-gradient-to-r  from-[#B0E5F2] to-[#0071BC] text-[#3E5C75] flex flex-col items-center justify-center mx-0 h-[200px] md:h-[300px] rounded-3xl shadow-lg">
       <div className="inner bg-white h-[180px] w-[95%] md:h-[250px] md:w-[90%] rounded-3xl p-4 md:p-8 flex flex-col gap-3 shadow-md">
         <div className="items flex flex-wrap items-center justify-evenly space-x-1 md:space-x-16 mt-4 mb-1 md:mt-5 md:mb-3">
           <ul className="space-y-1 md:space-y-3 text-center md:text-left">

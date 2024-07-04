@@ -108,7 +108,7 @@ export default function Profile() {
                 <div className="icon text-2xl rounded-full w-8 h-8 flex items-center justify-center">
                   <BsBagCheckFill className="text-[17px]" />
                 </div>
-                <Link to="/mypresciptionorders" onClick={toggleMenu}>My Prescription Orders</Link>
+                <Link to="/mypresrciptionorders" onClick={toggleMenu}>My Prescription Orders</Link>
               </li>
 
               {user?.role === "admin" ? (
