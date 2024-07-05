@@ -12,6 +12,7 @@ import maleUserImage from '../../../public/pictures/boyprofile.png';
 
 const Searchbar = () => {
   const { user } = useSelector((state) => state.userReducer);
+  const {cartItems } = useSelector((state)=>state.cartReducer)
   const [name, setName] = useState("");
   const navigate = useNavigate();
   const [results, setResults] = useState([]);
@@ -126,7 +127,12 @@ const Searchbar = () => {
         +91 7006622199
       </a> </section></div>
 
-        <div className="cart cursor-pointer rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center  ">
+        <div className="cart cursor-pointer relative rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center  ">
+        {cartItems.length > 0 && (
+  <span className="absolute top-1 right-0 text-[9.5px] flex items-center justify-center px-[3.5px] bg-red-500 text-white rounded-full font-semibold">
+    {cartItems.length}
+  </span>
+)}
           <Link to="/cart">
             <IoBag className=" text-lg md:text-xl hover:text-gray-700" />
           </Link>
