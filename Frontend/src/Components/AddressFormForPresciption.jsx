@@ -48,7 +48,7 @@ const AddressFormForPresciption = ({ prescriptionImage, setVisibleForm }) => {
       console.log(formData)
       const res = await newOrder(formData);
       console.log(res);
-      responseToste(res, navigate, "/mypresciptionorders");
+      responseToste(res, navigate, "/mypresrciptionorders");
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         // Handle Yup validation errors

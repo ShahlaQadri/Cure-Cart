@@ -31,7 +31,7 @@ const addToCartHandler = (cartItem) => {
        <div> <div className="relative">
           <Link
             to="/"
-            className="absolute top-3 left-6 md:left-10 bg-zinc-50 hover:bg-zinc-100 rounded-full shadow-lg p-2 md:p-4"
+            className="absolute top-3 left-6 md:left-10 z-10 bg-zinc-50 hover:bg-zinc-100 rounded-full shadow-lg p-2 md:p-4"
           >
             <TiArrowBack className="text-3xl" />
           </Link>

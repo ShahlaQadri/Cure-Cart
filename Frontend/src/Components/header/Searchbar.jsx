@@ -82,7 +82,7 @@ const Searchbar = () => {
 </div>
 {/* Conditionally render the result-div */}
 {name && (
-    <div className="absolute z-30 top-12 right-5  w-[90%] md:w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
+    <div className="absolute z-30 top-12 md:top-20 sm:top-20 right-5 md:right-[31%]  w-[90%] md:w-[40%] mt-2 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
       {isLoading ? (
         <div className="flex items-center justify-center py-4">
           <Bars
@@ -109,7 +109,7 @@ const Searchbar = () => {
             ))
           ) : (
             noResults && (
-              <div className="px-4 py-2 text-gray-500">No product found</div>
+              <div className="px-4 py-2 text-gray-500 h-20 flex items-center justify-center">No product found</div>
             )
           )}
         </>
