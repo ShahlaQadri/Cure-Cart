@@ -10,6 +10,8 @@ import { useUserLogoutMutation } from "../redux/api/userAPI.js";
 import { MdSpaceDashboard } from "react-icons/md";
 import toast from "react-hot-toast";
 import { MdCancel } from "react-icons/md";
+import femaleUserImage from '../../public/pictures/girlprofile.png';
+import maleUserImage from '../../public/pictures/boyprofile.png';
 
 export default function Profile() {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,24 +62,24 @@ export default function Profile() {
 
           {/* Close button for mobile view */}
           <button
-            className="block md:hidden absolute top-6 right-3 p-2 text-gray-700 bg-gray-200 rounded-full"
+            className="block md:hidden absolute top-4 right-3 p-2 text-zinc-600  rounded-full"
             onClick={toggleMenu}
           >
             <MdCancel className="text-3xl" />
           </button>
 
           <div className="profile mb-4 w-full h-32 left-0 border-b border-gray-300 items-center flex p-1">
-            <div className="icon text-5xl bg-white w-20 h-20 text-slate-900 flex items-center justify-center">
-              <img
-                src="../../pictures/dashboard user.jpg"
-                alt=""
-                className="h-20 w-20 rounded-full"
-              />
+            <div className="icon   w-20 h-20 text-slate-900 flex items-center justify-center">
+            <img
+              src={user?.gender === "female" ? femaleUserImage : maleUserImage}
+              alt="Profile"
+              className="w-16 h-16 md:w-20 md:h-20 object-cover mix-blend-multiply rounded-full"
+  />
             </div>
             <div className="ml-2">
-              <p className="font-bold text-2xl">{user?.name}</p>
-              <p className="text-gray-400 text-md font-semibold md:leading-none">{user?.email}</p>
-              <p className="text-gray-400 text-md font-semibold">+91-{user?.phone}</p>
+              <p className="font-bold text-xl">{user?.name}</p>
+              <p className="text-gray-400 text-sm font-semibold md:leading-none">{user?.email}</p>
+              <p className="text-gray-400 text-sm font-semibold">+91-{user?.phone}</p>
             </div>
           </div>
           <div className="options relative h-[60vh] md:h-[70vh] rounded-lg md:rounded-none">
@@ -106,7 +108,7 @@ export default function Profile() {
                 <div className="icon text-2xl rounded-full w-8 h-8 flex items-center justify-center">
                   <BsBagCheckFill className="text-[17px]" />
                 </div>
-                <Link to="/mypresciptionorders" onClick={toggleMenu}>My Prescription Orders</Link>
+                <Link to="/mypresrciptionorders" onClick={toggleMenu}>My Prescription Orders</Link>
               </li>
 
               {user?.role === "admin" ? (

@@ -24,7 +24,7 @@ const AdminPresciptiontable = () => {
           email: order.user.email,
           phone: order.shippingInfo.phone,
           status: order.status,
-          action: <Link to={`/admin/presciptions/${order._id}`}>Manage</Link>,
+          action: <Link to={`/admin/prescriptions/${order._id}`}>Manage</Link>,
         }));
         setAdminAllPresciptionOrders(transformedProducts);
       } else {

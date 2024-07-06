@@ -28,13 +28,13 @@ export default function Profilepage() {
         <p className="text-gray-800">{user?.email}</p>
       </div>
       
-      <div className="fullname mb-4 ml-4">
+      <div className="fullname  ml-4">
         <p className="text-sm font-medium text-blue-600">User Name</p>
         <p className="text-gray-800">{user?.name}</p>
       </div>
     </div>
 
-    <div className="info p-5 w-full md:w-[50%]">
+    <div className="info p-5 pt-0 w-full md:w-[50%]">
       <p className="text-lg font-semibold text-gray-800 mb-4">Personal Information</p>
       <div className="number mb-4 ml-4">
         <p className="text-sm font-medium  text-blue-600">Mobile Number</p>
@@ -42,10 +42,11 @@ export default function Profilepage() {
       </div>
       <div className="gender ml-4">
         <p className="text-sm font-medium text-blue-600">Gender</p>
-        <p className="text-gray-800">{user?.gender}</p>
+        <p className="text-gray-800 capitalize">{user?.gender}</p>
       </div>
 
-      <div className="button mt-6">
+      <div className="button mt-6 flex items-center justify-between">
+        {/* <hutton onClick={handleEditClick} className="text-sm font-medium text-blue-600">Change password</hutton> */}
         <button
           onClick={handleEditClick}
           className="bg-[#2485C5] hover:bg-[#2b7eb5] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 text-white flex items-center gap-2 px-6 py-2 rounded-md text-sm"

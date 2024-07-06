@@ -1,17 +1,23 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { IoEye } from "react-icons/io5";
-import { IoEyeOff } from "react-icons/io5";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 import { useUserLoginMutation } from "../redux/api/userAPI";
 import toast from "react-hot-toast";
-import { responseToste } from "../utils/Features";
+import * as Yup from "yup";
+
+// Define the Yup validation schema
+const validationSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email format").required("Email is required"),
+  password: Yup.string().required("Password is required").min(6, "Password must be at least 6 characters long"),
+});
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [errors, setErrors] = useState({}); // State to hold validation errors
   const navigate = useNavigate();
-  const [userlogin] =useUserLoginMutation()
+  const [userLogin] = useUserLoginMutation();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -26,36 +32,38 @@ function LoginPage() {
   };
 
   const handleSubmit = async (e) => {
-    try {
     e.preventDefault();
-    // Perform login authentication logic here
-    console.log("Email:", email);
-    console.log("Password:", password);
-    const res = await userlogin({
-      email,
-      password
-    })
     
-    if("data" in res ){
+    const formData = { email, password };
+    try {
+      // Validate form data using Yup schema
+      await validationSchema.validate(formData, { abortEarly: false });
+
+      // Clear previous errors if validation is successful
+      setErrors({});
+
+      // Perform login logic here
+      console.log("Validated Data:", formData);
       
-      toast.success(res.data.msg)
-      localStorage.setItem("token", res.data.token);
-      navigate("/");
+      const res = await userLogin({ email, password });
+
+      if ("data" in res) {
+        toast.success(res.data.msg);
+        localStorage.setItem("token", res.data.token);
+        navigate("/");
+      } else {
+        toast.error(res.error.data.msg);
+        navigate("/register");
+      }
+    } catch (validationErrors) {
+      // Handle validation errors
+      const validationErrorsObj = {};
+      validationErrors.inner.forEach((error) => {
+        validationErrorsObj[error.path] = error.message;
+      });
+      setErrors(validationErrorsObj);
     }
-    else{
-     
-       toast.error(res.error.data.msg)
-       navigate("/Register");
-      
-    }
-    
-     
-   } catch (error) {
-    toast.error("Login Failed")
-    
-   }
-  
-}
+  };
 
   return (
     <div className="my-20 flex items-center justify-center">
@@ -86,6 +94,7 @@ function LoginPage() {
                   value={email}
                   onChange={handleEmailChange}
                 />
+                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
               <div className="mb-4">
                 <div className="relative">
@@ -100,6 +109,7 @@ function LoginPage() {
                     value={password}
                     onChange={handlePasswordChange}
                   />
+                  {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
                   <button
                     type="button"
                     className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 hover:text-gray-600"

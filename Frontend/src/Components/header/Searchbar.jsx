@@ -7,9 +7,12 @@ import { CiSearch } from "react-icons/ci";
 import { useLazyGetSearchedProductsQuery } from "../../redux/api/productsAPI";
 import { IoBag } from "react-icons/io5";
 import { BiSolidPhoneCall } from "react-icons/bi";
+import femaleUserImage from '../../../public/pictures/girlprofile.png';
+import maleUserImage from '../../../public/pictures/boyprofile.png';
 
 const Searchbar = () => {
   const { user } = useSelector((state) => state.userReducer);
+  const {cartItems } = useSelector((state)=>state.cartReducer)
   const [name, setName] = useState("");
   const navigate = useNavigate();
   const [results, setResults] = useState([]);
@@ -64,21 +67,23 @@ const Searchbar = () => {
       </div>
 
       {/* Search Bar */}
-     <div className="search-bar  relative flex items-center w-[600px] p-1 md:p-2 rounded-md">
+     <div className="search-bar  relative flex items-center md:mx-0 mx-4 w-[600px] p-1 md:p-2 rounded-md">
   <input
     type="text"
     placeholder="Search products..."
     value={name}
     onChange={handleSearch}
-    className="border border-zinc-200  outline-none flex-grow py-0 md:py-2 rounded-l-full bg-white px-2 md:px-4 placeholder-gray-500 placeholder-opacity-100 placeholder-italic md:placeholder-text-xs placeholder-text-[5px] w-[35px] md:w-[full] focus:border focus:border-blue-700"
+    className="border border-zinc-200  outline-none flex-grow py-0 md:py-2 rounded-l-full bg-white px-2 md:px-4 placeholder-gray-500 placeholder-opacity-100 placeholder-italic md:placeholder:text-[16px] placeholder:text-xs w-[35px] md:w-[full] focus:border focus:border-blue-700"
   />
   <button className=" bg-[#0071BC] hover:bg-[#0071bcda] text-gray-600 px-2 md:px-4 py-1 md:py-2 rounded-r-full">
     <CiSearch className="text-md md:text-2xl text-white" />
   </button>
   
-  {/* Conditionally render the result-div */}
-  {name && (
-    <div className="absolute z-30 top-full left-0 w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
+  
+</div>
+{/* Conditionally render the result-div */}
+{name && (
+    <div className="absolute z-30 top-12 md:top-20 sm:top-20 right-5 md:right-[31%]  w-[90%] md:w-[40%] mt-2 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
       {isLoading ? (
         <div className="flex items-center justify-center py-4">
           <Bars
@@ -105,14 +110,13 @@ const Searchbar = () => {
             ))
           ) : (
             noResults && (
-              <div className="px-4 py-2 text-gray-500">No product found</div>
+              <div className="px-4 py-2 text-gray-500 h-20 flex items-center justify-center">No product found</div>
             )
           )}
         </>
       )}
     </div>
   )}
-</div>
 
       {/* Icons */}
       <div className="icons flex gap-[1px] md:gap-2">
@@ -123,7 +127,12 @@ const Searchbar = () => {
         +91 7006622199
       </a> </section></div>
 
-        <div className="cart cursor-pointer rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center  ">
+        <div className="cart cursor-pointer relative rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center  ">
+        {cartItems.length > 0 && (
+  <span className="absolute top-1 right-0 text-[9.5px] flex items-center justify-center px-[3.5px] bg-red-500 text-white rounded-full font-semibold">
+    {cartItems.length}
+  </span>
+)}
           <Link to="/cart">
             <IoBag className=" text-lg md:text-xl hover:text-gray-700" />
           </Link>
@@ -134,13 +143,13 @@ const Searchbar = () => {
               <FaUser className="text-xl" />
             </Link>
           ) : (
-            <div className="h-8 w-8 md:h-10 md:w-10 rounded-full flex items-center justify-center">
+            <div className="h-7 w-7 md:h-9 md:w-9 rounded-full flex items-center justify-center">
               <Link to="/myprofile">
-                <img
-                  src="../../../pictures/dashboard user.jpg"
-                  alt="Profile"
-                  className="w-8 h-8 md:w-10 md:h-10 mix-blend-multiply rounded-full"
-                />
+              <img
+              src={user?.gender === "female" ? femaleUserImage : maleUserImage}
+              alt="Profile"
+              className="w-7 h-7 md:w-9 md:h-9 mix-blend-multiply rounded-full"
+  />
               </Link>
             </div>
           )}

@@ -1,11 +1,12 @@
 import {  useNavigate, useParams } from "react-router-dom";
-import Adminprofile from "../Components/dashbord/AdminSideBar";
 import { MdAddIcCall } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { useDeletePresciptionOrderMutation, usePresciptionOrderDetailsQuery, useUpdatePresciptionOrderMutation } from "../redux/api/presciptionAPI";
 import { responseToste } from "../utils/Features";
 import { IoTrashBin } from "react-icons/io5";
 import { server } from "../main";
+import { GiHamburgerMenu } from "react-icons/gi";
+import AdminSideBar from "../Components/dashbord/AdminSideBar";
 
 const CallLink = ({ phoneNumber }) => {
     return (
@@ -26,7 +27,7 @@ export default function AdminManagePresciption() {
     // console.log("order processed")
      const res = await processOrder(id)
      
-    responseToste(res,navigate,"/admin/presciptions")
+    responseToste(res,navigate,"/admin/prescriptions")
     // console.log(res)
   }
 
@@ -43,30 +44,54 @@ export default function AdminManagePresciption() {
     
   }, [data])
   
-  
+  const [isOpen, setIsOpen] = useState(false);
+
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+
   return (
-    <div className="profilePage flex flex-col my-4  h-[90vh] bg-zinc-50/95">
+    <div className="profilePage flex flex-col   h-[90vh] bg-zinc-50/95">
       <div className="mx-auto flex gap-10 w-full ">
-        <div className="w-[20%] h-[90vh] bg-white  ">
-          <Adminprofile />
+      <button
+        className="block md:hidden absolute  top-28 z-50 right-8 p-2 text-gray-700 bg-gray-200 rounded-full"
+        onClick={toggleMenu}
+      >
+        <GiHamburgerMenu size={24} />
+      </button>
+        <div className={`${
+          isOpen ? "block" : "hidden"
+        } md:block fixed md:relative top-[6rem] md:top-auto right-0 z-50 md:z-auto w-[100%] h-screen  md:w-[20%] md:h-[90vh]  text-zinc-700 mx-auto justify-center items-center bg-white shadow-lg md:shadow-none rounded-lg md:rounded-none`}
+      >
+          <AdminSideBar setIsOpen={setIsOpen} />
+
         </div>
 
-        <div className="main w-[80%] rounded-lg flex flex-row gap-4 bg-zinc-50/95 px-4 py-4 ">
-          <div className="picture mx-auto w-[70%] bg-white flex items-center px-5 justify-center h-[75vh] shadow-lg rounded   mb-4">
-            <img src={`${server}${data?.orderDetails.presciption}`} alt="" />
-          </div>
 
-          <div className="manage w-[30%] h-[75vh] ">
-          <button onClick={deleteOrderHandler} className="h-9 w-9 absolute top-[200px] right-[50px]
-                rounded-full  hover:text-red-500 text-[#200a0a] text-xl flex items-center justify-center ml-[100px]">
+        <div className="main w-full md:w-[80%]  h-screen rounded-lg justify-center flex flex-col md:flex-row  gap-4 bg-zinc-50/95 px-4 py-4 ">
+          <div className="w-full md:w-[45%]   h-[40vh] md:h-[75vh] bg-white shadow-lg rounded">
+          <button onClick={deleteOrderHandler} className="h-9 w-9 absolute md:top-[152px] md:right-[150px] right-8 top-[160px]
+                rounded-full bg-[#200a0a] hover:text-red-500 text-white text-xl flex items-center justify-center ml-[100px]">
                 <IoTrashBin />
 
               </button>
-          <div className="w-[100%] h-[75vh] bg-white shadow-lg rounded px-2">
-            <h2 className="text-2xl  py-6 text-center text-zinc-500">
+            <h2 className="text-2xl  py-6 mt-0 md:mt-5 text-center text-zinc-500">
+              Prescription
+            </h2>
+           <div className="prescription-container  "> 
+           <img src={`${server}${data?.orderDetails.presciption}`} alt="" />
+
+
+            </div>
+
+          </div>
+          <div className="w-full md:w-[30%] h-[60vh] md:h-[75vh] bg-white shadow-lg rounded px-2">
+          <h2 className="text-2xl  py-6 text-center text-zinc-500">
               ORDER INFO
             </h2>
-            <h2 className="text-md font-semibold text-zinc-800 pl-4  mt-5">
+            <h2 className="text-md font-semibold text-zinc-800 pl-4  mt-0 md:mt:5">
               User Info
             </h2>
             <ul className="pl-4 ml-3 text-sm text-zinc-500">
@@ -105,7 +130,6 @@ export default function AdminManagePresciption() {
                 Process Status
               </button>
             </div>
-          </div>
           </div>
         </div>
       </div>

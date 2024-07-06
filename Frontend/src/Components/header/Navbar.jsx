@@ -31,7 +31,11 @@ export default function Navbar() {
             </NavLink>
           ))
         ) : (
-          <div className="text-gray-500 text-sm">Loading categories...</div>
+          <div className=" skeleton-loader animate-pulse flex gap-3">
+            <div className=" w-[60px] md:w-[100px] h-[20px] md:h-[32px] rounded-full bg-gray-200 animate-pulse"></div>
+            <div className=" w-[60px] md:w-[100px] h-[20px] md:h-[32px] rounded-full bg-gray-200 animate-pulse"></div>
+            <div className="w-[60px] md:w-[100px] h-[20px] md:h-[32px] rounded-full bg-gray-200 animate-pulse"></div>
+          </div>
         )}
       </div>
     </div>
