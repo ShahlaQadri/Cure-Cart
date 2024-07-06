@@ -99,28 +99,32 @@ export const deleteUser = async (req, res, next) => {
     next(error);
   }
 };
-export const logOut = async (req, res) => {
-  console.log("logout")
+export const logOut = async (req, res, next) => {
   try {
     if (!req.cookies.token) {
-      return res
-        .status(400)
-        .json({ success: "false", msg: "You are already logged out" });
+      return res.status(400).json({
+        success: false, // Corrected to boolean false
+        msg: "You are already logged out",
+      });
     } else {
-      res
-        .cookie("token", "", {
-          maxAge: 0,
-          httpOnly: true,
-        })
-        .json({
-          success: true,
-          msg: "Logged Out Successfully",
-        });
+      res.clearCookie("token", {
+        httpOnly: true, // Ensures the cookie is removed securely
+        // If you used additional options like `sameSite` or `secure` when setting the cookie, include them here.
+        sameSite: 'strict',
+        secure: true,
+      });
+
+      res.status(200).json({
+        success: true,
+        msg: "Logged Out Successfully",
+      });
     }
   } catch (error) {
+    // Make sure to call next with the error to ensure error handling middleware can process it
     next(error);
   }
 };
+
 
 export const changePassword = async (req, res, next) => {
   try {
