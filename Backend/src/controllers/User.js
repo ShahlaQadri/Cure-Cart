@@ -108,9 +108,8 @@ export const logOut = async (req, res, next) => {
       });
     } else {
       res.clearCookie("token", {
-        httpOnly: true, // Ensures the cookie is removed securely
-        // If you used additional options like `sameSite` or `secure` when setting the cookie, include them here.
-        sameSite: 'strict',
+                
+        sameSite: 'none',
         secure: true,
       });
 
