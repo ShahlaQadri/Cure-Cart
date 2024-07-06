@@ -124,7 +124,7 @@ export const logOut = async (req, res) => {
 
 export const changePassword = async (req, res, next) => {
   try {
-    const { oldPassword, newPassword, confPassword } = req.body;
+    const { oldPassword, newPassword,confirmPassword } = req.body;
     const id = req.user._id;
 
     if (!id) {
@@ -132,7 +132,7 @@ export const changePassword = async (req, res, next) => {
         new ErrorHandler("Please Login First to Change Password ", 401)
       );
     }
-    if (newPassword !== confPassword) {
+    if (newPassword !== confirmPassword) {
       return next(new ErrorHandler("Confirm Password Does not Match ", 400));
     }
 

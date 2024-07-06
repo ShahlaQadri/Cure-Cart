@@ -55,6 +55,18 @@ endpoints: (builder) => ({
         providesTags:['user',],
         invalidatesTags:['user','stats']
     }),
+
+    ChangePassword:builder.mutation({
+        query:(formData)=>({
+            url: `/changepassword`,
+            method : "Put",
+            body: formData
+            
+
+        }),
+        providesTags:['user',],
+        invalidatesTags:['user']
+    }),
     
     getMyDetals:builder.query({
         query:()=>"/myprofile",
@@ -69,4 +81,4 @@ endpoints: (builder) => ({
 })
 
 
-export const { useUserRegisterMutation,useUserLoginMutation,useUserLogoutMutation,useDeleteUserMutation,useUpdateUserMutation, useGetMyDetalsQuery,useGetAllUsersQuery } = userApi
+export const { useUserRegisterMutation,useUserLoginMutation,useUserLogoutMutation,useDeleteUserMutation,useUpdateUserMutation, useChangePasswordMutation, useGetMyDetalsQuery,useGetAllUsersQuery } = userApi

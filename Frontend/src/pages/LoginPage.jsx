@@ -5,7 +5,7 @@ import { useUserLoginMutation } from "../redux/api/userAPI";
 import toast from "react-hot-toast";
 import * as Yup from "yup";
 
-// Define the Yup validation schema
+// Yup validation schema
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email format").required("Email is required"),
   password: Yup.string().required("Password is required").min(6, "Password must be at least 6 characters long"),
