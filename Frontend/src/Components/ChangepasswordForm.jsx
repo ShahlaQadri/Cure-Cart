@@ -129,7 +129,7 @@ const ChangePasswordForm = ({ setChangePassword }) => {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 transition duration-200"
+          className="w-full py-2 px-4 bg-[#2485C5] text-white font-semibold rounded hover:bg-[#1e6a9c] transition duration-200"
         >
           {isLoading ? 'Changing...' : 'Change Password'}
         </button>

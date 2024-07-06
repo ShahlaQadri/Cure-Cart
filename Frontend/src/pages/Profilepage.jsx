@@ -59,7 +59,7 @@ export default function Profilepage() {
         <button onClick={handleChangePassword} className="md:text-sm underline  text-xs font-medium text-blue-600">Change password</button>
         <button
           onClick={handleEditClick}
-          className="bg-[#2485C5] md:mr-[30%] hover:bg-[#2b7eb5] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 text-white flex items-center gap-2 md:px-6 px-3 py-2 rounded-md text-sm"
+          className="bg-[#2485C5] md:mr-[30%] hover:bg-[#266691] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 text-white flex items-center gap-2 md:px-6 px-3 py-2 rounded-md text-sm"
         >
           <AiFillEdit />
           Edit Profile
