@@ -7,7 +7,7 @@ export default function ProductCard({ img, name, price, category, discount, prod
   const discountedPrice = Math.round(price - (price * discount) / 100);
 
   return (
-    <div className="relative h-[230px] flex-shrink-0 w-[160px] md:w-[250px] bg-[#e7f4f7]  md:h-[340px] overflow-hidden rounded-3xl flex flex-col items-center justify-center shadow-sm hover:shadow-lg transition-shadow duration-300 ease-in-out">
+    <div className="relative h-[230px] flex-shrink-0 w-[160px] md:w-[250px] bg-[#e7f4f7]  md:h-[340px]  overflow-hidden rounded-3xl flex flex-col items-center justify-center shadow-sm hover:shadow-lg transition-shadow duration-300 ease-in-out">
       {discount > 0 && (
         <span className="absolute top-3 right-3 px-2 py-1 bg-green-500 text-xs font-semibold text-white rounded-lg">
           {discount}% off
