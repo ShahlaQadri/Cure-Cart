@@ -129,7 +129,7 @@ const UpdateProfileForm = ({ setIsEditing }) => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="w-full py-2 px-4 bg-[#2485C5] text-white font-semibold rounded hover:bg-[#1d6b9f] transition duration-200"
           >
             Save Changes
           </button>

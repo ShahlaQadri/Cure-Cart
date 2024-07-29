@@ -1,8 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 
-
-// Define a service using a base URL and expected endpoints
 export const userApi = createApi({
 reducerPath: 'userApi',
 baseQuery: fetchBaseQuery({ baseUrl:`${import.meta.env.VITE_SERVER}api/v1/users`,
@@ -14,10 +12,10 @@ endpoints: (builder) => ({
         query:(user)=>({
             url: "/new",
             method : "POST",
-            
             body : user,
 
         }),
+        providesTags:['user',],
         invalidatesTags:['user','stats']
     }),
     userLogin : builder.mutation({
@@ -28,13 +26,14 @@ endpoints: (builder) => ({
             
 
         }),
+        providesTags:['user',],
         invalidatesTags:['user']
     }),
     userLogout:builder.mutation({
         query:()=>({url:"/logout",
             method : "GET",
         }),
-        providesTags:['user'],
+        // providesTags:['user'],
         invalidatesTags:['user']
     }),
     updateUser:builder.mutation({
@@ -55,6 +54,18 @@ endpoints: (builder) => ({
         providesTags:['user',],
         invalidatesTags:['user','stats']
     }),
+
+    ChangePassword:builder.mutation({
+        query:(formData)=>({
+            url: `/changepassword`,
+            method : "PUT",
+            body: formData
+            
+
+        }),
+        providesTags:['user',],
+        invalidatesTags:['user']
+    }),
     
     getMyDetals:builder.query({
         query:()=>"/myprofile",
@@ -69,4 +80,4 @@ endpoints: (builder) => ({
 })
 
 
-export const { useUserRegisterMutation,useUserLoginMutation,useUserLogoutMutation,useDeleteUserMutation,useUpdateUserMutation, useGetMyDetalsQuery,useGetAllUsersQuery } = userApi
+export const { useUserRegisterMutation,useUserLoginMutation,useUserLogoutMutation,useDeleteUserMutation,useUpdateUserMutation, useChangePasswordMutation, useGetMyDetalsQuery,useGetAllUsersQuery } = userApi
